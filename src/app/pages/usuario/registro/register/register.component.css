@@ -1,0 +1,97 @@
+/* Contenedor principal con fondo */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/fondo2.avif') no-repeat center center;
+    background-size: cover;
+    padding: 2rem;
+  }
+  
+  /* Tarjeta de registro */
+  .register-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+  
+  /* Logo */
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Títulos y textos */
+  .register-card h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #111;
+  }
+  
+  .register-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+  
+  .login-link {
+    color: #8D7CB2;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Campos de formulario */
+  .full-width {
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Checkbox de términos */
+  .terms {
+    text-align: left;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+    color: #333;
+  }
+  
+  .terms a {
+    color: #9747FF;
+    text-decoration: none;
+  }
+  
+  .terms a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Botón de registro */
+  .register-button {
+    width: 100%;
+    background-color: #8D7CB2 !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 12px 0;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #7A66A2 !important;
+  }
+  
+  .register-button:active {
+    background-color: #5C4D85 !important;
+    transform: scale(0.98);
+  }
+  

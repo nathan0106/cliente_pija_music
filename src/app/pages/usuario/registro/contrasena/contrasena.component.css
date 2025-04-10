@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background: url('/fondo2.avif') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold; ;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Esto centra el input */
+    width: 400px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  input {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    font-size: 1.6rem; /* un poco más grande */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  label {
+    font-size: 1rem;
+  }
+
+  .label-wrapper {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    font-size: 1rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cancelar {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+  }
+  
+  .enviar {
+    background: linear-gradient(90deg, #8d7cb2, #9747ff);
+    color: white;
+  }
+  

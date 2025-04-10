@@ -1,0 +1,50 @@
+<div class="login-container">
+    <mat-card>
+      <div class="logo-container">
+        <img src="/logo.png" alt="Logo" />
+      </div>
+  
+      <br /><h1>Bienvenido a Pija Music</h1><br />
+      <p>Bienvenido a la mejor experiencia musical</p><br />
+  
+      <!-- Campo de Usuario -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dirección de email</mat-label>
+        <input matInput placeholder="Ingrese su email" />
+      </mat-form-field>
+  
+      <!-- Campo de Contraseña -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="Ingrese su contraseña"
+        />
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <!-- Botón de Ingreso -->
+      <button class="login-button">Iniciar Sesión</button>
+  
+      <!-- Crear cuenta -->
+      <a class="register-link" (click)="goToRegister()">Crear cuenta nueva</a>
+  
+      <!-- Enlace para recuperar contraseña -->
+      <a [routerLink]="['/contraseña']" class="forgot-password">
+        ¿Olvidaste tu contraseña?
+      </a>
+  
+      <!-- Condiciones de uso -->
+      <div class="terms">
+        <mat-checkbox formControlName="terms">
+          Haciendo clic en registrarse acepta las
+          <a href="#">condiciones de uso</a> y las
+          <a href="#">políticas de privacidad</a>.
+        </mat-checkbox>
+      </div>
+    </mat-card>
+  </div>
+  

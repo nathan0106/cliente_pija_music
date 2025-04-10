@@ -1,0 +1,81 @@
+/* Contenedor principal con fondo */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/fondo2.avif') no-repeat center center;
+    background-size: cover;
+}
+
+/* Tarjeta del formulario */
+.register-card {
+    width: 400px;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con 80% de opacidad */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Logo */
+.logo {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+/* Título */
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+/* Enlace de inicio de sesión */
+.login-link {
+    color: #8D7CB2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Campos de formulario */
+.full-width {
+    width: 100%;
+}
+
+/* Condiciones de uso */
+.terms {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+/* Botón de Registro */
+.register-button {
+    width: 100%;
+    background-color: #907CB2;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.register-button:hover {
+    background-color: #8D7CB2;
+}
+
+/* Estilo para Angular Material Card */
+mat-card {
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+}
