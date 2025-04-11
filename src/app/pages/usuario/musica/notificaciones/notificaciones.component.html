@@ -1,1 +1,12 @@
-<p>notificaciones works!</p>
+
+<div class="notificaciones-container">
+    <h2>Notificaciones <span class="rojo">●</span></h2>
+  
+    <div class="notificacion" *ngFor="let n of notificaciones">
+      <div class="contenido">
+        <p [innerHTML]="n.mensaje"></p>
+        <span class="tiempo">{{ n.tiempo }}</span>
+      </div>
+    </div>
+  </div>
+  

@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './artista.component.html',
   styleUrl: './artista.component.css'
 })
-export class ArtistaComponent {
-
+export class ArtistaComponent{
+  
 }
+
+

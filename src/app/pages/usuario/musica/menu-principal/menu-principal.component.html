@@ -1,1 +1,95 @@
-<p>menu-principal works!</p>
+<div class="main-container"> 
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="/logo.png" alt="logo" class="profile-img" />
+      <h4>Descubre</h4>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Buscar</a></li>
+      </ul>
+    </nav>
+    <div class="sections">
+      <h5>Relaciones</h5>
+      <ul class="nav-links">
+        <li><a href="#">Playlists</a></li>
+        <li><a href="#">Favoritos</a></li>
+        <li><a href="#">Notificaciones</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div class="nav-botones">
+        <button>Música</button>
+        <button>Cultura</button>
+        <button>Danza</button>
+        <button>Turismo</button>
+      </div>
+      <div class="search-login">
+        <input type="text" placeholder="Buscar" />
+        
+        <!-- SOLO ESTOS TIENEN REDIRECCIÓN -->
+        <a routerLink="/login">
+          <button class="btn">Inicio de sesión</button>
+        </a>
+
+        <a routerLink="/register">
+          <button class="btn register">Registro</button>
+        </a>
+      </div>
+    </header>
+
+    <section class="novedades">
+      <h2>Novedades</h2>
+      <div class="cards">
+        <div class="card" *ngFor="let item of novedades">
+          <img [src]="item.img" />
+          <p>{{ item.title }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="artistas">
+      <h2>Artistas</h2>
+      <div class="cards">
+        <div class="card" *ngFor="let artista of artistas">
+          <img [src]="artista.img" />
+          <p>{{ artista.name }}</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-section logo-container">
+        <img src="/logo.png" alt="Logo" />
+        <p>Descubre el mundo de nuestra expresión musical colombiana</p>
+      </div>
+      <div class="footer-section">
+        <h4>Menu</h4>
+        <ul>
+          <li>Blog</li>
+          <li>Comunidad</li>
+          <li>Acerca de</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Productos</h4>
+        <ul>
+          <li>Música</li>
+          <li>Cultura</li>
+          <li>Danza</li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="legal">
+      <a href="#">Legal</a>
+      <a href="#">Configuración de privacidad</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+  </main>
+</div>
