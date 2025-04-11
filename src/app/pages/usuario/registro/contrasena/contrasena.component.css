@@ -99,3 +99,18 @@
     color: white;
   }
   
+  .submit {
+    background: linear-gradient(to right, #8D7CB2, #9747FF);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  
+  .submit:hover {
+    transform: scale(1.05);
+  }

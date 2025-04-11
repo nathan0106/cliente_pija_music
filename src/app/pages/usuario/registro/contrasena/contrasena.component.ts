@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import emailjs from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -49,5 +50,11 @@ export class ContrasenaComponent {
   cancelar(): void {
     this.email = '';
 
+  }
+
+  constructor(private router: Router) {}
+
+  irACodigo() {
+    this.router.navigate(['/codigo']);
   }
 }

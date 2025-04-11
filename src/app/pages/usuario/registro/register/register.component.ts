@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
