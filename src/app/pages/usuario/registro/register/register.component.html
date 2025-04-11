@@ -1,74 +1,73 @@
 <div class="register-container">
-    <div class="register-card">
-      <!-- Logo -->
-      <img src="/logo.png" alt="Logo" class="logo" />
-  
-      <h1>Registro de usuario</h1>
-      <p>
-        ¿Ya tienes una cuenta en Pija Music?
-        <a href="/login" class="login-link">Iniciar sesión</a>
-      </p>
-  
-      <form [formGroup]="registerForm" (ngSubmit)="register()">
-        <!-- Campo de Nombre de usuario -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Nombre de usuario</mat-label>
-          <input matInput formControlName="firstName" />
-        </mat-form-field>
-  
-        <!-- Campo de Identidad -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Identidad</mat-label>
-          <mat-select formControlName="gender">
-            <mat-option value="femenino">Femenino</mat-option>
-            <mat-option value="masculino">Masculino</mat-option>
-            <mat-option value="ninguno">Otro</mat-option>
-          </mat-select>
-        </mat-form-field>
-  
-        <!-- Campo de Email -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Dirección de email</mat-label>
-          <input matInput formControlName="email" />
-        </mat-form-field>
-  
-        <!-- Campo de Contraseña -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Contraseña</mat-label>
-          <input
-            matInput
-            [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password"
-          />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hidePassword = !hidePassword"
-            type="button"
-          >
-            <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
-          </button>
-        </mat-form-field>
-  
-        <!-- Condiciones de uso -->
-        <div class="terms">
-          <mat-checkbox formControlName="terms">
-            Haciendo clic en registrarse acepta las
-            <a href="#">condiciones de uso</a> y las
-            <a href="#">políticas de privacidad</a>.
-          </mat-checkbox>
-        </div>
-  
-        <!-- Botón de Registro -->
+  <div class="register-card">
+    <!-- Logo -->
+    <img src="/logo.png" alt="Logo" class="logo" />
+
+    <h1>Registro de usuario</h1>
+    <p>
+      ¿Ya tienes una cuenta en Pija Music?
+      <a href="/login" class="login-link">Iniciar sesión</a>
+    </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <!-- Campo de Nombre de usuario -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+
+      <!-- Campo de Identidad -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Identidad</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="femenino">Femenino</mat-option>
+          <mat-option value="masculino">Masculino</mat-option>
+          <mat-option value="ninguno">Otro</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Campo de Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dirección de email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <!-- Campo de Contraseña -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+        />
         <button
-          mat-raised-button
-          color="primary"
-          class="register-button"
-          type="submit"
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          type="button"
         >
-          Registrarse
+          <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
         </button>
-      </form>
-    </div>
+      </mat-form-field>
+
+      <!-- Condiciones de uso -->
+      <div class="terms">
+        <mat-checkbox formControlName="terms">
+          Haciendo clic en registrarse acepta las
+          <a [routerLink]="['/politicas']">condiciones de uso y las políticas de privacidad</a>
+          <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'register' }">políticas de privacidad</a>
+        </mat-checkbox>
+      </div>
+
+      <!-- Botón de Registro -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="register-button"
+        type="submit"
+      >
+        Registrarse
+      </button>
+    </form>
   </div>
-  
+</div>

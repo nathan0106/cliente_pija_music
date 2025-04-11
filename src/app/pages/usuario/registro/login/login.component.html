@@ -41,8 +41,8 @@
       <div class="terms">
         <mat-checkbox formControlName="terms">
           Haciendo clic en registrarse acepta las
-          <a href="#">condiciones de uso</a> y las
-          <a href="#">políticas de privacidad</a>.
+          <a [routerLink]="['/politicas']">condiciones de uso y las políticas de privacidad</a>
+          <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'login' }">políticas de privacidad</a>
         </mat-checkbox>
       </div>
     </mat-card>
