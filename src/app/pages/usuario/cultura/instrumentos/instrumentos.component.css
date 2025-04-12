@@ -10,9 +10,9 @@
 .boton-imagen1 {
     width: 100px;
     height: auto;
-    transition: transform 0.2s ease;
+    transition: transform 0.1s ease;
     display: block;
-    margin: 0 auto 8px;
+    margin: 0 auto 7px;
 }
 .boton-imagen:hover image{
     transform: scale(1.1);
@@ -29,3 +29,43 @@ mat-card{
     text-align: center;
     background: #E1E4EA
 }
+.card{
+    width: 200px;
+    background-color: #E1E4EA;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0,0,1);
+    overflow: hidden;
+    text-align: center;
+    
+}
+.card img.card-imagen{
+    width: 100%;
+    height: auto;
+}
+.card-content h3{
+    margin: 10px 0;
+    font-size: 20px;
+}
+.card-content p{
+    font-size: 10px;
+    color: #e5e1ea;
+}
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 10vh; /* Ocupa toda la altura de la pantalla */
+  }
+  
+  .division {
+    flex: 1;
+    padding: 10px;
+    color: rgb(19, 3, 3);
+    font-size: 20px;
+    text-align: center;
+  }
+  .informacion1{
+    font-size: 14px;
+    margin-top: 30px;
+    width: 100%;
+  }
