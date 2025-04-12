@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-menu-principal',
   imports:[
@@ -11,18 +11,18 @@ import { Router } from '@angular/router';
 })
 export class MenuPrincipalComponent {
   novedades = [
-    { img: 'assets/img1.jpg', title: 'Música - el sabor de la tradición' },
-    { img: 'assets/img2.jpg', title: 'Cultura - expresión del ser' },
-    { img: 'assets/img3.jpg', title: 'Turismo - nuestras raíces' },
-    { img: 'assets/img4.jpg', title: 'Danza - conexión cultural' }
+    { img: '/imag1.png', title: 'Música - Recuerda la esencia de la musica llanera' },
+    { img: '/imag2.png', title: 'Cultura - conoce la diversidad del llano' },
+    { img: '/imag3.png', title: 'Turismo - lugares mas visitados' },
+    { img: '/imag4.png', title: 'Danza - Expresion artistica' }
   ];
 
   artistas = [
-    { img: 'assets/artista1.jpg', name: 'Yaguazo' },
-    { img: 'assets/artista2.jpg', name: 'Walter Silva' },
-    { img: 'assets/artista3.jpg', name: 'Ronald Arrieta' },
-    { img: 'assets/artista4.jpg', name: 'Mateo Benítez' },
-    { img: 'assets/artista5.jpg', name: 'Lalo Silva' },
-    { img: 'assets/artista6.jpg', name: 'El Cholo' }
+    { img: '/Art1.png', name: 'Yaguazo' },
+    { img: '/Art2.png', name: 'Walter Silva' },
+    { img: '/Art3.png', name: 'Ronald Arrieta' },
+    { img: '/Art4.png', name: 'Mateo Benítez' },
+    { img: '/Art5.png', name: 'Lalo Silva' },
+    { img: '/Art6.png', name: 'El Cholo' }
   ];
 }
