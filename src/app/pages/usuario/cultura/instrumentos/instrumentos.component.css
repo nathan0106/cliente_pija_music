@@ -38,7 +38,13 @@ mat-card{
     text-align: center;
     
 }
-.card img.card-imagen{
+.card img{
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+.card-imagen{
     width: 100%;
     height: auto;
 }
@@ -55,17 +61,21 @@ mat-card{
     justify-content: space-between;
     align-items: stretch;
     height: 10vh; /* Ocupa toda la altura de la pantalla */
-  }
-  
-  .division {
+}
+.division {
     flex: 1;
     padding: 10px;
     color: rgb(19, 3, 3);
     font-size: 20px;
     text-align: center;
-  }
-  .informacion1{
+}
+.texto-informacion{
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: below;
     font-size: 14px;
-    margin-top: 30px;
-    width: 100%;
-  }
+    color: #000;
+    line-height: 1.6;
+}
+
+
