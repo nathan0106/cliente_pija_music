@@ -1,12 +1,128 @@
+<div class="app">
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="logo.png" alt="Perfil" class="profile-img">
+    </div>
+    <nav>
+      <button>Inicio</button>
+      <button>Buscar</button>
+      <div class="divider"></div>
+      <button>Playlists</button>
+      <button>Personalizar</button>
+      <button>Favoritos</button>
+      <button class="active">
+        Notificaciones
+        <span class="dot"></span>
+      </button>
+    </nav>
+  </aside>
 
-<div class="notificaciones-container">
-    <h2>Notificaciones <span class="rojo">●</span></h2>
-  
-    <div class="notificacion" *ngFor="let n of notificaciones">
-      <div class="contenido">
-        <p [innerHTML]="n.mensaje"></p>
-        <span class="tiempo">{{ n.tiempo }}</span>
+  <!-- Contenido principal -->
+  <main class="content">
+    <div class="topbar">
+      <div class="top-menu">
+        <a href="#">Música</a>
+        <a href="#">Cultura</a>
+        <a href="#">Turismo</a>
+      </div>
+      <input class="search" type="text" placeholder="Buscar">
+      <div class="auth">
+        <button>Iniciar sesión</button>
+        <button class="register">Registro</button>
       </div>
     </div>
-  </div>
-  
+
+    <div class="notifications">
+      <h2>Notificaciones <span class="dot"></span></h2>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">tendencia de hace unas horas</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Lo más escuchado del mes de junio.</p>
+        <span class="time">10 minutos</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">actualización del módulo de música</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Se agregaron nuevas canciones al módulo de música.</p>
+        <span class="time">1 semana</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">Nuevas rutas</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Disfruta de nuevas rutas para compartir en familia.</p>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">Sumérgete en la cultura</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Descubre variedad de información sobre el llano.</p>
+        <span class="time">20/06/24</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">Actualización del módulo de cultura</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Se agregó más información al apartado de coleo.</p>
+        <span class="time">05/06/24</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label">Actualización del módulo de danza</span>
+          <span class="dot red"></span>
+        </div>
+        <p>Interactúa para conocer más sobre danza llanera.</p>
+        <span class="time">25/05/24</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label sistema">Sistema</span>
+          <span class="dot green"></span>
+        </div>
+        <p>Se ha restablecido correctamente la contraseña…</p>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label sistema">Sistema</span>
+          <span class="dot green"></span>
+        </div>
+        <p>Su cuenta fue creada con éxito, continúa disfrutando…</p>
+        <span class="time">12/04/24</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label sistema">Sistema</span>
+          <span class="dot green"></span>
+        </div>
+        <p>Su número de celular se asoció a la cuenta correcta…</p>
+        <span class="time">11/04/24</span>
+      </div>
+
+      <div class="notification">
+        <div class="title">
+          <span class="label sistema">Sistema</span>
+          <span class="dot green"></span>
+        </div>
+        <p>Se envió un código de verificación a su correo…</p>
+        <span class="time">11/04/24</span>
+      </div>
+    </div>
+  </main>
+</div>

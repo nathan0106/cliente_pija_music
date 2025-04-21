@@ -1,43 +1,185 @@
-.notificaciones-container {
-    padding: 2rem;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 1rem;
-  }
-  
-  .rojo {
-    color: red;
-  }
-  
-  .notificacion {
-    background: #fff;
-    border-left: 4px solid #ccc;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-  }
-  
-  .notificacion:hover {
-    border-left-color: #007bff;
-    background-color: #f0f8ff;
-  }
-  
-  .contenido p {
-    margin: 0;
-    font-size: 16px;
-  }
-  
-  .tiempo {
-    display: block;
-    margin-top: 5px;
-    font-size: 12px;
-    color: #777;
-    text-align: right;
-  }
-  
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5fa;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #c7afea;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.sidebar nav button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border: none;
+  background-color: white; /* Fondo blanco */
+  font-weight: 700;         /* Texto más grueso */
+  cursor: pointer;
+  text-align: center;       /* Centrado */
+  color: #000;              /* Texto negro */
+  border-radius: 12px;      /* Esquinas más redondeadas */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar nav button:hover {
+  transform: translateY(-1px); /* Efecto de elevación */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más intensa al hacer hover */
+}
+
+.sidebar nav .divider {
+  height: 1px;
+  width: 80%;
+  background-color: #bfbfff;
+  margin: 10px 0;
+}
+
+.sidebar .active {
+  background-color: #fff;
+  color: #6b4eff;
+  font-weight: bold;
+  position: relative;
+}
+
+.sidebar .active .dot {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  height: 11px;
+  width: 11px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.content {
+  flex: 1;
+  padding: 20px 40px;
+  overflow-y: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.top-menu a {
+  margin-right: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}
+
+.search {
+  flex-grow: 1;
+  max-width: 300px;
+  padding: 8px;
+  margin: 0 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.auth button {
+  margin-left: 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.auth .register {
+  background-color: #333;
+  color: #fff;
+}
+
+.notifications {
+  margin-top: 20px;
+}
+
+.notifications h2 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.notifications h2 .dot {
+  margin-left: 8px;
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.notification {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.notification .title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.notification .title .label {
+  text-decoration: underline;
+}
+
+.notification .title .dot {
+  height: 8px;
+  width: 8px;
+  margin-left: 8px;
+  border-radius: 50%;
+}
+
+.notification .dot.red {
+  background-color: red;
+}
+
+.notification .dot.green {
+  background-color: green;
+}
+
+.notification .label.sistema {
+  color: green;
+}
+
+.notification p {
+  margin: 6px 0 4px;
+}
+
+.notification .time {
+  font-size: 0.8rem;
+  color: gray;
+}
+

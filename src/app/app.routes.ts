@@ -6,6 +6,7 @@ import { MenuPrincipalComponent } from './pages/usuario/musica/menu-principal/me
 import { RegisterComponent } from './pages/usuario/registro/register/register.component';
 import { PoliticasComponent } from './pages/usuario/registro/politicas/politicas.component';
 import { CodigoComponent } from './pages/usuario/registro/codigo/codigo.component';
+import { NotificacionesComponent } from './pages/usuario/musica/notificaciones/notificaciones.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'registro', component: RegisterComponent},
   { path: 'contrasena', component: ContrasenaComponent }, // <- corregido
   { path: 'menu-principal', component: MenuPrincipalComponent },
+  {path: 'notificaciones', component: NotificacionesComponent}, 
   
   
  
