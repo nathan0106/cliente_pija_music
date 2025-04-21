@@ -13,37 +13,31 @@ import { Router } from '@angular/router';
   styleUrl: './contrasena.component.css'
 })
 export class ContrasenaComponent {
+
   email: string = '';
 
-
+  codigoVerificacion: string = '';
   generarCodigo(): string {
-    return Math.floor(100000 + Math.random() * 900000).toString();
+    return Math.floor(100000 + Math.random() * 900000).toString(); // Código de 6 dígitos
   }
-
   /**
    * Envía un código único al correo del usuario utilizando EmailJS.
    */
-  enviarCodigo(): void {
-    const codigo = this.generarCodigo();
 
+  
+  enviarCodigoPorEmail(destinatario: string) {
+    this.codigoVerificacion = this.generarCodigo();
+  
     const templateParams = {
-      to_email: this.email,
-      codigo: codigo,
+      to_email: destinatario,
+      codigo: this.codigoVerificacion
     };
-
-    // Reemplaza con tus propias claves de EmailJS
-    const SERVICE_ID = 'tu_service_id';
-    const TEMPLATE_ID = 'tu_template_id';
-    const USER_ID = 'tu_user_id'; // o public key
-
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
+  
+    emailjs.send('service_mr0wi2s', 'template_vfun32f', templateParams, 'LqcTSCxadm1LJMmQg')
       .then((response) => {
-        console.log('Correo enviado correctamente:', response.status, response.text);
-        alert('Hemos enviado un código a tu correo electrónico.');
-      })
-      .catch((error) => {
-        console.error('Error al enviar el correo:', error);
-        alert('No se pudo enviar el correo. Intenta nuevamente.');
+        console.log('Correo enviado!', response.status, response.text);
+      }, (error) => {
+        console.error('Error al enviar', error);
       });
   }
 

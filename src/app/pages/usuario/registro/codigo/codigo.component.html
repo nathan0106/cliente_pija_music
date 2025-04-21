@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pija Music - Verificación</title>
-</head>
-<body>
-  <div class="container">
-    <div class="logo">
-      <img src="logo.png" alt="Pija Music Logo" />
-      <h1>PIJA MUSIC</h1>
-    </div>
-    <div class="verification-box">
-      <h2>Ingresa el código de verificación</h2>
-      <div class="code-inputs">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-      </div>
-      <div class="buttons">
-        <button class="cancel">Cancelar</button>
-        <button class="submit">Enviar</button>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
 
+<div class="full-background">
+
+<div class="container">
+  <div class="logo">
+    <img src="logo.png" alt="Pija Music Logo" />
+    <h1>PIJA MUSIC</h1>
+  </div>
+
+  <div class="verification-box">
+    <h2>Ingresa el código de verificación</h2>
+
+    <div class="code-inputs">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+    </div>
+
+
+
+    
+    <div class="buttons">
+      <button class="cancel" (click)="cancelar()">Cancelar</button>
+      <button class="submit" (click)="irANuevaContrasena()">Enviar</button>
+      
+    </div>
+    
+  </div>
+</div>
+</div>

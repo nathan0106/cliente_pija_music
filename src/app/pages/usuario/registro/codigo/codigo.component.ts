@@ -9,16 +9,33 @@ import { Router } from '@angular/router';
 })
 export class CodigoComponent {
 
-  moveToNext(event: any, index: number) {
+  codigoIngresado: string = '';
+
+
+  constructor(private router: Router) {}
+
+  autoAdvance(event: any) {
     const input = event.target;
     const value = input.value;
   
-    if (value.length === 1 && index < 5) {
-      const nextInput = document.getElementById(`code-${index + 1}`);
-      (nextInput as HTMLElement)?.focus();
-    } else if (value.length === 0 && index > 0) {
-      const prevInput = document.getElementById(`code-${index - 1}`);
-      (prevInput as HTMLElement)?.focus();
+    // Solo números
+    if (!/^[0-9]$/.test(value)) {
+      input.value = '';
+      return;
     }
+  
+    // Enfocar el siguiente input si existe
+    const nextInput = input.nextElementSibling;
+    if (nextInput) {
+      nextInput.focus();
+    }
+  }
+
+  cancelar() {
+    this.router.navigate(['/login']);
+  }
+  
+  irANuevaContrasena() {
+    this.router.navigate(['/nuevacontraseña']);
   }
 }

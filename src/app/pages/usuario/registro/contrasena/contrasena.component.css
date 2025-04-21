@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2rem;
     min-height: 100vh;
-    background: url('/fondo2.avif') no-repeat center center;
+    background: url('/fondo2.png') no-repeat center center;
     background-size: cover;
   }
   
