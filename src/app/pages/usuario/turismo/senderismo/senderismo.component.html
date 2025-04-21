@@ -87,57 +87,75 @@
       <h2>Senderismo</h2>
 
       <div class="card-container">
-        <mat-card class="lugar-card" *ngFor="let lugar of lugares">
-          <mat-card-header>
-            <mat-icon>hiking</mat-icon>
-            <mat-card-title>{{ lugar.nombre }}</mat-card-title>
-          </mat-card-header>
-          <img mat-card-image [src]="lugar.imagen" />
-          <mat-card-content>
-            <p>{{ lugar.ubicacion }}</p>
-            <p><strong>Distancia:</strong> {{ lugar.distancia }}</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
+  <div class="card-senderismo">
+    <div class="card-header">
+      <img src="icono.png" alt="Senderismo Icono" class="icono-senderismo">
+      <h3><strong><em>Mirador de la virgen de manare.</em></strong></h3>
+    </div>
+
+    <div class="card-image">
+      <img src="mirador.jpg" alt="Mirador de la virgen de manare">
+    </div>
+
+    <div class="card-footer">
+      <div><strong><em>Yopal Casanare</em></strong></div>
+      <div><strong><em>Distancia<br>2.6 km</em></strong></div>
+    </div>
+  </div>
+</div>
+
     </div>
 
     <footer class="footer">
       <div class="footer-container">
-        <!-- Columna izquierda: logo y mensaje-->
         <div class="footer-brand">
-          <img src="/logo.png" alt="logo" class="/logo.png"/> 
-          <p>Descubre un mundo de nuevas experiencias y déjate envolver por la cultura llanera.</p>
+          <img src="logo.png" alt="Logo" class="footer-logo" />
+          <p class="footer-message">
+            Descubre un mundo de nuevas experiencias y déjate envolver por la cultura llanera.
+          </p>
           <div class="social-icons">
-           <button mat-icon-button><mat-icon>facebook</mat-icon></button>
-           <button mat-icon-button><mat-icon>twitter</mat-icon></button>
-           <button mat-icon-button><mat-icon>google</mat-icon></button>
+            <button mat-icon-button><mat-icon>facebook</mat-icon></button>
+            <button mat-icon-button><mat-icon>twitter</mat-icon></button>
+            <button mat-icon-button><mat-icon>google</mat-icon></button>
           </div>
-        </div> 
-      </div>
-      <div class="footer-links">
-        <div class="link-setion"></div>
-        <div>
-          <h4>Remaining</h4>
-          <p>Blog<br>Centro de ayuda<br>Soporte<br>Actualizaciones</p>
         </div>
-        <div>
-          <h4>Producto</h4>
-          <p>Música<br>Cultura<br>Danza<br>Turismo</p>
+    
+        <div class="footer-links">
+          <div class="link-section">
+            <h4>Remaining</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Soporte</a></li>
+              <li><a href="#">Actualizaciones</a></li>
+            </ul>
+          </div>
+    
+          <div class="link-section">
+            <h4>Producto</h4>
+            <ul>
+              <li><a href="#">Música</a></li>
+              <li><a href="#">Cultura</a></li>
+              <li><a href="#">Danza</a></li>
+              <li><a href="#">Turismo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="legal-links">
+          <a href="#">Legal</a>
+          <a href="#">seguridad y centro de privacidad</a>
+          <a href="#">políticas de privacidad</a>
+          <a href="#">cookies</a>
+        </div>
+        <div class="copyright">
+          Copyright © 2024 Pija Music, Reservados todos los derechos.
         </div>
       </div>
     </footer>
-
-    <div class="=floter-bottom">
-      <div class="legal-links">
-        <p>Legal</p>
-        <p>seguridad y centro de privacidad</p>
-        <p>Política de privacidad</p>
-        <p>cookies</p>
-      </div>
-      <p class="copyright">
-        Copyright 2024. Pija Muscic. Todos los derechos reservados.
-      </p>
-    </div>
+    
 
   </mat-sidenav-content>
 </mat-sidenav-container>

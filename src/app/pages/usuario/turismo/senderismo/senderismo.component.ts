@@ -19,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+
   ],
   templateUrl: './senderismo.component.html',
   styleUrl: './senderismo.component.css'
