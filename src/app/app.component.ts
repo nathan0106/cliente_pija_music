@@ -7,4 +7,6 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule], 
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {}
+export class AppComponent {
+  texto ='este es un texto dinamico debajo de los botones.';
+}
