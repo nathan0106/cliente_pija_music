@@ -33,7 +33,7 @@
 }
 
 .tabs button {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .spacer {
@@ -57,10 +57,10 @@
 }
 
 .footer {
-  background-color: #dcdde1;
-  padding: 2rem 1rem;
+  background-color: #e0e2e7;
+  padding: 2rem 3rem;
   font-size: 14px;
-  color: #2f3640;
+  color: #111111;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -68,11 +68,15 @@
   font-family:'Arial', sans-serif;
 }
 
+footer {
+  position: static;
+}
+
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -81,7 +85,7 @@
 
 
   .footer-logo {
-    width: 25px;
+    width: 50px;
     margin-bottom: 1rem;
   }
 
@@ -241,44 +245,61 @@
   padding: 2rem;
 }
 
-.card-senderismo {
-  background-color: #d9d9d9;
-  border-radius: 15px;
-  border: 2px solid black;
-  padding: 1rem;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+.senderismo-section {
+  background-color: #e5e8f0;
+  padding: 40px;
 
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-.card-header h3 {
-  margin: 0;
-}
+  .tarjetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
 
-.icono-senderismo {
-  width: 30px;
-  height: 30px;
-}
+  .lugar-card {
+    width: 260px;
+    background-color: #d9d9d9;
+    border-radius: 15px;
+    padding: 12px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 100px;
 
-.card-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
+    .lugar-header {
+      display: flex;
+      align-items: center;
+      font-weight: italic;
+      margin-bottom: 8px;
+      gap: 8px;
 
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  font-style: italic;
+      mat-icon {
+        font-size: 24px;
+      }
+
+      .titulo {
+        font-size: 15px;
+      }
+    }
+
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .lugar-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+  }
 }
 
   

@@ -75,37 +75,60 @@
       <span class="spacer"></span>
 
       <mat-form-field appearance="outline">
-        <mat-label>Buscar</mat-label>
+        <mat-label>Buscar</mat-label><mat-icon>search</mat-icon>
+
         <input matInput />
       </mat-form-field>
 
       <button mat-button>Inicio de sesión</button>
-      <button mat-raised-button color="accent">Registro</button>
+      <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
     </mat-toolbar>
 
-    <div class="main">
+    <div class="senderismo-section">
       <h2>Senderismo</h2>
-
-      <div class="card-container">
-  <div class="card-senderismo">
-    <div class="card-header">
-      <img src="icono.png" alt="Senderismo Icono" class="icono-senderismo">
-      <h3><strong><em>Mirador de la virgen de manare.</em></strong></h3>
+    
+      <div class="tarjetas-container">
+        <!-- Tarjeta 1 -->
+        <mat-card class="lugar-card">
+          <div class="lugar-header">
+            <mat-icon>hiking</mat-icon>
+            <span class="titulo">Mirador de la virgen de manare.</span>
+          </div>
+          <img mat-card-image src="mirador1.jpg" alt="Mirador de la virgen de manare" />
+          <div class="lugar-info">
+            <div>Yopal Casanare</div>
+            <div><strong>Distancia</strong><br />2.6 km</div>
+          </div>
+        </mat-card>
+    
+        <!-- Tarjeta 2 -->
+        <mat-card class="lugar-card">
+          <div class="lugar-header">
+            <mat-icon>hiking</mat-icon>
+            <span class="titulo">Balcones del Cacique</span>
+          </div>
+          <img mat-card-image src="cacique.jpeg" alt="Balcones del Cacique" />
+          <div class="lugar-info">
+            <div>Tauramena<br />Casanare</div>
+            <div><strong>Distancia</strong><br />15 km</div>
+          </div>
+        </mat-card>
+    
+        <!-- Tarjeta 3 -->
+        <mat-card class="lugar-card">
+          <div class="lugar-header">
+            <mat-icon>hiking</mat-icon>
+            <span class="titulo">Parque temático<br />Historia de piedra</span>
+          </div>
+          <img mat-card-image src="historia de piedra.jpg" alt="Parque temático Historia de piedra" />
+          <div class="lugar-info">
+            <div>Yopal<br />Casanare</div>
+            <div><strong>Distancia</strong><br />5.5 km</div>
+          </div>
+        </mat-card>
+      </div>
     </div>
-
-    <div class="card-image">
-      <img src="mirador.jpg" alt="Mirador de la virgen de manare">
-    </div>
-
-    <div class="card-footer">
-      <div><strong><em>Yopal Casanare</em></strong></div>
-      <div><strong><em>Distancia<br>2.6 km</em></strong></div>
-    </div>
-  </div>
-</div>
-
-    </div>
-
+    
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-brand">
