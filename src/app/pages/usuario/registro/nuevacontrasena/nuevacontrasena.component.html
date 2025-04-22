@@ -1,41 +1,35 @@
 <div class="container">
-    <div class="logo">
-      <img src="/logo.png" alt="Pija Music Logo" />
-      <h1>PIJA MUSIC</h1>
-    </div>
-  
-    <div class="form-box">
-      <!-- Nueva contraseña -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nueva contraseña</mat-label>
-        <input
-          matInput
-          [type]="hidePassword1 ? 'password' : 'text'"
-          placeholder="Ingrese su nueva contraseña"
-        />
-        <button mat-icon-button matSuffix (click)="hidePassword1 = !hidePassword1" type="button">
-          <mat-icon>{{ hidePassword1 ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-      </mat-form-field>
-  
-      <!-- Confirmar contraseña -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Confirmar contraseña</mat-label>
-        <input
-          matInput
-          [type]="hidePassword2 ? 'password' : 'text'"
-          placeholder="Confirme su contraseña"
-        />
-        <button mat-icon-button matSuffix (click)="hidePassword2 = !hidePassword2" type="button">
-          <mat-icon>{{ hidePassword2 ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-      </mat-form-field>
-  
-      <!-- Botones -->
-      <div class="button-group">
-        <button class="cancel" type="button" (click)="cancelar()">Cancelar</button>
-        <button class="submit" type="button" (click)="enviar()">Enviar</button>
-      </div>  
-    </div>
+  <div class="logo">
+    <img src="/logo.png" alt="Pija Music Logo" />
+    <h1>PIJA MUSIC</h1>
   </div>
+
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="passwordForm.get('password')?.hasError('required')">
+        La contraseña es obligatoria
+      </mat-error>
+      <mat-error *ngIf="passwordForm.get('password')?.hasError('minlength')">
+        Mínimo 6 caracteres
+      </mat-error>
+    </mat-form-field>
   
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Confirmar contraseña</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" />
+      <mat-error *ngIf="passwordForm.get('confirmPassword')?.hasError('required')">
+        Confirmación obligatoria
+      </mat-error>
+      <mat-error *ngIf="passwordForm.hasError('passwordsMismatch')">
+        Las contraseñas no coinciden
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="passwordForm.invalid">
+      Guardar
+    </button>
+  </form>
+  
+</div>

@@ -17,32 +17,34 @@ export class ContrasenaComponent {
   email: string = '';
 
   codigoVerificacion: string = '';
-  generarCodigo(): string {
-    return Math.floor(100000 + Math.random() * 900000).toString(); // Código de 6 dígitos
-  }
+
   /**
    * Envía un código único al correo del usuario utilizando EmailJS.
    */
-
-  
-  enviarCodigoPorEmail(destinatario: string) {
-    this.codigoVerificacion = this.generarCodigo();
-  
+  enviarCodigo() {
+    const codigo = this.generarCodigo();
     const templateParams = {
-      to_email: destinatario,
-      codigo: this.codigoVerificacion
+      to_email: this.email,
+      codigo: codigo
     };
-  
-    emailjs.send('service_mr0wi2s', 'template_vfun32f', templateParams, 'LqcTSCxadm1LJMmQg')
+
+    emailjs.send('tu_service_id', 'tu_template_id', templateParams, 'tu_public_key')
       .then((response) => {
-        console.log('Correo enviado!', response.status, response.text);
-      }, (error) => {
-        console.error('Error al enviar', error);
+        console.log('Correo enviado:', response);
+        alert('Código enviado a tu correo');
+      })
+      .catch((error) => {
+        console.error('Error al enviar el correo:', error);
+        alert('Error al enviar el código');
       });
   }
 
+  generarCodigo(): string {
+    return Math.floor(100000 + Math.random() * 900000).toString(); // 6 dígitos
+  }
+
   cancelar(): void {
-    this.email = '';
+    this.router.navigate(['/login']);
 
   }
 

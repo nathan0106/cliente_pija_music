@@ -7,7 +7,6 @@
   min-height: 100vh;
   background: url('/fondo2.png') no-repeat center center;
   background-size: cover;
-
 }
 
 .logo {
@@ -28,13 +27,14 @@
 
 /* Caja del formulario */
 .form-box {
-  width: 400px;
+  width: 100%;
+  max-width: 450px;
   padding: 2rem;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.8); /* Blanco con 80% de opacidad */
-  backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* Inputs con Angular Material */
@@ -44,41 +44,75 @@ mat-form-field {
 }
 
 mat-label {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-/* Botones */
+input.mat-input-element {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para el botón de mostrar/ocultar contraseña */
+.mat-form-field-suffix {
+  cursor: pointer;
+  padding: 0 8px;
+  color: #333;
+}
+
+/* Contenedor de los botones */
 .button-group {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 20px;
 }
 
+/* Botón Cancelar (estilo rectangular, sombra suave) */
 .cancel {
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #aaa;
+  padding: 10px 24px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .cancel:hover {
   background-color: #f2f2f2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Botón Enviar (estilo moderno, con degradado) */
 .submit {
-  background: linear-gradient(45deg, #9d50bb, #6e48aa);
-  color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: opacity 0.3s;
+  background-color: rgba(111, 70, 139, 0.7) !important;
+  color: #000 !important;
+  border: none !important;
+  padding: 10px 28px !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  transition: background-color 0.3s, box-shadow 0.3s !important;
 }
 
 .submit:hover {
-  opacity: 0.9;
+  background-color: rgba(111, 70, 139, 0.85);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
