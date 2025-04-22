@@ -1,1 +1,44 @@
-<p>favoritos works!</p>
+<div class="app">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="logo.png" alt="Perfil" class="profile-img">
+      </div>
+      <nav>
+        <button>Inicio</button>
+        <button>Buscar</button>
+        <div class="divider"></div>
+        <button>Playlists</button>
+        <button>Personalizar</button>
+        <button>Favoritos</button>
+        <button class="active">
+          Notificaciones
+          <span class="dot"></span>
+        </button>
+      </nav>
+    </aside>
+  <!-- Contenido principal -->
+  <main class="content">
+    <div class="topbar">
+      <div class="top-menu">
+        <a href="#">Música</a>
+        <a href="#">Cultura</a>
+        <a href="#">Turismo</a>
+      </div>
+      <input class="search" type="text" placeholder="Buscar">
+      <div class="auth">
+        <button>Iniciar sesión</button>
+        <button class="register">Registro</button>
+      </div>
+    </div>
+
+    <div class="card-grid">
+        <div *ngFor="let card of cards" class="artist-item">
+          <mat-card class="custom-card">
+            <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
+          </mat-card>
+          <div class="artist-name">{{ card.title }}</div>
+        </div>
+      </div>
+      
+      
