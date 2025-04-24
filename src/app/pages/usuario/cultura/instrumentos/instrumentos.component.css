@@ -1,28 +1,29 @@
 .card{
     width: 200px;
     background-color: #E1E4EA;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0,0,1);
+    border-radius: 100px;
+    box-shadow: 0 4px 8px rgb(179, 40, 158);
     overflow: hidden;
     text-align: center;
     
 }
 .card img{
-    width: 100%;
-    height: 120px;
+    width: 10%;
+    height: 12px;
     object-fit: contain;
     margin-bottom: 8px;
 }
 .contenedor {
     display: flex;
-    justify-content: space-between;
+    overflow-x: scroll;
+    gap: 10px;
     align-items: stretch;
-    height: 50vh; /* Ocupa toda la altura de la pantalla */
+    height: auto; /* o ajusta según el diseño */
 }
 .division {
     flex: 1;
     padding: 10px;
-    color: rgb(19, 3, 3);
+    color: rgba(26, 24, 24, 0.897);
     font-size: 20px;
     text-align: center;
 }
@@ -36,12 +37,230 @@
     padding: 20px;
 }
 .fondo-de-pantalla{
-    background-color: #E1E4EA;
+    background-color: #547fd3;
     padding: 20px;
     min-height: 100vh;
 }
 body{
-    margin: 10;
+    margin: 100;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
+}
+/* General Reset */
+* {
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E1E4EA;
+    color: #333;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #E1E4EA;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 19%;
+    padding: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile h2 {
+    margin-top: 100px;
+    font-size: 1.2em;
+}
+
+.profile button {
+    display: block;
+    width: 100%;
+    background-color: #44444449;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile button:hover {
+    background-color: #555;
+}
+
+.section h2 {
+    margin-bottom: 100px;
+    font-size: 1.2em;
+}
+
+.section button {
+    display: block;
+    width: 100%;
+    background-color: #E1E4EA;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Content Area */
+.content {
+    margin-left: 280px;
+    padding: 20px;
+}
+
+/* Topbar */
+.topbar {
+    background-color: #E1E4EA;
+    color: #E1E4EA;
+    padding: 10px 20px;
+}
+
+.nav-botones button {
+    background-color: #DDB9F9;
+    color: #ba4242;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-botones button:hover {
+    background-color: #ECD8FC;
+}
+
+/* Instrument Section */
+.fondo-de-pantalla {
+    padding: 20px;
+    background-color: #E1E4EA;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.fondo-de-pantal0la h3 {
+    font-size: 1.7em;
+    margin-bottom: 200px;
+}
+
+.contenedor {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+}
+
+.division {
+    flex-shrink: 0;
+    width: 200px;
+}
+
+.card {
+    background-color: #eee;
+    border-radius: 7px;
+    padding: 9px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 80px;
+  }
+  
+.card button {
+    background-color: #eeaab5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #3a4659;
+}
+
+/* Texto de información */
+.texto-informacion {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e7ebf3;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.texto-informacion p {
+    font-size: 1.1em;
+    color: #000000;
+}
+.sidebar{
+    width: 220px;
+    background-color: #c89ec4;
+    padding: 15px;
+    font-family: sans-serif;
+    height: 100vh;
+}
+.profile-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto 10px;
+}
+.profile h2{
+    color: #000;
+    font-size: 16px;
+    margin: 10px 0;
+}
+.menu-item{
+    display: flex;
+    align-items: center;
+    background-color: #fbeefc;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 100px;
+    text-align: left;
+    transition: background-color 0.4s;
+}
+.menu-item:hover{
+    background-color: #f5d1f7;
+}
+.menu-item img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.menu-item span{
+    font-size: 14px;
+    color: #333;
 }
