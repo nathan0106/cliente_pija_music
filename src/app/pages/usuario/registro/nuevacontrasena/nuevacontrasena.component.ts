@@ -6,6 +6,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // <-- Agregá esto
+import {ChangeDetectionStrategy, inject} from '@angular/core';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 
 
 @Component({
@@ -18,74 +27,86 @@ import { CommonModule } from '@angular/common'; // <-- Agregá esto
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    
   ],
   templateUrl: './nuevacontrasena.component.html',
   styleUrls: ['./nuevacontrasena.component.css']
 })
 export class NuevacontrasenaComponent {
-  hidePassword1 = true;
-  hidePassword2 = true;
-  passwordForm: FormGroup;
+  form: FormGroup;
+  hidePassword = true;
+  hideConfirm = true;
+
+  passwordValidations = {
+    length: false,
+    uppercase: false,
+    specialChar: false
+  };
 
   constructor(private fb: FormBuilder) {
-    this.passwordForm = this.fb.group(
-      {
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required]
-      },
-      { validators: this.passwordsMatchValidator }
-    );
+    this.form = this.fb.group({
+      password: [
+        '',
+        [Validators.required]
+      ],
+      confirmPassword: ['']
+    });
   }
 
-  passwordMatchValidator(group: AbstractControl): { [key: string]: boolean } | null {
-    const password = group.get('password')?.value;
-    const confirm = group.get('confirmPassword')?.value;
-    return password !== confirm ? { notMatching: true } : null;
+  ngOnInit(): void {
+    this.password?.valueChanges.subscribe(value => {
+      this.passwordValidations.length = value.length >= 8;
+      this.passwordValidations.uppercase = /[A-Z]/.test(value);
+      this.passwordValidations.specialChar = /[^a-zA-Z0-9]/.test(value);
+
+      // Disparar validaciones manualmente
+      this.password?.updateValueAndValidity({ emitEvent: false });
+    });
+
+    this.confirmPassword?.valueChanges.subscribe(() => {
+      this.confirmPassword?.setErrors(
+        this.passwordsMatch ? null : { mismatch: true }
+      );
+    });
   }
 
- /*  getPasswordStrength(): string {
-    const value = this.form.get('password')?.value || '';
-  
-    let strengthPoints = 0;
-    if (/[A-Z]/.test(value)) strengthPoints++;      // mayúscula
-    if (/[0-9]/.test(value)) strengthPoints++;      // número
-    if (/[\W_]/.test(value)) strengthPoints++;      // símbolo
-    if (value.length >= 8) strengthPoints++;        // longitud
-  
-    switch (strengthPoints) {
-      case 4: return 'Fuerte';
-      case 3: return 'Media';
-      case 2: return 'Débil';
-      default: return 'Muy débil';
+  get password() {
+    return this.form.get('password');
+  }
+
+  get confirmPassword() {
+    return this.form.get('confirmPassword');
+  }
+
+  get passwordsMatch(): boolean {
+    return this.password?.value === this.confirmPassword?.value;
+  }
+
+  onSubmit() {
+    if (this.form.valid && this.passwordsMatch) {
+      console.log('Formulario enviado:', this.form.value);
     }
-  } */
-  
-  /* getPasswordStrengthColor(): string {
-    const strength = this.getPasswordStrength();
-    switch (strength) {
-      case 'Muy débil': return 'red';
-      case 'Débil': return 'orange';
-      case 'Media': return 'goldenrod';
-      case 'Fuerte': return 'green';
-      default: return '';
-    }
-  } */
-  
+  }
+
+  readonly dialog = inject(MatDialog);
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogAnimationsExampleDialog, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+}
 
 
-    passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
-      const password = group.get('password')?.value;
-      const confirm = group.get('confirmPassword')?.value;
-      return password === confirm ? null : { passwordsMismatch: true };
-    }
-  
-    onSubmit() {
-      if (this.passwordForm.valid) {
-        console.log('Contraseñas válidas:', this.passwordForm.value);
-      } else {
-        console.log('Formulario inválido');
-      }
-    }
-
-
+@Component({
+  selector: 'app-nuevacontrasena',
+  templateUrl: 'dialogcontrasena.html',
+  styleUrls: ['./dialogcontrasena.css'],
+  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class DialogAnimationsExampleDialog {
+  readonly dialogRef = inject(MatDialogRef<DialogAnimationsExampleDialog>);
 }

@@ -4,32 +4,34 @@
     <h1>PIJA MUSIC</h1>
   </div>
 
-  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="password" formControlName="password" />
-      <mat-error *ngIf="passwordForm.get('password')?.hasError('required')">
-        La contraseña es obligatoria
-      </mat-error>
-      <mat-error *ngIf="passwordForm.get('password')?.hasError('minlength')">
-        Mínimo 6 caracteres
-      </mat-error>
-    </mat-form-field>
-  
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Confirmar contraseña</mat-label>
-      <input matInput type="password" formControlName="confirmPassword" />
-      <mat-error *ngIf="passwordForm.get('confirmPassword')?.hasError('required')">
-        Confirmación obligatoria
-      </mat-error>
-      <mat-error *ngIf="passwordForm.hasError('passwordsMismatch')">
-        Las contraseñas no coinciden
-      </mat-error>
-    </mat-form-field>
-  
-    <button mat-raised-button color="primary" type="submit" [disabled]="passwordForm.invalid">
-      Guardar
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- Contraseña -->
+  <mat-form-field appearance="fill">
+    <mat-label>Contraseña</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+      <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
-  </form>
-  
-</div>
+  </mat-form-field>
+
+  <!-- Validaciones en tiempo real -->
+  <ul class="validaciones">
+    <li [class.valido]="passwordValidations.length">✔ Mínimo 8 caracteres</li>
+    <li [class.valido]="passwordValidations.uppercase">✔ Una letra mayúscula</li>
+    <li [class.valido]="passwordValidations.specialChar">✔ Un carácter especial</li>
+  </ul>
+
+  <!-- Confirmación -->
+  <mat-form-field appearance="fill">
+    <mat-label>Confirmar contraseña</mat-label>
+    <input matInput [type]="hideConfirm ? 'password' : 'text'" formControlName="confirmPassword">
+    <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" type="button">
+      <mat-icon>{{ hideConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="confirmPassword?.hasError('mismatch')">Las contraseñas no coinciden</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="openDialog('0ms', '0ms')" type="submit" [disabled]="!form.valid || !passwordsMatch">
+    Enviar
+  </button>
+</form>

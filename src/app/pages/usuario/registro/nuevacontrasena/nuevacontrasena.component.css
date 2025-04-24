@@ -1,118 +1,132 @@
-/* Estilos generales */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: url('/fondo2.png') no-repeat center center;
-  background-size: cover;
+/* 🎨 Validaciones visuales para la contraseña */
+.validaciones {
+  list-style: none;           /* Elimina los bullets predeterminados */
+  padding-left: 0;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
+.validaciones li {
+  color: red;                 /* Reglas no cumplidas en rojo */
+}
+
+.validaciones li.valido {
+  color: green;               /* Reglas cumplidas en verde */
+}
+
+/* 🎯 Logo centrado */
 .logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .logo img {
   width: 80px;
-  height: auto;
+  height: 80px;
 }
 
-.logo h1 {
-  font-size: 24px;
-  margin-top: 10px;
+/* 📝 Título principal */
+h1 {
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
-/* Caja del formulario */
-.form-box {
-  width: 100%;
-  max-width: 450px;
+/* 📦 Contenedor general con fondo personalizado */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
-  text-align: left;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  min-height: 100vh;
+  background: url('/fondo2.png') no-repeat center center;
+  background-size: cover; /* Asegura que cubra toda la pantalla */
 }
 
-/* Inputs con Angular Material */
-mat-form-field {
-  width: 100%;
-  margin-bottom: 20px;
+/* 🌈 Fondo degradado central con alineación centrada */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #d948e5, #9334e6);
+  min-height: 100vh;
+  justify-content: center;
+  padding: 2rem;
 }
 
-mat-label {
-  font-weight: 600;
-  font-size: 16px;
+/* 📋 Estilo de la tarjeta del formulario */
+form {
+  width: 400px;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido */
+  backdrop-filter: blur(10px);                /* Efecto vidrio */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);   /* Sombra elegante */
 }
 
-input.mat-input-element {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* Estilo para el botón de mostrar/ocultar contraseña */
-.mat-form-field-suffix {
-  cursor: pointer;
-  padding: 0 8px;
+/* 🏷️ Título dentro del formulario */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
   color: #333;
 }
 
-/* Contenedor de los botones */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 20px;
+/* 🧩 Contenedor para cada input */
+.input-box {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Botón Cancelar (estilo rectangular, sombra suave) */
-.cancel {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #aaa;
-  padding: 10px 24px;
-  border-radius: 10px;
+/* 📌 Lista de reglas de contraseña */
+.password-rules {
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  color: red;
+  font-size: 0.85rem;
+
+  li::before {
+    content: '✔';              /* Check visual antes de cada regla */
+    color: red;
+    margin-right: 0.5rem;
+  }
+}
+
+/* 🎯 Botón de envío morado */
+button[type="submit"] {
+  width: 100%;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-top: 2rem;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #8D7CB2, #a043e9); /* Gradiente morado */
+  color: white;
+  border: none;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(90deg, #7a1bd2, #902edb); /* Morado más intenso al pasar el mouse */
+  }
+
+  &:disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+  }
 }
 
-.cancel:hover {
-  background-color: #f2f2f2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Botón Enviar (estilo moderno, con degradado) */
-.submit {
-  background-color: rgba(111, 70, 139, 0.7) !important;
-  color: #000 !important;
-  border: none !important;
-  padding: 10px 28px !important;
-  border-radius: 10px !important;
-  font-weight: bold !important;
-  font-size: 16px !important;
-  cursor: pointer !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
-  transition: background-color 0.3s, box-shadow 0.3s !important;
-}
-
-.submit:hover {
-  background-color: rgba(111, 70, 139, 0.85);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-
-
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* 🚫 Asegura que los botones/íconos de ver/ocultar NO hereden el morado */
+.mat-icon-button {
+  background: transparent; /* Sin fondo morado */
+  color: inherit;          /* Hereda color normal */
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
