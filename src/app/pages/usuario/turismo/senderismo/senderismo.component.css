@@ -1,9 +1,12 @@
+/*pagina principal*/
+
 .sidenav-container {
   height: 100vh;
 }
 
+/*menu descubre*/
 .sidenav {
-  width: 250px;
+  width: 230px;
   background-color: #B8ACD0;
   color: #ECD8F9;
   padding: 1rem;
@@ -14,7 +17,7 @@
 }
 
 .logo-section img {
-  width: 50%;
+  width: 35%;
   margin-bottom: 1rem;
 }
 
@@ -208,25 +211,40 @@ footer {
 
 }
 
-.nav-button{
+.nav-button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  text-align: left;
   width: 100%;
+  padding: 10px 16px;
   border-radius: 10px;
-  padding: 0.5rem 0.75rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  font-size: 16px;
   text-transform: none;
-  color: #000000;
-  border-color:white;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
 
-  mat-icon{
+  mat-icon {
+    font-size: 22px;
     margin-right: 10px;
+    color: #555;
   }
-  span{
+
+  span {
+    flex-grow: 1;
     text-align: left;
+    color: #666;
+  }
+
+  &:hover {
+    border-color: #888;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
 }
+
 
 .nav-button-selected {
   background-color: white;

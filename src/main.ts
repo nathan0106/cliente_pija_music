@@ -27,6 +27,7 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -57,13 +58,30 @@ bootstrapApplication(AppComponent,{
             {path: 'menu', component: MenuPrincipalComponent},
             {path: 'notificaciones', component: NotificacionesComponent},
             {path: 'playlist', component: PlaylistComponent},
+            {path: 'senderismo', component: SenderismoComponent},
 
             //turismo
-            {path: 'familiar', component: ActividadFamiliarComponent},
-            {path: 'comida', component: ComidasTipicasComponent},
-            {path: 'evento', component: EventosCulturalesComponent},
-            {path: 'historia', component: LugaresHistoricosComponent},
-            {path: 'senderismo', component: SenderismoComponent}
+            { path: 'dashboardsenderismo', component: DashboardsenderismoComponent,
+                children:[
+                    
+                    {
+                        path: 'familiar', component: ActividadFamiliarComponent
+                    },
+                    {
+                        path: 'comida', component: ComidasTipicasComponent
+                    },
+                    {
+                        path: 'evento', component: EventosCulturalesComponent
+                    },
+                    {
+                        path: 'historia', component: LugaresHistoricosComponent
+                    },
+                    {
+                        path: 'senderismo', component: SenderismoComponent
+                    },
+                ]
+             },
+
 
           ]),
           provideHttpClient(),
