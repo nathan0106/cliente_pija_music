@@ -1,46 +1,83 @@
-<div class="main-container"> 
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="/logo.png" alt="logo" class="profile-img" />
-      <h4>Descubre</h4>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="logo-section">
+      <img src="/logo.png" alt="Logo Turismo" />
     </div>
-    <nav>
-      <ul class="nav-links">
-        <button>Inicio</button>
-        <button>Buscar</button>
-      </ul>
-    </nav>
-    <div class="sections">
-      <h5>Relaciones</h5>
-      <ul class="nav-links">
-        <button>playists</button>
-        <button>Favoritos</button>
-        <button>Notificaciones</button>
-      </ul>
+
+    <div class="section">
+      <h2>Descubre</h2>
+      <div class="nav-card">
+        <button class="nav-button">
+         <mat-icon>home</mat-icon>
+         <span>Inicio</span>
+        </button>
+      </div>
+
+      <div class="nav-card">
+
+        <button class="nav-button">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>              
+      </div>
     </div>
-  </aside>
 
-  <main class="content">
-    <header class="topbar">
-      <div class="nav-botones">
-        <button>Música</button>
-        <button>Cultura</button>
-        <button>Turismo</button>
-      </div>
-      <div class="search-login">
-        <input type="text" placeholder="Buscar" />
-        
-        <!-- SOLO ESTOS TIENEN REDIRECCIÓN -->
-        <a routerLink="/iniciar sesion">
-        <button><li><a href="#">Iniciar Sesion</a></li></button>
-        </a>
+  <div class="section">
+    <p class="section-titulo">Biblioteca</p>
 
-        <a routerLink="/register">
-          <button><li><a href="#">Registrarse</a></li></button>
-        </a>
-      </div>
-    </header>
+ 
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>favorite</mat-icon>
+        <span>Playlists</span>
+      </button>
+    </div>
 
+    <div class="nav-card">
+      <button  class="nav-button">
+       <mat-icon>museum</mat-icon>
+       <span>Personalizar</span>
+      </button>
+    </div>
+
+    
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>event</mat-icon>
+        <span>Favoritos</span>
+      </button>
+    </div>
+
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>restaurant</mat-icon>
+        <span>Notificaciones</span>
+      </button>
+    </div>
+  </div>
+</mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <mat-toolbar color="primary" class="topbar">
+      <span class="tabs">
+        <button mat-button>Música</button>
+        <button mat-button>Cultura</button>
+        <button mat-button>Turismo</button>
+      </span>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label><mat-icon>search</mat-icon>
+
+        <input matInput />
+      </mat-form-field>
+
+      <button mat-button>Inicio de sesión</button>
+      <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
+    </mat-toolbar>
+  
+  
     <section class="novedades">
       <h2>Novedades</h2>
       <div class="cards cards-novedades">
@@ -50,8 +87,7 @@
         </div>
       </div>
     </section>
-    
-
+ 
     <section class="artistas">
       <h2>Artistas</h2>
       <div class="cards">
@@ -62,35 +98,55 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-section logo-container">
-        <img src="/logo.png" alt="Logo" />
-        <p>Descubre un mundo de nuevas experiencias y dejate envolver por la Cultura llanera/p>
-      </div>
-      <div class="footer-section">
-        <h4>Menu</h4>
-        <ul>
-          <li>Blog</li>
-          <li>Comunidad</li>
-          <li>Acerca de</li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Productos</h4>
-        <ul>
-          <li>Música</li>
-          <li>Cultura</li>
-          <li>Danza</li>
-          <li>Turismo</li>
-        </ul>
-      </div>
-    </footer>
+    
 
-    <div class="legal">
-      <a href="#">Legal</a>
-      <a href="#">Configuración de privacidad</a>
-      <a href="#">Política de privacidad</a>
-      <a href="#">Cookies</a>
-    </div>
-  </main>
-</div>
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <img src="logo.png" alt="Logo" class="footer-logo" />
+            <p class="footer-message">
+              Descubre un mundo de nuevas experiencias y déjate envolver por la cultura llanera.
+            </p>
+            <div class="social-icons">
+              <button mat-icon-button><mat-icon>facebook</mat-icon></button>
+              <button mat-icon-button><mat-icon>twitter</mat-icon></button>
+              <button mat-icon-button><mat-icon>google</mat-icon></button>
+            </div>
+          </div>
+      
+          <div class="footer-links">
+            <div class="link-section">
+              <h4>Remaining</h4>
+              <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Actualizaciones</a></li>
+              </ul>
+            </div>
+      
+            <div class="link-section">
+              <h4>Producto</h4>
+              <ul>
+                <li><a href="#">Música</a></li>
+                <li><a href="#">Cultura</a></li>
+                <li><a href="#">Danza</a></li>
+                <li><a href="#">Turismo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <div class="legal-links">
+            <a href="#">Legal</a>
+            <a href="#">seguridad y centro de privacidad</a>
+            <a href="#">políticas de privacidad</a>
+            <a href="#">cookies</a>
+          </div>
+          <div class="copyright">
+            Copyright © 2024 Pija Music, Reservados todos los derechos.
+          </div>
+        </div>
+      </footer>
+      
