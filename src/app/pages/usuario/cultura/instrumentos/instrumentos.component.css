@@ -1,3 +1,4 @@
+/* imagen y boton moviminto */
 .card{
     width: 200px;
     background-color: #E1E4EA;
@@ -7,89 +8,73 @@
     text-align: center;
     
 }
+/* tamaño del boton */
 .card img{
-    width: 10%;
-    height: 12px;
+    width: 100%;
+    height: 1200px;
     object-fit: contain;
     margin-bottom: 8px;
 }
+/* fondo */
 .contenedor {
-    display: flex;
+    display: 10;
     overflow-x: scroll;
-    gap: 10px;
+    gap: 1000px;
     align-items: stretch;
     height: auto; /* o ajusta según el diseño */
 }
+/* tamaño del boton instrumentos  */
 .division {
-    flex: 1;
+    flex: 100;
     padding: 10px;
     color: rgba(26, 24, 24, 0.897);
     font-size: 20px;
     text-align: center;
 }
+/* tamaño del textp */
 .texto-informacion{
-    margin: top 300px;
+    margin: top 30px;
     font-size: 14px;
     color: #000;
 }
-.contenedor{
-    text-align: center;
-    padding: 20px;
-}
+/* tamaño de fondo de pantalla */
 .fondo-de-pantalla{
     background-color: #547fd3;
-    padding: 20px;
+    padding: 200px;
     min-height: 100vh;
 }
-body{
-    margin: 100;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-}
+
 /* General Reset */
 * {
     margin: 10;
     padding: 10;
     box-sizing: border-box;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #E1E4EA;
-    color: #333;
-    display: flex;
-}
-
-/* Sidebar */
+/* menu izquiedo */
 .sidebar {
     width: 250px;
-    background-color: #E1E4EA;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 19%;
-    padding: 20px;
+    background-color: #B8ACD0;
+    color: #ECD8F9;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 1691;
+  
 }
-
+/* division de buscar y biblioteca */
 .profile {
     text-align: center;
     margin-bottom: 20px;
 }
-
+/* logo y lupa */
 .profile img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
 }
-
-.profile h2 {
-    margin-top: 100px;
-    font-size: 1.2em;
-}
-
+/* estilo de logo */
 .profile button {
     display: block;
     width: 100%;
@@ -103,19 +88,9 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-.profile button:hover {
-    background-color: #555;
-}
-
-.section h2 {
-    margin-bottom: 100px;
-    font-size: 1.2em;
-}
-
 .section button {
     display: block;
-    width: 100%;
+    width: 1000%;
     background-color: #E1E4EA;
     color: #fff;
     border: none;
@@ -161,23 +136,18 @@ body {
     border-radius: 8px;
     margin-top: 20px;
 }
-
-.fondo-de-pantal0la h3 {
-    font-size: 1.7em;
-    margin-bottom: 200px;
-}
-
+/* esl tamaño de los lados botones */
 .contenedor {
     display: flex;
     overflow-x: scroll;
-    gap: 10px;
+    gap: 100px;
 }
-
+/* separacion botones*/
 .division {
     flex-shrink: 0;
     width: 200px;
 }
-
+/* estilo de los botones*/
 .card {
     background-color: #eee;
     border-radius: 7px;
@@ -186,12 +156,13 @@ body {
     text-align: center;
     transition: transform 0.3s ease;
   }
+  /* estilo de los botones imagen*/
   .card img {
     width: 100%;
     height: auto;
     border-radius: 80px;
   }
-  
+  /* estilo de los botones informacion*/
 .card button {
     background-color: #eeaab5;
     color: #fff;
@@ -202,11 +173,6 @@ body {
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
-
-.card button:hover {
-    background-color: #3a4659;
-}
-
 /* Texto de información */
 .texto-informacion {
     margin-top: 30px;
@@ -215,34 +181,14 @@ body {
     border-radius: 8px;
     line-height: 1.6;
 }
-
+/* tamaño del texto */
 .texto-informacion p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #000000;
 }
-.sidebar{
-    width: 220px;
-    background-color: #c89ec4;
-    padding: 15px;
-    font-family: sans-serif;
-    height: 100vh;
-}
-.profile-img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-    display: block;
-    margin: 0 auto 10px;
-}
-.profile h2{
-    color: #000;
-    font-size: 16px;
-    margin: 10px 0;
-}
+/* estilo de menu de bibilografia */
 .menu-item{
-    display: flex;
     align-items: center;
-    background-color: #fbeefc;
     border: none;
     border-radius: 3px;
     padding: 8px 12px;
@@ -252,15 +198,9 @@ body {
     text-align: left;
     transition: background-color 0.4s;
 }
-.menu-item:hover{
-    background-color: #f5d1f7;
-}
+/* estilo de menu de bibilografia imagen */
 .menu-item img{
-    width: 20px;
+    width: 19px;
     height: 20px;
     margin-right: 10px;
-}
-.menu-item span{
-    font-size: 14px;
-    color: #333;
 }
