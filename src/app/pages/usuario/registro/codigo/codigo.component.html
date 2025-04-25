@@ -11,12 +11,12 @@
     <h2>Ingresa el código de verificación</h2>
 
     <div class="code-inputs">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 0)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 1)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 2)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 3)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 4)">
+      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 5)">   
     </div>
 
 
@@ -24,7 +24,7 @@
     
     <div class="buttons">
       <button class="cancel" (click)="cancelar()">Cancelar</button>
-      <button class="submit" (click)="irANuevaContrasena()">Enviar</button>
+      <button class="submit" (click)="verificarCodigo()">Enviar</button>
       
     </div>
     

@@ -15,6 +15,8 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -108,5 +110,26 @@ export class NuevacontrasenaComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogAnimationsExampleDialog {
-  readonly dialogRef = inject(MatDialogRef<DialogAnimationsExampleDialog>);
+  private dialog = inject(MatDialog);
+
+  openDialog(): void {
+    this.dialog.open(NuevacontrasenaComponent, {
+      maxWidth: '90vw',   // Máximo 90% del ancho
+      width: 'auto',      // Que se adapte al contenido
+      disableClose: true, // Que no se cierre haciendo clic afuera
+    });
+  }
+
+  constructor(
+    private router: Router,
+    private dialogRef: MatDialogRef<NuevacontrasenaComponent>
+  ) {}
+
+  irALogin(): void {
+    this.dialogRef.close(); // Primero cierra el diálogo
+    this.router.navigate(['/login']); // Luego navega al login
+  }
+
 }
+
+

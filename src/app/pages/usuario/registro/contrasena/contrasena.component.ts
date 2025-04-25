@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class ContrasenaComponent {
 
+  constructor(private router: Router) {}
+
+
   email: string = '';
 
   codigoVerificacion: string = '';
@@ -24,14 +27,17 @@ export class ContrasenaComponent {
   enviarCodigo() {
     const codigo = this.generarCodigo();
     const templateParams = {
-      to_email: this.email,
+      email: this.email,
       codigo: codigo
     };
 
-    emailjs.send('tu_service_id', 'tu_template_id', templateParams, 'tu_public_key')
+
+
+    emailjs.send('service_mr0wi2s', 'template_exnwzy8', templateParams, 'LqcTSCxadm1LJMmQg')
       .then((response) => {
         console.log('Correo enviado:', response);
         alert('Código enviado a tu correo');
+
       })
       .catch((error) => {
         console.error('Error al enviar el correo:', error);
@@ -39,8 +45,13 @@ export class ContrasenaComponent {
       });
   }
 
-  generarCodigo(): string {
-    return Math.floor(100000 + Math.random() * 900000).toString(); // 6 dígitos
+  generarCodigo() {
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString(); 
+    localStorage.setItem('Codigo', codigo); 
+    console.log('Código generado:', codigo);
+  
+    this.router.navigate(['/codigo']);
+    return codigo;
   }
 
   cancelar(): void {
@@ -48,9 +59,4 @@ export class ContrasenaComponent {
 
   }
 
-  constructor(private router: Router) {}
-
-  irACodigo() {
-    this.router.navigate(['/codigo']);
-  }
 }

@@ -1,14 +1,63 @@
-button {
-    margin-right: 8px;
-  
-  }
+/* Contenedor principal del diálogo */
+.dialog-container {
+  background: #e0e0e0;
+  border-radius: 16px;
+  width: auto; /* Importante: que se adapte */
+  max-width: 90vw; /* Nunca pase de 90% del ancho de la ventana */
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Esto evita barras */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Muy importante */
+}
 
-  .logo {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .logo img {
-    width: 80px;
-    height: 80px;
-  }
+
+/* Encabezado (logo) */
+.dialog-header {
+  align-self: flex-start;
+}
+
+.dialog-header img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Cuerpo del diálogo (mensaje) */
+.dialog-body {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-message {
+  background: #c7c7c7;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.boton-aceptar {
+  background: linear-gradient(135deg, #5c3dc2);
+  color: white;
+  padding: 6px 12px; /* MÁS pequeño */
+  font-size: 12px; /* MÁS pequeño */
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog-message {
+  font-weight: normal; /* Ya no es bold */
+}
+
+
