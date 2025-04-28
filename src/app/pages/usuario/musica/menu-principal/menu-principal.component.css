@@ -359,32 +359,50 @@ footer {
     }
   }
 }
+.lupa{
+  float: right;
+}
 
 
-.card-container {
+
+
+.card-grid {
   display: flex;
-  justify-content: center; /* <-- ya lo tienes */
+  flex-direction: column; /* Cambia la dirección a columna */
+  align-items: center; /* Centra las tarjetas horizontalmente */
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 2rem; /* Espacio alrededor del contenedor si es necesario */
+  overflow-y: auto; /* Añade desplazamiento vertical si el contenido es muy grande */
+}
+.card-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  margin-bottom: 8px;
+ 
+}
+.card {
+  width: 140px; /* Cada tarjeta tiene ancho fijo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+.cards {
+  display: flex;
   flex-wrap: wrap;
-  align-items: center; /* <-- AGREGA ESTO */
+  gap: 1.5rem;
+  padding: 2rem;
 }
-.card img {
-  width: auto;
-  max-width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card img {
-  width: auto;
-  max-width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .logo-section {
   display: flex;
   justify-content: center;

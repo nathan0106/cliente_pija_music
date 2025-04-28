@@ -1,38 +1,83 @@
-<div class="app">
-  <!-- Barra lateral -->
-  <aside class="sidebar">
-    <div class="profile">
-      <img src="logo.png" alt="Perfil" class="profile-img">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="logo-section">
+      <img src="/logo.png" alt="Logo Turismo" />
     </div>
-    <nav>
-      <button>Inicio</button>
-      <button>Buscar</button>
-      <div class="divider"></div>
-      <button>Playlists</button>
-      <button>Personalizar</button>
-      <button>Favoritos</button>
-      <button class="active">
-        Notificaciones
-        <span class="dot"></span>
+
+    <div class="section">
+      <h2>Descubre</h2>
+      <div class="nav-card">
+        <button class="nav-button">
+         <mat-icon>home</mat-icon>
+         <span>Inicio</span>
+        </button>
+      </div>
+
+      <div class="nav-card">
+
+        <button class="nav-button">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>              
+      </div>
+    </div>
+
+  <div class="section">
+    <p class="section-titulo">Biblioteca</p>
+
+ 
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>subscriptions</mat-icon>
+        <span>Playlists</span>
       </button>
-    </nav>
-  </aside>
-
-  <!-- Contenido principal -->
-  <main class="content">
-    <div class="topbar">
-      <div class="top-menu">
-        <a href="#">Música</a>
-        <a href="#">Cultura</a>
-        <a href="#">Turismo</a>
-      </div>
-      <input class="search" type="text" placeholder="Buscar">
-      <div class="auth">
-        <button>Iniciar sesión</button>
-        <button class="register">Registro</button>
-      </div>
     </div>
 
+    <div class="nav-card">
+      <button  class="nav-button">
+       <mat-icon>sentiment_satisfied</mat-icon>
+       <span>Personalizar</span>
+      </button>
+    </div>
+
+    
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>bookmark</mat-icon>
+        <span>Favoritos</span>
+      </button>
+    </div>
+
+    <div class="nav-card">
+      <button  class="nav-button">
+        <mat-icon>notifications</mat-icon>
+        <span>Notificaciones</span>
+      </button>
+    </div>
+  </div>
+</mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <mat-toolbar color="primary" class="topbar">
+      <span class="tabs">
+        <button mat-button>Música</button>
+        <button mat-button>Cultura</button>
+        <button mat-button>Turismo</button>
+      </span>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label><mat-icon class="lupa">search</mat-icon>
+
+        <input matInput />
+      </mat-form-field>
+
+      <button mat-button>Inicio de sesión</button>
+      <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
+    </mat-toolbar>
+
+    
     <div class="notifications">
       <h2>Notificaciones <span class="dot"></span></h2>
 
@@ -124,5 +169,3 @@
         <span class="time">11/04/24</span>
       </div>
     </div>
-  </main>
-</div>
