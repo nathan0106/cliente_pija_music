@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // <-- Agregá esto
+import { CommonModule } from '@angular/common';
 import {ChangeDetectionStrategy, inject} from '@angular/core';
 import {
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
   MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-
+// limite-caracteres.directive.ts
+import { Directive, HostListener } from '@angular/core';
 
 
 @Component({
@@ -99,6 +96,15 @@ export class NuevacontrasenaComponent {
       exitAnimationDuration,
     });
   }
+
+  @HostListener('input', ['$event'])
+  onInputChange(event: any) {
+    const maxLength = 8;
+    if (event.target.value.length > maxLength) {
+      event.target.value = event.target.value.substring(0, maxLength);
+    }
+  }
+
 }
 
 
@@ -106,7 +112,7 @@ export class NuevacontrasenaComponent {
   selector: 'app-nuevacontrasena',
   templateUrl: 'dialogcontrasena.html',
   styleUrls: ['./dialogcontrasena.css'],
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogAnimationsExampleDialog {

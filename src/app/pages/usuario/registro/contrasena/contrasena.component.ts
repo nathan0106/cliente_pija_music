@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import emailjs from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-contrasena',
   imports: [
-    FormsModule
+    FormsModule,
+    CommonModule
+    
   ],
   templateUrl: './contrasena.component.html',
   styleUrl: './contrasena.component.css'
@@ -59,4 +62,12 @@ export class ContrasenaComponent {
 
   }
 
+
+  esCorreoValido(correo: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(correo);
+  }
+
+  
 }
+

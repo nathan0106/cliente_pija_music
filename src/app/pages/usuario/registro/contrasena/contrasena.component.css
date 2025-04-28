@@ -74,9 +74,10 @@
     font-size: 1rem;
   }
   
-  .button-group {
+  .botones {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
   }
   
   button {
@@ -94,12 +95,9 @@
     border: 1px solid #ccc;
   }
   
-  .enviar {
-    background: linear-gradient(90deg, #8d7cb2, #9747ff);
-    color: white;
-  }
+
   
-  .submit {
+  .Enviar {
     background: linear-gradient(to right, #8D7CB2, #9747FF);
     color: white;
     border: none;
@@ -109,6 +107,7 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
+    margin-left: 20px;
   }
   
   .submit:hover {

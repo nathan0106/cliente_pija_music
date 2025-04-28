@@ -1,33 +1,41 @@
-
 <div class="full-background">
-
-<div class="container">
-  <div class="logo">
-    <img src="logo.png" alt="Pija Music Logo" />
-    <h1>PIJA MUSIC</h1>
-  </div>
-
-  <div class="verification-box">
-    <h2>Ingresa el código de verificación</h2>
-
-    <div class="code-inputs">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 0)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 1)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 2)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 3)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 4)">
-      <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric" (input)="autoAdvance($event, 5)">   
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="Pija Music Logo" />
+      <h1>PIJA MUSIC</h1>
     </div>
 
+    <div class="verification-box">
+      <h2>Ingresa el código de verificación</h2>
+
+      <div class="code-inputs">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 0)" [(ngModel)]="codigo[0]" name="codigo0">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 1)" [(ngModel)]="codigo[1]" name="codigo1">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 2)" [(ngModel)]="codigo[2]" name="codigo2">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 3)" [(ngModel)]="codigo[3]" name="codigo3">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 4)" [(ngModel)]="codigo[4]" name="codigo4">
+        <input type="text" maxlength="1" pattern="[0-9]*" inputmode="numeric"
+          (input)="autoAdvance($event, 5)" [(ngModel)]="codigo[5]" name="codigo5">
+      </div>
 
 
-    
-    <div class="buttons">
-      <button class="cancel" (click)="cancelar()">Cancelar</button>
-      <button class="submit" (click)="verificarCodigo()">Enviar</button>
-      
-    </div>
-    
-  </div>
+      <!-- Código en inputs para el código -->
+<div>
+  <input *ngFor="let digit of codigo; let i = index" 
+         [(ngModel)]="codigo[i]" 
+         (input)="autoAdvance($event, i)" 
+         maxlength="1" />
 </div>
+
+      <div class="buttons">
+        <button class="cancel" (click)="cancelar()">Cancelar</button>
+        <button class="submit" (click)="verificarCodigo()">Verificar</button>
+      </div>
+    </div>
+  </div>
 </div>
