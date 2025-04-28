@@ -58,7 +58,6 @@ bootstrapApplication(AppComponent,{
             {path: 'menu', component: MenuPrincipalComponent},
             {path: 'notificaciones', component: NotificacionesComponent},
             {path: 'playlist', component: PlaylistComponent},
-            {path: 'senderismo', component: SenderismoComponent},
 
             //turismo
             { path: 'dashboardsenderismo', component: DashboardsenderismoComponent,
