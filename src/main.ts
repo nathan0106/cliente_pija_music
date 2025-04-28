@@ -27,7 +27,8 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
-
+import { CardCaroselComponent } from './app/pages/usuario/cultura/instrumentos/card-carosel/card-carosel.component';
+import { DeshboardComponent } from './app/usuario/cultura/deshboard/deshboard.component';
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -48,6 +49,29 @@ bootstrapApplication(AppComponent,{
             {path: 'danza', component: DanzaComponent},
             {path: 'instrumentos', component: InstrumentosComponent},
             {path: 'trajes', component: TrajesTipicosComponent},
+            {path:'card',component:CardCaroselComponent },
+            {path:'deshboard',component:DeshboardComponent,
+                children: [
+                    {
+                        path:'instrumentos',component: InstrumentosComponent
+                    },
+                    {
+                        path:'copla',component:CoplasComponent
+                    },
+                    {
+                        path:'coleo',component:ColeoComponent
+                    },
+                    {
+                        path:'trajes tipicos',component:TrajesTipicosComponent
+                    },
+                    {
+                        path:'cotiza',component:CotizaComponent
+                    },
+                    {
+                        path:'danza',component:DanzaComponent
+                    }
+                ]
+            }
 
             //Musica
             {path: 'artista', component: ArtistaComponent},

@@ -77,12 +77,12 @@
 /* estilo de logo */
 .profile button {
     display: block;
-    width: 100%;
+    width: 1%;
     background-color: #44444449;
     color: #fff;
     border: none;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 1px;
+    margin: 4px 0;
     font-size: 1em;
     text-align: left;
     cursor: pointer;
@@ -90,7 +90,7 @@
 }
 .section button {
     display: block;
-    width: 1000%;
+    width: 100%;
     background-color: #E1E4EA;
     color: #fff;
     border: none;
