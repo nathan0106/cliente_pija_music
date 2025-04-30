@@ -1,0 +1,53 @@
+
+.tarjetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .lugar-card {
+    width: 260px;
+    background-color: #d9d9d9;
+    border-radius: 15px;
+    padding: 12px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 5px 5px 8px rgba(11, 11, 11, 0.5);
+    margin-bottom: 100px;
+
+    .lugar-header {
+      display: flex;
+      align-items: center;
+      font-weight: italic;
+      margin-bottom: 8px;
+      gap: 8px;
+
+      mat-icon {
+        font-size: 24px;
+        color: rgb(97, 96, 96);
+      }
+
+      .titulo {
+        font-size: 16px;
+      }
+    }
+
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .lugar-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+  }
+
+  .titulo-Comidas{
+    margin-left: 4rem; /* Ajusta el valor según lo que necesites */
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
