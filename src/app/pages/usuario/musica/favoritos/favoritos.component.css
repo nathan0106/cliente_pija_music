@@ -152,45 +152,157 @@
   float: right;
 }
 
-.content {
-  background-color: #e0e2e7;
-  height: 100%;
-  overflow-x: hidden; 
+
+
+
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f5f9;
+  color: #111827;
 }
 
+/* Contenedor de tarjetas */
 .card-grid {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center;
-  gap: 20px;
-  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+  gap: 1.2rem; /* Reduce el espacio entre tarjetas */
+  padding: 1.5rem 2rem; /* Menos espacio alrededor del grid */
+  justify-items: center;
 }
 
+.titulo-favoritos {
+  margin-left: 1.5rem; /* Ajusta el valor según lo que necesites */
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+
+/* Tarjeta de artista */
 .card {
-  width: 140px; /* Cada tarjeta tiene ancho fijo */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 150px;
   text-align: center;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  transition: transform 0.3s ease;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0; /* Elimina todo el espacio alrededor */
+  margin: 0 auto; /* Centra si sobra espacio */
+  max-width: 60%; /* Asegura que no se sobrepase */
+  width: 40vw; /* Usa todo el ancho disponible */
+  box-sizing: border-box;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
 
 .card-image {
-  width: 120px;
-  height: 120px;
+  width: 120%;
+  aspect-ratio: 3 / 4;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Nombre del artista */
+.artist-name {
+  margin-top: 0.4rem; /* un poco más compacto */
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* Barra superior */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #ffffff;
+  color: #111;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-form-field {
+  margin: 0 1rem;
+  width: 200px;
+}
+
+
+
+/* Footer */
+.footer {
+  background-color: 888;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
+.footer-message {
+  margin-bottom: 1rem;
+}
+
+.social-icons button {
+  margin-right: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.link-section h4 {
   margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.link-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-section li {
+  margin-bottom: 0.25rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.legal-links a {
+  margin-right: 1rem;
+  color: #555;
+  text-decoration: none;
 }
 
 

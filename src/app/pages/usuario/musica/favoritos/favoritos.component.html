@@ -77,9 +77,66 @@
       <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
     </mat-toolbar>
 
+   
+    <h2 class="titulo-favoritos">Favoritos</h2>
     <div class="card-grid">
       <div *ngFor="let card of cards" class="card">
         <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
         <div class="artist-name">{{ card.title }}</div>
       </div>
     </div>
+
+
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Logo" class="footer-logo" />
+          <p class="footer-message">
+            Descubre un mundo de nuevas experiencias y déjate envolver por la cultura llanera.
+          </p>
+          <div class="social-icons">
+            <button mat-icon-button><mat-icon>facebook</mat-icon></button>
+            <button mat-icon-button><mat-icon>twitter</mat-icon></button>
+            <button mat-icon-button><mat-icon>g_translate</mat-icon></button>
+          </div>
+        </div>
+    
+        <div class="footer-links">
+          <div class="link-section">
+            <h4>Remaining</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Soporte</a></li>
+              <li><a href="#">Actualizaciones</a></li>
+            </ul>
+          </div>
+    
+          <div class="link-section">
+            <h4>Producto</h4>
+            <ul>
+              <li><a href="#">Música</a></li>
+              <li><a href="#">Cultura</a></li>
+              <li><a href="#">Danza</a></li>
+              <li><a href="#">Turismo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="legal-links">
+          <a href="#">Legal</a>
+          <a href="#">seguridad y centro de privacidad</a>
+          <a href="#">políticas de privacidad</a>
+          <a href="#">cookies</a>
+        </div>
+        <div class="copyright">
+          Copyright © 2024 Pija Music, Reservados todos los derechos.
+        </div>
+      </div>
+    </footer>
+    
+
+ 

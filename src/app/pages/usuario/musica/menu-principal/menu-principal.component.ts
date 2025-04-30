@@ -32,7 +32,7 @@ export class MenuPrincipalComponent {
     { img: '/imag1.png', title: 'Música - Recuerda la esencia de la musica llanera' },
     { img: '/imag2.png', title: 'Cultura - conoce la diversidad del llano' },
     { img: '/imag3.png', title: 'Turismo - lugares mas visitados' },
-    { img: '/imag4.png', title: 'Danza - Expresion artistica' }
+  
   ];
 
   artistas = [

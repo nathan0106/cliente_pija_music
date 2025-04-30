@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav mode="side" opened class="sidenav">
       <div class="logo-section">
-        <img src="/logo.png" alt="Logo Turismo" />
+        <img src="/logo.png" alt="Logo " />
       </div>
   
       <div class="section">
@@ -76,4 +76,12 @@
         <button mat-button>Inicio de sesión</button>
         <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
       </mat-toolbar>
+
+      <h2 class="titulo-Playlists">Playlists</h2>
+      <div class="card-grid">
+        <div *ngFor="let card of cards" class="card">
+          <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
+          <div class="artist-name">{{ card.title }}</div>
+        </div>
+      </div>
   

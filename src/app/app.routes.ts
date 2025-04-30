@@ -7,6 +7,8 @@ import { RegisterComponent } from './pages/usuario/registro/register/register.co
 import { PoliticasComponent } from './pages/usuario/registro/politicas/politicas.component';
 import { CodigoComponent } from './pages/usuario/registro/codigo/codigo.component';
 import { NotificacionesComponent } from './pages/usuario/musica/notificaciones/notificaciones.component';
+import { PlaylistComponent } from './pages/usuario/musica/playlist/playlist.component';
+import {Buscarcomponent} from './pages/usuario/musica/buscar/buscar.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,8 @@ const routes: Routes = [
   { path: 'contrasena', component: ContrasenaComponent }, // <- corregido
   { path: 'menu-principal', component: MenuPrincipalComponent },
   {path: 'notificaciones', component: NotificacionesComponent}, 
-  
+  {path: 'playlist', component: PlaylistComponent},
+  {path: 'buscar', component: Buscarcomponent},
   
  
 ];

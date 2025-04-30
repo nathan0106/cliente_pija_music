@@ -44,10 +44,8 @@ export class FavoritosComponent {
     { title: 'Jhon Onofre', imageUrl: 'Fav6.png' },
     { title: 'Jorge Calderón', imageUrl: 'Fav7.png' },
     { title: 'Yaguazo', imageUrl: 'Fav8.png' },
-    { title: 'Yaguazo', imageUrl: 'Art1.png' },
-    { title: 'Walter Silva', imageUrl: 'Art2.png' },
-    { title: 'Ronald Arrieta', imageUrl: 'Art3.png' },
-    { title: 'Mateo Benítez', imageUrl: 'Art4.png' },
+   
+   
   ];
 
   constructor(private router: Router) {}
