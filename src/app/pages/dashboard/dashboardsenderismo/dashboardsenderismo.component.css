@@ -115,6 +115,7 @@
       h4 {
         font-weight: bold;
         margin-bottom: 0.5rem;
+        gap: 30px;
       }
   
       ul {
@@ -277,5 +278,3 @@
   .lupa{
     float: right;
   }
-  
-  

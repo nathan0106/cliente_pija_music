@@ -66,10 +66,11 @@
     <mat-sidenav-content class="content">
       <mat-toolbar color="primary" class="topbar">
         <span class="tabs">
-          <button mat-button>Música</button>
-          <button mat-button>Cultura</button>
-          <button mat-button>Turismo</button>
+          <button mat-button [routerLink]="'/musica'">Música</button>
+          <button mat-button [routerLink]="'/cultura'">Cultura</button>
+          <button mat-button [routerLink]="'/turismo'">Turismo</button>
         </span>
+        
   
         <span class="spacer"></span>
   
@@ -78,9 +79,13 @@
   
           <input matInput />
         </mat-form-field>
-  
-        <button mat-button>Inicio de sesión</button>
-        <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
+      
+        <button mat-button [routerLink]="'/login'">Inicio de sesión</button>
+
+        <button mat-raised-button color="accent" [routerLink]="'/register'">
+          Registro <mat-icon>person_add</mat-icon>
+        </button>
+        
       </mat-toolbar>
 
       <div class="content-body">
