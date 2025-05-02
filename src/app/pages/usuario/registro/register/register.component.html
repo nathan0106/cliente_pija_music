@@ -12,43 +12,41 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <!-- Campo de Nombre de usuario -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nombre de usuario</mat-label>
-        <input matInput formControlName="firstName" />
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="Nombres" />
       </mat-form-field>
 
       <!-- Campo de Identidad -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Identidad</mat-label>
-        <mat-select formControlName="gender">
-          <mat-option value="femenino">Femenino</mat-option>
-          <mat-option value="masculino">Masculino</mat-option>
-          <mat-option value="ninguno">Otro</mat-option>
-        </mat-select>
+<mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="Apellido" />
       </mat-form-field>
 
       <!-- Campo de Email -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Dirección de email</mat-label>
-        <input matInput formControlName="email" />
+        <input matInput formControlName="Email" />
       </mat-form-field>
+      
 
       <!-- Campo de Contraseña -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Contraseña</mat-label>
-        <input
-          matInput
-          [type]="hidePassword ? 'password' : 'text'"
-          formControlName="password"
-        />
-        <button
-          mat-icon-button
-          matSuffix
-          (click)="hidePassword = !hidePassword"
-          type="button"
-        >
-          <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
-        </button>
-      </mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="Contraseña" maxlength="8">
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+      <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- Confirmación -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Confirmar contraseña</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="Contraseña" maxlength="8">
+    <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" type="button">
+      <mat-icon>{{ hideConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="confirmPassword?.hasError('mismatch')">Las contraseñas no coinciden</mat-error>
+  </mat-form-field>
 
       <!-- Condiciones de uso -->
       <div class="terms">
@@ -59,15 +57,15 @@
         </mat-checkbox>
       </div>
 
-      <!-- Botón de Registro -->
       <button
-        mat-raised-button
-        color="primary"
-        class="register-button"
-        type="submit"
-      >
-        Registrarse
-      </button>
+      mat-raised-button
+      class="register-button"
+      (click)="openDialog('0ms', '0ms')"
+      type="submit"
+      [disabled]="!registerForm.valid || !passwordsMatch"
+    >
+      Enviar
+    </button>
     </form>
   </div>
 </div>

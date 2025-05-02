@@ -6,17 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8082/v1/'; 
+  private baseUrl = 'http://localhost:8084/v1'; // Cambia esta URL base según tu backend
 
   constructor(private http: HttpClient) {}
 
-  // Ejemplo: obtener datos
-  getDatos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/ruta`);
+  // Método GET
+  getData(endpoint: string, params: any = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${endpoint}`, { params });
   }
 
-  // Ejemplo: enviar datos
-  postDatos(body: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/ruta`, body);
+  // Método POST
+  postData(endpoint: string, data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${endpoint}`, data);
+  }
+
+  // Método PUT
+  putData(endpoint: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${endpoint}`, data);
+  }
+
+  // Método DELETE
+  deleteData(endpoint: string, id: number | string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${endpoint}/${id}`);
   }
 }
