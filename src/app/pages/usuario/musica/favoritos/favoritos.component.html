@@ -73,8 +73,11 @@
         <input matInput />
       </mat-form-field>
 
-      <button mat-button>Inicio de sesión</button>
-      <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
+      <button mat-button [routerLink]="'/login'">Inicio de sesión</button>
+
+      <button mat-raised-button color="accent" [routerLink]="'/register'">
+        Registro <mat-icon>person_add</mat-icon>
+      </button>
     </mat-toolbar>
 
    

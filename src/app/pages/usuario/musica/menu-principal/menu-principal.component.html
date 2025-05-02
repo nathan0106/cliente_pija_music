@@ -73,11 +73,15 @@
         <input matInput />
       </mat-form-field>
 
-      <button mat-button>Inicio de sesión</button>
-      <button mat-raised-button color="accent">Registro<mat-icon>contacts product</mat-icon></button>
+      
+      <button mat-button [routerLink]="'/login'">Inicio de sesión</button>
+
+        <button mat-raised-button color="accent" [routerLink]="'/register'">
+          Registro <mat-icon>person_add</mat-icon>
+        </button>
     </mat-toolbar>
   
-  
+   
     <section class="novedades">
       <h2>Novedades</h2>
       <div class="cards cards-novedades">
@@ -88,6 +92,7 @@
       </div>
     </section>
  
+    
     <section class="artistas">
       <h2>Artistas</h2>
       <div class="cards">

@@ -341,7 +341,9 @@ footer {
       }
 
       .titulo {
-        font-size: 15px;
+        margin-left: 1.5rem; /* Ajusta el valor según lo que necesites */
+        font-size: 1.8rem;
+        font-weight: 600;
       }
     }
 
@@ -362,7 +364,6 @@ footer {
 .lupa{
   float: right;
 }
-
 
 
 
