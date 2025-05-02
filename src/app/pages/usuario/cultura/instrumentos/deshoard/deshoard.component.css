@@ -1,6 +1,6 @@
 /* Contenedor general del sidenav y contenido */
 .sidenav-container {
-  height: 100vh;
+  height: 1000vh;
   display: flex;
 }
 
@@ -37,14 +37,8 @@
 
 /* Tarjetas de navegación */
 .nav-card {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.9rem;
 }
-
-.nav-card.selected {
-  background-color: #f3d9d9;
-  border-radius: 8px;
-}
-
 .nav-button {
   display: flex;
   align-items: center;
@@ -57,7 +51,7 @@
   font-size: 20px;
   text-transform: none;
   color: #0d0d0d;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 9px 5px rgba(0,0,0,0.1);
   cursor: pointer;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -69,7 +63,7 @@
 
 .nav-button img {
   width: 24px;
-  height: 25px;
+  height: 20px;
 }
 
 /* Contenido principal */

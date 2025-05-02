@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatLabel } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
-import { RouterModule, Router } from '@angular/router';
+import {RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-deshoard',
@@ -24,14 +25,14 @@ import { RouterModule, Router } from '@angular/router';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule
+    RouterModule,
+    CommonModule
+   
   ],
   templateUrl: './deshoard.component.html',
   styleUrl: './deshoard.component.css'
 })
 export class DashboardComponent {
 
-  constructor (private router: Router){}
-
-
+ 
 }

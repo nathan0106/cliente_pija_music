@@ -43,26 +43,22 @@ bootstrapApplication(AppComponent,{
             {path: 'politicas', component: PoliticasComponent },
 
             //Cultura
-            { path: 'coleo', component: ColeoComponent},
-            {path: 'coplas', component: CoplasComponent},
-            {path: 'cotiza', component: CotizaComponent},
-            {path: 'danza', component: DanzaComponent},
-            {path: 'instrumentos', component: InstrumentosComponent},
-            {path: 'trajes', component: TrajesTipicosComponent},
+           
             {path:'card',component:CardCaroselComponent },
             {path:'deshboard',component:DashboardComponent,
                 children: [
                     {
                         path:'instrumentos',component: InstrumentosComponent
+                        
                     },
                     {
-                        path:'copla',component:CoplasComponent
+                        path:'coplas',component:CoplasComponent
                     },
                     {
                         path:'coleo',component:ColeoComponent
                     },
                     {
-                        path:'trajes tipicos',component:TrajesTipicosComponent
+                        path:'trajes-tipicos',component:TrajesTipicosComponent
                     },
                     {
                         path:'cotiza',component:CotizaComponent
