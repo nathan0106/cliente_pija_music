@@ -129,58 +129,14 @@
     background-color: #ECD8FC;
 }
 
-/* Instrument Section */
-.fondo-de-pantalla {
-    padding: 20px;
-    background-color: #E1E4EA;
-    border-radius: 8px;
-    margin-top: 20px;
-}
 /* esl tamaño de los lados botones */
 .contenedor {
     display: flex;
     overflow-x: scroll;
     gap: 100px;
 }
-/* separacion botones*/
-.division {
-    flex-shrink: 0;
-    width: 200px;
-}
-/* estilo de los botones*/
-.card {
-    background-color: #eee;
-    border-radius: 7px;
-    padding: 9px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  /* estilo de los botones imagen*/
-  .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 80px;
-  }
-  /* estilo de los botones informacion*/
-.card button {
-    background-color: #eeaab5;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 0.9em;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-/* Texto de información */
-.texto-informacion {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #e7ebf3;
-    border-radius: 8px;
-    line-height: 1.6;
-}
+
+
 /* tamaño del texto */
 .texto-informacion p {
     font-size: 1.2em;

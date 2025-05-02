@@ -1,27 +1,23 @@
-<div clase="carosel-wrapper">
-    <h2>Instrumentos/h2>
+<div class="carousel-wrapper">
+    <h2>Instrumentos</h2>
         <p class="description">Instrumentos</p>
 
-        <div class="carosel-container">
+        <div class="carousel-container">
             <button mat-raised-button color="primary" (click)="goPrevious()" [disabled]="currenIndex ===0">Anterior</button>
-
-            <div class="card-track-container">
-                <div class="carosel-track"[style.transform]="getTransform()"> 
-                    <mat-card class="carosel-card">
-                       <img mat-card-image [src]="card.imagen" alt="imagen de los instrumentos"/>
+    
+            <div class="carousel-track-container">
+                <div class="carousel-track" [style.transform]="getTransform()">
+                    <mat-card class="carousel-card" *ngFor="let card of cards">
+                        <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta"/>
                         <mat-card-title>{{card.title}}</mat-card-title>
-                        <mat-card-action>
-                        <button mat-button color="accernt" (click)="moatrarDetalle(card)">{{cad.title_button}}</button>
-                    </mat-card-action> 
+                        <mat-card-actions>
+                            <button mat-button color="accent" (click)="mostrarDetalle(card)">{{card.title_button}}</button>
+                        </mat-card-actions>
                     </mat-card>
-            
                 </div>
             </div>
-            <button mat-raised-button color="primary"(click)="goNext()"[disabled]="currenIndex===cards.length">Siguiente</button>
+            <button mat-raised-button color="primary" (click)="goNext()" [disabled]="currenIndex===cards.length">Siguiente</button>
         </div>
-        <div class="detalle-info" *ngIf="selectedInfo">
-            <h3>{{selectadInfo.title}}</h3>
-            <p>{{selectadInfo.description}}</p>
-            <button mat-stroked-button color="warn" (click)="cerrarDetalle()">Cerra</button>
-        </div>
+
+  
 </div>

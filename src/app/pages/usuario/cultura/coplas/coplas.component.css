@@ -1,0 +1,39 @@
+/*centra el contenido horizantal y vertical*/
+.contenido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+/* Estilo de la tarjeta: borde, sombra, espacio interior y fondo */
+.card{
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #E1E4EA;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+/* Estilo de la imagen: ancho fijo y esquinas redondeadas */
+.card img{
+    width: 200px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+/* Estilo del botón: color, tamaño, forma y puntero */
+.card button{
+    padding: 1px 20px;
+    background-color: #6b46c1;
+    color: white;
+    border-radius: px;
+    cursor: pointer;
+}
+/* Efecto hover cuando se pasa el mouse sobre el botón */
+.card button:hover{
+    background-color: #553c9a;
+}
+/*color fondo*/
+.body{
+    background-color:#3d67bb ;
+    margin: 0;
+    font-family: arial,sens-serif;
+}
