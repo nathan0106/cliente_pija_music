@@ -1,50 +1,55 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; 
+import { NgIf, NgFor } from '@angular/common';
+
+
 
 @Component({
+  standalone: true,
   selector: 'app-senderismo',
-  standalone:true,
-  imports: [
+  imports:[
+    MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-
+    NgIf,
+    NgFor
   ],
   templateUrl: './senderismo.component.html',
-  styleUrl: './senderismo.component.css'
+  styleUrls: ['./senderismo.component.css']
 })
 export class SenderismoComponent {
+  lugarActivoId: number | null = null;
+
+  constructor(private router: Router,
+  ) {} 
 
   lugares = [
     {
-      nombre: 'Mirador de la virgen de manare',
-      ubicacion: 'Yopal, Casanare',
-      distancia: '2.0 km',
-      imagen: 'assets/senderismo1.jpg'
+      id: 1,
+      nombre: 'Mirador de la virgen de manare.',
+      ciudad: 'Yopal',
+      departamento: 'Casanare',
+      distancia: '2.6 km',
+      imagen: 'assets/imgs/mirador.jpg', // asegúrate que esta ruta sea correcta
+      descripcion: [
+        'El Mirador se alza como un símbolo de fe y belleza...',
+        'Proporciona una vista climática exuberante...',
+        'Popular para deportistas y caminantes...',
+      ],
+      frase: 'Ubicado a 2.6 km de la Marginal de la Selva hacia el cerro El Venado.',
     },
-    {
-      nombre: 'Balcones del Cacique',
-      ubicacion: 'Tauramena, Casanare',
-      distancia: '10 km',
-      imagen: 'assets/senderismo2.jpg'
-    },
-    {
-      nombre: 'Parque temático Historia de piedra',
-      ubicacion: 'Yopal, Casanare',
-      distancia: '5.5 km',
-      imagen: 'assets/senderismo3.jpg'
-    }
+    // Agrega más objetos lugar aquí si lo deseas
   ];
+
+  mostrarInformacion(id: number) {
+    this.lugarActivoId = this.lugarActivoId === id ? null : id;
+  }
+
+  verDetalle(id: number) {
+    this.router.navigate(['/senderismo', id]);
+  }
 }
+

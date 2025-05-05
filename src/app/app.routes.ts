@@ -5,13 +5,14 @@ import { ContrasenaComponent } from './pages/usuario/registro/contrasena/contras
 import { SenderismoComponent } from './pages/usuario/turismo/senderismo/senderismo.component';
 import { RegisterComponent } from './pages/usuario/registro/register/register.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'contraseña', component: ContrasenaComponent},
-  { path: 'senderismo', component: SenderismoComponent},
-  
+  { path: 'senderismo', component: SenderismoComponent},  
+
 ];
 
 @NgModule({

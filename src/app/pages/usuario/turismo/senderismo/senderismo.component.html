@@ -1,47 +1,30 @@
-    <div class="senderismo-section">
-      <h2 class="titulo-Senderismo">Senderismo</h2>
-    
-      <div class="tarjetas-container">
-        <!-- Tarjeta 1 -->
-        <mat-card class="lugar-card">
-          <div class="lugar-header">
-            <mat-icon>hiking</mat-icon>
-            <span class="titulo">Mirador de la virgen de manare.</span>
-          </div>
-          <img mat-card-image src="mirador1.jpg" alt="Mirador de la virgen de manare" />
-          <div class="lugar-info">
-            <div>Yopal<br />Casanare</div>
-            <div><strong>Distancia</strong><br />2.6 km</div>
-          </div>
-        </mat-card>
-    
-        <!-- Tarjeta 2 -->
-        <mat-card class="lugar-card">
-          <div class="lugar-header">
-            <mat-icon>hiking</mat-icon>
-            <span class="titulo">Balcones del Cacique</span>
-          </div>
-          <img mat-card-image src="cacique.jpeg" alt="Balcones del Cacique" />
-          <div class="lugar-info">
-            <div>Tauramena<br />Casanare</div>
-            <div><strong>Distancia</strong><br />15 km</div>
-          </div>
-        </mat-card>
-    
-        <!-- Tarjeta 3 -->
-        <mat-card class="lugar-card">
-          <div class="lugar-header">
-            <mat-icon>hiking</mat-icon>
-            <span class="titulo">Parque temático<br />Historia de piedra</span>
-          </div>
-          <img mat-card-image src="historia de piedra.jpg" alt="Parque temático Historia de piedra" />
-          <div class="lugar-info">
-            <div>Yopal<br />Casanare</div>
-            <div><strong>Distancia</strong><br />5.5 km</div>
-          </div>
-        </mat-card>
-      </div>
-    </div>
-    
+<mat-card class="lugar-card" *ngFor="let lugar of lugares">
+  <div class="lugar-header">
+    <mat-icon>hiking</mat-icon>
+    <span class="titulo">{{ lugar.nombre }}</span>
+  </div>
 
+  <!-- Imagen clickeable -->
+  <img
+    mat-card-image
+    [src]="lugar.imagen"
+    [alt]="lugar.nombre"
+    style="cursor: pointer"
+    (click)="mostrarInformacion(lugar.id)"
+  />
 
+  <div class="lugar-info">
+    <div>{{ lugar.ciudad }}<br />{{ lugar.departamento }}</div>
+    <div><strong>Distancia</strong><br />{{ lugar.distancia }}</div>
+  </div>
+
+  <!-- Información expandible -->
+  <div *ngIf="lugarActivoId === lugar.id" class="info-expandida">
+    <p><strong>Descripción:</strong></p>
+    <ul>
+      <li *ngFor="let desc of lugar.descripcion">{{ desc }}</li>
+    </ul>
+    <p><em>{{ lugar.frase }}</em></p>
+  </div>
+  <button mat-raised-button,  >Ver</button>
+</mat-card>

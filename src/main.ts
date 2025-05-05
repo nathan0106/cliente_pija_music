@@ -78,6 +78,7 @@ bootstrapApplication(AppComponent,{
                     {
                         path: 'senderismo', component: SenderismoComponent
                     },
+                    
                 ]
              },
 
