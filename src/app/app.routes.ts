@@ -13,16 +13,17 @@ import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: '/musica', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'politicas', component: PoliticasComponent },
   { path: 'codigo', component: CodigoComponent},
   {path: 'registro', component: RegisterComponent},
-  { path: 'contrasena', component: ContrasenaComponent }, // <- corregido
+  { path: 'contrasena', component: ContrasenaComponent }, 
   { path: 'menu-principal', component: MenuPrincipalComponent },
   {path: 'notificaciones', component: NotificacionesComponent}, 
   {path: 'playlist', component: PlaylistComponent},
   {path: 'buscar', component: BuscarComponent},
-  
+ 
  
 ];
 

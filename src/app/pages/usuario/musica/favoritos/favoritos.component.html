@@ -14,7 +14,6 @@
       </div>
 
       <div class="nav-card">
-
         <button class="nav-button">
           <mat-icon>search</mat-icon>
           <span>Buscar</span>
@@ -22,40 +21,38 @@
       </div>
     </div>
 
-  <div class="section">
-    <p class="section-titulo">Biblioteca</p>
+    <div class="section">
+      <p class="section-titulo">Biblioteca</p>
 
- 
-    <div class="nav-card">
-      <button  class="nav-button">
-        <mat-icon>subscriptions</mat-icon>
-        <span>Playlists</span>
-      </button>
-    </div>
+      <div class="nav-card">
+        <button  class="nav-button">
+          <mat-icon>subscriptions</mat-icon>
+          <span>Playlists</span>
+        </button>
+      </div>
 
-    <div class="nav-card">
-      <button  class="nav-button">
-       <mat-icon>sentiment_satisfied</mat-icon>
-       <span>Personalizar</span>
-      </button>
-    </div>
+      <div class="nav-card">
+        <button  class="nav-button">
+         <mat-icon>sentiment_satisfied</mat-icon>
+         <span>Personalizar</span>
+        </button>
+      </div>
 
-    
-    <div class="nav-card">
-      <button  class="nav-button">
-        <mat-icon>bookmark</mat-icon>
-        <span>Favoritos</span>
-      </button>
-    </div>
+      <div class="nav-card">
+        <button  class="nav-button">
+          <mat-icon>bookmark</mat-icon>
+          <span>Favoritos</span>
+        </button>
+      </div>
 
-    <div class="nav-card">
-      <button  class="nav-button">
-        <mat-icon>notifications</mat-icon>
-        <span>Notificaciones</span>
-      </button>
+      <div class="nav-card">
+        <button  class="nav-button">
+          <mat-icon>notifications</mat-icon>
+          <span>Notificaciones</span>
+        </button>
+      </div>
     </div>
-  </div>
-</mat-sidenav>
+  </mat-sidenav>
 
   <mat-sidenav-content class="content">
     <mat-toolbar color="primary" class="topbar">
@@ -69,7 +66,6 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Buscar</mat-label><mat-icon class="lupa">search</mat-icon>
-
         <input matInput />
       </mat-form-field>
 
@@ -80,7 +76,6 @@
       </button>
     </mat-toolbar>
 
-   
     <h2 class="titulo-favoritos">Favoritos</h2>
     <div class="card-grid">
       <div *ngFor="let card of cards" class="card">
@@ -88,8 +83,6 @@
         <div class="artist-name">{{ card.title }}</div>
       </div>
     </div>
-
-
 
     <footer class="footer">
       <div class="footer-container">
@@ -131,15 +124,14 @@
       <div class="footer-bottom">
         <div class="legal-links">
           <a href="#">Legal</a>
-          <a href="#">seguridad y centro de privacidad</a>
-          <a href="#">políticas de privacidad</a>
-          <a href="#">cookies</a>
+          <a href="#">Seguridad y centro de privacidad</a>
+          <a href="#">Políticas de privacidad</a>
+          <a href="#">Cookies</a>
         </div>
         <div class="copyright">
           Copyright © 2024 Pija Music, Reservados todos los derechos.
         </div>
       </div>
     </footer>
-    
-
- 
+  </mat-sidenav-content>
+</mat-sidenav-container>

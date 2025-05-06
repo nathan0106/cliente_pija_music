@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,11 +10,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router'; 
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-playlist.component',
   standalone: true,
   imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
@@ -22,14 +26,12 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule,
-    CommonModule,
-    RouterModule
+    MatInputModule
   ],
   templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.css'] 
+  styleUrls: ['./playlist.component.css']
 })
-export class PlaylistComponent { 
+export class PlaylistComponent {
   @Input() cardCount: number = 7;
 
   cards = [
@@ -42,13 +44,8 @@ export class PlaylistComponent {
     { title: 'Yesid Ortiz', imageUrl: 'Fav4.png' },
     { title: 'Yaguazo', imageUrl: 'Fav8.png' },
     { title: 'Milena Benites', imageUrl: 'play7.png' },
- 
-
   ];
 
-  constructor(private router: Router) {}
 
-  navigateTo(link: string) {
-    this.router.navigateByUrl(link);
-  }
+
 }

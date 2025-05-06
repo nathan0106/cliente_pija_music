@@ -367,42 +367,36 @@ footer {
 
 
 
-.card-grid {
-  display: flex;
-  flex-direction: column; /* Cambia la dirección a columna */
-  align-items: center; /* Centra las tarjetas horizontalmente */
-  gap: 20px; /* Espacio entre las tarjetas */
-  padding: 2rem; /* Espacio alrededor del contenedor si es necesario */
-  overflow-y: auto; /* Añade desplazamiento vertical si el contenido es muy grande */
-}
-.card-image {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
-  margin-bottom: 8px;
- 
-}
-.card {
-  width: 140px; /* Cada tarjeta tiene ancho fijo */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  transition: transform 0.3s ease;
-}
 .cards {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 2rem;
 }
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 
 .logo-section {
   display: flex;

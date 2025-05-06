@@ -7,10 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; 
-import { RouterModule } from '@angular/router'; 
+import { MatInputModule } from '@angular/material/input';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-menu-principal',
@@ -27,84 +26,90 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     CommonModule,
-    RouterModule, 
+    RouterModule,
     FormsModule,
-
   ],
-  
 })
-
 export class MenuPrincipalComponent {
-// Datos de ejemplo
-novedades = [
-  { img: '/imag1.png', title: 'Música - Recuerda la esencia de la musica llanera' },
-  { img: '/imag2.png', title: 'Cultura - conoce la diversidad del llano' },
-  { img: '/imag3.png', title: 'Turismo - lugares mas visitados' },
+  // Inyección del Router para navegación entre rutas
+  constructor(private router: Router) {}
+  novedades = [
+    {
+      img: '/imag1.png',
+      title: 'Música - Recuerda la esencia de la musica llanera',
+      route: '/musica',
+    },
+    {
+      img: '/imag2.png',
+      title: 'Cultura - conoce la diversidad del llano',
+      route: '/cultura',
+    },
+    {
+      img: '/imag3.png',
+      title: 'Turismo - lugares mas visitados',
+      route: '/turismo',
+    },
+  ];
 
-];
+  artistas = [
+    { img: '/Art1.png', name: 'Yaguazo', route: '/artistas/yaguazo' },
+    { img: '/Art2.png', name: 'Walter Silva', route: '/artistas/walter-silva' },
+    { img: '/Art3.png', name: 'Reinal Armas', route: '/artistas/reinal-armas' },
+    { img: '/Art4.png', name: 'Milena Benitez', route: '/artistas/milena-benitez' },
+    { img: '/Art5.png', name: 'Luis Silva', route: '/artistas/luis-silva' },
+    { img: '/Art6.png', name: 'El Cholo', route: '/artistas/el-cholo' },
+  ];
 
-artistas = [
-  { img: '/Art1.png', name: 'Yaguazo' },
-  { img: '/Art2.png', name: 'Walter Silva' },
-  { img: '/Art3.png', name: 'Reinal Armas' },
-  { img: '/Art4.png', name: 'Milena Benitez' },
-  { img: '/Art5.png', name: 'Luis Silva' },
-  { img: '/Art6.png', name: 'El Cholo' }
-];
+  // Mensajes simulados para el asistente virtual
+  messages = [{ text: '¡Hola! ¿En qué puedo ayudarte hoy?' }];
 
-messages = [
-  { text: '¡Hola! ¿En qué puedo ayudarte hoy?' },
-];
-userInput = '';
-searchQuery = '';
+  // Variables para entrada de usuario y búsqueda
+  userInput = '';
+  searchQuery = '';
 
-// Método para navegar
-navigateTo(section: string) {
-  console.log(`Navegando a ${section}`);
-  // Aquí va la lógica de navegación
-}
-
-// Método para manejar el cambio de categoría
-changeCategory(category: string) {
-  console.log(`Mostrando categoría: ${category}`);
-  // Aquí va la lógica para mostrar los contenidos de la categoría seleccionada
-}
-
-// Método para buscar
-onSearch() {
-  console.log(`Buscando: ${this.searchQuery}`);
-}
-
-// Método para enviar un mensaje
-sendMessage() {
-  if (this.userInput.trim()) {
-    this.messages.push({ text: this.userInput });
-    this.userInput = '';
-    
-    // Simulamos una respuesta del asistente
-    setTimeout(() => {
-      this.messages.push({ text: '¿Te gustaría ver más novedades o artistas?' });
-    }, 1000);
+  // Método de navegación que usa el Router para ir a la ruta especificada
+  navigateTo(route: string) {
+    console.log(`Navegando a ${route}`);
+    this.router.navigate([route]);
   }
-}
 
-// Método para simular búsqueda
-search() {
-  console.log('Iniciando búsqueda...');
-}
+  changeCategory(category: string) {
+    console.log(`Mostrando categoría: ${category}`);
+  }
+  onSearch() {
+    console.log(`Buscando: ${this.searchQuery}`);
+  }
 
-// Método para personalizar
-customize() {
-  console.log('Personalizando opciones...');
-}
+  // Envía un mensaje en el chat y muestra una respuesta simulada
+  sendMessage() {
+    if (this.userInput.trim()) {
+      this.messages.push({ text: this.userInput });
+      this.userInput = '';
 
-// Método para ir a Playlists
-goToPlaylists() {
-  console.log('Mostrando playlists...');
-}
+      // Simula respuesta automática del asistente
+      setTimeout(() => {
+        this.messages.push({ text: '¿Te gustaría ver más novedades o artistas?' });
+      }, 1000);
+    }
+  }
 
-// Método para ir a Favoritos
-navigateToFavorites() {
-  console.log('Mostrando favoritos');
- }
+  // Acción al iniciar una búsqueda desde otro botón
+  search() {
+    console.log('Iniciando búsqueda...');
+  }
+
+  // Acción para personalizar opciones
+  customize() {
+    console.log('Personalizando opciones...');
+  }
+
+  // Acción para mostrar playlists
+  goToPlaylists() {
+    console.log('Mostrando playlists...');
+  }
+
+  // Acción para mostrar favoritos
+  navigateToFavorites() {
+    console.log('Mostrando favoritos');
+  }
 }

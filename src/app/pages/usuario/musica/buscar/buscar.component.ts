@@ -8,13 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-buscar',
   standalone: true,
   imports: [
+    CommonModule,
+    RouterModule,
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
@@ -23,14 +25,15 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    CommonModule,
-    RouterModule
+    FormsModule
   ],
   templateUrl: './buscar.component.html',
-  styleUrls: ['./buscar.component.css'] 
+  styleUrls: ['./buscar.component.css']
 })
-export class BuscarComponent {  
+export class BuscarComponent {
   @Input() cardCount: number = 7;
+
+  searchQuery = ''; // vincula el contenido del campo de texto con la variable
 
   cards = [
     { title: 'Huber Paredes', imageUrl: 'Fav9.png' },
@@ -41,18 +44,26 @@ export class BuscarComponent {
     { title: 'Milena Benites', imageUrl: 'play7.png' },
     { title: 'Jorge Calderón', imageUrl: 'Fav7.png' },
     { title: 'Yaguazo', imageUrl: 'Fav8.png' },
-
-   
-    
-    
-   
-   
-    
   ];
 
-  constructor(private router: Router) {}
+  filteredCards = [...this.cards];
 
-  navigateTo(link: string) {
-    this.router.navigateByUrl(link);
+  onSearch(): void {
+    const query = this.searchQuery.toLowerCase();
+    this.filteredCards = this.cards.filter(card =>
+      card.title.toLowerCase().includes(query)
+    );
+  }
+
+  navigateTo(route: string): void {
+    console.log(`Ir a: ${route}`);
+  }
+
+  changeCategory(category: string): void {
+    console.log(`Cambiar a categoría: ${category}`);
+  }
+
+  customize(): void {
+    console.log('Personalización activada');
   }
 }

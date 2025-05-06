@@ -1,90 +1,79 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened class="sidenav">
-      <div class="logo-section">
-        <img src="/logo.png" alt="Logo " />
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="logo-section">
+      <img src="/logo.png" alt="Logo" />
+    </div>
+
+    <div class="section">
+      <h2>Descubre</h2>
+      <div class="nav-card">
+        <button class="nav-button">
+          <mat-icon>home</mat-icon>
+          <span>Inicio</span>
+        </button>
       </div>
-  
-      <div class="section">
-        <h2>Descubre</h2>
-        <div class="nav-card">
-          <button class="nav-button">
-           <mat-icon>home</mat-icon>
-           <span>Inicio</span>
-          </button>
-        </div>
-  
-        <div class="nav-card">
-  
-          <button class="nav-button">
-            <mat-icon>search</mat-icon>
-            <span>Buscar</span>
-          </button>              
-        </div>
+      <div class="nav-card">
+        <button class="nav-button">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>
       </div>
-  
+    </div>
+
     <div class="section">
       <p class="section-titulo">Biblioteca</p>
-  
-   
       <div class="nav-card">
-        <button  class="nav-button">
+        <button class="nav-button">
           <mat-icon>subscriptions</mat-icon>
           <span>Playlists</span>
         </button>
       </div>
-  
       <div class="nav-card">
-        <button  class="nav-button">
-         <mat-icon>sentiment_satisfied</mat-icon>
-         <span>Personalizar</span>
+        <button class="nav-button">
+          <mat-icon>sentiment_satisfied</mat-icon>
+          <span>Personalizar</span>
         </button>
       </div>
-  
-      
       <div class="nav-card">
-        <button  class="nav-button">
+        <button class="nav-button">
           <mat-icon>bookmark</mat-icon>
           <span>Favoritos</span>
         </button>
       </div>
-  
       <div class="nav-card">
-        <button  class="nav-button">
+        <button class="nav-button">
           <mat-icon>notifications</mat-icon>
           <span>Notificaciones</span>
         </button>
       </div>
     </div>
   </mat-sidenav>
-  
-    <mat-sidenav-content class="content">
-      <mat-toolbar color="primary" class="topbar">
-        <span class="tabs">
-          <button mat-button>Música</button>
-          <button mat-button>Cultura</button>
-          <button mat-button>Turismo</button>
-        </span>
-  
-        <span class="spacer"></span>
-  
-        <mat-form-field appearance="outline">
-          <mat-label>Buscar</mat-label><mat-icon class="lupa">search</mat-icon>
-  
-          <input matInput />
-        </mat-form-field>
-  
-        <button mat-button [routerLink]="'/login'">Inicio de sesión</button>
 
-        <button mat-raised-button color="accent" [routerLink]="'/register'">
-          Registro <mat-icon>person_add</mat-icon>
-        </button>
-      </mat-toolbar>
+  <mat-sidenav-content class="content">
+    <mat-toolbar color="primary" class="topbar">
+      <span class="tabs">
+        <button mat-button>Música</button>
+        <button mat-button>Cultura</button>
+        <button mat-button>Turismo</button>
+      </span>
+      <span class="spacer"></span>
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <mat-icon class="lupa">search</mat-icon>
+        <input matInput />
+      </mat-form-field>
+      <button mat-button [routerLink]="'/login'">Inicio de sesión</button>
+      <button mat-raised-button color="accent" [routerLink]="'/register'">
+        Registro <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-toolbar>
 
-      <h2 class="titulo-Playlists">Playlists</h2>
-      <div class="card-grid">
-        <div *ngFor="let card of cards" class="card">
-          <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
-          <div class="artist-name">{{ card.title }}</div>
-        </div>
+    <h2 class="titulo-Playlists">Playlists</h2>
+    <div class="card-grid">
+      <div *ngFor="let card of cards" class="card">
+        <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
+        <div class="artist-name">{{ card.title }}</div>
       </div>
-  
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
