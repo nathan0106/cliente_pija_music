@@ -1,6 +1,6 @@
 /* Contenedor general del sidenav y contenido */
 .sidenav-container {
-  height: 1000vh;
+  height: 190vh;
   display: flex;
 }
 
@@ -9,7 +9,7 @@
   width: 250px;
   background-color: #B8ACD0;
   padding: 1rem;
-  box-shadow: 8px 0 5px rgba(0, 0, 0, 0.1);
+  
 }
 
 /* Logo en la parte superior del sidenav */
@@ -23,9 +23,7 @@
 }
 
 /* Sección de navegación con título */
-.section {
-  margin-bottom: 1rem;
-}
+
 
 .section h2,
 .section-titulo {
@@ -58,7 +56,7 @@
 
 .nav-button mat-icon,
 .nav-button img {
-  margin-right: 0.5rem;
+  margin-right: 0.80rem;
 }
 
 .nav-button img {
@@ -68,7 +66,7 @@
 
 /* Contenido principal */
 .content {
-  flex: 1;
+  flex: 10;
   display: flex;
   flex-direction: column;
 }
@@ -78,7 +76,7 @@
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 29px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tabs {

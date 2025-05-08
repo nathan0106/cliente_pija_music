@@ -30,6 +30,7 @@ import { PoliticasComponent } from './app/pages/usuario/registro/politicas/polit
 import { CardCaroselComponent } from './app/pages/usuario/cultura/instrumentos/card-carosel/card-carosel.component';
 import { DashboardComponent } from './app/pages/usuario/cultura/instrumentos/deshoard/deshoard.component';
 
+
 bootstrapApplication(AppComponent,{
     providers:[
         provideRouter([
@@ -68,7 +69,8 @@ bootstrapApplication(AppComponent,{
                     },
                     {
                         path:'card',component:CardCaroselComponent
-                    }
+                    },
+                    
                 ]
             },
 

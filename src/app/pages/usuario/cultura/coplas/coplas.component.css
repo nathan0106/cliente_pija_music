@@ -1,39 +1,90 @@
-/*centra el contenido horizantal y vertical*/
-.contenido{
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #3b3b3b;
+  }
+  
+  .imagen-boton {
     display: flex;
     justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
-}
-/* Estilo de la tarjeta: borde, sombra, espacio interior y fondo */
-.card{
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #E1E4EA;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-}
-/* Estilo de la imagen: ancho fijo y esquinas redondeadas */
-.card img{
+  }
+  
+  .item img {
     width: 200px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-/* Estilo del botón: color, tamaño, forma y puntero */
-.card button{
-    padding: 1px 20px;
-    background-color: #6b46c1;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .item button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background-color: #DDB9F9;
     color: white;
-    border-radius: px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-}
-/* Efecto hover cuando se pasa el mouse sobre el botón */
-.card button:hover{
-    background-color: #553c9a;
-}
-/*color fondo*/
-.body{
-    background-color:#3d67bb ;
-    margin: 0;
-    font-family: arial,sens-serif;
-}
+    transition: background-color 0.3s ease;
+  }
+  
+  .item button:hover {
+    background-color: #ECD8FC;
+  }
+  
+  .texto-informacion {
+    max-width: 120000px; /* O cualquier valor mayor */
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+  }
+  
+  
+  .texto-informacion h3 {
+    margin-top: 1rem;
+    color: #050606;
+  }
+  
+  .cntenido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .cntenido h2 {
+    margin-top: 1.5rem;
+    color: #1e2322;
+  }
+  
+  .cntenido img {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .imagen-boton {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .item img {
+      width: 90%;
+    }
+  }
+  

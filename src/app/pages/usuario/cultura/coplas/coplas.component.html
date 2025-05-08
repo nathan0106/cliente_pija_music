@@ -1,10 +1,41 @@
-<div class="container">
-    <div class="card">
-        <img src="coplero.jpeg" alt="coplero">
-        <button [routerLink]="['/coplero']">coplas</button>     
-        <img src="copla!.jpg" alt="ejemplos">
-        <button [routerLink]="['/ejemplos']">ejemplos</button>
+ <h2>coplas</h2>
+ <div class="imagen-boton">
+    <div class="item">
+        <img src="Pioabril.jpg" alt="copleros"class="img-grande">
+        <button (click)="mostrarSeccion('copleros')">copleros</button>
+    </div>
+    <div class="item">
+        <img src="COPLALOGO.jpg" alt="copla">
+        <button (click)="mostrarSeccion('coplas')">copla</button>
+    </div>
+ </div>
+ <div class="texto-informacion">
+    <p>{{copla_informacion.infirmacion1}}</p>
+    <h3>{{copla_informacion.titulo1}}</h3>
+    <p>{{copla_informacion.informacion2}}</p>
+    <h3>{{copla_informacion.titulo2}}</h3>
+    <p>{{copla_informacion.informacion3}}</p>
+ </div>
+ <div class="cntenido" *ngIf="seccionActual as actual">
+    <h2>{{secciones[actual].titulo1 }}</h2>
+    <p>{{secciones[actual].contenido2 }}</p>
+    <h2>{{secciones[actual].titulo2 }}</h2>
+    <p>{{secciones[actual].contenido3 }}</p>
+    <h2>{{secciones[actual].titulo3 }}</h2>
+    <p>{{secciones[actual].contenido4 }}</p>
+    
+    <h2>{{secciones[actual].coplero1 }}</h2>
+    <p>{{secciones[actual].biogracia1 }}</p>
+    <img *ngIf="secciones[actual].imagen1" [src]="secciones[actual].imagen1" alt="coplero1" width="400">
+    <h2>{{secciones[actual].contapunteo2 }}</h2>
+    <p>{{secciones[actual].biografia2 }}</p>
+    <img *ngIf="secciones[actual].imagen2" [src]="secciones[actual].imagen2" alt="coplero2">
+    <h2>{{secciones[actual].contapunteo3 }}</h2>
+    <p>{{secciones[actual].biografia3 }}</p>
+    <img *ngIf="secciones[actual].imagen3" [src]="secciones[actual].imagen3" alt="coplero2">
+    <h2>{{secciones[actual].contapunteo4 }}</h2>
+    <p>{{secciones[actual].biografia4 }}</p>
+    <img *ngIf="secciones[actual].imagen4" [src]="secciones[actual].imagen4" alt="coplero2">
+ </div>
 
-</div>
-
-<p>coplas</p>
+ 

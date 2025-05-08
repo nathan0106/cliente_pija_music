@@ -8,7 +8,7 @@
 .description{
     margin-bottom: 20px;
     font-style: italic;
-    color: #666;
+    color: #2f2e2f;
 }
 
 .carousel-container{
@@ -27,7 +27,7 @@
     transition: transform 0.5s ease-in-out;
 }
 .carousel-card{
-    min-width: 300px;
+    min-width: 220px; /* ← antes: 300px */
     margin: 0 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -35,8 +35,8 @@
 .detalle-info{
     margin-top: 30px;
     padding: 20px;
-    border-top: 2px solid #fa9daed4;
-    background-color: #707070;
+    border-top: 2px solid #e0e2e7;
+    background-color: #e0e2e7;
     text-align: center;
     animation: fadeIn 0.3s ease-in-out;
 }

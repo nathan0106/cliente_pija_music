@@ -18,5 +18,22 @@
             </div>
             <button mat-raised-button color="primary" (click)="goNext()" [disabled]="currenIndex===cards.length">Siguiente</button>
         </div>
+        
+  <div class="texto-informacion">
+    <p> {{informacion_instrumentos.instrumentos}}</p> 
+   </div> 
 
-</div>
+        <div class="detalle-info" *ngIf="selectedInfo">
+            <h3>{{selectedInfo.title}}</h3>
+            <p>{{selectedInfo.description}}</p>
+            <h3>{{selectedInfo.title1}}</h3>
+            <p>{{selectedInfo.origen}}</p>
+            <h3>{{selectedInfo.title2}}</h3>
+            <p>{{selectedInfo.llagada}}</p>
+
+            <button mat-stroked-button color="warn" (click)="cerrarDetalle()">Cerrar</button>
+    
+        </div>
+
+</div> 
+

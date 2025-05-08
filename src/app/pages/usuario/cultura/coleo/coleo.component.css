@@ -1,0 +1,123 @@
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  .image-button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .card {
+    width: 200px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  /* Encabezado principal */
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    color: #3a3a3a;
+  }
+  
+  .imagen-boton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .imagen-boton img {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .imagen-boton img:hover {
+    transform: scale(1.05);
+  }
+  
+  .imagen-boton button {
+    margin-top: 0.5rem;
+    background-color: #DDB9F9;
+    color: rgb(13, 12, 12);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .imagen-boton button:hover {
+    background-color: #ECD8FC;
+  }
+  
+  .contenido {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #E1E4EA;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px #E1E4EA;
+  }
+  
+  .contenido img {
+    display: block;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+  }
+  
+  .contenido p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  .imagen-boton .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .texto-informacion {
+    .texto-informacion {
+      max-width: 1200px; /* o 100% para usar todo el ancho */
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #E1E4EA;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    
+  }
+  
+  .texto-informacion h3 {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    color: #18191a;
+    border-left: 4px 
+    padding-left: 0.5rem;
+  }
+  .texto-informacion p {
+    font-size: 1rem;
+    line-height: 1.0;
+    margin-top: 0.8rem;
+    text-align: justify;
+  }
+  
+  
