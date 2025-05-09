@@ -27,6 +27,7 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -50,13 +51,36 @@ bootstrapApplication(AppComponent,{
             {path: 'trajes', component: TrajesTipicosComponent},
 
             //Musica
-            {path: 'artista', component: ArtistaComponent},
-            {path: 'buscar', component: BuscarComponent},
-            {path: 'canciones', component: CancionesComponent},
-            {path: 'favoritos', component: FavoritosComponent},
-            {path: 'menu', component: MenuPrincipalComponent},
-            {path: 'notificaciones', component: NotificacionesComponent},
-            {path: 'playlist', component: PlaylistComponent},
+            { path: 'dashboardmusica', component:DashboardMusicaComponent,
+                children:[
+
+            {
+                path: 'artista', component: ArtistaComponent
+            },
+            {
+                path: 'buscar', component: BuscarComponent
+            },
+            {
+                path: 'canciones', component: CancionesComponent
+            },
+            {
+                path: 'favoritos', component: FavoritosComponent
+            },
+            {
+                path: 'menu', component: MenuPrincipalComponent
+            },
+            {
+                path: 'notificaciones', component: NotificacionesComponent
+            },
+            {
+                path: 'playlist', component: PlaylistComponent
+            },
+             ],
+
+            },
+
+
+
 
             //turismo
             {path: 'familiar', component: ActividadFamiliarComponent},
