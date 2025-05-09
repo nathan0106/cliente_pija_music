@@ -28,6 +28,9 @@ import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.comp
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
 import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
+import { LugarcardComponent } from './app/pages/usuario/turismo/lugarcard/lugarcard.component';
+import { LugaresGeneralComponent } from './app/pages/usuario/turismo/lugares-general/lugares-general.component';
+import { LugarinformacionComponent } from './app/pages/usuario/turismo/lugarinformacion/lugarinformacion.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -60,7 +63,7 @@ bootstrapApplication(AppComponent,{
             {path: 'playlist', component: PlaylistComponent},
 
             //turismo
-            { path: 'dashboardsenderismo', component: DashboardsenderismoComponent,
+            { path: 'dashboardturismo', component: DashboardsenderismoComponent,
                 children:[
                     
                     {
@@ -78,7 +81,15 @@ bootstrapApplication(AppComponent,{
                     {
                         path: 'senderismo', component: SenderismoComponent
                     },
-                    
+                    {
+                        path: 'lugares', component: LugaresGeneralComponent
+                    }
+                    // { path: 'lugares', component: LugarcardComponent 
+
+                    // },
+                    // { path: 'informacion', component: LugarinformacionComponent 
+
+                    // }
                 ]
              },
 

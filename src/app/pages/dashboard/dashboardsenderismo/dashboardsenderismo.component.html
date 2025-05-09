@@ -24,40 +24,11 @@
   
     <div class="section">
       <p class="section-titulo">Biblioteca</p>
-  
-      <div class="nav-card selected">
-        <button  class="nav-button" routerLink="/dashboardsenderismo/senderismo">
-          <mat-icon>hiking</mat-icon>
-          <span>Senderismo</span>
-        </button>
-      </div>
-  
+
       <div class="nav-card">
-        <button  class="nav-button" routerLink="/dashboardsenderismo/familiar">
-          <mat-icon>favorite</mat-icon>
-          <span>Actividades familiares</span>
-        </button>
-      </div>
-  
-      <div class="nav-card">
-        <button  class="nav-button" routerLink="/dashboardsenderismo/historia">
-         <mat-icon>museum</mat-icon>
-         <span>Lugares Históricos</span>
-        </button>
-      </div>
-  
-      
-      <div class="nav-card">
-        <button  class="nav-button" routerLink="/dashboardsenderismo/evento">
-          <mat-icon>event</mat-icon>
-          <span>Eventos Culturales</span>
-        </button>
-      </div>
-  
-      <div class="nav-card">
-        <button  class="nav-button" routerLink="/dashboardsenderismo/comida">
-          <mat-icon>restaurant</mat-icon>
-          <span>Comidas típicas</span>
+        <button  class="nav-button" (click)="verLugaresPorTipo('lugares-historicos')">
+         <mat-icon>star</mat-icon>
+         <span>Lugares</span>
         </button>
       </div>
     </div>
@@ -85,7 +56,6 @@
         <button mat-raised-button color="accent" [routerLink]="'/register'">
           Registro <mat-icon>person_add</mat-icon>
         </button>
-        
       </mat-toolbar>
 
       <div class="content-body">

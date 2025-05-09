@@ -1,0 +1,85 @@
+.detalle-container {
+  padding: 24px;
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.detalle-container h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: #2c3e50;
+}
+
+.detalle-container p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.detalle-container strong {
+  color: #555;
+}
+
+.imagenes {
+  margin-top: 20px;
+}
+
+.imagenes h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.galeria img {
+  width: calc(50% - 12px);
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  margin-top: 24px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* RESPONSIVE: para pantallas menores a 600px */
+@media screen and (max-width: 600px) {
+  .detalle-container {
+    padding: 16px;
+  }
+
+  .detalle-container h1 {
+    font-size: 24px;
+  }
+
+  .galeria img {
+    width: 100%; /* una imagen por fila en móviles */
+  }
+
+  button {
+    width: 100%;
+    font-size: 18px;
+  }
+}

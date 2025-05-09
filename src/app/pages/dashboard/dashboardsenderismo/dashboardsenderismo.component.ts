@@ -34,5 +34,7 @@ export class DashboardsenderismoComponent {
 
   constructor (private router: Router){}
 
-
+  verLugaresPorTipo(tipo: string) {
+    this.router.navigate(['/dashboardturismo/lugares', tipo]); // Ej: /lugares/senderismo
+}
 }

@@ -253,8 +253,9 @@
     font-weight: bold;
   }
   
+  /*biblioteca*/
   .nav-button span{
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     font-size:14px;
   }
   

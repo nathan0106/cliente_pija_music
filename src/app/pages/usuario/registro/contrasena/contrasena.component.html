@@ -1,30 +1,40 @@
 <div class="container">
-    <div class="logo">
-      <img src="/logo.png" alt="Logo" />
-      <h1>PIJA MUSIC</h1>
-    </div>
-  
-    <div class="form-container">
-      <h2>Recuperar contraseña</h2>
-  
-      <form (ngSubmit)="enviarCodigo()" #form="ngForm">
-        <div class="label-wrapper">
-          <label for="email">Dirección de email</label>
-        </div>
-  
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="email"
-          required
-        />
-  
-        <div class="button-group">
-          <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
-          <button type="submit" class="enviar" [disabled]="!form.valid">Enviar</button>
-        </div>
-      </form>
-    </div>
+  <div class="logo">
+    <img src="/logo.png" alt="Logo" />
+    <h1>PIJA MUSIC</h1>
   </div>
-  
+
+  <div class="form-container">
+    <h2>Recuperar contraseña</h2>
+
+    <form #form="ngForm">
+      <div class="label-wrapper">
+        <label for="email">Dirección de email</label>
+      </div>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+
+      <!-- Mensaje de error si el correo no es válido -->
+      <div *ngIf="email && !esCorreoValido(email)" class="error">
+        Por favor ingresa un correo válido.
+      </div>
+
+      <div class="botones">
+        <button type="button" (click)="cancelar()">Cancelar</button>
+        <button 
+          type="button" 
+          class="Enviar" 
+          (click)="enviarCodigo()" 
+          [disabled]="!email || !esCorreoValido(email)">
+          Enviar Código
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

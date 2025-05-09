@@ -1,0 +1,78 @@
+.politicas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/fondo2.png') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .card {
+    width: 400px;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo-container {
+    margin-bottom: 1rem;
+  
+    img {
+      width: 80px;
+      height: auto;
+    }
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  p, li {
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  ul {
+    padding-left: 1.2rem;
+    text-align: left;
+    margin: 1rem 0;
+  }
+  
+  a {
+    color: #8d7cb2;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .button-container {
+    margin-top: 2rem;
+  }
+
+  .boton-aceptar {
+    background-color: #8d7cb2;
+    color: #000;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+    margin-top: 1rem;
+  }
+  
+  .boton-aceptar:hover {
+    background-color: #7a6aa4;
+  }
+  

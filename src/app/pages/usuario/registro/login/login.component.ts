@@ -47,4 +47,9 @@ export class LoginComponent {
   createAccount() {
     alert('Crear nueva cuenta');
   }
+  
+  irAlMenu() {
+    this.router.navigate(['/menu']); // Ruta a tu página de menú
+  }
+  
 }
