@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { LugaresHistoricosComponent } from '../lugares-historicos/lugares-historicos.component';
 
 @Component({
   selector: 'app-lugares-general',
@@ -124,7 +125,139 @@ export class LugaresGeneralComponent {
           imagenes: ['parque1.jpg', 'parque2.jpg', 'parque3.jpeg', 'parque4.jpeg'],
           fondo: 'mirador1.jpg'
         }
+      },
+       {
+        titulo: 'Oasis Eco Park',
+        imagen: 'oasis.png',
+        texto: 'Tauramena 4.5 km al norte de la Carrera 16.',
+        detalle: {
+          titulo: 'Oasis Eco Park',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'HISTORIA' },
+            { tipo: 'texto', contenido: 'Oasis Eco-Park es un emocionante proyecto turístico nuevo que se encuentra en construcción en Tauramena, Casanare, Colombia. Si bien aún no está completamente desarrollado, ya ofrece varias atracciones interesantes, que incluyen deportes extremos, una piscina natural y una pista de cuatrimotos. Una vez que esté completamente abierto, Oasis Eco-Park seguramente será un destino popular para los amantes de la naturaleza y la aventura.' },
+            { tipo: 'subtitulo', contenido: 'Un lugar para relajarse' },
+            { tipo: 'texto', contenido: 'La piscina natural de Oasis Eco-Park es el lugar perfecto para refrescarte en un día caluroso. Las aguas cristalinas de la piscina son una vista refrescante. Disfruta de un refrescante baño o simplemente toma el sol junto a la piscina.'},
+            { tipo: 'texto', contenido: 'Disfruta de un paseo emocionante en la pista de cuatrimotos del parque (solo fines de semana). explora los senderos del parque en un vehículo todo terreno'},
+            { tipo: 'texto', contenido: 'Sube tu adrenalina con las actividades de deportes extremos del parque. Ponte a prueba en los Bici cables o en el puente tibetano, o espera a que la tirolesa y el columpio abran pronto.'},
+            { tipo: 'texto', contenido: 'Tómate un descanso del calor y disfruta de un refrescante baño en la piscina natural del parque. Las aguas cristalinas de la piscina son una vista refrescante y es el lugar perfecto para relajarse y tomar el sol. Acelera tu corazón con un emocionante paseo en cuatrimoto por la pista de tierra del parque. Explora los senderos del parque y desafía a tus amigos a una carrera. Esta actividad solo está disponible los fines de semana.'},
+            { tipo: 'texto', contenido: 'Bici cables: Disfruta de un paseo emocionante por los árboles en los Bici cables del parque.'},
+            { tipo: 'texto', contenido: 'Puente tibetano: Pon a prueba tu equilibrio y coraje en el puente tibetano del parque.'},
+            { tipo: 'texto', contenido: 'Columpio: Balanceate alto sobre los árboles en el columpio del parque.'},
+            { tipo: 'texto', contenido: 'Cuatrimotos: Compite con tus amigos y disfruta de un momento lleno de adrenalina'},
+          ],
+          imagenes: ['oasis1.png', 'oasis5.jpeg', 'oasis3.png', 'oasis4.png',],
+          fondo: 'oasis5.jpeg'
+        }
+      },
+       {
+        titulo: 'Villa Al Revés',
+        imagen: 'villa.jpg',
+        texto: 'Tauramena 5.5 km al norte de la Carrera 16.',
+        detalle: {
+          titulo: 'Villa Al Revés',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Explorar Villa Alreves' },
+            { tipo: 'texto', contenido: 'Esta villa al revés es una atracción turística ingeniosa. sus techos, paredes y pisos están colocados al revés desafiando la gravedad y jugando con la percepción visual de los visitantes ¡ es un lugar perfecto para tomar fotos divertidas! La atracción principal del parque son tres casas que están construidas completamente al revés. Esto significa que el techo está en el suelo, los muebles están en el techo y las personas caminan por las paredes. Es una experiencia única y divertida que te hará sentir como si estuvieras en otro mundo. Villa al Revés es un lugar perfecto para toda la familia. Los niños se divertirán explorando las casas al revés y jugando en los juegos, mientras que los adultos podrán relajarse y disfrutar del ambiente único del parque. Además de la villa, el clima y el paisaje en Tauramena son hermosos. Aprovecha para apreciar la naturaleza y respirar aire fresco.' },
+            { tipo: 'subtitulo', contenido: 'Cómo llegar a Villa al Revés' },
+            { tipo: 'texto', contenido: 'Villa al Revés se encuentra en la vía Yopal - Tauramena, a unos 10 kilómetros de Yopal, la capital del departamento de Casanare. El parque está abierto de lunes a domingo de 9:00 a. m. a 5:00 p. m. '},
+            { tipo: 'subtitulo', contenido: 'Valor de ingreso' },
+            { tipo: 'texto', contenido: ' La entrada a Villa al Revés tiene un costo de $10.000 para adultos y $5.000 para niños'},
+            { tipo: 'texto', contenido: 'sitio web: https://www.google.com/maps/place/Villa+al+Rev%C3%A9s/@5.0592921,-72.7523801,17z/data=!3m1!4b1!4m6!3m5!1s0x8e6ad96a6940d6c7:0xb7b6d07f008e99b5!8m2!3d5.0592921!4d-72.7498052!16s%2Fg%2F11tmvj6hfb?hl=es&entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D'},
+          ],
+          imagenes: ['villa1.jpg', 'villa2.jpg', 'villa3.jpg',],
+          fondo: 'villa3.jpg'
+        }
+      },
+       {
+        titulo: 'Arca de Noe',
+        imagen: 'arca.png',
+        texto: 'Vereda El Jagüito, Tauramena, Casanare.',
+        detalle: {
+          titulo: 'Arca de Noe',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Animate a Conocer' },
+            { tipo: 'texto', contenido: 'El Arca de Noé en Tauramena, Casanare, Colombia, es un parque temático que recrea la historia bíblica del arca de Noé, ubicada en la vereda El Jagüito. Este sitio turístico ofrece una experiencia educativa y recreativa donde se puede aprender sobre el relato del Génesis, disfrutar de un museo, una piscina y un mirador con vistas a la región.'},
+            { tipo: 'subtitulo', contenido: 'Actividades' },
+            { tipo: 'texto', contenido: 'Visitar el museo, disfrutar del mirador, relajarse en la piscina, comprar souvenirs y degustar productos locales.'},
+            { tipo: 'subtitulo', contenido: 'Consideraciones' },
+            { tipo: 'texto', contenido: 'El Arca de Noé en Tauramena es una atracción turística popular en la región de Casanare, que atrae a visitantes de todas las edades. Es un lugar ideal para aprender sobre la historia bíblica, disfrutar en familia y pasar un día agradable en un entorno natural.'},
+            { tipo: 'texto', contenido: 'sitio web: https://www.google.com/maps/place/Villa+al+Rev%C3%A9s/@5.0592921,-72.7523801,17z/data=!3m1!4b1!4m6!3m5!1s0x8e6ad96a6940d6c7:0xb7b6d07f008e99b5!8m2!3d5.0592921!4d-72.7498052!16s%2Fg%2F11tmvj6hfb?hl=es&entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D'},
+          ],
+          imagenes: ['arca2.png', 'arca5.png', 'arca3.png',],
+          fondo: 'arca1.png'
+        }
       }
+    ],
+    lugares_historicos: [
+      {
+        titulo: 'Museo Historico Del Oriente',
+        imagen: 'museo.jpg',
+        texto: 'Calle 29 # 20 - 41',
+        detalle: {
+          titulo: 'Museo Historico Del Oriente',
+          descripcion: [
+             { tipo: 'subtitulo', contenido: 'HISTORIA' },
+            { tipo: 'texto', contenido: 'El Museo Centro Histórico del Oriente es un museo ubicado en la ciudad de Yopal, Casanare, Colombia. El museo fue inaugurado en el año 2021 y tiene como objetivo preservar y difundir la historia y la cultura de la región del Piedemonte Llanero. Las colecciones del museo incluyen piezas arqueológicas, fotografías, documentos históricos y objetos de la vida cotidiana de los habitantes de la región. El museo también cuenta con una sala de exposiciones temporales y un auditorio donde se realizan conferencias, talleres y eventos culturales.' },
+            { tipo: 'subtitulo', contenido: 'Piezas arqueológicas' },
+            { tipo: 'texto', contenido: 'El museo cuenta con una colección de piezas arqueológicas que datan de la época precolombina. Estas piezas incluyen vasijas de cerámica, figuras de barro y herramientas de piedra.'},
+            { tipo: 'subtitulo', contenido: 'Fotografías' },
+            { tipo: 'texto', contenido: 'El museo cuenta con una amplia colección de fotografías que documentan la historia de la región del Piedemonte Llanero. Estas fotografías muestran la vida cotidiana de los habitantes de la región, los paisajes naturales y los eventos históricos más importantes.'},
+            { tipo: 'subtitulo', contenido: 'Documentos históricos' },
+            { tipo: 'texto', contenido: 'El museo cuenta con una colección de documentos históricos que datan de la época de la colonia española hasta la actualidad. Estos documentos incluyen actas de fundación, escrituras de propiedad y periódicos antiguos.'},
+            { tipo: 'subtitulo', contenido: 'Objetos de la vida cotidiana'},
+            { tipo: 'texto', contenido:'El museo cuenta con una colección de objetos de la vida cotidiana de los habitantes de la región del Piedemonte Llanero. Estos objetos incluyen herramientas de trabajo, ropa, muebles y utensilios de cocina.'},
+            { tipo: 'subtitulo', contenido: 'Valor de ingreso'},
+            { tipo: 'texto', contenido:'Precio de la entrada: $5.000 para adultos y $2.000 para niños'},
+            { tipo: 'subtitulo', contenido: 'Horario de atención'},
+            { tipo: 'texto', contenido:'Horario de atención: De martes a domingo de 8:00 a. m. a 5:00 p. m.'},
+            { tipo: 'texto', contenido: 'Sitio web: https://www.bing.com/search?q=sitio%20web%20del%20museo%20historico%20del%20oriente&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=sitio%20web%20del%20museo%20historico%20del%20oriente&sc=12-41&sk=&cvid=436BB737D5D2467F9F15E1376432DE9B' },
+          ],
+          imagenes: ['museo2.jpg', 'museo3.webp','museo4.jpeg','museo6.webp'],
+          fondo: 'museo1.jpg'
+        }
+      },
+       {
+        titulo: 'Ruinas De Pore',
+        imagen: 'pore.jpg',
+        texto: '70 km desde Yopal',
+        detalle: {
+          titulo: 'Ruina De Pore',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'HISTORIA' },
+            { tipo: 'texto', contenido: 'En el municipio de Pore, Casanare, Colombia, se encuentran las Ruinas de Pore, vestigios de una antigua misión jesuítica fundada en el siglo XVII. Estas ruinas son un testimonio de la rica historia colonial de la región y un atractivo turístico que vale la pena visitar. La misión de Pore fue fundada en 1639 por los jesuitas españoles. Su objetivo era evangelizar a los indígenas de la región y enseñarles las costumbres y la religión católica. La misión prosperó durante varios años y llegó a tener una población de más de mil personas. Sin embargo, en 1767, los jesuitas fueron expulsados de Colombia y la misión fue abandonada.' },
+            { tipo: 'texto', contenido: 'Sitio web: https://satellites.pro/mapa_de_Municipio_Pore.Region_de_Casanare.Colombia#5.716098,-72.012634,14' },
+          ],
+          imagenes: ['pore7.jpg','pore6.jpg', 'pore5.jpg','pore3.jpg','pore4.jpg'],
+          fondo: 'pore2.png'
+        }
+      },
+       {
+        titulo: 'Monte De Jehová',
+        imagen: 'monte.jpg',
+        texto: 'vereda Buenavista, a 8 kilómetros del municipio de Yopal',
+        detalle: {
+          titulo: 'Monte De Jehová',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción' },
+            { tipo: 'texto', contenido: 'El Monte de Jehová es un lugar religioso y turístico que alberga una escultura gigante de la Biblia tallada en piedra. La escultura tiene 19 metros de ancho y 12 metros de largo, y es considerada la Biblia más grande del mundo.' },
+            { tipo: 'subtitulo', contenido: 'Actividades' },
+            { tipo: 'texto', contenido: 'Admirar la escultura de la Biblia: La escultura es una obra de arte impresionante que vale la pena ver de cerca.' },
+            { tipo: 'texto', contenido: 'Orar y reflexionar: El Monte de Jehová es un lugar tranquilo y pacífico que es ideal para la oración y la reflexión' },
+            { tipo: 'texto', contenido: 'Disfrutar de las vistas: Desde el Monte de Jehová se pueden disfrutar de unas vistas panorámicas impresionantes de la región.' },
+            { tipo: 'texto', contenido: 'Hacer senderismo: Hay varios senderos para caminar en la zona que ofrecen diferentes niveles de dificultad.' },
+            { tipo: 'subtitulo', contenido: 'Horarios' },
+            { tipo: 'texto', contenido: 'Lunes a domingo de 7:01 a.m. a 5:00 p.m' },
+            { tipo: 'subtitulo', contenido: 'Información de contacto' },
+            { tipo: 'texto', contenido: 'Celular: 320 9420403' },
+            { tipo: 'texto', contenido: 'Sitio web: https://maps.google.com/?cid=18346910408072708299' },
+
+
+          ],
+          imagenes: ['pore7.jpg','pore6.jpg', 'pore5.jpg','pore3.jpg','pore4.jpg'],
+          fondo: 'pore2.png'
+        }
+      },
+
     ]
     // Agrega más categorías con objetos similares aquí
   };
