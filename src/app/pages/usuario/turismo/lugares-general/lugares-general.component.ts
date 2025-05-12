@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { LugaresHistoricosComponent } from '../lugares-historicos/lugares-historicos.component';
 
 @Component({
   selector: 'app-lugares-general',
@@ -255,6 +254,149 @@ export class LugaresGeneralComponent {
           ],
           imagenes: ['pore7.jpg','pore6.jpg', 'pore5.jpg','pore3.jpg','pore4.jpg'],
           fondo: 'pore2.png'
+        }
+      },
+
+    ],
+    restaurantes: [
+      {
+        titulo: 'La Mamona',
+        imagen: 'mamona.jpg',
+        texto: 'Calle 11 con 19',
+        detalle: {
+          titulo: 'La Mamona',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción'},
+            { tipo: 'texto', contenido: 'Es un establecimiento especializado en comida de tipo churrasquería, ofreciendo una variedad de platos colombianos.'},
+            { tipo: 'texto', contenido: 'Preparan un sabroso caldo de pescado y un delicioso cerdo. Tienes que pedir el delicioso café del lugar.'},
+            { tipo: 'texto', contenido: 'Pueden disfrutar de músico y presentaciones de baile en vivo.'},
+
+
+          ],
+          imagenes: ['mamona1.png', 'mamona2.png','mamona3.png',],
+          fondo: 'mamona4.png'
+        }
+      },
+       {
+        titulo: 'Asadero  El Corral',
+        imagen: 'corral.jpg',
+        texto: 'Km 6 Vía Sirivana.',
+        detalle: {
+          titulo: 'Asadero El Corral',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción'},
+            { tipo: 'texto', contenido: 'Restaurante Campestre para compartir en familia.' },
+            { tipo: 'subtitulo', contenido: 'En este establecimiento ofrecen'},
+            { tipo: 'texto', contenido: 'Sancocho de gallina.'},
+            { tipo: 'texto', contenido: 'Carne Asada.'},
+            { tipo: 'texto', contenido: 'Arepa Pajariteña.'},
+            { tipo: 'texto', contenido: 'Rellenas.'},
+            { tipo: 'texto', contenido: 'Envueltos.'},
+            { tipo: 'texto', contenido: 'Marrano Frito.'},
+            { tipo: 'texto', contenido: 'Picadas.'},
+            { tipo: 'subtitulo', contenido: 'Atencion al público'},
+            { tipo: 'texto', contenido: 'Domingos-Sábados-Festivos'},
+            { tipo: 'subtitulo', contenido: 'Información de contacto' },
+            { tipo: 'texto', contenido: 'Celular: 3132794848' },
+            { tipo: 'texto', contenido: 'Sitio web: https://www.bing.com/search?q=asadero%20el%20corral%20via%20sisrivana%20km%206%20yopal%20casanare&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=asadero%20el%20corral%20via%20sisrivana%20km%206%20yopal%20casanare&sc=7-51&sk=&cvid=40499CCD87604E819F1F28710280693F' },
+            
+          ],
+          imagenes: ['corral1.png','corral2.png', 'corral3.png','corral4.png','corral5.png','corral6.png','corral7.png','corral8.png','corral9.png','corral11.png','corral12.png'],
+          fondo: 'corral10.png'
+        }
+      },
+       {
+        titulo: 'El Brasero',
+        imagen: 'brasero7.png',
+        texto: 'Carrera 19 # 18-66',
+        detalle: {
+          titulo: 'El Brasero',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción' },
+            { tipo: 'texto', contenido: 'En este establcimiento ofrecen variedad de platos, sabores y colores. Tambien organizan el lugar para fechas esperciales. Es un lugar bonito y acojedor'},
+            { tipo: 'subtitulo', contenido:' Entre esos estan:'},
+            { tipo: 'texto', contenido: 'Carne a la Parrilla.' },
+            { tipo: 'texto', contenido: 'Pollo.'},
+            { tipo: 'texto', contenido: 'Alitas de pollo.' },
+            { tipo: 'texto', contenido: 'Carne de Res.' },
+            { tipo: 'texto', contenido: 'Camarón.' },
+            { tipo: 'texto', contenido: 'Pollo.'},
+            { tipo: 'texto', contenido: 'Mariscos.' },
+            { tipo: 'texto', contenido: 'Queso.' },
+            { tipo: 'texto', contenido: 'Rosbif.'},
+            { tipo: 'texto', contenido: 'Filete de Atún.'},
+            { tipo: 'texto', contenido: 'También tienen variedad de bebidas.' },
+            { tipo: 'subtitulo', contenido: 'Horarios' },
+            { tipo: 'texto', contenido: 'Domingo 11:00am a 6:00pm Lunes a Sábado 11:00am a 11:00pm'},
+            { tipo: 'subtitulo', contenido: 'Información de contacto' },
+            { tipo: 'texto', contenido: 'Celular: 3132794848' },
+            { tipo: 'texto', contenido: 'Sitio web:https://www.google.com/maps/search/el+brasero+yopal/@5.3432991,-72.3987699,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D' },
+
+          ],
+          imagenes: ['brasero1.png','brasero2.png','brasero3.png', 'brasero7.png','brasero5.png','brasero8.png','brasero9.png','brasero10.png','brasero11.png','brasero12.png','brasero13.png'],
+          fondo: 'brasero4.png'
+        }
+      },
+
+    ],
+    eventos_culturales: [
+      {
+        titulo: 'Canare Palpita',
+        imagen: 'palpita.jpg',
+        texto: 'Yopal-Casanare',
+        detalle: {
+          titulo: 'Casanare Palpita',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción'},
+            { tipo: 'texto', contenido: 'Casanare Palpita es un Festival Mundial del Arraigo Llanero que se realiza en el departamento de Casanare, Colombia. El festival busca promover el turismo y la cultura de la región, a través de la música, el baile, el arte y la gastronomía típica de los llanos Casanare Palpita se celebra cada año en el mes de julio y fue institucionalizado por la Ordenanza 023 de 20222. Casanare Palpita es un festival cultural que celebra la música, el baile, la gastronomía y la artesanía tradicional de la región de los Llanos Orientales de Colombia. El festival se lleva a cabo anualmente en la ciudad de Yopal, Casanare, y presenta una variedad de eventos, que incluyen conciertos, competencias, talleres y exposiciones.'},
+            { tipo: 'subtitulo', contenido: 'Actividades'},
+            { tipo: 'texto', contenido: 'El festival ofrece una amplia gama de actividades para visitantes de todas las edades. Estos son algunos de los aspectos más destacados:'},
+            { tipo: 'texto', contenido: 'Conciertos: El festival presenta actuaciones de algunos de los músicos llaneros más populares, tanto locales como internacionales.'},
+            { tipo: 'texto', contenido: 'Competencias: Hay competencias en diversas categorías, que incluyen baile joropo, canto y arreo de ganado.'},
+            { tipo: 'texto', contenido: 'Talleres: Los visitantes pueden aprender a elaborar artesanías tradicionales llaneras, como hamacas y sombreros.'},
+            { tipo: 'texto', contenido: 'Exposiciones: Hay exposiciones sobre la historia y la cultura de la región de los Llanos Orientales.'},
+            { tipo: 'texto', contenido: 'Comida: El festival presenta una variedad de comida tradicional llanera, como arepas, tamales y sancocho.'},
+            { tipo: 'texto', contenido: 'Casanare Palpita 2023 (youtube.com)'}
+
+
+          ],
+          imagenes: ['palpita2.png','palpita3.png', 'palpita4.png','palpita5.png','palpita6.png','palpita7.png',],
+          fondo: 'palpita1.png'
+        }
+      },
+       {
+        titulo: 'Joropo Fest',
+        imagen: 'fest.jpg',
+        texto: 'Yopal - Casanare',
+        detalle: {
+          titulo: 'Joropo Fest',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción'},
+            { tipo: 'texto', contenido: 'La esencia de la llaneridad trasciende sucesos históricos, arraigándose en aspectos sociológicos y biológicos. Es una amalgama de elementos que convergen para formar la identidad simbólica de la cultura llanera.  En este contexto, el lenguaje, arquetipos culturales arraigados, valores cotidianos, costumbres comunitarias y quehacer diario reflejan la realidad regional y dan forma a la estructura mental enriqueciendo la región.' },
+            { tipo: 'texto', contenido: 'En este contexto cultural surge una iniciativa significativa: Joropo Fest. Esta propuesta busca fortalecer no solo el tejido cultural, sino también la economía creativa regional. Con un llamado a todos los rincones del país, Joropo Fest es un vehículo que permite impregnarse del arte, la creatividad y el talento intrínseco a la llaneridad.  Durante tres días repletos de significado, el festival se convierte en un epicentro de cultura, inspiración, creatividad y aprendizaje, brindando una oportunidad única de sumergirse en la cultura llanera.'},
+            { tipo: 'texto', contenido: 'La agenda de Joropo Fest es un abanico diverso y enriquecedor con conferencias y conversatorios, para el intercambio de ideas y la exploración de nuevas perspectivas. Los talleres permiten a los asistentes adentrarse en las habilidades artísticas y artesanales que definen la región. Las muestras culturales y empresariales son una ventana que muestra el ingenio y la inventiva de la comunidad local.'},
+            { tipo: 'texto', contenido: 'En cada rincón del festival se puede encontrar un reflejo de la riqueza cultural y creativa de la región. Desde las artesanías que narran historias ancestrales hasta la fotografía, escultura y pintura que capturan la esencia llanera en cada trazo y captura. La gastronomía despierta los sentidos y permite saborear siglos de tradición. La moda, el turismo de naturaleza, el baile y la música se combinan para crear una sinfonía de tradición y contemporaneidad que define la identidad de la cultura llanera.'},
+            { tipo: 'texto', contenido: 'El festival honra a destacados personalidades con el reconocimiento “Corocora Cultural y Creativa”. Este homenaje es un tributo merecido a aquellas personas que, a través de su dedicación artística, han logrado no solo posicionar, sino también consolidar diversas facetas de la cultura llanera en los escenarios nacionales e internacionales. Su labor ha enriquecido la herencia cultural y ha permitido que la llaneridad trascienda fronteras, resonando en corazones de todas partes del mundo.'},
+            
+          ],
+          imagenes: ['joropo3.png','joropo2.png', 'joropo4.png'],
+          fondo: 'joropo1.png'
+        }
+      },
+       {
+        titulo: 'La Copa América De Coleo',
+        imagen: 'copa.jpg',
+        texto: 'Yopal - Casanare',
+        detalle: {
+          titulo: 'La Copa América De Coleo',
+          descripcion: [
+            { tipo: 'subtitulo', contenido: 'Descripción' },
+            { tipo: 'texto', contenido: 'Yopal, conocida como la “Capital mundial del llanero”, es el epicentro de múltiples manifestaciones culturales y especialmente del evento deportivo que fortalece la esencia llanera y magnifica el trabajo de las mujeres y hombres que montan a caballo.'},
+            { tipo: 'texto', contenido:'En Noviembre de 2001, el mundo del coleo fue testigo del nacimiento de un certamen que marcó en dos la historia deportiva en Casanare: La realización de la primera Copa América de Coleo, se convertiría en la vitrina nacional e internacional para este sector del país.'},
+            { tipo: 'texto', contenido:'Esta cita con el deporte criollo, se constituyó desde entonces por su nivel deportivo y la calidad de los competidores. En todo un reto para su fundador, Víctor Armando Ávila Suárez, un empresario casanareño que gracias a su entusiasmo y gallardía, cumplió el sueño de realizar la “Copa América de Coleo”'},
+          ],
+          imagenes: ['copa1.png','copa2.png','copa5.png', 'copa9.png','copa7.png','copa6.png','copa8.png','copa10.png'],
+          fondo: 'copa3.png'
         }
       },
 

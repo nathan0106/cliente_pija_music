@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LugarcardComponent } from '../pages/usuario/turismo/lugarcard/lugarcard.component';
+
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getLugarPorId(id: number): Observable<LugarcardComponent> {
-    return this.http.get<LugarcardComponent>(`${this.baseUrl}/lugares/${id}`);
-  }
+  // getLugarPorId(id: number): Observable<LugarcardComponent> {
+  //   return this.http.get<LugarcardComponent>(`${this.baseUrl}/lugares/${id}`);
+  // }
 
   // Método GET
   getData(endpoint: string, params: any = {}): Observable<any> {
