@@ -15,7 +15,6 @@ import { ArtistaComponent } from './app/pages/usuario/musica/artista/artista.com
 import { BuscarComponent } from './app/pages/usuario/musica/buscar/buscar.component';
 import { CancionesComponent } from './app/pages/usuario/musica/canciones/canciones.component';
 import { FavoritosComponent } from './app/pages/usuario/musica/favoritos/favoritos.component';
-import { MenuPrincipalComponent } from './app/pages/usuario/musica/menu-principal/menu-principal.component';
 import { NotificacionesComponent } from './app/pages/usuario/musica/notificaciones/notificaciones.component';
 import { PlaylistComponent } from './app/pages/usuario/musica/playlist/playlist.component';
 import { ActividadFamiliarComponent } from './app/pages/usuario/turismo/actividad-familiar/actividad-familiar.component';
@@ -28,6 +27,7 @@ import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.comp
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
 import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
+import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/menu-carrusel.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -67,13 +67,13 @@ bootstrapApplication(AppComponent,{
                 path: 'favoritos', component: FavoritosComponent
             },
             {
-                path: 'menu', component: MenuPrincipalComponent
-            },
-            {
                 path: 'notificaciones', component: NotificacionesComponent
             },
             {
                 path: 'playlist', component: PlaylistComponent
+            },
+                        {
+                path: 'menu', component: MenuCarruselComponent
             },
              ],
 

@@ -1,11 +1,26 @@
+<div class="artist-container">
+  <!-- Sección de artistas -->
+  <div class="artist-list">
+    <div *ngFor="let artist of artists" class="artist-item" (click)="selectArtist(artist)">
+      <img [src]="artist.imagen" alt="{{ artist.nombre }}" class="artist-image">
+      <span class="artist-name">{{ artist.nombre }}</span>
+    </div>
+  </div>
 
-
-    <h2 class="titulo-Playlists">Playlists</h2>
-    <div class="card-grid">
-      <div *ngFor="let card of cards" class="card">
-        <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
-        <div class="artist-name">{{ card.title }}</div>
+  <!-- Sección de detalles del artista (aparece solo si se selecciona un artista) -->
+  <div *ngIf="selectedArtist" class="artist-details">
+    <h2>{{ selectedArtist.nombre }}</h2>
+    <div class="song-list">
+      <div *ngFor="let song of selectedArtist.canciones; let i = index" class="song-item">
+        <div class="song-info">
+          <span class="song-number">{{ i + 1 }}.</span>
+          <span class="song-title">{{ song.nombre }}</span> 
+          <span class="song-duration">({{ song.duracion }})</span>
+        </div>
+        <button mat-raised-button color="primary" (click)="openVideo(song.videoUrl)">Ver Video</button>
       </div>
     </div>
-  
+  </div>
+</div>
+
 
