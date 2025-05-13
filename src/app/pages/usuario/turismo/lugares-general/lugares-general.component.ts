@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-lugares-general',
@@ -19,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 
   ],
   templateUrl: './lugares-general.component.html',
-  styleUrl: './lugares-general.component.css'
+  styleUrl: './lugares-general.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class LugaresGeneralComponent {
 
@@ -27,7 +29,7 @@ export class LugaresGeneralComponent {
 
   panelInfo = {
     titulo: 'Vive las Experiencia',
-    descripcion: 'Selecciona una categoría para descubrir actividades emocionantes y lugares inolvidables.'
+    descripcion: 'Elige una categoría y descubre actividades emocionantes y lugares que no olvidarás.'
   };
 
   categorias = [
@@ -145,7 +147,7 @@ export class LugaresGeneralComponent {
             { tipo: 'texto', contenido: 'Cuatrimotos: Compite con tus amigos y disfruta de un momento lleno de adrenalina'},
           ],
           imagenes: ['oasis1.png', 'oasis5.jpeg', 'oasis3.png', 'oasis4.png',],
-          fondo: 'oasis5.jpeg'
+          fondo: 'oasis2.png'
         }
       },
        {

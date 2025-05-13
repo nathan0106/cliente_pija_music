@@ -88,14 +88,14 @@
   
   
     .footer-logo {
-      width: 50px;
+      width: 60px;
       margin-bottom: 1rem;
     }
-  
+  /*icono de facebook*/
     .footer-message {
       margin-bottom: 1rem;
     }
-  
+  /*icono de facebook*/
     .social-icons{
       display: flex;
       justify-content: center;
@@ -117,7 +117,7 @@
         margin-bottom: 0.5rem;
         gap: 30px;
       }
-  
+  /*titulo de Remaining-producto*/
       ul {
         list-style: none;
         padding: 0;
@@ -127,7 +127,7 @@
   
           a {
             text-decoration: none;
-            color: #2f3640;
+            color: #232223;
   
             &:hover {
               text-decoration: underline;
@@ -151,18 +151,19 @@
       margin-bottom: 0.5rem;
   
       a {
-        color: #2f3640;
+        color: #232223;
         text-decoration: none;
   
         &:hover {
           text-decoration: underline;
+          color: #232223;
         }
       }
     }
   
     .copyright {
       font-size: 12px;
-      color: #555;
+      color: #232223;
   
     }
   }
@@ -174,15 +175,15 @@
   }
   
   .main-content {
-    flex: 1; /* Ocupa el espacio disponible entre header y footer */
+    flex: 10; /* Ocupa el espacio disponible entre header y footer */
   }
   
   
   
-  .social-icons button {
+  /* .social-icons button {
     margin-right: 0.5rem;
   }
-  
+   */
   .section {
     display: flex;
     flex-direction: column;
@@ -235,7 +236,7 @@
     }
   
     span {
-      flex-grow: 1;
+      flex-grow: 2;
       text-align: left;
       color: #666;
     }
@@ -248,7 +249,7 @@
   
   
   .nav-button-selected {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: black;
     font-weight: bold;
   }
@@ -265,7 +266,7 @@
     padding: 2rem;
   }
   
-  .senderismo-section {
+ /*  .senderismo-section {
     background-color: #e5e8f0;
     padding: 40px;
   
@@ -274,7 +275,7 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
-  }   
+  } */   
   
   .lupa{
     float: right;

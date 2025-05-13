@@ -2,14 +2,19 @@
     <h1 class= "panel-title">{{ panelInfo.titulo }}</h1>
     <p class="panel-description">{{ panelInfo.descripcion }}</p>
   
-    <mat-form-field appearance="outline" class="selector-categorias">
-      <mat-label>Categoría</mat-label>
-      <mat-select [(value)]="selectedCategoria" (selectionChange)="seleccionarCategoria()">
-        <mat-option *ngFor="let categoria of categorias" [value]="categoria.value">
-          {{ categoria.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field 
+       appearance="outline" 
+       class="selector-categorias"
+       [ngClass]="{ 'categoria-seleccionada': selectedCategoria }">
+  
+       <mat-label>Categoría</mat-label>
+         <mat-select [(value)]="selectedCategoria" (selectionChange)="seleccionarCategoria()">
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria.value">
+            {{ categoria.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
   
     <div class="carrusel-container" *ngIf="cards.length">
       <button mat-icon-button (click)="scrollCarrusel('left')"><mat-icon>chevron_left</mat-icon></button>

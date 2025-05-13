@@ -1,5 +1,7 @@
 .panel-principal {
     text-align: center;
+    text-transform: capitalize;
+    color:#803282;
     padding: 2rem;
   }
   
@@ -8,13 +10,16 @@
     margin: 1rem auto;
     display: block;
     border-radius: 10%;
+    border: #803282;
+    padding: 3rem;
   }
-  
+
   .carrusel-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    overflow: hidden; /* evita scroll vertical accidental */
   }
   
   .carrusel {
@@ -22,6 +27,10 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     max-width: 70%;
+  
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   
 .card {
@@ -31,24 +40,25 @@
   border-radius: 10%;
   transition: transform 0.3s ease, background-color 0.3s ease, filter 0.3s ease;
   background-color: white;
+  margin: 15px;
 }
 
 /* Al pasar el cursor: agranda y oscurece */
 .card:hover {
   transform: scale(1.05);
-  background-color: #d6d6d6; /* tono más oscuro */
+  background-color: #efdaf0;; /* tono más oscuro */
   filter: brightness(0.9); /* oscurece todo el contenido */
 }
 
 /* Al hacer clic: se mantiene oscuro */
 .card:active {
-  background-color: #c0c0c0;
+  background-color: #efdaf0;
   filter: brightness(0.8);
 }
 
   .card-title {
   font-size: 15px; /* Cambia esto según necesites */
-  color: #482939;  /* Verde oscuro */
+  color: #482939;  
   text-align: center;
   font-weight: bold;
   padding: 1%;
@@ -56,7 +66,7 @@
 
 /* Tarjeta seleccionada: se mantiene oscura */
 .card.selected {
-  background-color: #fdfbfc;
+  background-color: #efdaf0;
   filter: brightness(0.85);
 }
 
@@ -110,7 +120,7 @@ mat-icon {
   transform: scale(1.30);  /*efecto de zoom al pasar el mouse*/
 }
 
-/*titulo-subtitulos-descripción*/
+/*titulo*/
 
 .detalle-titulo {
   font-size: 30px;
@@ -121,6 +131,7 @@ mat-icon {
   text-align: left;
 }
 
+/*subtitulos-descripción*/
 .descripcion-dinamica {
   h2 {
     font-size: 1.8rem;
@@ -141,9 +152,9 @@ mat-icon {
   }
 }
 
-.boton-efecto {
-  background-color: #d32f2f;
-  color: rgb(224, 112, 112);
+/* .boton-efecto {
+  background-color: #e281d2;
+  color: rgb(224, 112, 183);
   transition: transform 0.2s ease, background-color 0.2s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-weight: bold;
@@ -152,9 +163,9 @@ mat-icon {
 
 .boton-efecto:hover {
   transform: scale(1.05);
-  background-color: #b71c1c;
+  background-color: #da76ae;
 }
 
 .boton-efecto:active {
-  background-color: #8e0000;
-}
+  background-color: #e76eb9;
+} */
