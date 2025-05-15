@@ -9,6 +9,7 @@ import { CodigoComponent } from './pages/usuario/registro/codigo/codigo.componen
 import { NotificacionesComponent } from './pages/usuario/musica/notificaciones/notificaciones.component';
 import { PlaylistComponent } from './pages/usuario/musica/playlist/playlist.component';
 import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
+import { PersonalizarComponent } from './pages/usuario/musica/personalizar/personalizar.component';
 import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 
 
@@ -20,11 +21,12 @@ const routes: Routes = [
   { path: 'codigo', component: CodigoComponent},
   {path: 'registro', component: RegisterComponent},
   { path: 'contrasena', component: ContrasenaComponent }, 
-  { path: 'menu-carrusel', component: MenuCarruselComponent },
+  { path: 'menu', component: MenuCarruselComponent },
   {path: 'notificaciones', component: NotificacionesComponent}, 
   {path: 'playlist', component: PlaylistComponent},
   {path: 'buscar', component: BuscarComponent},
-  {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent}
+  {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent},
+  {path: 'PersonalizarComponent', component: PersonalizarComponent}
  
 ];
 

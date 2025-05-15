@@ -7,9 +7,19 @@
     </div>
   </div>
 
-  <!-- Sección de detalles del artista (aparece solo si se selecciona un artista) -->
+  <!-- Sección de detalles del artista -->
   <div *ngIf="selectedArtist" class="artist-details">
-    <h2>{{ selectedArtist.nombre }}</h2>
+    <!-- Nombre + ícono de favorito -->
+    <div class="artist-header">
+      <h2>{{ selectedArtist.nombre }}</h2>
+      <button mat-icon-button (click)="toggleFavorite(selectedArtist)">
+        <mat-icon color="warn">{{ selectedArtist.favorito ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </div>
+
+    <!-- Imagen del artista -->
+    <img [src]="selectedArtist.imagen" alt="{{ selectedArtist.nombre }}" class="selected-artist-image" />
+
     <div class="song-list">
       <div *ngFor="let song of selectedArtist.canciones; let i = index" class="song-item">
         <div class="song-info">
@@ -22,5 +32,3 @@
     </div>
   </div>
 </div>
-
-

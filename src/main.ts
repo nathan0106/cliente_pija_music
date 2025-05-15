@@ -11,9 +11,7 @@ import { DanzaComponent } from './app/pages/usuario/cultura/danza/danza.componen
 import { CotizaComponent } from './app/pages/usuario/cultura/cotiza/cotiza.component';
 import { InstrumentosComponent } from './app/pages/usuario/cultura/instrumentos/instrumentos.component';
 import { TrajesTipicosComponent } from './app/pages/usuario/cultura/trajes-tipicos/trajes-tipicos.component';
-import { ArtistaComponent } from './app/pages/usuario/musica/artista/artista.component';
 import { BuscarComponent } from './app/pages/usuario/musica/buscar/buscar.component';
-import { CancionesComponent } from './app/pages/usuario/musica/canciones/canciones.component';
 import { FavoritosComponent } from './app/pages/usuario/musica/favoritos/favoritos.component';
 import { NotificacionesComponent } from './app/pages/usuario/musica/notificaciones/notificaciones.component';
 import { PlaylistComponent } from './app/pages/usuario/musica/playlist/playlist.component';
@@ -28,6 +26,7 @@ import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacont
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
 import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/menu-carrusel.component';
+import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -55,13 +54,7 @@ bootstrapApplication(AppComponent,{
                 children:[
 
             {
-                path: 'artista', component: ArtistaComponent
-            },
-            {
                 path: 'buscar', component: BuscarComponent
-            },
-            {
-                path: 'canciones', component: CancionesComponent
             },
             {
                 path: 'favoritos', component: FavoritosComponent
@@ -72,9 +65,12 @@ bootstrapApplication(AppComponent,{
             {
                 path: 'playlist', component: PlaylistComponent
             },
-                        {
+            {
                 path: 'menu', component: MenuCarruselComponent
             },
+            {
+                path: 'personalizar', component: PersonalizarComponent  
+            }
              ],
 
             },
