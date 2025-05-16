@@ -227,3 +227,16 @@ mat-icon {
 .boton-efecto:active {
   background-color: #8e0000;
 }
+
+.boton-cerrar {
+  background-color: #B8ACD0 !important; /* rojo más oscuro personalizado */
+  color: white !important;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-cerrar:hover {
+  background-color: #c2b0e7 !important; /* color más oscuro al pasar el mouse */
+}
