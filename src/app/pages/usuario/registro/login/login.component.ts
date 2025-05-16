@@ -42,6 +42,8 @@ export class LoginComponent {
 
   recoverPassword() {
     alert('Recuperar contraseña');
+  localStorage.setItem('tipo', 'usuario'); // Guardas el tipo antes de redirigir
+  this.router.navigate(['/nuevacontrasena']); // Vas a la vista compartida
   }
 
   createAccount() {
@@ -49,7 +51,11 @@ export class LoginComponent {
   }
   
   irAlMenu() {
+    console.log(this)
     this.router.navigate(['/menu']); // Ruta a tu página de menú
   }
+
+  
+  
   
 }

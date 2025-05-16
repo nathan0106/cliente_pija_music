@@ -27,6 +27,8 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
+import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 
 
 bootstrapApplication(AppComponent,{
@@ -63,7 +65,12 @@ bootstrapApplication(AppComponent,{
             {path: 'comida', component: ComidasTipicasComponent},
             {path: 'evento', component: EventosCulturalesComponent},
             {path: 'historia', component: LugaresHistoricosComponent},
-            {path: 'senderismo', component: SenderismoComponent}
+            {path: 'senderismo', component: SenderismoComponent},
+
+
+            //administrador
+            {path: 'loginad', component: LoginadministradorComponent},
+            {path: 'registerad', component: RegisteradministradorComponent},
 
           ]),
           provideHttpClient(),
