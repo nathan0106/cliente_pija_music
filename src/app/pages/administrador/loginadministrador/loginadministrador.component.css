@@ -9,7 +9,8 @@
 }
 
 
-.login-card {
+/* Tarjeta del login */
+mat-card {
     width: 400px;
     padding: 2rem;
     text-align: center;
@@ -19,49 +20,42 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
-/* Logo */
+
+/* Contenedor del logo */
 .logo-container {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: -20px; /* <-- Esto lo sube */
 }
 
 .logo-container img {
-    width: 100%;
-    height: 100%;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
 }
 
-/* Título */
-h1 {
+.logo-container .title {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
-    margin-bottom: 0.5rem;
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.2;
 }
 
-/* Labels */
-label {
-    display: block;
-    font-weight: bold;
-    text-align: left;
+
+/* Campos de formulario */
+.full-width {
+    width: 100%;
     margin-top: 10px;
-    color: #000;
 }
 
-/* Inputs */
-input {
+/* Botón iniciar sesión */
+button[type="submit"] {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #D9D9D9;
-    border-radius: 5px;
-}
-
-/* Botón de inicio de sesión */
-.login-button {
-    width: 100%;
-    background-color: #8D7CB2; /* Morado */
+    background-color: #8D7CB2;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -73,19 +67,13 @@ input {
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-.login-button:hover {
+button[type="submit"]:hover {
     background-color: #7A66A2;
 }
 
-.login-button:active {
+button[type="submit"]:active {
     background-color: #4A2F6D;
     transform: scale(0.95);
-}
-
-/* Enlaces */
-.actions {
-    text-align: center;
-    margin-top: 10px;
 }
 
 .register-link, .forgot-password {
@@ -100,7 +88,20 @@ input {
     text-decoration: underline;
 }
 
-/* Checkbox */
+/* Enlace de recuperación */
+.forgot-password {
+    display: block;
+    font-weight: bold;
+    color: #8D7CB2;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox términos */
 .terms {
     margin-top: 15px;
     font-size: 12px;
@@ -110,33 +111,31 @@ input {
 
 .terms a {
     color: #9747FF;
+    text-decoration: none;
 }
 
-/* Contenedor de la tarjeta para asegurar consistencia con Register */
-mat-card {
-    width: 400px;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.8); /* Opacidad igual a register */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.terms a:hover {
+    text-decoration: underline;
 }
 
-/* Contenedor de título */
-.title-container {
-    text-align: center;
-    margin-bottom: 20px;
+/* Ajustes para mat-form-field */
+mat-form-field {
+    display: block;
+    width: 100%;
 }
 
-.mat-card-title {
-    font-size: 24px;
-    font-weight: bold;
+/* Asegurar consistencia de los inputs */
+input.mat-input-element {
+    padding: 8px !important;
 }
 
-.mat-card-subtitle {
-    font-size: 16px;
-    color: #555;
+/* Quitar espacio indeseado bajo el select */
+mat-select {
+    padding-top: 4px;
 }
- 
 
-  
+/* Ajuste extra para el título si hay overlay */
+h2.title {
+    margin: 0;
+    padding: 0;
+}

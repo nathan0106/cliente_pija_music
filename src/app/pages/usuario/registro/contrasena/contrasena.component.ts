@@ -2,59 +2,72 @@ import { Component } from '@angular/core';
 import emailjs from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-contrasena',
   imports: [
-    FormsModule
+    FormsModule,
+    CommonModule
+    
   ],
   templateUrl: './contrasena.component.html',
   styleUrl: './contrasena.component.css'
 })
 export class ContrasenaComponent {
+
+  constructor(private router: Router) {}
+
+
   email: string = '';
 
-
-  generarCodigo(): string {
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  }
+  codigoVerificacion: string = '';
 
   /**
    * Envía un código único al correo del usuario utilizando EmailJS.
    */
-  enviarCodigo(): void {
+  enviarCodigo() {
     const codigo = this.generarCodigo();
-
     const templateParams = {
-      to_email: this.email,
-      codigo: codigo,
+      email: this.email,
+      codigo: codigo
     };
 
-    // Reemplaza con tus propias claves de EmailJS
-    const SERVICE_ID = 'tu_service_id';
-    const TEMPLATE_ID = 'tu_template_id';
-    const USER_ID = 'tu_user_id'; // o public key
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
+
+    emailjs.send('service_mr0wi2s', 'template_exnwzy8', templateParams, 'LqcTSCxadm1LJMmQg')
       .then((response) => {
-        console.log('Correo enviado correctamente:', response.status, response.text);
-        alert('Hemos enviado un código a tu correo electrónico.');
+        console.log('Correo enviado:', response);
+        alert('Código enviado a tu correo');
+
       })
       .catch((error) => {
         console.error('Error al enviar el correo:', error);
-        alert('No se pudo enviar el correo. Intenta nuevamente.');
+        alert('Error al enviar el código');
       });
   }
 
-  cancelar(): void {
-    this.email = '';
-
-  }
-
-  constructor(private router: Router) {}
-
-  irACodigo() {
+  generarCodigo() {
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString(); 
+    localStorage.setItem('Codigo', codigo); 
+    console.log('Código generado:', codigo);
+  
     this.router.navigate(['/codigo']);
+    return codigo;
   }
+
+  cancelar(): void {
+    this.router.navigate(['/login']);
+
+  }
+
+
+  esCorreoValido(correo: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(correo);
+  }
+
+  
 }
+

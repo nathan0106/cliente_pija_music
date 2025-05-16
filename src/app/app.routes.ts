@@ -11,6 +11,7 @@ import { PlaylistComponent } from './pages/usuario/musica/playlist/playlist.comp
 import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
 import { PersonalizarComponent } from './pages/usuario/musica/personalizar/personalizar.component';
 import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-musica/dashboard-musica.component';
+import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 
 
 const routes: Routes = [
@@ -26,8 +27,9 @@ const routes: Routes = [
   {path: 'playlist', component: PlaylistComponent},
   {path: 'buscar', component: BuscarComponent},
   {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent},
-  {path: 'PersonalizarComponent', component: PersonalizarComponent}
- 
+  {path: 'PersonalizarComponent', component: PersonalizarComponent},
+  { path: 'nuevacontraseña', component: NuevacontrasenaComponent }
+
 ];
 
 

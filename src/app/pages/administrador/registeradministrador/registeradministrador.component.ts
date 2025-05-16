@@ -9,15 +9,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { ApiService } from '../../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core'; // Agrega esto si usas <mat-option>
+
 
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
+  selector: 'app-registeradministrador',
   imports: [
-    CommonModule,
+     CommonModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -26,15 +28,21 @@ import { MatDialog } from '@angular/material/dialog';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatOptionModule,
+    FormsModule
   ],
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './registeradministrador.component.html',
+  styleUrl: './registeradministrador.component.css'
 })
-export class RegisterComponent {
-  registerForm: FormGroup;
+export class RegisteradministradorComponent {
+
+
+ registerForm: FormGroup;
   hidePassword = true;
   hideConfirm = true;
+  documentType: string = '';
+  idNumber: string = '';
 
   constructor(private fb: FormBuilder, 
     private apiService: ApiService,
@@ -44,7 +52,8 @@ export class RegisterComponent {
       Email: ['', [Validators.required, Validators.email]],
       Contraseña: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
-      Apellido: ['', Validators.required],
+      Celular: ['', Validators.required],
+      Cedula: ['', Validators.required],
       terms: [false, Validators.requiredTrue]
     });
   }
@@ -104,6 +113,15 @@ export class RegisterComponent {
   get passwordsMatch(): boolean {
     return this.password?.value === this.confirmPassword?.value;
   }
+
+    onLogin() {
+    console.log('Login data:', {
+      documentType: this.documentType,
+      idNumber: this.idNumber,
+      password: this.password,
+    });
+    // Aquí podrías conectar con tu servicio de autenticación
+  }
 }
 
 
@@ -115,8 +133,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dialogregister',
   standalone: true,
-  templateUrl: './dialogregister.html',
-  styleUrls: ['./dialogregister.css'],
+  templateUrl: './dialogregisterad.html',
+  styleUrls: ['./dialogregisterad.css'],
   imports: [MatButtonModule]
 })
 export class DialogRegisterComponent {

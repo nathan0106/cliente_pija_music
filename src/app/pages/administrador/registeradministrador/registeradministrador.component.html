@@ -3,7 +3,7 @@
     <!-- Logo -->
     <img src="/logo.png" alt="Logo" class="logo" />
 
-    <h1>Registro de usuario</h1>
+    <h1>Registro de Administrador</h1>
     <p>
       ¿Ya tienes una cuenta en Pija Music?
       <a href="/login" class="login-link">Iniciar sesión</a>
@@ -12,21 +12,39 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <!-- Campo de Nombre -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nombre</mat-label>
+        <mat-label>Nombre de usuario</mat-label>
         <input matInput formControlName="Nombres" />
       </mat-form-field>
 
       <!-- Campo de Apellido -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Apellido</mat-label>
-        <input matInput formControlName="Apellido" />
+        <mat-label>Número de telefono</mat-label>
+        <input matInput formControlName="Celular" />
       </mat-form-field>
 
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de identificación</mat-label>
+        <mat-select [(ngModel)]="documentType" name="documentType" required [ngModelOptions]="{standalone: true}">
+          <mat-option value="" disabled>Seleccione tipo de documento</mat-option>
+          <mat-option value="cedula">Cédula</mat-option>
+          <mat-option value="tarjeta">Tarjeta de Identidad</mat-option>
+          <mat-option value="pasaporte">Pasaporte</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <!-- Campo de Nombre -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número de identificación</mat-label>
+        <input matInput formControlName="Cedula"/>
+      </mat-form-field>
+
+      
       <!-- Campo de Email -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Dirección de email</mat-label>
         <input matInput formControlName="Email" />
       </mat-form-field>
+
 
       <!-- Campo de Contraseña -->
       <mat-form-field appearance="outline" class="full-width">
@@ -56,6 +74,7 @@
         </button>
         <mat-error *ngIf="confirmPassword?.hasError('mismatch')">Las contraseñas no coinciden</mat-error>
       </mat-form-field>
+
 
       <!-- Condiciones de uso -->
       <div class="terms">

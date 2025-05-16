@@ -27,10 +27,10 @@
       </mat-form-field>
   
       <!-- Botón de Ingreso -->
-      <button class="login-button">Iniciar Sesión</button>
+      <button class="login-button" (click)="irAlMenu()">Iniciar Sesión</button>
   
       <!-- Crear cuenta -->
-      <a class="register-link" (click)="goToRegister()">Crear cuenta nueva</a>
+      <a class="register-link" (click)="goToRegister()">Crear una cuenta nueva</a>
   
       <!-- Enlace para recuperar contraseña -->
       <a [routerLink]="['/contraseña']" class="forgot-password">
