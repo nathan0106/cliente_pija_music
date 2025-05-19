@@ -34,7 +34,13 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    background-color: #fcfdff;
+    padding: 10px;
+    border-radius: 8px;
+    flex: 0 0 auto;   
+    scroll-snap-align: start;
+    box-shadow: 0 2px 8px #E1E4EA;
+
   }
   
   .item img {
@@ -83,12 +89,13 @@ h2 {
   }
   
   .cntenido {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
-    font-size: 1rem;
-    line-height: 1.6;
-      box-shadow: 9px 9px 8px rgba(0, 0, 0, 0.1);
+  max-width: 9000px;
+  margin-top: 40px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #E1E4EA;   /* Fondo casi blanco */
+  border-radius: 10px;
+  box-shadow: 9px 9px 8px rgba(0, 0, 0, 0.1);
 
   }
   
