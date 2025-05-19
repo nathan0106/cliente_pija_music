@@ -1,1 +1,18 @@
-<p>notificaciones works!</p>
+
+
+    
+    <div class="notifications">
+      <h2>Notificaciones <span class="dot"></span></h2>
+    
+      <div *ngFor="let n of notificaciones" class="notification">
+        <div class="title">
+          <span [ngClass]="{ 'label': true, 'sistema': n.tipo === 'sistema' }">
+            {{ n.label }}
+          </span>
+          <span class="dot" [ngClass]="{ 'red': n.tipo !== 'sistema', 'green': n.tipo === 'sistema' }"></span>
+        </div>
+        <p>{{ n.mensaje }}</p>
+        <span *ngIf="n.tiempo" class="time">{{ n.tiempo }}</span>
+      </div>
+    </div>
+    
