@@ -22,9 +22,10 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
+import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
 import { LugaresGeneralComponent } from './app/pages/usuario/turismo/lugares-general/lugares-general.component';
-
 
 
 bootstrapApplication(AppComponent,{
@@ -65,6 +66,10 @@ bootstrapApplication(AppComponent,{
                 ]
              },
 
+
+            //administrador
+            {path: 'loginad', component: LoginadministradorComponent},
+            {path: 'registerad', component: RegisteradministradorComponent},
 
           ]),
           provideHttpClient(),

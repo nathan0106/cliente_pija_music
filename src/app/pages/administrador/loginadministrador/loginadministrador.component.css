@@ -1,0 +1,141 @@
+/* Contenedor principal con fondo */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(/fondo2.png) no-repeat center center;
+    background-size: cover;
+}
+
+
+/* Tarjeta del login */
+mat-card {
+    width: 400px;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con 80% de opacidad */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: -20px; /* <-- Esto lo sube */
+}
+
+.logo-container img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.logo-container .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+
+/* Campos de formulario */
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Botón iniciar sesión */
+button[type="submit"] {
+    width: 100%;
+    background-color: #8D7CB2;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #7A66A2;
+}
+
+button[type="submit"]:active {
+    background-color: #4A2F6D;
+    transform: scale(0.95);
+}
+
+.register-link, .forgot-password {
+    display: block;
+    font-weight: bold;
+    color: #8D7CB2;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.register-link:hover, .forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Enlace de recuperación */
+.forgot-password {
+    display: block;
+    font-weight: bold;
+    color: #8D7CB2;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox términos */
+.terms {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+}
+
+.terms a {
+    color: #9747FF;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes para mat-form-field */
+mat-form-field {
+    display: block;
+    width: 100%;
+}
+
+/* Asegurar consistencia de los inputs */
+input.mat-input-element {
+    padding: 8px !important;
+}
+
+/* Quitar espacio indeseado bajo el select */
+mat-select {
+    padding-top: 4px;
+}
+
+/* Ajuste extra para el título si hay overlay */
+h2.title {
+    margin: 0;
+    padding: 0;
+}
