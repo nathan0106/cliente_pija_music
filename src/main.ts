@@ -29,6 +29,13 @@ import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/
 import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
+import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
+import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
+import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
+import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
+import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
+
+
 
 
 bootstrapApplication(AppComponent,{
@@ -77,8 +84,25 @@ bootstrapApplication(AppComponent,{
 
             },
 
+            //administrador
+            {path:'dashboardadministrador', component:DashboardadministradorComponent,
+                children:[
+            {
+                path: 'menuad', component:MenuadministradorComponent
 
+            },
+            {
+                path: 'favoritosadministrador', component:FavoritosadministradorComponent
+            },
+            {
+                path: 'playlistadministrador', component: PlaylistadministradorComponent
+            },
+            {
+                path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
+            },
 
+             ],
+            },
 
             //turismo
             {path: 'familiar', component: ActividadFamiliarComponent},
@@ -89,8 +113,17 @@ bootstrapApplication(AppComponent,{
 
 
             //administrador
-            {path: 'loginad', component: LoginadministradorComponent},
-            {path: 'registerad', component: RegisteradministradorComponent},
+          
+            {
+                path: 'loginad', component: LoginadministradorComponent
+            },
+            {
+                path: 'registerad', component: RegisteradministradorComponent
+            },
+         
+
+            
+
 
           ]),
           provideHttpClient(),

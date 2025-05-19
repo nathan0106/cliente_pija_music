@@ -12,6 +12,10 @@ import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
 import { PersonalizarComponent } from './pages/usuario/musica/personalizar/personalizar.component';
 import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
+import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component';
+import { MenuadministradorComponent } from './pages/administrador/menuadministrador/menuadministrador.component';
+import { PlaylistadministradorComponent } from './pages/administrador/playlistadministrador/playlistadministrador.component';
+import { FavoritosadministradorComponent } from './pages/administrador/favoritosadministrador/favoritosadministrador.component';
 
 
 const routes: Routes = [
@@ -28,7 +32,14 @@ const routes: Routes = [
   {path: 'buscar', component: BuscarComponent},
   {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent},
   {path: 'PersonalizarComponent', component: PersonalizarComponent},
-  { path: 'nuevacontraseña', component: NuevacontrasenaComponent }
+  { path:'nuevacontraseña', component: NuevacontrasenaComponent },
+
+  {path:'dashboardadministrador', component:DashboardadministradorComponent},
+  {path:'menuadministrador', component: MenuadministradorComponent},
+  {path:'playlistadministrador', component: PlaylistadministradorComponent},
+  { path:'favoritosadministrador', component:FavoritosadministradorComponent},
+
+
 
 ];
 
