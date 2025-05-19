@@ -1,0 +1,66 @@
+/* Contenedor principal del diálogo */
+.dialog-container {
+    background: #e0e0e0;
+    border-radius: 16px;
+    width: auto; /* Importante: que se adapte */
+    max-width: 90vw; /* Nunca pase de 90% del ancho de la ventana */
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Esto evita barras */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Muy importante */
+  }
+  
+  
+  /* Encabezado (logo) */
+  .dialog-header {
+    align-self: flex-start;
+  }
+  
+  .dialog-header img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Cuerpo del diálogo (mensaje) */
+  .dialog-body {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dialog-message {
+    background: #c7c7c7;
+    padding: 1.5rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-weight: normal;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+.boton-aceptar {
+  background-color: #8d7cb2 !important;
+  color: white !important;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-transform: none; /* Para evitar mayúsculas automáticas de Material */
+}
+
+.boton-aceptar:hover {
+  background-color: #7c69b2 !important;
+}
+
+  
+  
+  

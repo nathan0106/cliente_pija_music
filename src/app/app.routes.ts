@@ -6,6 +6,11 @@ import { CardCaroselComponent } from './pages/usuario/cultura/instrumentos/card-
 import { ColeoComponent } from './pages/usuario/cultura/coleo/coleo.component';
 import { InstrumentosComponent } from './pages/usuario/cultura/instrumentos/instrumentos.component';
 
+import { PoliticasComponent } from './pages/usuario/registro/politicas/politicas.component';
+import { CodigoComponent } from './pages/usuario/registro/codigo/codigo.component';
+import { RegisterComponent } from './pages/usuario/registro/register/register.component';
+import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,8 +19,10 @@ const routes: Routes = [
   {path:'card',component:CardCaroselComponent},
   {path:'instrumentos/:nombre',component:InstrumentosComponent},
   {path:'coleo',component:ColeoComponent},
-  
- 
+  { path: 'politicas', component: PoliticasComponent },
+  { path: 'codigo', component: CodigoComponent},
+  { path: 'register', component: RegisterComponent },
+  { path: 'nuevacontraseña', component: NuevacontrasenaComponent }
 ];
 
 @NgModule({
