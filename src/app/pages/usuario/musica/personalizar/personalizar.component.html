@@ -1,0 +1,26 @@
+<div class="perfil-container">
+  <h2>crea tu perfil</h2>
+  <div class="form-layout">
+    <div class="profile-photo">
+      <div class="photo-placeholder">
+        <img src="assets/user-icon.svg" alt="foto de perfil" />
+      </div>
+      <p>foto de perfil</p>
+    </div>
+    <div class="form-fields">
+      <label for="username">nombre de usuario</label>
+      <input id="username" [(ngModel)]="username" />
+
+      <label for="email">correo electrónico</label>
+      <input id="email" type="email" [(ngModel)]="email" />
+
+      <label for="password">contraseña</label>
+      <input id="password" type="password" [(ngModel)]="password" />
+    </div>
+  </div>
+  <div class="buttons">
+    <button (click)="cerrarSesion()">cerrar sesión</button>
+    <button (click)="iniciarSesion()">iniciar sesión</button>
+  </div>
+</div>
+

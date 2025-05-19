@@ -1,0 +1,112 @@
+/* Estilos generales para el contenedor de los artistas */
+.artist-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.artist-list {
+  width: 35%; /* La lista de artistas ocupa el 25% del ancho */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 2px solid #ccc;
+}
+
+.artist-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.artist-item:hover {
+  background-color: #f0f0f0;
+}
+
+.artist-image {
+  width: 50px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.artist-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.artist-details {
+  width: 50%; /* La sección de detalles ocupa el 50% */
+  padding: 20px;
+}
+.artist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.artist-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.selected-artist-image {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.song-list {
+  margin-top: 20px;
+}
+
+.song-item {
+  margin-bottom: 10px;
+}
+
+.song-info {
+  font-size: 1.1rem;
+}
+
+.song-number {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.song-title {
+  font-style: italic;
+}
+
+.song-duration {
+  color: gray;
+}
+
+button {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+.selected-artist-image {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.song-title {
+  font-weight: bold;
+}
+
+.song-duration {
+  color: #666;
+}
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}

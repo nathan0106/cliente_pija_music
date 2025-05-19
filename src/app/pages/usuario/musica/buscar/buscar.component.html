@@ -1,1 +1,10 @@
-<p>buscar works!</p>
+ <h2 class="titulo-buscar">Buscar</h2>
+
+    <!-- Grid de resultados -->
+    <div class="card-grid">
+      <div *ngFor="let card of filteredCards" class="card">
+        <div class="card-image" [style.backgroundImage]="'url(' + card.imageUrl + ')'"></div>
+        <div class="artist-name">{{ card.title }}</div>
+      </div>
+    </div>
+
