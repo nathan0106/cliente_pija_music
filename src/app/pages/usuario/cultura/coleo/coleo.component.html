@@ -1,6 +1,7 @@
 <h2>coleo</h2>
 <div class="imagen-boton">
-  <div class="item">
+  <div class="carousel-track">
+    <div class="item">
     <img src="coleoadores.PNG" alt="Coleaadores">
     <button (click)="mostrarSeccion('Coleaadores')">Coleaadores</button>
   </div>
@@ -12,6 +13,8 @@
     <img src="caballo.PNG" alt="caballos">
     <button (click)="mostrarSeccion('caballos')">Rasa de caballo</button>
   </div>
+</div>
+  
 </div>
 <div class="texto-informacion">
   <p>{{coleo_informacion.informacion}}</p>
@@ -58,6 +61,12 @@
     <h2>{{ secciones[actual].titulo10}}</h2>
     <p>{{ secciones[actual].contenido13 }}</p>
     <img *ngIf="secciones[actual].imgen9" [src]="secciones[actual].imgen9" alt="imgen6">
-    
+  
+    <div class="close-button-container">
+  <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+</div>
+
   </div>
+
+  
 

@@ -100,6 +100,8 @@ export class ColeoComponent {
   mostrarSeccion(nombre: SeccionID) {
     this.seccionActual = nombre;
   }
-
+cerrarDetalle(){
+  this.seccionActual=null;
+}
   
 }

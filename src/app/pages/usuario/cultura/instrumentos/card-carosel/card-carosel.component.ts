@@ -20,7 +20,7 @@ export class CardCaroselComponent implements  OnInit {
   constructor(private router:Router,private route:ActivatedRoute){}
 
 
-  currenIndex=0;
+  currenIndex = 3;
   instrumento:String='';
 
   sectionTitle = 'Sección destacada';
@@ -82,7 +82,7 @@ export class CardCaroselComponent implements  OnInit {
     },
     {
       title: 'bandola',
-      image: 'bandola.webp',
+      image: 'bandola2.webp',
       title_button:'mas informacio',
       detailTitle:'Historia de la bandola',
       detailDescription:'La bandola, con su sonido dulce y armonioso, se ha convertido en uno de los instrumentos distintivos de la música llanera, aportando riqueza y complejidad a las melodías de este género musical arraigado en las llanuras colombianas y venezolanas. Su historia, marcada por viajes y adaptaciones, refleja la evolución cultural y musical de la región.',
@@ -105,20 +105,20 @@ export class CardCaroselComponent implements  OnInit {
     
 
   ]
-goNext(){
-  if (this.currenIndex < this.cards.length-1){
+  autoDirection: 'forward' | 'backward' = 'forward';
+
+goNext() {
+  if (this.currenIndex < this.cards.length - 1) {
     this.currenIndex++;
-  
   }
 }
-goPrevious(){
-  if (this.currenIndex > 0){
+goPrevious() {
+  if (this.currenIndex > 0) {
     this.currenIndex--;
-    
   }
 }
-getTransform(){
-  return `translateX(-${this.currenIndex*100}%)`
+getTransform() {
+  return `translateX(-${this.currenIndex * 100}%)`;
 }
 mostrarDetalle(card:any){
  
@@ -131,16 +131,34 @@ mostrarDetalle(card:any){
       title2:card.title2,
     }
   }
-
-ngOnInit() {
-  this.route.paramMap.subscribe(params=>{
-    this.instrumento = params.get('nombre')||'';
-    console.log('Instrumento recibido:',this.instrumento);
-  });
+  
+moverCarrusel(direccion: string): void {
+  if (direccion === 'izquierda') {
+    this.currenIndex = Math.max(0, this.currenIndex - this.currenIndex);
+  } else if (direccion === 'derecha') {
+    const maxIndex = this.cards.length - 1;
+    this.currenIndex = Math.min(maxIndex, this.currenIndex + this.currenIndex);
+  }
 }
+ngOnInit() {
+  setInterval(() => {
+   this.currenIndex = (this.currenIndex + 1) % this.cards.length;
+
+  }, 2000); // cambia cada 4 segundos
+}
+
+
 cerrarDetalle(){
   this.selectedInfo=null;
 }
+retroceder() {
+  // Cambia al ítem anterior inmediatamente
+  if (this.currenIndex > 0) {
+    this.currenIndex--;
+  }
+}
+
+
 }
 
 

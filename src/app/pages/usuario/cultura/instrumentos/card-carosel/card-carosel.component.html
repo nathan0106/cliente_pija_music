@@ -1,39 +1,40 @@
 <div class="carousel-wrapper">
-    <h2>Instrumentos</h2>
-        <p class="description">Instrumentos</p>
+  <p class="description">Instrumentos</p>
 
-        <div class="carousel-container">
-            <button mat-raised-button color="primary" (click)="goPrevious()" [disabled]="currenIndex ===0">Anterior</button>
-    
-            <div class="carousel-track-container">
-                <div class="carousel-track" [style.transform]="getTransform()">
-                    <mat-card class="carousel-card" *ngFor="let card of cards">
-                        <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta"/>
-                        <mat-card-title>{{card.title}}</mat-card-title>
-                        <mat-card-actions>
-                            <button mat-button color="accent" (click)="mostrarDetalle(card)">{{card.title_button}}</button>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
-            </div>
-            <button mat-raised-button color="primary" (click)="goNext()" [disabled]="currenIndex===cards.length">Siguiente</button>
-        </div>
-        
+  <div class="carousel-container">
+    <button mat-raised-button color="primary" (click)="goPrevious()" [disabled]="currenIndex === 0">
+     Anterior
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" [style.transform]="'translateX(-' + currenIndex * 50 + 'px)'">
+        <mat-card class="carousel-card" *ngFor="let card of cards">
+          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-actions>
+            <button class="info-button" (click)="mostrarDetalle(card)">{{ card.title_button }}</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="goNext()" [disabled]="currenIndex === cards.length - 1">
+      Siguiente
+    </button>
+  </div>
+
   <div class="texto-informacion">
-    <p> {{informacion_instrumentos.instrumentos}}</p> 
-   </div> 
+    <p>{{ informacion_instrumentos.instrumentos }}</p>
+  </div>
 
-        <div class="detalle-info" *ngIf="selectedInfo">
-            <h3>{{selectedInfo.title}}</h3>
-            <p>{{selectedInfo.description}}</p>
-            <h3>{{selectedInfo.title1}}</h3>
-            <p>{{selectedInfo.origen}}</p>
-            <h3>{{selectedInfo.title2}}</h3>
-            <p>{{selectedInfo.llagada}}</p>
+  <div class="detalle-info" *ngIf="selectedInfo">
+    <h3>{{ selectedInfo.title }}</h3>
+    <p>{{ selectedInfo.description }}</p>
+    <h3>{{ selectedInfo.title1 }}</h3>
+    <p>{{ selectedInfo.origen }}</p>
+    <h3>{{ selectedInfo.title2 }}</h3>
+    <p>{{ selectedInfo.llagada }}</p>
 
-            <button mat-stroked-button color="warn" (click)="cerrarDetalle()">Cerrar</button>
-    
-        </div>
-
-</div> 
-
+    <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+  </div>
+</div>

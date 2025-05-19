@@ -27,6 +27,7 @@
     font-size: 2rem;
     margin: 1.5rem 0;
     color: #3a3a3a;
+    
   }
   
   .imagen-boton {
@@ -71,7 +72,8 @@
     padding: 1rem;
     background-color: #E1E4EA;
     border-radius: 12px;
-    box-shadow: 0 4px 8px #E1E4EA;
+    box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.1);
+
   }
   
   .contenido img {
@@ -79,12 +81,18 @@
     max-width: 100%;
     margin: 1.5rem auto;
     border-radius: 8px;
+     
+  }
+  .contenido img:hover{
+    transform: scale(1.05);
+
   }
   
   .contenido p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #333;
+    
     margin-bottom: 1rem;
   }
   .imagen-boton .item {
@@ -93,16 +101,15 @@
     align-items: center;
   }
   .texto-informacion {
-    .texto-informacion {
+    
       max-width: 1200px; /* o 100% para usar todo el ancho */
       margin: 2rem auto;
       padding: 2rem;
       background-color: #E1E4EA;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
-    }
     
   }
   
@@ -110,14 +117,79 @@
     margin-top: 1.5rem;
     font-size: 1.4rem;
     color: #18191a;
-    border-left: 4px 
+    border-left: 4px ;
     padding-left: 0.5rem;
+    
+    
   }
   .texto-informacion p {
     font-size: 1rem;
     line-height: 1.0;
     margin-top: 0.8rem;
     text-align: justify;
+    
   }
-  
-  
+  .carousel-track {
+  display: flex;                /* pone los .item en fila horizontal */
+  flex-direction: row;
+  overflow-x: auto;             /* permite hacer scroll horizontal */
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  background-color: #E1E4EA;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* oculta la barra de desplazamiento */
+}
+
+.item {
+  flex: 0 0 auto;               /* evita que los items se estiren */
+  width: 220px;                 /* ancho de cada item */
+  scroll-snap-align: start;
+  text-align: center;
+  background-color: #fcfdff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.close-button {
+  border: 2px solid #ECD8FC;
+  color: #201b1b;
+  background-color: #DDB9F9;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.close-button:hover:not(:disabled) {
+  background-color: #DDB9F9;
+  color: #000000;
+  border-color: #DDB9F9;
+  transform: scale(1.03);
+}
+
+/* Disabled */
+.close-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+
+/* Focus */
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 22, 150, 0.4);
+}
+.close-button-container {
+ 
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

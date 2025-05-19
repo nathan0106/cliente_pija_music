@@ -1,8 +1,8 @@
 /* imagen y boton moviminto */
 .card{
-    width: 200px;
+    width: 20px;
     background-color: #E1E4EA;
-    border-radius: 100px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgb(179, 40, 158);
     overflow: hidden;
     text-align: center;
@@ -15,6 +15,9 @@
     object-fit: contain;
     margin-bottom: 8px;
 }
+.card img:hover{
+    transform: scale(1.09);
+}
 /* fondo */
 .contenedor {
     display: 10;
@@ -26,20 +29,22 @@
 /* tamaño del boton instrumentos  */
 .division {
     flex: 100;
-    padding: 10px;
-    color: rgba(26, 24, 24, 0.897);
-    font-size: 20px;
+    padding: 100px;
+    color: rgba(260, 24, 24, 0.897);
+    font-size: 200px;
     text-align: center;
 }
 /* tamaño del textp */
-.texto-informacion{
-    margin: top 30px;
-    font-size: 14px;
-    color: #000;
+.texto-informacion {
+    margin-top: 40px; /* solo espacio hacia abajo */
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px; /* esto también lo puedes reducir si el texto se ve demasiado grande */
+    color: #dd1717;
 }
 /* tamaño de fondo de pantalla */
 .fondo-de-pantalla{
-    background-color: #547fd3;
+    background-color: #d33b85;
     padding: 200px;
     min-height: 100vh;
 }
@@ -74,6 +79,9 @@
     border-radius: 50%;
     object-fit: cover;
 }
+.profile img:hover{
+     transform: scale(1.09);
+}
 /* estilo de logo */
 .profile button {
     display: block;
@@ -91,7 +99,7 @@
 .section button {
     display: block;
     width: 100%;
-    background-color: #E1E4EA;
+    background-color: #ae29d3;
     color: #fff;
     border: none;
     padding: 10px;
@@ -157,6 +165,6 @@
 /* estilo de menu de bibilografia imagen */
 .menu-item img{
     width: 19px;
-    height: 20px;
+    height: 200px;
     margin-right: 10px;
 }

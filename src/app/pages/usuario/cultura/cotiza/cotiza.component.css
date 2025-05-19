@@ -1,67 +1,56 @@
-/* Estilos generales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
-    background-color: #DFDFEC;
-    color: #333;
-  }
-  
-  /* Título principal */
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #000000; /* tono cuero/marrón tradicional */
-    margin-bottom: 10px;
-  }
-  
-  /* Descripción debajo del título */
-  p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  /* Contenedor de imágenes */
-  .imagenes.cotiza {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  
-  .imagenes.cotiza img {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
-  
-  .imagenes.cotiza img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Texto informativo */
-  .texto-cotiza {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #DFDFEC;
-    border-left: 5px solid #ECD8FC;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-  }
-  
-  .texto-cotiza h3 {
-    color: #000000;
-    margin-top: 20px;
-  }
-  
-  .texto-cotiza p {
-    text-align: justify;
-    line-height: 1.6;
-    margin-top: 10px;
-  }
-  
+/* Estilo para el título principal "cotisa" */
+h2 {
+  font-size: 2rem;              /* Aumenta el tamaño de la fuente */
+  color: #4b2e0d;               /* Color marrón oscuro, acorde al estilo llanero */
+  text-align: center;           /* Centra el texto horizontalmente */
+  margin-top: 20px;             /* Espacio superior */
+}
+
+/* Estilo para el párrafo "Cotizas llaneras" */
+p {
+  font-size: 1.1rem;            /* Tamaño ligeramente mayor al normal */
+  text-align: center;           /* Centrado horizontal */
+  color: #333;                  /* Color gris oscuro para buena legibilidad */
+  margin-bottom: 20px;          /* Espacio inferior para separar de las imágenes */
+}
+
+/* Contenedor de las imágenes */
+.imagenes {
+  display: flex;                /* Usa flexbox para organizar imágenes en fila */
+  justify-content: center;     /* Centra las imágenes dentro del contenedor */
+  flex-wrap: wrap;             /* Permite que las imágenes pasen a una nueva línea si no caben */
+  gap: 15px;                   /* Espacio entre las imágenes */
+  margin: 20px 0;              /* Espacio arriba y abajo del bloque de imágenes */
+}
+
+/* Estilos individuales para cada imagen */
+.imagenes img {
+  max-width: 300px;            /* Limita el ancho máximo a 300px */
+  width: 100%;                 /* Escala según el ancho disponible */
+  height: auto;                /* Mantiene la proporción de la imagen */
+  border-radius: 10px;         /* Esquinas redondeadas */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Sombra suave para dar profundidad */
+}
+
+/* Contenedor del texto informativo */
+.texto-informacion {
+    background-color: #E1E4EA;        /* Fondo claro */
+  padding: 20px 10px;               /* 20px arriba/abajo y solo 10px a los lados */
+  margin: 20px auto;                /* Centro horizontal con margen vertical */
+  max-width: 100%;                  /* Elimina límite de ancho (usa todo el ancho disponible) */
+  border-radius: 10px;              /* Bordes redondeados */
+  box-shadow: 0 2px 8px #E1E4EA; 
+}
+
+/* Subtítulos dentro del bloque informativo */
+.texto-informacion h3 {
+  color: #3d2b1f;              /* Marrón oscuro, coherente con el diseño general */
+  margin-top: 10opx;            /* Espacio superior entre subtítulos */
+}
+
+/* Párrafos del contenido informativo */
+.texto-informacion p {
+  font-size: 1rem;             /* Tamaño de texto estándar */
+  color: #555;                 /* Color gris medio para mejor lectura */
+  line-height: 1.5;            /* Altura de línea aumentada para legibilidad */
+}

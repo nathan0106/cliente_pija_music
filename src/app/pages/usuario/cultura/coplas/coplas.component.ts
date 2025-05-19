@@ -58,5 +58,7 @@ export class CoplasComponent {
   mostrarSeccion(nombre: SeccionID) {
     this.seccionActual = nombre;
   }
-
+cerrarDetalle(){
+  this.seccionActual=null;
+}
 }  
