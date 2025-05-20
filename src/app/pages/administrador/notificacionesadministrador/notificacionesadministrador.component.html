@@ -1,1 +1,24 @@
-<p>notificacionesadministrador works!</p>
+<div class="notificaciones-admin">
+  <h2>Notificaciones de Administrador</h2>
+
+  <!-- Filtros para las notificaciones -->
+  <div class="filtros">
+    <button (click)="filtrarNotificaciones('todos')">Todos</button>
+    <button (click)="filtrarNotificaciones('usuario')">Usuarios</button>
+    <button (click)="filtrarNotificaciones('contenido')">Contenido</button>
+    <button (click)="filtrarNotificaciones('evento')">Eventos</button>
+    <button (click)="filtrarNotificaciones('sistema')">Sistema</button>
+    <button (click)="filtrarNotificaciones('seguridad')">Seguridad</button>
+  </div>
+
+  <!-- Lista de Notificaciones -->
+  <ul>
+    <li *ngFor="let notificacion of notificacionesFiltradas">
+      <div class="mensaje" [ngClass]="notificacion.tipo">
+        <p>{{ notificacion.mensaje }}</p>
+        <small>{{ notificacion.fecha | date: 'short' }}</small>
+        <button (click)="eliminarNotificacion(notificacion.id)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+</div>

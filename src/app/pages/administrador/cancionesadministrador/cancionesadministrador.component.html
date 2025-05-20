@@ -1,0 +1,46 @@
+<div class="admin-container">
+  <h2>Gestión de Canciones</h2>
+
+  <div class="form-section">
+    <label>Artista</label>
+    <select [(ngModel)]="cancionNueva.artista">
+      <option value="">-- Selecciona un artista --</option>
+      <option *ngFor="let artista of artistas" [value]="artista">{{ artista }}</option>
+    </select>
+
+    <label>Título de la canción</label>
+    <input [(ngModel)]="cancionNueva.titulo" type="text" placeholder="Ej. La Trampa" />
+
+    <label>Duración</label>
+    <input [(ngModel)]="cancionNueva.duracion" type="text" placeholder="Ej. 3:45" />
+
+    <label>Álbum</label>
+    <input [(ngModel)]="cancionNueva.album" type="text" placeholder="Nombre del álbum" />
+
+    <label>ID Estilo</label>
+    <input [(ngModel)]="cancionNueva.idEstilo" type="text" placeholder="Ej. 001" />
+
+    <label>Fecha de lanzamiento</label>
+    <input [(ngModel)]="cancionNueva.fechaLanzamiento" type="date" />
+
+    <label>Enlace del video (YouTube)</label>
+    <input [(ngModel)]="cancionNueva.link" type="text" placeholder="https://youtu.be/..." />
+
+    <button (click)="guardarCancion()">Guardar Canción</button>
+  </div>
+
+  <hr />
+
+  <h3>Canciones Guardadas</h3>
+  <ul>
+    <li *ngFor="let cancion of canciones">
+      <strong>{{ cancion.titulo }}</strong> - {{ cancion.duracion }}
+      <br />
+      <span>Artista: {{ cancion.artista }}</span><br />
+      <span>Álbum: {{ cancion.album }}</span><br />
+      <span>ID Estilo: {{ cancion.idEstilo }}</span><br />
+      <span>Fecha de lanzamiento: {{ cancion.fechaLanzamiento }}</span><br />
+      <a [href]="cancion.link" target="_blank">Ver video</a>
+    </li>
+  </ul>
+</div>

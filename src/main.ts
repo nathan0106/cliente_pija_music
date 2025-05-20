@@ -31,9 +31,10 @@ import { LoginadministradorComponent } from './app/pages/administrador/loginadmi
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
 import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
-import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
-import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
 import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
+import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
+import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
+import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
 
 
 
@@ -79,12 +80,13 @@ bootstrapApplication(AppComponent,{
             },
             {
                 path: 'personalizar', component: PersonalizarComponent  
-            }
+            },
+           
              ],
 
             },
 
-            //administrador
+            //administradorgeneral
             {path:'dashboardadministrador', component:DashboardadministradorComponent,
                 children:[
             {
@@ -92,13 +94,16 @@ bootstrapApplication(AppComponent,{
 
             },
             {
-                path: 'favoritosadministrador', component:FavoritosadministradorComponent
-            },
-            {
-                path: 'playlistadministrador', component: PlaylistadministradorComponent
-            },
-            {
                 path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
+            },
+            {
+                path: 'artistasadministrador', component: ArtistasdministradorComponent
+            },
+            {
+                path:'cancionesadministrador', component: CancionesadministradorComponent
+            },
+             {
+                path: 'estilomusicaladministrador', component: EstilomusicaladministradorComponent
             },
 
              ],
