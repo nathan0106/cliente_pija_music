@@ -97,13 +97,13 @@ bootstrapApplication(AppComponent,{
                 path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
             },
             {
-                path: 'artistasadministrador', component: ArtistasdministradorComponent
+                path: 'artista', component: ArtistasdministradorComponent
             },
             {
-                path:'cancionesadministrador', component: CancionesadministradorComponent
+                path:'canciones', component: CancionesadministradorComponent
             },
              {
-                path: 'estilomusicaladministrador', component: EstilomusicaladministradorComponent
+                path: 'estilomusical', component: EstilomusicaladministradorComponent
             },
 
              ],

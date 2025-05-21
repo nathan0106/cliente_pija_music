@@ -3,12 +3,12 @@
 
   <!-- Filtros para las notificaciones -->
   <div class="filtros">
-    <button (click)="filtrarNotificaciones('todos')">Todos</button>
-    <button (click)="filtrarNotificaciones('usuario')">Usuarios</button>
-    <button (click)="filtrarNotificaciones('contenido')">Contenido</button>
-    <button (click)="filtrarNotificaciones('evento')">Eventos</button>
-    <button (click)="filtrarNotificaciones('sistema')">Sistema</button>
-    <button (click)="filtrarNotificaciones('seguridad')">Seguridad</button>
+    <button (click)="filtrarNotificaciones('todos')" [ngClass]="{'activo': tipoSeleccionado === 'todos'}">Todos</button>
+    <button (click)="filtrarNotificaciones('usuario')" [ngClass]="{'activo': tipoSeleccionado === 'usuario'}">Usuarios</button>
+    <button (click)="filtrarNotificaciones('contenido')" [ngClass]="{'activo': tipoSeleccionado === 'contenido'}">Contenido</button>
+    <button (click)="filtrarNotificaciones('evento')" [ngClass]="{'activo': tipoSeleccionado === 'evento'}">Eventos</button>
+    <button (click)="filtrarNotificaciones('sistema')" [ngClass]="{'activo': tipoSeleccionado === 'sistema'}">Sistema</button>
+    <button (click)="filtrarNotificaciones('seguridad')" [ngClass]="{'activo': tipoSeleccionado === 'seguridad'}">Seguridad</button>
   </div>
 
   <!-- Lista de Notificaciones -->

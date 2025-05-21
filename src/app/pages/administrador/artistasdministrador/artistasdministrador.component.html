@@ -3,13 +3,13 @@
 
   <div class="form-section">
     <label>Nombre artístico</label>
-    <input [(ngModel)]="artistaNuevo.nombre" type="text" placeholder="Ej. Jorge Guerrero" />
+    <input [(ngModel)]="artistaNuevo.NombreArtistico" type="text" placeholder="Ej. Jorge Guerrero" />
 
     <label>Nombre real</label>
-    <input [(ngModel)]="artistaNuevo.nombreReal" type="text" placeholder="Ej. Jorge Luis Guerrero" />
+    <input [(ngModel)]="artistaNuevo.NombreReal" type="text" placeholder="Ej. Jorge Luis Guerrero" />
 
     <label>Biografía</label>
-    <textarea [(ngModel)]="artistaNuevo.biografia" rows="5" placeholder="Escribe una biografía del artista..."></textarea>
+    <textarea [(ngModel)]="artistaNuevo.Biografia" rows="5" placeholder="Escribe una biografía del artista..."></textarea>
 
     <label>Instagram</label>
     <input [(ngModel)]="artistaNuevo.instagram" type="text" placeholder="https://instagram.com/..." />
@@ -21,7 +21,7 @@
     <input [(ngModel)]="artistaNuevo.youtube" type="text" placeholder="https://youtube.com/..." />
 
     <label>Imagen del artista</label>
-    <input type="file" (change)="onFileSelected($event)" />
+    <input [(ngModel)]="artistaNuevo.ImagenVideo"  type="text" placeholder="https://youtu.be/..." />
 
     <button (click)="guardarArtista()">Guardar Artista</button>
   </div>

@@ -12,14 +12,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './notificacionesadministrador.component.css'
 })
 export class NotificacionesadministradorComponent {
-   notificacionesAdmin = [
+  // Variable para almacenar el tipo de filtro seleccionado
+  tipoSeleccionado: string = 'todos';
+
+  notificacionesAdmin = [
     { id: 1, mensaje: "Nuevo usuario registrado.", tipo: 'usuario', fecha: new Date() },
     { id: 2, mensaje: "Nuevo contenido subido: Canción 'Amor Eterno'", tipo: 'contenido', fecha: new Date() },
     { id: 3, mensaje: "Nuevo reporte de actividad de usuario.", tipo: 'usuario', fecha: new Date() },
     { id: 4, mensaje: "Mantenimiento programado: servidor inactivo desde las 2:00 AM", tipo: 'sistema', fecha: new Date() },
     { id: 5, mensaje: "Nuevo evento cultural agregado: Festival de Música", tipo: 'evento', fecha: new Date() },
     { id: 6, mensaje: "Acceso no autorizado detectado en la cuenta de administrador", tipo: 'seguridad', fecha: new Date() },
-    // Más notificaciones...
   ];
 
   // Notificaciones filtradas según el tipo seleccionado
@@ -27,6 +29,7 @@ export class NotificacionesadministradorComponent {
 
   // Método para filtrar las notificaciones
   filtrarNotificaciones(tipo: string) {
+    this.tipoSeleccionado = tipo;  // Actualizamos el tipo seleccionado
     if (tipo === 'todos') {
       this.notificacionesFiltradas = [...this.notificacionesAdmin];  // Muestra todas las notificaciones
     } else {

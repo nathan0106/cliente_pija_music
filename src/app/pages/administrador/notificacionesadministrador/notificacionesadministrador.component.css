@@ -4,10 +4,12 @@
   border-radius: 8px;
 }
 
+
+/* Estilos para los botones */
 .filtros button {
   margin: 5px;
   padding: 8px 12px;
-  background-color: #007bff;
+  background-color: #9f84d4;
   color: white;
   border: none;
   border-radius: 4px;
@@ -15,7 +17,13 @@
 }
 
 .filtros button:hover {
-  background-color: #0056b3;
+  background-color: #8951ad;
+}
+
+/* Estilo para el botón seleccionado (activo) */
+.filtros button.activo {
+  background-color: #8951ad;  /* Un color diferente para el botón seleccionado */
+  color: #fff;  /* Asegúrate de que el texto se vea bien */
 }
 
 .mensaje {
