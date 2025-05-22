@@ -16,7 +16,7 @@ import { ApiService } from '../../../services/api.service';
 export class ArtistasdministradorComponent {
    constructor(private apiService: ApiService) {}
   
-   artistas: any[] = [];
+   artistas: any = [];
 
   artistaNuevo = {
     NombreArtistico: '',
@@ -47,7 +47,17 @@ export class ArtistasdministradorComponent {
 
   guardarArtista() {
     this.artistas.push({ ...this.artistaNuevo });
-    this.artistaNuevo = {
+
+
+    this.artistaJson_post={
+    NombreArtistico: this.artistaNuevo.NombreArtistico,
+    NombreReal: this.artistaNuevo.NombreReal,
+    Biografia: this.artistaNuevo.Biografia,
+    ImagenVideo: this.artistaNuevo.ImagenVideo,
+    RedesSociales: '\"{\"Facebook\":\"' + this.artistaNuevo.facebook + '\",\"Instagram\":\"'+ this.artistaNuevo.instagram +'\",\"Youtube\":\"'+ this.artistaNuevo.youtube +'\"}"',
+    }
+    
+        this.artistaNuevo = {
       NombreArtistico: '',
       NombreReal: '',
       Biografia: '',
@@ -56,15 +66,6 @@ export class ArtistasdministradorComponent {
       youtube: '',
       ImagenVideo: ''
     };
-
-    this.artistaJson_post={
-    NombreArtistico: this.artistas[0].NombreArtistico,
-    NombreReal: this.artistas[0].NombreReal,
-    Biografia: this.artistas[0].Biografia,
-    ImagenVideo: this.artistas[0].ImagenVideo,
-    RedesSociales: '\"{\"Facebook\":\"' + this.artistas[0].facebook + '\",\"Instagram\":\"'+ this.artistas[0].instagram +'\",\"Youtube\":\"'+ this.artistas[0].youtube +'\"}"',
-    }
-    
     
     let artistaJson = JSON.stringify(this.artistaJson_post);
 
