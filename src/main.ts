@@ -32,7 +32,8 @@ import { MenuadministradorComponent } from './app/pages/administrador/menuadmini
 import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
 import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
 import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
-
+import { LugaresadministradorComponent } from './app/pages/administrador/lugaresadministrador/lugaresadministrador.component';
+import { TipoLugaresadministradorComponent } from './app/pages/administrador/tipo-lugaresadministrador/tipo-lugaresadministrador.component';
 
 
 
@@ -99,12 +100,18 @@ bootstrapApplication(AppComponent,{
             {
                 path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
             },
+            {
+                path: 'lugaresadministrador', component:LugaresadministradorComponent
+            },
+            {
+                path: 'tipo_lugaresadministrador', component:TipoLugaresadministradorComponent
+            },
 
              ],
             },
 
             //turismo
-            { path: 'dashboardturismo', component: DashboardsenderismoComponent,
+            { path: 'dashboardsenderismo', component: DashboardsenderismoComponent,
                 children:[
                     {
                         path: 'lugares', component: LugaresGeneralComponent

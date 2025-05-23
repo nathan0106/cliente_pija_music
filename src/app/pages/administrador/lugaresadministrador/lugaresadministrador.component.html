@@ -1,0 +1,122 @@
+<div class="form-container">
+  <h2>Gestión de Lugares Turísticos</h2>
+
+  <label for="categoria">Categoría</label>
+  <select [(ngModel)]="categoriaSeleccionada" (change)="onCategoriaChange()" class="form-select">
+    <option value="">Seleccione una categoría</option>
+    <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+  </select>
+
+  <div *ngIf="categoriaSeleccionada">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" [(ngModel)]="nuevoLugar.titulo" placeholder="Ej. Salto del Mico" />
+
+    <div class="file-input-container">
+      <label class="btn-morado file-btn">
+        Seleccionar imagen
+        <input type="file" (change)="onImageUpload($event)" hidden />
+      </label>
+      <span class="file-name">{{ nuevoLugar.imagen || 'No se ha seleccionado archivo' }}</span>
+    </div>
+
+    <label for="direccion">Dirección</label>
+    <input type="text" id="direccion" [(ngModel)]="nuevoLugar.direccion" placeholder="Ej. Vereda La Palma" />
+
+    <button class="btn-morado" (click)="guardarLugar()">Guardar Lugar</button>
+  </div>
+
+  <div *ngIf="categoriaSeleccionada && lugaresPorCategoria[categoriaSeleccionada] && lugaresPorCategoria[categoriaSeleccionada].length > 0" class="seccion-detalle">
+    <label for="lugarSeleccionado">Seleccionar Lugar</label>
+    <select [(ngModel)]="lugarSeleccionado" (change)="onLugarChange()" class="form-select">
+      <option value="">Seleccione un lugar</option>
+      <option *ngFor="let lugar of lugaresPorCategoria[categoriaSeleccionada]" [ngValue]="lugar">
+        {{ lugar.titulo }}
+      </option>
+    </select>
+
+    <div *ngIf="lugarSeleccionado && !lugarConfirmado">
+      <label>Título</label>
+      <input type="text" [(ngModel)]="detalle.titulo" />
+
+      <!-- ✅ Bloque corregido de subtítulos con descripción -->
+      <label>Subtítulos</label>
+      <div *ngFor="let sub of detalle.subtitulos; let i = index" class="input-subtitulo">
+        <input type="text" [(ngModel)]="sub.titulo" placeholder="Subtítulo" />
+        <textarea [(ngModel)]="sub.descripcion" placeholder="Descripción"></textarea>
+        <div class="subtitulo-actions">
+          <button type="button" (click)="guardarSubtitulo(i)">💾 Guardar</button>
+          <button type="button" (click)="eliminarSubtitulo(i)">🗑</button>
+        </div>
+      </div>
+      <button type="button" class="btn-morado-pequeno" (click)="agregarSubtitulo()">+ Agregar subtítulo</button>
+
+      <label>Descripción</label>
+      <textarea [(ngModel)]="detalle.texto"></textarea>
+
+      <!-- Imagen de fondo -->
+      <div class="file-input-container">
+        <label class="btn-morado-pequeno file-btn">
+          Seleccionar fondo
+          <input type="file" (change)="onFondoUpload($event)" hidden />
+        </label>
+        <span class="file-name">{{ detalle.imagenFondo || 'No se ha seleccionado archivo' }}</span>
+      </div>
+
+      <!-- Imágenes adicionales -->
+      <div class="file-input-container">
+        <label class="btn-morado-pequeno file-btn">
+          Seleccionar imágenes
+          <input type="file" multiple (change)="onMultipleImagesUpload($event)" hidden />
+        </label>
+        <span class="file-name" *ngIf="detalle.imagenes?.length">{{ detalle.imagenes.join(', ') }}</span>
+      </div>
+
+      <!-- Vista previa de imágenes -->
+      <div class="preview-gallery" *ngIf="detalle.imagenes?.length">
+        <img *ngFor="let img of detalle.imagenes" [src]="img" alt="Imagen subida" />
+      </div>
+
+      <button class="btn-morado" (click)="guardarDetalle()">Guardar Detalle</button>
+    </div>
+  </div>
+
+  <!-- Vista previa de detalle antes de confirmar -->
+  <div *ngIf="vistaConfirmacion" class="detalle-card" [ngStyle]="{ 'background-image': 'url(' + vistaDetalle.imagenFondo + ')' }">
+    <div class="contenido">
+      <h2>{{ vistaDetalle.titulo }}</h2>
+
+      <!-- Mostrar múltiples subtítulos -->
+      <div *ngIf="vistaDetalle.subtitulos && vistaDetalle.subtitulos.length">
+        <div *ngFor="let sub of vistaDetalle.subtitulos">
+          <h3>{{ sub.titulo }}</h3>
+          <p>{{ sub.descripcion }}</p>
+        </div>
+      </div>
+
+      <p>{{ vistaDetalle.texto }}</p>
+
+      <div class="preview-gallery">
+        <img *ngFor="let img of vistaDetalle.imagenes" [src]="img" />
+      </div>
+
+      <button class="btn-confirmar" (click)="confirmarVista()">Confirmar</button>
+    </div>
+  </div>
+
+  <!-- Mostrar solo el título una vez confirmado -->
+  <div *ngIf="lugarConfirmado" class="card-resumen">
+    <h4>{{ lugarConfirmado.titulo }}</h4>
+  </div>
+
+  <div *ngIf="categoriaSeleccionada && lugaresPorCategoria[categoriaSeleccionada] && lugaresPorCategoria[categoriaSeleccionada].length > 0 && !vistaConfirmacion" class="vista-final">
+    <h3>Lugares Agregados</h3>
+    <div *ngFor="let lugar of lugaresPorCategoria[categoriaSeleccionada]" class="card-preview">
+      <h4>{{ lugar.titulo }}</h4>
+       <div class="card-actions">
+         <button class="btn-confirmar" (click)="confirmarLugar(lugar)">Confirmar</button>
+         <button class="btn-ver" (click)="verDetalleLugar(lugar)">Ver</button>
+      </div>
+    </div>
+  </div>
+</div>
+

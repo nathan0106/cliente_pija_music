@@ -16,8 +16,8 @@ import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-music
 import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component';
 import { MenuadministradorComponent } from './pages/administrador/menuadministrador/menuadministrador.component';
-import { PlaylistadministradorComponent } from './pages/administrador/playlistadministrador/playlistadministrador.component';
-import { FavoritosadministradorComponent } from './pages/administrador/favoritosadministrador/favoritosadministrador.component';
+import { LugaresadministradorComponent } from './pages/administrador/lugaresadministrador/lugaresadministrador.component';
+import { TipoLugaresadministradorComponent } from './pages/administrador/tipo-lugaresadministrador/tipo-lugaresadministrador.component';
 
 
 
@@ -47,9 +47,8 @@ const routes: Routes = [
 
   {path:'dashboardadministrador', component:DashboardadministradorComponent},
   {path:'menuadministrador', component: MenuadministradorComponent},
-  {path:'playlistadministrador', component: PlaylistadministradorComponent},
-  { path:'favoritosadministrador', component:FavoritosadministradorComponent},
-
+  {path:' lugaresadministrador', component: LugaresadministradorComponent},
+  {path: 'tipolugaresadministrador', component: TipoLugaresadministradorComponent}
 ];
 
 

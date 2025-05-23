@@ -9,7 +9,7 @@
         <div class="nav-card">
           <button class="nav-button">
            <mat-icon>home</mat-icon>
-           <span>Inicio</span>
+            <span routerLink="/dashboardmusica/menu">Inicio</span>
           </button>
         </div>
   
@@ -17,7 +17,7 @@
   
           <button class="nav-button">
             <mat-icon>search</mat-icon>
-            <span>Buscar</span>
+           <span routerLink="/dashboardmusica/buscar">Buscar</span>
           </button>              
         </div>
       </div>
@@ -26,7 +26,7 @@
       <p class="section-titulo">Biblioteca</p>
 
       <div class="nav-card">
-        <button  class="nav-button" [routerLink]="'/lugares'">
+        <button  class="nav-button" routerLink="/dashboardsenderismo/lugares">
          <mat-icon>star</mat-icon>
          <span>Lugares</span>
         </button>
@@ -37,9 +37,9 @@
     <mat-sidenav-content class="content">
       <mat-toolbar color="primary" class="topbar">
         <span class="tabs">
-          <button mat-button [routerLink]="'/musica'">Música</button>
-          <button mat-button [routerLink]="'/cultura'">Cultura</button>
-          <button mat-button [routerLink]="'/turismo'">Turismo</button>
+        <button mat-button (click)="changeCategory('music')" routerLink="/dashboardmusica/menu">Música</button>
+        <button mat-button (click)="changeCategory('culture')" routerLink="/instrumentos">Cultura</button>
+        <button mat-button (click)="changeCategory('tourism')" routerLink="/dashboardsenderismo/lugares">Turismo</button>
         </span>
         
         <span class="spacer"></span>

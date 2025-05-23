@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { MatLabel } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -8,15 +7,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; 
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-dashboardsenderismo',
   imports: [
-    MatIcon,
-    MatLabel,
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
@@ -25,7 +23,9 @@ import { RouterModule, Router } from '@angular/router';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule
+    CommonModule,
+    FormsModule,
+    RouterModule,
   ],
   templateUrl: './dashboardsenderismo.component.html',
   styleUrl: './dashboardsenderismo.component.css'
@@ -37,4 +37,8 @@ export class DashboardsenderismoComponent {
   verLugaresPorTipo(tipo: string) {
     this.router.navigate(['/dashboardturismo/lugares', tipo]); // Ej: /lugares/senderismo
 }
+
+  changeCategory(category: string) {
+    console.log(`Mostrando categoría: ${category}`);
+  }
 }
