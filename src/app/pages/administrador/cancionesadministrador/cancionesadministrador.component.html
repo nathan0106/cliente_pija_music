@@ -5,7 +5,7 @@
     <label>Artista</label>
     <select [(ngModel)]="cancionNueva.artista">
       <option value="">-- Selecciona un artista --</option>
-      <option *ngFor="let artista of artistas" [value]="artista">{{ artista }}</option>
+      <option *ngFor="let artista of artistas" [value]="artista.Id">{{ artista.NombreArtistico }}</option>
     </select>
 
     <label>Título de la canción</label>
@@ -17,8 +17,12 @@
     <label>Álbum</label>
     <input [(ngModel)]="cancionNueva.album" type="text" placeholder="Nombre del álbum" />
 
-    <label>ID Estilo</label>
-    <input [(ngModel)]="cancionNueva.idEstilo" type="text" placeholder="Ej. 001" />
+  <label>Estilo Musical</label>
+  <select [(ngModel)]="cancionNueva.idEstilo">
+    <option value="">-- Selecciona un estilo --</option>
+    <option *ngFor="let estilo of estilos" [value]="estilo.Id">{{ estilo.NombreGenero }}</option>
+  </select>
+
 
     <label>Fecha de lanzamiento</label>
     <input [(ngModel)]="cancionNueva.fechaLanzamiento" type="date" />
