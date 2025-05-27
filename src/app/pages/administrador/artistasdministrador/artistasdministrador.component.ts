@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-artistasdministrador',
@@ -83,6 +84,29 @@ export class ArtistasdministradorComponent {
       }
     );
   }
-  
   }
+
+
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-dialogartistas',
+  standalone: true,
+  templateUrl: './dialogartistasad.html',
+  styleUrls: ['./dialogartistasad.css'],
+  imports: [MatButtonModule]
+})
+export class DialogRegisterComponent {
+  constructor(
+    private dialogRef: MatDialogRef<DialogRegisterComponent>,
+    private router: Router
+  ) {}
+
+  irALogin(): void {
+    this.dialogRef.close();
+    this.router.navigate(['/login']);
+  }
+}
+
 
