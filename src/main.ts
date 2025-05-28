@@ -24,14 +24,11 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
-
 import { CardCaroselComponent } from './app/pages/usuario/cultura/instrumentos/card-carosel/card-carosel.component';
 import { DashboardComponent } from './app/pages/usuario/cultura/instrumentos/deshoard/deshoard.component';
-
 import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/menu-carrusel.component';
 import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
-
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
@@ -39,10 +36,10 @@ import { MenuadministradorComponent } from './app/pages/administrador/menuadmini
 import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
 import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
 import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
-
-
-
-
+import { AutorCoplasAdminComponent } from './app/pages/administrador/autor-coplas-admin/autor-coplas-admin.component';
+import { CoplasAdminComponent } from './app/pages/administrador/coplas-admin/coplas-admin.component';
+import { TipoCulturaAdminComponent } from './app/pages/administrador/tipo-cultura-admin/tipo-cultura-admin.component';
+import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/cultura-admin.component';
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -136,6 +133,18 @@ bootstrapApplication(AppComponent,{
             {
                 path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
             },
+                        {
+                path: 'autorcoplasad', component:AutorCoplasAdminComponent
+            },
+                        {
+                path: 'coplasad', component:CoplasAdminComponent
+            },
+                        {
+                path: 'tipoculturaad', component:TipoCulturaAdminComponent
+            },
+                        {
+                path: 'culturaad', component:CulturaAdminComponent
+            },
 
              ],
             },
@@ -149,7 +158,7 @@ bootstrapApplication(AppComponent,{
             {path: 'senderismo', component: SenderismoComponent},
 
 
-            //administrador
+            //administrador login
           
             {
                 path: 'loginad', component: LoginadministradorComponent

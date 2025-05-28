@@ -10,7 +10,6 @@
       <div class="carousel-track" [style.transform]="'translateX(-' + currenIndex * 50 + 'px)'">
         <mat-card class="carousel-card" *ngFor="let card of cards">
           <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
-          <mat-card-title>{{ card.title }}</mat-card-title>
           <mat-card-actions>
             <button class="info-button" (click)="mostrarDetalle(card)">{{ card.title_button }}</button>
           </mat-card-actions>

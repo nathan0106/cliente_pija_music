@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/usuario/registro/login/login.component';
 import { ContrasenaComponent } from './pages/usuario/registro/contrasena/contrasena.component';
-
 import { CardCaroselComponent } from './pages/usuario/cultura/instrumentos/card-carosel/card-carosel.component';
 import { ColeoComponent } from './pages/usuario/cultura/coleo/coleo.component';
 import { InstrumentosComponent } from './pages/usuario/cultura/instrumentos/instrumentos.component';
-
-
 import { MenuCarruselComponent } from './pages/usuario/musica/menu-carrusel/menu-carrusel.component';
 import { RegisterComponent } from './pages/usuario/registro/register/register.component';
-
 import { PoliticasComponent } from './pages/usuario/registro/politicas/politicas.component';
 import { CodigoComponent } from './pages/usuario/registro/codigo/codigo.component';
 import { NotificacionesComponent } from './pages/usuario/musica/notificaciones/notificaciones.component';
@@ -23,14 +19,15 @@ import { DashboardadministradorComponent } from './pages/administrador/dashboard
 import { MenuadministradorComponent } from './pages/administrador/menuadministrador/menuadministrador.component';
 import { PlaylistadministradorComponent } from './pages/administrador/playlistadministrador/playlistadministrador.component';
 import { FavoritosadministradorComponent } from './pages/administrador/favoritosadministrador/favoritosadministrador.component';
-
-
+import { CoplaadministrtivoComponent } from './pages/administrador/dashboardadministrador/coplaadministrtivo/coplaadministrtivo.component';
+import { TrajestipicosadministrativoComponent } from './pages/administrador/trajestipicosadministrativo/trajestipicosadministrativo.component';
+import { CulturaComponent } from './pages/administrador/dashboardadministrador/cultura/cultura.component';
+import { TipoculturaComponent } from './pages/administrador/dashboardadministrador/tipocultura/tipocultura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '', redirectTo: '/musica', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-
   { path: 'contraseña', component: ContrasenaComponent},
   {path:'card',component:CardCaroselComponent},
   {path:'instrumentos/:nombre',component:InstrumentosComponent},
@@ -46,11 +43,15 @@ const routes: Routes = [
   {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent},
   {path: 'PersonalizarComponent', component: PersonalizarComponent},
   { path:'nuevacontraseña', component: NuevacontrasenaComponent },
-
   {path:'dashboardadministrador', component:DashboardadministradorComponent},
   {path:'menuadministrador', component: MenuadministradorComponent},
   {path:'playlistadministrador', component: PlaylistadministradorComponent},
   { path:'favoritosadministrador', component:FavoritosadministradorComponent},
+  {path:'copla',component:CoplaadministrtivoComponent},
+  {path:'trajestipicosadminstrativo',component:TrajestipicosadministrativoComponent},
+  {path:'cultura',component:CulturaComponent},
+  {path:'tipocultura',component:TipoculturaComponent},
+
 
 
 

@@ -1,0 +1,26 @@
+<div class="contenedor">
+  <h3>Gestión de Cultura</h3>
+
+  <div class="formulario">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" [(ngModel)]="nuevoTitulo" placeholder="Título cultural" />
+
+    <button class="btn-guardar" (click)="guardarTitulo()">Guardar</button>
+  </div>
+
+  <div class="tabla-cultura" *ngIf="titulos.length > 0">
+    <h4>Títulos Agregados</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let titulo of titulos">
+          <td>{{ titulo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

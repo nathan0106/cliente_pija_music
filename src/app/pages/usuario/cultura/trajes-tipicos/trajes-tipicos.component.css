@@ -11,8 +11,8 @@ p {
   display: flex;                /* Flexbox para organizar elementos */
   flex-wrap: wrap;             /* Permite que pasen a otra línea si no caben */
   justify-content: center;     /* Centra los elementos horizontalmente */
-  gap: 20px;                    /* Espacio entre elementos */
-  margin-bottom: 30px;         /* Espacio inferior */
+  gap: 10px;                    /* Espacio entre elementos */
+  margin-bottom: 20px;         /* Espacio inferior */
 }
 
 /* Estilo de cada ítem (imagen + botón) */

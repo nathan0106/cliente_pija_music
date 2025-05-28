@@ -1,56 +1,174 @@
-/* Estilo para el título principal "cotisa" */
 h2 {
-  font-size: 2rem;              /* Aumenta el tamaño de la fuente */
-  color: #4b2e0d;               /* Color marrón oscuro, acorde al estilo llanero */
-  text-align: center;           /* Centra el texto horizontalmente */
-  margin-top: 20px;             /* Espacio superior */
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #3b3b3b;
+  }
+
+  .imagen-boton {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+
+  .contenido img:hover {
+    transform: scale(1.05);
+  }
+  .carousel-track {
+   display: flex;                /* Pone los items en fila */
+  flex-direction: row;          /* Dirección horizontal */
+  overflow-x: auto;             /* Permite scroll horizontal */
+  scroll-snap-type: x mandatory; /* Ayuda a que el scroll se detenga por item */
+  gap: 20px;                    /* Espacio entre items */
+  padding: 20px;
+  background-color: #f4f4f4;
+  white-space: nowrap; 
 }
 
-/* Estilo para el párrafo "Cotizas llaneras" */
-p {
-  font-size: 1.1rem;            /* Tamaño ligeramente mayor al normal */
-  text-align: center;           /* Centrado horizontal */
-  color: #333;                  /* Color gris oscuro para buena legibilidad */
-  margin-bottom: 20px;          /* Espacio inferior para separar de las imágenes */
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en navegadores WebKit */
+}
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfdff;
+    padding: 10px;
+    border-radius: 8px;
+    flex: 0 0 auto;   
+    scroll-snap-align: start;
+    box-shadow: 0 2px 8px #E1E4EA;
+
+  }
+  
+ .item img {
+  width: 200px;
+  height: 200px;              /* Fija la altura */
+  object-fit: cover;          /* Cubre sin deformar */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Contenedor de las imágenes */
-.imagenes {
-  display: flex;                /* Usa flexbox para organizar imágenes en fila */
-  justify-content: center;     /* Centra las imágenes dentro del contenedor */
-  flex-wrap: wrap;             /* Permite que las imágenes pasen a una nueva línea si no caben */
-  gap: 15px;                   /* Espacio entre las imágenes */
-  margin: 20px 0;              /* Espacio arriba y abajo del bloque de imágenes */
+  
+  .item img:hover{
+    transform: scale(1.05);
+
+  }
+
+  
+  .item button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background-color: #DDB9F9;
+    color: rgb(3, 3, 3);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .item button:hover {
+    background-color: #ECD8FC;
+  }
+  
+  .texto-informacion {
+    max-width: 120000px; /* O cualquier valor mayor */
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+    box-shadow: 9px 9px 9px #1918181a;
+
+  }
+  
+  
+  .texto-informacion h3 {
+    margin-top: 1rem;
+    color: #050606;
+    
+  }
+  
+  .contenido {
+  max-width: 9000px;
+  margin-top: 40px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #E1E4EA;   /* Fondo casi blanco */
+  border-radius: 10px;
+  box-shadow: 9px 9px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .contenido h2 {
+    margin-top: 1.5rem;
+    color: #1e2322;
+  }
+  
+  .contenido img {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .contenido img:hover{
+    transform: scale(1.09);
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .imagen-boton {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .item img {
+      width: 90%;
+      
+    }
+  }
+/* Contenedor para centrar el botón */
+.close-button-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  margin-top: 50px;
 }
 
-/* Estilos individuales para cada imagen */
-.imagenes img {
-  max-width: 300px;            /* Limita el ancho máximo a 300px */
-  width: 100%;                 /* Escala según el ancho disponible */
-  height: auto;                /* Mantiene la proporción de la imagen */
-  border-radius: 10px;         /* Esquinas redondeadas */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Sombra suave para dar profundidad */
+/* Estilo del botón */
+.close-button {
+  border: 2px solid #ECD8FC;
+  color: #201b1b;
+  background-color: #DDB9F9;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Contenedor del texto informativo */
-.texto-informacion {
-    background-color: #E1E4EA;        /* Fondo claro */
-  padding: 20px 10px;               /* 20px arriba/abajo y solo 10px a los lados */
-  margin: 20px auto;                /* Centro horizontal con margen vertical */
-  max-width: 100%;                  /* Elimina límite de ancho (usa todo el ancho disponible) */
-  border-radius: 10px;              /* Bordes redondeados */
-  box-shadow: 0 2px 8px #E1E4EA; 
+/* Efecto hover */
+.close-button:hover:not(:disabled) {
+  background-color: #DDB9F9;
+  color: #19191a;
+  border-color: #DDB9F9;
+  transform: scale(1.03);
 }
 
-/* Subtítulos dentro del bloque informativo */
-.texto-informacion h3 {
-  color: #3d2b1f;              /* Marrón oscuro, coherente con el diseño general */
-  margin-top: 10opx;            /* Espacio superior entre subtítulos */
+/* Estado deshabilitado */
+.close-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
 }
 
-/* Párrafos del contenido informativo */
-.texto-informacion p {
-  font-size: 1rem;             /* Tamaño de texto estándar */
-  color: #555;                 /* Color gris medio para mejor lectura */
-  line-height: 1.5;            /* Altura de línea aumentada para legibilidad */
+/* Enfocado con teclado */
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.4);
 }

@@ -33,9 +33,8 @@ export class CardCaroselComponent implements  OnInit {
   }
   cards = [
     {
-      title: 'Cuatro',
       image: 'cuatro (2).webp',
-      title_button:'mas informacion',
+      title_button:'Cuatro',
       detailTitle:'Historia del cuatro',
       detailDescription:'El cuatro, con su sonido cálido y su versatilidad, se ha convertido en uno de los instrumentos emblemáticos de la música llanera, marcando el ritmo y la melodía de este género musical arraigado en las llanuras colombianas y venezolanas. Su historia, llena de adaptaciones y fusiones, refleja la evolución cultural y musical de la región.',
       title1:'Orígenes',
@@ -45,9 +44,9 @@ export class CardCaroselComponent implements  OnInit {
 
     },
     {
-      title: 'Maracas',
+      
       image: 'maracas (2).jpg',
-      title_button:'mas informacion',
+      title_button:'Maracas',
       detailTitle:'Historia de las maracas',
       detailDescription:'Las maracas, esos instrumentos membranófonos de origen ancestral, han acompañado a las culturas del mundo desde tiempos inmemoriales, y en la música llanera, su presencia ha sido fundamental para marcar el ritmo y el sabor de este género musical tan arraigado en las llanuras colombianas y venezolanas.',
       title1:'Orígenes',
@@ -58,9 +57,9 @@ export class CardCaroselComponent implements  OnInit {
 
     },
     {
-      title: 'Mandolina',
+      
       image: 'mandolina1.,.jpg',
-      title_button:'mas informacion',
+      title_button:'Mandolina',
       detailTitle:'Historia de la mandolina',
       detailDescription:'Si bien la mandolina ha influido en el desarrollo de la bandola, un instrumento de cuerda similar comúnmente utilizado en la música llanera, no se considera un instrumento principal en el género. La historia de la mandolina en la región de los llanos está entrelazada con su papel en la evolución de la bandola, que tiene su propia historia y contribuciones únicas a la música llanera.',
       title1:'Orígenes',
@@ -70,10 +69,9 @@ export class CardCaroselComponent implements  OnInit {
 
     },
     {
-      title: 'bajo',
       image: 'bajo-.1.jpg',
-      title_button:'mas informacion',
-      detailTitle:'Historia del bajo',
+      title_button:'bajo',
+      detailTitle:'bajo',
       detailDescription:'El bajo eléctrico, con su sonido profundo y resonante y su base rítmica, se ha convertido en un instrumento destacado en diversos géneros musicales del mundo, incluida la música llanera. Si bien su introducción a la música llanera es relativamente reciente en comparación con otros instrumentos tradicionales, el bajo se ha establecido como parte integral del sonido dinámico y en constante evolución del género.',
       title1:'Orígenes',
       origen:'Las raíces del bajo eléctrico se remontan al siglo XV con el desarrollo del violone, un instrumento de cuerda grande y con arco. Durante la década de 1930, el bajo eléctrico surgió como un instrumento distinto, ganando popularidad en la música jazz y blues. Su sonido amplificado y su versatilidad lo convirtieron en una adición atractiva a diversos estilos musicales.',
@@ -81,10 +79,10 @@ export class CardCaroselComponent implements  OnInit {
       llagada:'La introducción del bajo eléctrico a la música llanera se considera generalmente que ocurrió a mediados del siglo XX, coincidiendo con la creciente popularidad y modernización del género. A medida que la música llanera incorporaba elementos de otros géneros, como la salsa y el rock and roll, el bajo eléctrico encontró su lugar para proporcionar una base rítmica sólida y mejorar el sonido general.',
     },
     {
-      title: 'bandola',
+      
       image: 'bandola2.webp',
-      title_button:'mas informacio',
-      detailTitle:'Historia de la bandola',
+      title_button:'bandola',
+      detailTitle:'bandola',
       detailDescription:'La bandola, con su sonido dulce y armonioso, se ha convertido en uno de los instrumentos distintivos de la música llanera, aportando riqueza y complejidad a las melodías de este género musical arraigado en las llanuras colombianas y venezolanas. Su historia, marcada por viajes y adaptaciones, refleja la evolución cultural y musical de la región.',
       title1:'Orígenes',
       origen:'Las raíces de la bandola se remontan a la mandolina europea, instrumento que llegó a América durante la época colonial. En las manos de los pobladores locales, principalmente indígenas y mestizos, la mandolina sufrió transformaciones, dando lugar a instrumentos como la bandola.',
@@ -92,9 +90,9 @@ export class CardCaroselComponent implements  OnInit {
       llagada:'La bandola se introdujo en los Llanos colombianos y venezolanos a finales del siglo XVIII y principios del XIX, adaptándose rápidamente a las tradiciones musicales de la región. Su sonido suave y su capacidad para interpretar melodías complejas la convirtieron en un instrumento ideal para acompañar a la voz del cantante y enriquecer las armonías del joropo, el ritmo más popular de la música llanera.',
     },
     {
-      title: 'arpa',
+      
       image: 'arpa...png',
-      title_button:'mas informacion',
+      title_button:'arpa',
       detailTitle:'Historia del arpa',
       detailDescription:'El arpa, con su sonido majestuoso y su versatilidad, se ha convertido en el instrumento rey de la música llanera, marcando el pulso y la armonía de este género musical arraigado en las llanuras colombianas y venezolanas. Su historia, llena de viajes y transformaciones,',
       title1:'Orígenes',
