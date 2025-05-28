@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AlertComponent } from '../../../administrador/alert/alert.component';
+import { ViewChild } from '@angular/core';
+
+
 
 
 
@@ -10,10 +14,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './codigo.component.css',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    AlertComponent
   ]
 })
 export class CodigoComponent {
+
+   @ViewChild('alertRef') alertComponent!: AlertComponent;
+
 
   constructor(private router: Router) {}
 
@@ -59,7 +67,7 @@ export class CodigoComponent {
 
   verificarCodigo() {
     if (!this.codigoGuardado) {
-      alert('No hay ningún código guardado. Por favor, solicita uno nuevo.');
+      this.alertComponent.show('No hay ningún código guardado. Por favor, solicita uno nuevo.');
       return;
     }
   
@@ -68,7 +76,7 @@ export class CodigoComponent {
     if (codigoIngresado === this.codigoGuardado.trim()) {
       this.router.navigate(['/nuevacontraseña']);
     } else {
-      alert('Código incorrecto, por favor inténtalo de nuevo.');
+      this.alertComponent.show('Código incorrecto, por favor inténtalo de nuevo.');
     }
   }
 }

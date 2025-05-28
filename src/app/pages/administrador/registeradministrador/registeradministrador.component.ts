@@ -48,7 +48,7 @@ export class RegisteradministradorComponent {
     private apiService: ApiService,
     private dialog: MatDialog) {
     this.registerForm = this.fb.group({
-      Nombres: ['', Validators.required],
+      Nombre: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
       Contraseña: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
@@ -66,7 +66,7 @@ export class RegisteradministradorComponent {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
   
-          // 👉 Abre el diálogo después del éxito
+          // abrir diálog
           this.dialog.open(DialogRegisterComponent, {
             maxWidth: '90vw',
             width: 'auto',
