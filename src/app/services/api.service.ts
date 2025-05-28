@@ -6,12 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
+
   private baseUrl = 'http://localhost:8082/v1';// Cambia esta URL base según tu backend
 
   constructor(private http: HttpClient) {}
 
   getData(endpoint: string, params: any = {}): Observable<any> {
+
     return this.http.get(`${this.baseUrl}/${endpoint}`, { params });
+
   }
 
   postData(endpoint: string, data: any): Observable<any> {

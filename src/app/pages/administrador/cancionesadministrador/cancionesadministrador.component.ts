@@ -2,23 +2,42 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
+import {MatButtonModule} from '@angular/material/button';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AlertComponent } from '../alert/alert.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cancionesadministrador',
-   standalone: true,
+  standalone: true,
   imports: [
-    FormsModule,
-    CommonModule  
+  CommonModule,
+  FormsModule,
+  MatFormFieldModule, 
+  MatInputModule, 
+  FormsModule, 
+  MatButtonModule,
+  MatDialogModule
   ],
   templateUrl: './cancionesadministrador.component.html',
   styleUrls: ['./cancionesadministrador.component.css']
 })
 export class CancionesadministradorComponent {
-   constructor(private apiService: ApiService) {}
-  artistas: any[]=[]; // Puedes cargar dinámicamente
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
+  @ViewChild('alertRef') alertComponent!: AlertComponent;
+
+  artistas: any[] = [];
   estilos: any[] = [];
-
   canciones: any[] = [];
 
   cancionNueva = {
@@ -31,51 +50,42 @@ export class CancionesadministradorComponent {
     fechaLanzamiento: ''
   };
 
-  cancionjsnpost={
-    TituloCancion:'',
-    IdArtistas :{
-      Id:0
-       },
-    Album:'',
-    IdEstilo:{
-      Id:0
-    },
-    Duracion:'',
-    RutaArchivo:'',
-    FechaLanzamiento:'',
-  }
-
+  cancionjsnpost = {
+    TituloCancion: '',
+    IdArtistas: { Id: 0 },
+    Album: '',
+    IdEstilo: { Id: 0 },
+    Duracion: '',
+    RutaArchivo: '',
+    FechaLanzamiento: ''
+  };
 
   guardarCancion() {
     this.canciones.push({ ...this.cancionNueva });
-    this.cancionjsnpost={
-      TituloCancion:this.cancionNueva.titulo,
-      IdArtistas:{
-        Id: Number(this.cancionNueva.artista)
-      },
-      Album:this.cancionNueva.album,
-      IdEstilo: {
-        Id: Number(this.cancionNueva.idEstilo)
-      },
-      Duracion:this.cancionNueva.duracion,
-      RutaArchivo:this.cancionNueva.link,
-      FechaLanzamiento:this.cancionNueva.fechaLanzamiento
-    }
 
-     let cancionNueva_json = JSON.stringify(this.cancionjsnpost);
+    this.cancionjsnpost = {
+      TituloCancion: this.cancionNueva.titulo,
+      IdArtistas: { Id: Number(this.cancionNueva.artista) },
+      Album: this.cancionNueva.album,
+      IdEstilo: { Id: Number(this.cancionNueva.idEstilo) },
+      Duracion: this.cancionNueva.duracion,
+      RutaArchivo: this.cancionNueva.link,
+      FechaLanzamiento: this.cancionNueva.fechaLanzamiento
+    };
 
-     console.log('json',cancionNueva_json)
+    const cancionNueva_json = JSON.stringify(this.cancionjsnpost);
+    console.log('json', cancionNueva_json);
 
     this.apiService.postData('Canciones', cancionNueva_json).subscribe(
-  (respuesta) => {
-    console.log('cancion creado', respuesta);
-    alert('cancion musical creado exitosamente');
-  },
-  (error) => {
-  console.error('Error al crear la cancion ', error);
-  alert('Error al crear la cancion');
- }
-);
+      (respuesta) => {
+        console.log('Canción creada', respuesta);
+        this.dialog.open(DialogCancionesad); // Abrir el diálogo correctamente
+      },
+      (error) => {
+        console.error('Error al crear la canción', error);
+        this.alertComponent.show('Error al crear la canción');
+      }
+    );
 
     this.cancionNueva = {
       titulo: '',
@@ -89,32 +99,51 @@ export class CancionesadministradorComponent {
   }
 
   ngOnInit(): void {
-    // Este código se ejecuta después de que Angular ha inicializado el componente
-    console.log('Componente inicializado');
-
     this.apiService.getData('Artista?limit=0').subscribe(
-    (respuesta) => {
-      console.log('Artistas cargados', respuesta);
-      this.artistas= respuesta["Data"]
-    },
-    (error) => {
-    console.error('Error al consultar los artistas', error);
-    alert('Error al consultar Aristas');
-  }
-  );
+      (respuesta) => {
+        this.artistas = respuesta['Data'];
+      },
+      (error) => {
+        this.alertComponent.show('Error al consultar artistas');
+      }
+    );
 
-    
-  this.apiService.getData('Estilo_Musical?limit=0').subscribe(
-  (respuesta) => {
-  console.log('Estilos cargados', respuesta);
-  this.estilos = respuesta["Data"];
-  },
-  (error) => {
-  console.error('Error al consultar estilos musicales', error);
-  alert('Error al consultar estilos musicales');
+    this.apiService.getData('Estilo_Musical?limit=0').subscribe(
+      (respuesta) => {
+        this.estilos = respuesta['Data'];
+      },
+      (error) => {
+        this.alertComponent.show('Error al consultar estilos musicales');
+      }
+    );
   }
-);
 }
 
-  }
 
+
+
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatDialogClose } from '@angular/material/dialog';
+
+@Component({
+  selector: 'app-dialogcancionesad',
+  standalone: true,
+  imports: [
+     MatFormFieldModule,
+    MatInputModule,
+    FormsModule
+  ],
+  templateUrl: './dialogcancionesad.html',
+  styleUrls: ['./dialogcancionesad.css']
+})
+export class DialogCancionesad {
+  constructor(
+    private dialogRef: MatDialogRef<DialogCancionesad>,
+    private router: Router
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}

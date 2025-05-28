@@ -3,6 +3,9 @@ import emailjs from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AlertComponent } from '../../../administrador/alert/alert.component';
+import { ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -16,6 +19,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contrasena.component.css'
 })
 export class ContrasenaComponent {
+
+     @ViewChild('alertRef') alertComponent!: AlertComponent;
+
 
   constructor(private router: Router) {}
 
@@ -39,12 +45,12 @@ export class ContrasenaComponent {
     emailjs.send('service_mr0wi2s', 'template_exnwzy8', templateParams, 'LqcTSCxadm1LJMmQg')
       .then((response) => {
         console.log('Correo enviado:', response);
-        alert('Código enviado a tu correo');
+        this.alertComponent.show('Código enviado a tu correo');
 
       })
       .catch((error) => {
         console.error('Error al enviar el correo:', error);
-        alert('Error al enviar el código');
+        this.alertComponent.show('Error al enviar el código');
       });
   }
 

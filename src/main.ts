@@ -30,8 +30,6 @@ import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/p
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
-import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
-import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
 import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
 import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
 import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
@@ -90,13 +88,7 @@ bootstrapApplication(AppComponent,{
             {path:'dashboardadministrador', component:DashboardadministradorComponent,
                 children:[
             {
-                path: 'menuad', component:MenuadministradorComponent
 
-            },
-            {
-                path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
-            },
-            {
                 path: 'artista', component: ArtistasdministradorComponent
             },
             {

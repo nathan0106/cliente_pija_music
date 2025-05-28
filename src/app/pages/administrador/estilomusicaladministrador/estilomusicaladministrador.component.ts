@@ -2,6 +2,19 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
+import {MatButtonModule} from '@angular/material/button';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AlertComponent } from '../alert/alert.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-estilomusicaladministrador',
@@ -14,7 +27,10 @@ import { ApiService } from '../../../services/api.service';
   styleUrls: ['./estilomusicaladministrador.component.css']
 })
 export class EstilomusicaladministradorComponent {
-   constructor(private apiService: ApiService) {}
+   constructor(private apiService: ApiService , private dialog: MatDialog) {}
+
+   
+    @ViewChild('alertRef') alertComponent!: AlertComponent;
 
   estilos: any = [];
 
@@ -54,13 +70,38 @@ export class EstilomusicaladministradorComponent {
 this.apiService.postData('Estilo_Musical ', estiloNuevo_json).subscribe(
   (respuesta) => {
     console.log('estilomusical creado', respuesta);
-    alert('Estilo musical creado exitosamente');
+     this.dialog.open(dialogestilomusicalad);('Estilo musical creado exitosamente');
   },
   (error) => {
   console.error('Error al crear el estilomusical ', error);
-  alert('Error al crear el estilomusical ');
+  this.alertComponent.show('Error al crear el estilomusical ');
  }
 );
 }
+}
 
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatDialogClose } from '@angular/material/dialog';
+
+@Component({
+  selector: 'app-dialogestilomusicalad',
+  standalone: true,
+  imports: [
+     MatFormFieldModule,
+    MatInputModule,
+    FormsModule
+  ],
+  templateUrl: './dialogestilomusicalad.html',
+  styleUrls: ['./dialogestilomusicalad.css']
+})
+export class dialogestilomusicalad {
+  constructor(
+    private dialogRef: MatDialogRef<dialogestilomusicalad>,
+    private router: Router
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

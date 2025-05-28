@@ -1,0 +1,43 @@
+.custom-alert {
+  position: fixed;
+  top: 0; /* 👈 Esto la pega arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: rgba; 
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 0 0 8px 8px;
+  max-width: 90%;
+  width: 300px;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+}
+
+
+.custom-alert p {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+.custom-alert button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #8D7CB2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-alert button:hover {
+  background-color: #4A2F6D;
+}
+
+.alert-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+

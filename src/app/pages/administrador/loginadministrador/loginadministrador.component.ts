@@ -11,8 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core'; // Agrega esto si usas <mat-option>
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-
-
+import { AlertComponent } from '../alert/alert.component';
+import { ViewChild } from '@angular/core';
 
 
 
@@ -37,6 +37,8 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginadministradorComponent {
 
+   @ViewChild('alertRef') alertComponent!: AlertComponent;
+
   documentType: string = '';
   idNumber: string = '';
   password: string = '';
@@ -47,17 +49,17 @@ export class LoginadministradorComponent {
 
 
   login() {
-    alert('Iniciando sesión...');
+    this.alertComponent.show('Iniciando sesión...');
   }
 
   recoverPassword() {
-    alert('Recuperar contraseña');
+    this.alertComponent.show('Recuperar contraseña');
   localStorage.setItem('tipo', 'admin'); // Establece que es un administrador
   this.router.navigate(['/nuevacontrasena']); // Redirige al componente compartido
   }
 
   createAccount() {
-    alert('Crear nueva cuenta');
+    this.alertComponent.show('Crear nueva cuenta');
   }
   
 

@@ -13,6 +13,8 @@ import {
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AlertComponent } from '../alert/alert.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-artistasdministrador',
@@ -25,15 +27,15 @@ import { MatDialogModule } from '@angular/material/dialog';
   FormsModule, 
   MatButtonModule,
   MatDialogModule
-  
   ],
   templateUrl: './artistasdministrador.component.html',
   styleUrl: './artistasdministrador.component.css'
 })
 export class ArtistasdministradorComponent {
    constructor(private apiService: ApiService, private dialog: MatDialog) {}
+   
+    @ViewChild('alertRef') alertComponent!: AlertComponent;
 
-  
    artistas: any = [];
 
   artistaNuevo = {
@@ -97,7 +99,7 @@ export class ArtistasdministradorComponent {
       },
       (error) => {
         console.error('Error al crear el post', error);
-        alert("Error al crear un artista")
+         this.alertComponent.show("Error al crear un artista")
       }
     );
   }
