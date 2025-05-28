@@ -2,20 +2,37 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
-import { MatButtonModule } from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-artistasdministrador',
    standalone: true,
   imports: [
-    CommonModule,
-     FormsModule ,
+  CommonModule,
+  FormsModule,
+  MatFormFieldModule, 
+  MatInputModule, 
+  FormsModule, 
+  MatButtonModule,
+  MatDialogModule
+  
   ],
   templateUrl: './artistasdministrador.component.html',
   styleUrl: './artistasdministrador.component.css'
 })
 export class ArtistasdministradorComponent {
-   constructor(private apiService: ApiService) {}
+   constructor(private apiService: ApiService, private dialog: MatDialog) {}
+
   
    artistas: any = [];
 
@@ -58,14 +75,14 @@ export class ArtistasdministradorComponent {
     RedesSociales: '\"{\"Facebook\":\"' + this.artistaNuevo.facebook + '\",\"Instagram\":\"'+ this.artistaNuevo.instagram +'\",\"Youtube\":\"'+ this.artistaNuevo.youtube +'\"}"',
     }
     
-        this.artistaNuevo = {
-      NombreArtistico: '',
-      NombreReal: '',
-      Biografia: '',
-      instagram: '',
-      facebook: '',
-      youtube: '',
-      ImagenVideo: ''
+    this.artistaNuevo = {
+    NombreArtistico: '',
+    NombreReal: '',
+    Biografia: '',
+    instagram: '',
+    facebook: '',
+    youtube: '',
+    ImagenVideo: ''
     };
     
     let artistaJson = JSON.stringify(this.artistaJson_post);
@@ -75,7 +92,7 @@ export class ArtistasdministradorComponent {
     this.apiService.postData('Artista',artistaJson).subscribe(
       (respuesta) => {
         console.log('Post creado', respuesta);
-        alert("Artista creado")
+        this.dialog.open(DialogArtistaComponent);
     
       },
       (error) => {
@@ -87,26 +104,33 @@ export class ArtistasdministradorComponent {
   }
 
 
+  
+
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MatDialogClose } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialogartistas',
   standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
+  ],
   templateUrl: './dialogartistasad.html',
   styleUrls: ['./dialogartistasad.css'],
-  imports: [MatButtonModule]
 })
-export class DialogRegisterComponent {
+export class DialogArtistaComponent {
   constructor(
-    private dialogRef: MatDialogRef<DialogRegisterComponent>,
+    private dialogRef: MatDialogRef<DialogArtistaComponent>,
     private router: Router
   ) {}
 
-  irALogin(): void {
-    this.dialogRef.close();
-    this.router.navigate(['/login']);
-  }
+onNoClick(): void {
+  this.dialogRef.close();
+}
+
 }
 
 
