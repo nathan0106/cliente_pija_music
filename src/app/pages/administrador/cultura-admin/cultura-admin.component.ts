@@ -59,6 +59,16 @@ export class CulturaAdminComponent {
       videoUrl: ['']
     });
   }
+  enviarCulturaABaseDeDatos(cultura: any) {
+  this.http.post('http://localhost:8082/v1/Cultura', cultura).subscribe({
+    next: (res) => {
+      console.log('✅ Cultura guardada exitosamente:', res);
+    },
+    error: (err) => {
+      console.error('❌ Error al guardar la cultura:', err);
+    }
+  });
+}
 
   onCategoriaChange() {
     const cat = this.mainForm.get('categoria')?.value;
@@ -111,6 +121,7 @@ export class CulturaAdminComponent {
     };
 
     this.culturasGuardadas.push(finalJson);
+    this.enviarCulturaABaseDeDatos(finalJson);
     this.todoGuardado = true;
 
     console.log('Json',JSON.stringify(finalJson));

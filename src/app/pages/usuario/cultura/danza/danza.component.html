@@ -2,7 +2,7 @@
   <div class="imagen-boton">
   <button class="nav-btn left" (click)="moverCarrusel('izquierda')">Anterior</button>
 
-  <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 70 + 'px)'">
+  <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 150 + 'px)'">
     <div class="item" *ngFor="let item of items">
       <img [src]="item.img" [alt]="item.alt">
       <button (click)="mostrarSeccion(item.seccion)">

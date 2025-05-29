@@ -20,7 +20,6 @@ import { MenuadministradorComponent } from './pages/administrador/menuadministra
 import { PlaylistadministradorComponent } from './pages/administrador/playlistadministrador/playlistadministrador.component';
 import { FavoritosadministradorComponent } from './pages/administrador/favoritosadministrador/favoritosadministrador.component';
 import { CoplaadministrtivoComponent } from './pages/administrador/dashboardadministrador/coplaadministrtivo/coplaadministrtivo.component';
-import { TrajestipicosadministrativoComponent } from './pages/administrador/trajestipicosadministrativo/trajestipicosadministrativo.component';
 import { CulturaComponent } from './pages/administrador/dashboardadministrador/cultura/cultura.component';
 import { TipoculturaComponent } from './pages/administrador/dashboardadministrador/tipocultura/tipocultura.component';
 
