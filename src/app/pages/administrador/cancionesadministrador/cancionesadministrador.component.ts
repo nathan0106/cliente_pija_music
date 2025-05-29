@@ -26,7 +26,8 @@ import { ViewChild } from '@angular/core';
   MatInputModule, 
   FormsModule, 
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  AlertComponent
   ],
   templateUrl: './cancionesadministrador.component.html',
   styleUrls: ['./cancionesadministrador.component.css']
@@ -61,6 +62,23 @@ export class CancionesadministradorComponent {
   };
 
   guardarCancion() {
+
+  // ✅ Validar campos vacíos
+  if (
+    !this.cancionNueva.titulo.trim() ||
+    !this.cancionNueva.duracion.trim() ||
+    !this.cancionNueva.link.trim() ||
+    !this.cancionNueva.artista.trim() ||
+    !this.cancionNueva.album.trim() ||
+    !this.cancionNueva.idEstilo.trim() ||
+    !this.cancionNueva.fechaLanzamiento.trim()
+  ) {
+    if (this.alertComponent) {
+      this.alertComponent.show('Por favor completa todos los campos antes de guardar.');
+    }
+    return; // No continuar si hay campos vacíos
+  }
+
     this.canciones.push({ ...this.cancionNueva });
 
     this.cancionjsnpost = {

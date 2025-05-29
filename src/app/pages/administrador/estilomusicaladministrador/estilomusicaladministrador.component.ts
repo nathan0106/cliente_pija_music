@@ -21,7 +21,8 @@ import { ViewChild } from '@angular/core';
   standalone: true,
   imports: [
     CommonModule ,
-    FormsModule
+    FormsModule,
+    AlertComponent
   ],
   templateUrl: './estilomusicaladministrador.component.html',
   styleUrls: ['./estilomusicaladministrador.component.css']
@@ -48,9 +49,21 @@ export class EstilomusicaladministradorComponent {
 
   
  guardarEstilo() {
+
+   // ✅ Validación de campos requeridos
+  if (
+    !this.estiloNuevo.NombreGenero.trim() ||
+    !this.estiloNuevo.InstrumentosPrincipales.trim() ||
+    !this.estiloNuevo.DescripcionMusical.trim()
+  ) {
+    if (this.alertComponent) {
+      this.alertComponent.show('Por favor completa todos los campos antes de guardar.');
+    }
+    return; // Detener ejecución si faltan campos
+  }
+
+
   this.estilos.push({ ...this.estiloNuevo });
-
-
 
   this.estiloJson_post = {
     NombreGenero: this.estiloNuevo.NombreGenero,
@@ -67,7 +80,7 @@ export class EstilomusicaladministradorComponent {
 
  console.log('estilomusical  a enviar:', estiloNuevo_json);
 
-this.apiService.postData('Estilo_Musical ', estiloNuevo_json).subscribe(
+this.apiService.postData('Estilo_Musical', estiloNuevo_json).subscribe(
   (respuesta) => {
     console.log('estilomusical creado', respuesta);
      this.dialog.open(dialogestilomusicalad);('Estilo musical creado exitosamente');
@@ -75,10 +88,11 @@ this.apiService.postData('Estilo_Musical ', estiloNuevo_json).subscribe(
   (error) => {
   console.error('Error al crear el estilomusical ', error);
   this.alertComponent.show('Error al crear el estilomusical ');
+  }
+  );
  }
-);
 }
-}
+
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';

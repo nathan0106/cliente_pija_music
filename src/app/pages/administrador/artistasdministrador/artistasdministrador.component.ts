@@ -18,7 +18,7 @@ import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-artistasdministrador',
-   standalone: true,
+  standalone: true,
   imports: [
   CommonModule,
   FormsModule,
@@ -26,7 +26,8 @@ import { ViewChild } from '@angular/core';
   MatInputModule, 
   FormsModule, 
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  AlertComponent
   ],
   templateUrl: './artistasdministrador.component.html',
   styleUrl: './artistasdministrador.component.css'
@@ -66,8 +67,22 @@ export class ArtistasdministradorComponent {
   }
 
   guardarArtista() {
-    this.artistas.push({ ...this.artistaNuevo });
+      if (
+    !this.artistaNuevo.NombreArtistico.trim() ||
+    !this.artistaNuevo.NombreReal.trim() ||
+    !this.artistaNuevo.Biografia.trim() ||
+    !this.artistaNuevo.instagram.trim() ||
+    !this.artistaNuevo.facebook.trim() ||
+    !this.artistaNuevo.youtube.trim() ||
+    !this.artistaNuevo.ImagenVideo.trim()
+  ) {
+    if (this.alertComponent) {
+      this.alertComponent.show("Por favor completa todos los campos antes de guardar.");
+    }
+    return; // detener ejecución si hay campos vacíos
+  }
 
+    this.artistas.push({ ...this.artistaNuevo });
 
     this.artistaJson_post={
     NombreArtistico: this.artistaNuevo.NombreArtistico,
