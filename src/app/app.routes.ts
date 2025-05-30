@@ -12,11 +12,11 @@ import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
 import { PersonalizarComponent } from './pages/usuario/musica/personalizar/personalizar.component';
 import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
-import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component';
-import { MenuadministradorComponent } from './pages/administrador/menuadministrador/menuadministrador.component';
+import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component'; 
 import { ArtistasdministradorComponent } from './pages/administrador/artistasdministrador/artistasdministrador.component';
 import { CancionesadministradorComponent } from './pages/administrador/cancionesadministrador/cancionesadministrador.component';
 import { EstilomusicaladministradorComponent } from './pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+
 
 
 
@@ -35,9 +35,7 @@ const routes: Routes = [
   {path: 'DashboardMusicaComponent', component: DashboardMusicaComponent},
   {path: 'PersonalizarComponent', component: PersonalizarComponent},
   { path:'nuevacontraseña', component: NuevacontrasenaComponent },
-
   {path:'dashboardadministrador', component:DashboardadministradorComponent},
-  {path:'menuadministrador', component: MenuadministradorComponent},
   {path:'artistasdministrador',component: ArtistasdministradorComponent},
   {path: 'cancionesadministrador', component: CancionesadministradorComponent},
   {path: 'estilomusicaladministrador', component: EstilomusicaladministradorComponent},
