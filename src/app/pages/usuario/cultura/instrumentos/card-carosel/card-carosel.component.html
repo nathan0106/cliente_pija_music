@@ -7,7 +7,7 @@
     </button>
 
     <div class="carousel-track-container">
-      <div class="carousel-track" [style.transform]="'translateX(-' + currenIndex * 50 + 'px)'">
+      <div class="carousel-track" [style.transform]="'translateX(-' + currenIndex * 150 + 'px)'">
         <mat-card class="carousel-card" *ngFor="let card of cards">
           <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
           <mat-card-actions>
