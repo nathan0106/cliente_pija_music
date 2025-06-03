@@ -32,7 +32,7 @@ import { ViewChild } from '@angular/core';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    AlertComponent
+   
   ],
   templateUrl: './favoritos.component.html',
   styleUrl: './favoritos.component.css'
@@ -60,6 +60,12 @@ export class FavoritosComponent {
   toggleFavorite(artist: any): void {
   artist.favorito = !artist.favorito;
 }
+  // Esta función marca o desmarca una canción como favorita
+  toggleSongFavorite(song: any) {
+    song.favorita = !song.favorita;
+  }
+  
+
   
   ngOnInit(): void {
 
@@ -73,5 +79,4 @@ export class FavoritosComponent {
     );
 
   }
-
 }

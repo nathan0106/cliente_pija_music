@@ -11,11 +11,13 @@ export class ApiMidService {
 
   constructor(private http: HttpClient) {}
 
+
   getData(endpoint: string, params: any = {}): Observable<any> {
 
     return this.http.get(`${this.baseUrl}/${endpoint}`, { params });
 
   }
+  
 
   postData(endpoint: string, data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/${endpoint}`, data);

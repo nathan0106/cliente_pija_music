@@ -81,6 +81,7 @@ export class ArtistasdministradorComponent {
     }
     return; // detener ejecución si hay campos vacíos
   }
+  
 
     this.artistas.push({ ...this.artistaNuevo });
 
