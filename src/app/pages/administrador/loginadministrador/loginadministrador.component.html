@@ -1,14 +1,16 @@
 <div class="login-container">
   <mat-card>
+    <app-alert #alertRef></app-alert>
+
     <div class="logo-container">
       <img src="/logo.png" alt="Logo" />
       <h2 class="title">PIJA MUSIC</h2>
     </div>
 
-    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+    
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Tipo de identificación</mat-label>
-        <mat-select [(ngModel)]="documentType" name="documentType" required>
+        <mat-select required>
           <mat-option value="" disabled>Seleccione tipo de documento</mat-option>
           <mat-option value="cedula">Cédula</mat-option>
           <mat-option value="tarjeta">Tarjeta de Identidad</mat-option>
@@ -16,31 +18,25 @@
         </mat-select>
       </mat-form-field>
 
+      <form [formGroup]="registerForm" (ngSubmit)="login()">
+
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Número de identificación</mat-label>
-        <input
-          matInput
-          type="text"
-          [(ngModel)]="idNumber"
-          name="idNumber"
-          required
-        />
+        <input matInput type="text" formControlName="Cedula" required />
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Contraseña</mat-label>
-        <input
-          matInput
-          [type]="hidePassword ? 'password' : 'text'"
-          placeholder="Ingrese su contraseña"
-          [(ngModel)]="password"
-          name="password"
-          required
-        />
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="Contraseña" />
         <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
           <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
       </mat-form-field>
+
+      <mat-checkbox formControlName="terms">
+        Acepto las condiciones de uso y políticas de
+        <a [routerLink]="['/politicas']">privacidad</a>
+      </mat-checkbox>
 
       <button mat-raised-button color="primary" class="full-width" type="submit">
         Iniciar sesión
@@ -48,19 +44,6 @@
     </form>
 
     <a class="register-link" (click)="goToRegister()">Crear una cuenta nueva</a>
-
-    <a [routerLink]="['/contraseña']" class="forgot-password">
-      ¿Olvidaste tu contraseña?
-    </a>
-
-    <div class="terms">
-      <mat-checkbox>
-        Haciendo clic en registrarse acepta las
-        <a [routerLink]="['/politicas']">condiciones de uso</a> y
-        <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'login' }">
-          políticas de privacidad
-        </a>
-      </mat-checkbox>
-    </div>
+    <a class="forgot-password" (click)="recoverPassword()">¿Olvidaste tu contraseña?</a>
   </mat-card>
 </div>

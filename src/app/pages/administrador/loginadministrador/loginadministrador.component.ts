@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,76 +8,102 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { MatOptionModule } from '@angular/material/core'; // Agrega esto si usas <mat-option>
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { MatOptionModule } from '@angular/material/core';
+import { Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from '../alert/alert.component';
-import { ViewChild } from '@angular/core';
-
-
 
 @Component({
   selector: 'app-loginadministrador',
+  standalone: true,
   imports: [
     CommonModule,
+    HttpClientModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    FormsModule,
     ReactiveFormsModule,
     MatOptionModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
+    AlertComponent
   ],
   templateUrl: './loginadministrador.component.html',
-  styleUrl: './loginadministrador.component.css'
+  styleUrls: ['./loginadministrador.component.css']
 })
 export class LoginadministradorComponent {
+  @ViewChild('alertRef') alertComponent!: AlertComponent;
 
-   @ViewChild('alertRef') alertComponent!: AlertComponent;
-
-  documentType: string = '';
-  idNumber: string = '';
-  password: string = '';
-
-   constructor(private router: Router) {}
-
+  registerForm: FormGroup;
   hidePassword = true;
+  apiUrl: string = 'http://localhost:8083/v1/administrador/login';
 
+  constructor(private router: Router, private fb: FormBuilder, private http: HttpClient) {
+    this.registerForm = this.fb.group({
+      Cedula: ['', Validators.required],
+      Contraseña: ['', [Validators.required, Validators.minLength(8)]],
+      terms: [false, Validators.requiredTrue]
+    });
+  }
 
   login() {
-    this.alertComponent.show('Iniciando sesión...');
+  if (this.registerForm.invalid) {
+    this.alertComponent.show('Por favor completa todos los campos correctamente.');
+    return;
   }
+
+  const datos = {
+  Cedula: this.registerForm.value.Cedula,
+  Contraseña: this.registerForm.value.Contraseña
+};
+
+
+  this.http.post<any>(this.apiUrl, datos).subscribe({
+    next: (respuesta) => {
+      console.log('Respuesta del servidor:', respuesta);
+
+      if (!respuesta || !respuesta.Data) {
+        this.alertComponent.show('Respuesta inválida del servidor.');
+        return;
+      }
+
+      const caso = respuesta.Data.Caso;
+      const mensaje = respuesta.Data.message;
+
+      if (caso === 2) {
+        this.alertComponent.show('Inicio de sesión exitoso. Bienvenido.');
+        localStorage.setItem('tipo', 'administrador');
+        this.router.navigate(['/menuadmin']);
+      } else if (caso === 1) {
+        this.alertComponent.show('El administrador no existe.');
+      } else if (caso === 3) {
+        this.alertComponent.show('La contraseña es incorrecta.');
+      } else {
+        this.alertComponent.show('Respuesta desconocida del servidor.');
+      }
+    },
+    error: (error) => {
+      console.error('Error al iniciar sesión:', error);
+      this.alertComponent.show('Error al conectar con el servidor.');
+    }
+  });
+}
+
 
   recoverPassword() {
     this.alertComponent.show('Recuperar contraseña');
-  localStorage.setItem('tipo', 'admin'); // Establece que es un administrador
-  this.router.navigate(['/nuevacontrasena']); // Redirige al componente compartido
+    localStorage.setItem('tipo', 'admin');
+    this.router.navigate(['/nuevacontrasena']);
   }
 
   createAccount() {
     this.alertComponent.show('Crear nueva cuenta');
   }
-  
-
-
-
-  onLogin() {
-    console.log('Login data:', {
-      documentType: this.documentType,
-      idNumber: this.idNumber,
-      password: this.password,
-    });
-    // Aquí podrías conectar con tu servicio de autenticación
-  }
 
   goToRegister() {
-    console.log('Botón de registro clickeado');
     this.router.navigate(['/registerad']);
   }
-
-
 }
