@@ -39,7 +39,6 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./playlist.component.css']
 })
 export class PlaylistComponent {
-  
   @ViewChild('alertRef') alertComponent!: AlertComponent;
   artists: any[] = [];
 

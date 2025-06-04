@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router'; 
 import { Component, Input } from '@angular/core';
 import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
@@ -16,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiMidService } from '../../../../services/api_mid.services';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-favoritos',
@@ -32,51 +32,88 @@ import { ViewChild } from '@angular/core';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
+    AlertComponent,
    
   ],
   templateUrl: './favoritos.component.html',
   styleUrl: './favoritos.component.css'
 })
 export class FavoritosComponent {
- 
-  constructor(public dialog: MatDialog, private apimidservice: ApiMidService) {}
+
   @ViewChild('alertRef') alertComponent!: AlertComponent;
-  artists : any[]=[];
 
-  selectedArtist: any = null; // Artista seleccionado
+  artists: any[] = [];
+  selectedArtist: any = null;
 
-  // Método para seleccionar un artista
-  selectArtist(artist: any) {
+  constructor(
+    private  apimidservice: ApiMidService,
+    public dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+    this.loadFavoritos();
+  }
+
+loadFavoritos(): void {
+  this.apimidservice.getData('Favoritos?limit=0').subscribe(
+    (res: any) => {
+      console.log('Respuesta Favoritos:', res);  // <--- Aquí
+      if (res && res.Data) {
+        this.artists = res.Data;
+      } else {
+        this.artists = [];
+        this.alertComponent.show('No hay favoritos disponibles');
+      }
+    },
+    (error) => {
+      console.error('Error en favoritos:', error);  // <--- Y aquí
+      this.alertComponent.show('Error al cargar favoritos');
+    }
+  );
+}
+
+  selectArtist(artist: any): void {
     this.selectedArtist = artist;
   }
 
-  // Método para abrir el video en YouTube embebido
-  openVideo(videoUrl: string) {
-      this.dialog.open(VideoDialogComponent,{
-        data: {url: videoUrl },
-        width: '600px'
-      })
-  }
   toggleFavorite(artist: any): void {
-  artist.favorito = !artist.favorito;
-}
-  // Esta función marca o desmarca una canción como favorita
-  toggleSongFavorite(song: any) {
-    song.favorita = !song.favorita;
-  }
-  
+    // Si quieres manejar favorito de artista, aquí debes implementar lógica y llamar al backend.
+    artist.favorito = !artist.favorito;
 
-  
-  ngOnInit(): void {
-
-        this.apimidservice.getData('canciones').subscribe(
-      (respuesta) => {
-        this.artists = respuesta['Data'];
-      },
-      (error) => {
-        this.alertComponent.show('Error al consultar Canciones');
+    // Ejemplo de POST, pero esto depende de tu API:
+    this.apimidservice.postData('favoritos/artistas', {
+      artistaId: artist.id,
+      favorito: artist.favorito
+    }).subscribe(
+      () => {},
+      () => {
+        this.alertComponent.show('Error al actualizar favorito del artista');
+        artist.favorito = !artist.favorito; // revertir
       }
     );
-
   }
+
+  toggleSongFavorite(song: any): void {
+    song.favorita = !song.favorita;
+
+    // En tu backend deberás implementar el endpoint que acepte esta petición
+    this.apimidservice.postData('favoritos/canciones', {
+      cancionId: song.id,
+      favorita: song.favorita
+    }).subscribe(
+      () => {},
+      () => {
+        this.alertComponent.show('Error al actualizar favorito de la canción');
+        song.favorita = !song.favorita;
+      }
+    );
+  }
+
+  openVideo(videoUrl: string): void {
+    this.dialog.open(VideoDialogComponent, {
+      data: { url: videoUrl },
+      width: '600px',
+    });
+  }
+
 }

@@ -37,4 +37,8 @@
     </div>
   </div>
 </div>
+<div *ngIf="artists.length === 0">
+  <p>No hay canciones favoritas.</p>
+</div>
 
+<app-alert #alertRef></app-alert>
