@@ -39,7 +39,7 @@ export class LoginadministradorComponent {
 
   registerForm: FormGroup;
   hidePassword = true;
-  apiUrl: string = 'http://localhost:8083/v1/administrador/login';
+  apiUrl: string = 'http://localhost:8084/v1/Administrador';
 
   constructor(private router: Router, private fb: FormBuilder, private http: HttpClient) {
     this.registerForm = this.fb.group({
@@ -56,33 +56,32 @@ export class LoginadministradorComponent {
   }
 
   const datos = {
-  Cedula: this.registerForm.value.Cedula,
-  Contraseña: this.registerForm.value.Contraseña
-};
+    Cedula: this.registerForm.value.Cedula,
+    Contraseña: this.registerForm.value.Contraseña
+  };
 
+  const queryUrl = `${this.apiUrl}?query=Cedula:${datos.Cedula}`;
 
-  this.http.post<any>(this.apiUrl, datos).subscribe({
+  console.log('Consulta al CRUD:', queryUrl);
+
+  this.http.get<any>(queryUrl).subscribe({
     next: (respuesta) => {
       console.log('Respuesta del servidor:', respuesta);
 
-      if (!respuesta || !respuesta.Data) {
-        this.alertComponent.show('Respuesta inválida del servidor.');
+      // Verificar que la respuesta tenga datos
+      if (!respuesta || !Array.isArray(respuesta.Data) || respuesta.Data.length === 0) {
+        this.alertComponent.show('El administrador no existe.');
         return;
       }
 
-      const caso = respuesta.Data.Caso;
-      const mensaje = respuesta.Data.message;
+      const admin = respuesta.Data[0];
 
-      if (caso === 2) {
-        this.alertComponent.show('Inicio de sesión exitoso. Bienvenido.');
+      if (admin.Contraseña === datos.Contraseña) {
+        this.alertComponent.show('Inicio de sesión exitoso.');
         localStorage.setItem('tipo', 'administrador');
-        this.router.navigate(['/menuadmin']);
-      } else if (caso === 1) {
-        this.alertComponent.show('El administrador no existe.');
-      } else if (caso === 3) {
-        this.alertComponent.show('La contraseña es incorrecta.');
+        this.router.navigate(['/dashboardadministrador/artista']);
       } else {
-        this.alertComponent.show('Respuesta desconocida del servidor.');
+        this.alertComponent.show('La contraseña es incorrecta.');
       }
     },
     error: (error) => {
