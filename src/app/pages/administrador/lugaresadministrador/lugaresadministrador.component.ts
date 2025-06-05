@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -5,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ApiCrudService } from '../../../services/api_crud.services';
 
 interface SubtituloDetalle {
   titulo: string;
@@ -39,6 +41,9 @@ interface Lugar {
   styleUrls: ['./lugaresadministrador.component.css']
 })
 export class LugaresadministradorComponent {
+
+  constructor(private apicrudService: ApiCrudService) { }
+
   categorias: string[] = [
     'Senderismo',
     'Actividad familiar',
@@ -56,6 +61,8 @@ export class LugaresadministradorComponent {
     direccion: '',
     categoria: ''
   };
+
+  imagenArchivo: File | null = null; // ← NUEVO: archivo de imagen seleccionado
 
   detalle: any = {
     titulo: '',
@@ -84,13 +91,59 @@ export class LugaresadministradorComponent {
   }
 
   guardarLugar() {
-    this.lugares.push({
-      ...(this.nuevoLugar as Lugar),
-      confirmado: false,
-      detalles: []
+    this.nuevoLugar.categoria = this.categoriaSeleccionada;
+    
+    if (!this.nuevoLugar.titulo || !this.nuevoLugar.direccion || !this.categoriaSeleccionada ) {
+      alert('Completa todos los campos y selecciona una imagen.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('Titulo', this.nuevoLugar.titulo!);
+    formData.append('Direccion', this.nuevoLugar.direccion!);
+    formData.append('Categoria', this.categoriaSeleccionada);
+    // formData.append('Imagen', this.imagenArchivo);
+
+    // Agregar propiedades adicionales como JSON
+    formData.append("Texto", this.nuevoLugar.texto || '');
+    formData.append("Subtitulos", JSON.stringify(this.nuevoLugar.subtitulos || []));
+    formData.append("Imagenes", JSON.stringify(this.nuevoLugar.imagenes || []));
+    formData.append("ImagenFondo", this.nuevoLugar.imagenFondo || '');
+    formData.append("Detalles", JSON.stringify(this.nuevoLugar.detalles || []));
+
+     // Envío a backend
+    this.apicrudService.postData('Lugares', formData).subscribe({
+      next: (response) => {
+        console.log('Lugar creado con imagen:', response);
+        this.lugares.push({
+          titulo: this.nuevoLugar.titulo!,
+          direccion: this.nuevoLugar.direccion!,
+          categoria: this.categoriaSeleccionada,
+          imagen: this.imagenArchivo!.name,
+          detalles: [],
+          texto: '',
+          subtitulos: [],
+          imagenes: [],
+          imagenFondo: ''
+        });
+
+        
+
+        this.nuevoLugar = {};
+        this.imagenArchivo = null;
+        this.categoriaSeleccionada = '';
+        this.mostrarMensaje('Lugar creado exitosamente con imagen.', 'exito');
+      },
+      error: (error) => {
+        console.error('Error al crear lugar con imagen:', error);
+        this.mostrarMensaje('Error al subir el lugar con imagen.', 'error');
+      }
     });
-    this.categoriaSeleccionada = '';
-    this.nuevoLugar = {};
+  }
+
+  mostrarMensaje(mensaje: string, tipo: 'exito' | 'error') {
+    // Reemplaza esto con Snackbar o modal si prefieres
+    alert(`${tipo.toUpperCase()}: ${mensaje}`);
   }
 
  onLugarChange() {
@@ -229,5 +282,4 @@ verDetalleLugar(lugar: any) {
   this.lugarConfirmado = null;
   this.vistaConfirmacion = false;
 }
-
 }

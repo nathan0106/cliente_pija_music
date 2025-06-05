@@ -25,6 +25,7 @@
     <button class="btn-morado" (click)="guardarLugar()">Guardar Lugar</button>
   </div>
 
+
   <div *ngIf="categoriaSeleccionada && lugaresPorCategoria[categoriaSeleccionada] && lugaresPorCategoria[categoriaSeleccionada].length > 0" class="seccion-detalle">
     <label for="lugarSeleccionado">Seleccionar Lugar</label>
     <select [(ngModel)]="lugarSeleccionado" (change)="onLugarChange()" class="form-select">
