@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
 import { ApiService } from '../../../../services/api.service';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -33,6 +33,8 @@ import { ApiService } from '../../../../services/api.service';
     MatFormFieldModule,
     MatInputModule,
     AlertComponent,
+    HttpClientModule
+
    
   ],
   templateUrl: './favoritos.component.html',
@@ -52,10 +54,10 @@ export class FavoritosComponent {
     FechaAgregado: ''
   };
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(private apiService: ApiService, private dialog: MatDialog, private http: HttpClient ) {}
 
   ngOnInit(): void {
-    this.apiService.getData('Artistas?limit=0').subscribe(
+    this.apiService.getData('Artista?limit=0').subscribe(
       (res: any) => {
         if (res && res.Data) {
           this.artists = res.Data;

@@ -1,19 +1,31 @@
 .custom-alert {
   position: fixed;
-  top: 0; /* 👈 Esto la pega arriba */
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%; /* 👈 Centrado vertical */
+  left: 50%; /* 👈 Centrado horizontal */
+  transform: translate(-50%, -50%); /* 👈 Ajuste para centrar exacto */
   background-color: #ffffff;
-  color: rgba; 
+  color: #333; /* 👈 Define un color de texto legible */
   padding: 1rem 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
   max-width: 90%;
   width: 300px;
   text-align: center;
-  animation: slideDown 0.3s ease-out;
+  animation: fadeIn 0.3s ease-out;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 
 
 .custom-alert p {

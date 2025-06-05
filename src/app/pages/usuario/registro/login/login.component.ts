@@ -30,6 +30,7 @@ import { ViewChild } from '@angular/core';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AlertComponent
 
   ],
   templateUrl: './login.component.html',
@@ -38,11 +39,11 @@ import { ViewChild } from '@angular/core';
 })
 export class LoginComponent {
 
-     @ViewChild('alertRef') alertComponent!: AlertComponent;
+    @ViewChild('alertRef') alertComponent!: AlertComponent;
 
 registerForm: FormGroup;
  hidePassword = true;
-apiUrl: string = 'http://localhost:8082/v1/usuario/login';
+apiUrl: string = 'http://localhost:8083/v1/usuario/login';
 
 
 

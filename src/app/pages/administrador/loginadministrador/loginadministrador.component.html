@@ -1,46 +1,59 @@
 <div class="login-container">
   <mat-card>
+    <app-alert #alertRef></app-alert>
+
     <div class="logo-container">
       <img src="/logo.png" alt="Logo" />
       <h2 class="title">PIJA MUSIC</h2>
     </div>
 
-    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Tipo de identificación</mat-label>
-        <mat-select [(ngModel)]="documentType" name="documentType" required>
-          <mat-option value="" disabled>Seleccione tipo de documento</mat-option>
-          <mat-option value="cedula">Cédula</mat-option>
-          <mat-option value="tarjeta">Tarjeta de Identidad</mat-option>
-          <mat-option value="pasaporte">Pasaporte</mat-option>
-        </mat-select>
-      </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo de identificación</mat-label>
+      <mat-select>
+        <mat-option value="" disabled>Seleccione tipo de documento</mat-option>
+        <mat-option value="cedula">Cédula</mat-option>
+        <mat-option value="tarjeta">Tarjeta de Identidad</mat-option>
+        <mat-option value="pasaporte">Pasaporte</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form [formGroup]="registerForm" (ngSubmit)="login()">
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Número de identificación</mat-label>
-        <input
-          matInput
-          type="text"
-          [(ngModel)]="idNumber"
-          name="idNumber"
-          required
-        />
+        <input matInput type="text" formControlName="Cedula" required />
+        <mat-error *ngIf="registerForm.get('Cedula')?.hasError('required')">
+          Campo requerido
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Contraseña</mat-label>
-        <input
-          matInput
-          [type]="hidePassword ? 'password' : 'text'"
-          placeholder="Ingrese su contraseña"
-          [(ngModel)]="password"
-          name="password"
-          required
-        />
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="Contraseña" required />
         <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
           <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
+        <mat-error *ngIf="registerForm.get('Contraseña')?.hasError('required')">
+          Campo requerido
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('Contraseña')?.hasError('minlength')">
+          Mínimo 8 caracteres
+        </mat-error>
       </mat-form-field>
+
+
+    <div class="terms">
+      <mat-checkbox formControlName="terms">
+        Haciendo clic en registrarse acepta las
+        <a [routerLink]="['/politicas']">condiciones de uso</a> y las
+        <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'login' }">políticas de privacidad</a>.
+      </mat-checkbox>
+    </div>
+
+      <mat-error *ngIf="registerForm.get('terms')?.hasError('required') && registerForm.touched">
+        Debes aceptar las condiciones
+      </mat-error>
 
       <button mat-raised-button color="primary" class="full-width" type="submit">
         Iniciar sesión
@@ -48,19 +61,6 @@
     </form>
 
     <a class="register-link" (click)="goToRegister()">Crear una cuenta nueva</a>
-
-    <a [routerLink]="['/contraseña']" class="forgot-password">
-      ¿Olvidaste tu contraseña?
-    </a>
-
-    <div class="terms">
-      <mat-checkbox>
-        Haciendo clic en registrarse acepta las
-        <a [routerLink]="['/politicas']">condiciones de uso</a> y
-        <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'login' }">
-          políticas de privacidad
-        </a>
-      </mat-checkbox>
-    </div>
+    <a class="forgot-password" (click)="recoverPassword()">¿Olvidaste tu contraseña?</a>
   </mat-card>
 </div>
