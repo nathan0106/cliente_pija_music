@@ -148,7 +148,7 @@ import { MatDialogClose } from '@angular/material/dialog';
   selector: 'app-dialogcancionesad',
   standalone: true,
   imports: [
-     MatFormFieldModule,
+    MatFormFieldModule,
     MatInputModule,
     FormsModule
   ],

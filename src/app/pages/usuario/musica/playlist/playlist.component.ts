@@ -95,7 +95,7 @@ export class PlaylistComponent {
     console.log('Este es el JSON de la canción:', songJson);
 
     // Enviar la información al servidor (POST)
-    this.apimidservice.postData('favoritos/cancion', songJson).subscribe(
+    this.apimidservice.postData('favoritos', songJson).subscribe(
       (response: any) => {
         console.log('Canción guardada como favorita:', response);
         // Mostrar un diálogo o mensaje de éxito
