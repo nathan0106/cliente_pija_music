@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-alert',
+  standalone: true,
   imports: [
     CommonModule
   ],
   templateUrl: './alert.component.html',
-  styleUrl: './alert.component.css'
+  styleUrls: ['./alert.component.css'] 
 })
 export class AlertComponent {
-
   message = '';
   visible = false;
 
@@ -22,5 +22,4 @@ export class AlertComponent {
   close() {
     this.visible = false;
   }
-
 }

@@ -11,11 +11,8 @@ import { DanzaComponent } from './app/pages/usuario/cultura/danza/danza.componen
 import { CotizaComponent } from './app/pages/usuario/cultura/cotiza/cotiza.component';
 import { InstrumentosComponent } from './app/pages/usuario/cultura/instrumentos/instrumentos.component';
 import { TrajesTipicosComponent } from './app/pages/usuario/cultura/trajes-tipicos/trajes-tipicos.component';
-import { ArtistaComponent } from './app/pages/usuario/musica/artista/artista.component';
 import { BuscarComponent } from './app/pages/usuario/musica/buscar/buscar.component';
-import { CancionesComponent } from './app/pages/usuario/musica/canciones/canciones.component';
 import { FavoritosComponent } from './app/pages/usuario/musica/favoritos/favoritos.component';
-import { MenuPrincipalComponent } from './app/pages/usuario/musica/menu-principal/menu-principal.component';
 import { NotificacionesComponent } from './app/pages/usuario/musica/notificaciones/notificaciones.component';
 import { PlaylistComponent } from './app/pages/usuario/musica/playlist/playlist.component';
 import { ActividadFamiliarComponent } from './app/pages/usuario/turismo/actividad-familiar/actividad-familiar.component';
@@ -27,8 +24,17 @@ import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/con
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
+import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/menu-carrusel.component';
+import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
+import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
+import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
+import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
+import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+
+
 
 
 bootstrapApplication(AppComponent,{
@@ -52,13 +58,48 @@ bootstrapApplication(AppComponent,{
             {path: 'trajes', component: TrajesTipicosComponent},
 
             //Musica
-            {path: 'artista', component: ArtistaComponent},
-            {path: 'buscar', component: BuscarComponent},
-            {path: 'canciones', component: CancionesComponent},
-            {path: 'favoritos', component: FavoritosComponent},
-            {path: 'menu', component: MenuPrincipalComponent},
-            {path: 'notificaciones', component: NotificacionesComponent},
-            {path: 'playlist', component: PlaylistComponent},
+            { path: 'dashboardmusica', component:DashboardMusicaComponent,
+                children:[
+
+            {
+                path: 'buscar', component: BuscarComponent
+            },
+            {
+                path: 'favoritos', component: FavoritosComponent
+            },
+            {
+                path: 'notificaciones', component: NotificacionesComponent
+            },
+            {
+                path: 'playlist', component: PlaylistComponent
+            },
+            {
+                path: 'menu', component: MenuCarruselComponent
+            },
+            {
+                path: 'personalizar', component: PersonalizarComponent  
+            },
+           
+             ],
+
+            },
+
+            //administradorgeneral
+            {path:'dashboardadministrador', component:DashboardadministradorComponent,
+                children:[
+            {
+
+                path: 'artista', component: ArtistasdministradorComponent
+            },
+            {
+                path:'canciones', component: CancionesadministradorComponent
+            },
+             {
+                path: 'estilomusical', component: EstilomusicaladministradorComponent
+            },
+
+             ],
+            },
 
             //turismo
             {path: 'familiar', component: ActividadFamiliarComponent},
@@ -69,8 +110,17 @@ bootstrapApplication(AppComponent,{
 
 
             //administrador
-            {path: 'loginad', component: LoginadministradorComponent},
-            {path: 'registerad', component: RegisteradministradorComponent},
+          
+            {
+                path: 'loginad', component: LoginadministradorComponent
+            },
+            {
+                path: 'registerad', component: RegisteradministradorComponent
+            },
+         
+
+            
+
 
           ]),
           provideHttpClient(),

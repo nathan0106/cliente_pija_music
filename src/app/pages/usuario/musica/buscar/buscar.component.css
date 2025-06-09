@@ -1,0 +1,84 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f5f9;
+  color: #111827;
+}
+
+/* Contenedor de tarjetas */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+  gap: 1.2rem; /* Reduce el espacio entre tarjetas */
+  padding: 1.5rem 2rem; /* Menos espacio alrededor del grid */
+  justify-items: center;
+}
+
+.titulo-buscar {
+  margin-left: 1.5rem; /* Ajusta el valor según lo que necesites */
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+
+/* Tarjeta de artista */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0; /* Elimina todo el espacio alrededor */
+  margin: 0 auto; /* Centra si sobra espacio */
+  max-width: 60%; /* Asegura que no se sobrepase */
+  width: 40vw; /* Usa todo el ancho disponible */
+  transform: translateX(-50px); /* Mueve 10px a la izquierda */
+  box-sizing: border-box;
+}
+
+
+.card-image {
+  width: 120%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Nombre del artista */
+.artist-name {
+  margin-top: 0.4rem; /* un poco más compacto */
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* Barra superior */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #ffffff;
+  color: #111;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-form-field {
+  margin: 0 1rem;
+  width: 200px;
+}
+
+
+

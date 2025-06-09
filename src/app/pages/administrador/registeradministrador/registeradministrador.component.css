@@ -95,3 +95,22 @@
     transform: scale(0.98);
   }
   
+  /* 🎨 Validaciones visuales para la contraseña */
+.validaciones {
+  list-style: none;           /* Elimina los bullets predeterminados */
+  padding-left: 0;
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.validaciones li {
+  color: red;                 /* Reglas no cumplidas en rojo */
+  margin-bottom: 5px;
+}
+
+.validaciones li.valido {
+  color: green;               /* Reglas cumplidas en verde */
+}

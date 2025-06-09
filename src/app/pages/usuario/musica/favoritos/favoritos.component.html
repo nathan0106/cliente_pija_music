@@ -1,1 +1,44 @@
-<p>favoritos works!</p>
+<div class="artist-container">
+  <!-- Sección de artistas -->
+  <div class="artist-list">
+    <div *ngFor="let artist of artists" class="artist-item" (click)="selectArtist(artist)">
+      <img [src]="artist.imagen" alt="{{ artist.nombre }}" class="artist-image">
+      <span class="artist-name">{{ artist.nombre }}</span>
+    </div>
+  </div>
+
+  <!-- Sección de detalles del artista -->
+  <div *ngIf="selectedArtist" class="artist-details">
+    <!-- Nombre + ícono de favorito -->
+    <div class="artist-header">
+      <h2>{{ selectedArtist.nombre }}</h2>
+      <button mat-icon-button (click)="toggleFavorite(selectedArtist)">
+        <mat-icon color="warn">{{ selectedArtist.favorito ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </div>
+
+    <!-- Imagen del artista -->
+    <img [src]="selectedArtist.imagen" alt="{{ selectedArtist.nombre }}" class="selected-artist-image" />
+
+    <div class="song-list">
+      <div *ngFor="let song of selectedArtist.canciones; let i = index" class="song-item">
+        <div class="song-info">
+          <span class="song-number">{{ i + 1 }}.</span>
+          <span class="song-title">{{ song.nombre }}</span> 
+          <span class="song-duration">({{ song.duracion }})</span>
+
+          <!-- Ícono de favorito para cada canción -->
+          <button mat-icon-button (click)="toggleSongFavorite(song)">
+            <mat-icon color="warn">{{ song.favorita ? 'favorite' : 'favorite_border' }}</mat-icon>
+          </button>
+        </div>
+        <button mat-raised-button color="primary" (click)="openVideo(song.videoUrl)">Ver Video</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="artists.length === 0">
+  <p>No hay canciones favoritas.</p>
+</div>
+
+<app-alert #alertRef></app-alert>

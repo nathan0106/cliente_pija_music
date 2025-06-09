@@ -50,47 +50,45 @@ export class LoginadministradorComponent {
   }
 
   login() {
-  if (this.registerForm.invalid) {
-    this.alertComponent.show('Por favor completa todos los campos correctamente.');
-    return;
-  }
-
-  const datos = {
-    Cedula: this.registerForm.value.Cedula,
-    Contraseña: this.registerForm.value.Contraseña
-  };
-
-  const queryUrl = `${this.apiUrl}?query=Cedula:${datos.Cedula}`;
-
-  console.log('Consulta al CRUD:', queryUrl);
-
-  this.http.get<any>(queryUrl).subscribe({
-    next: (respuesta) => {
-      console.log('Respuesta del servidor:', respuesta);
-
-      // Verificar que la respuesta tenga datos
-      if (!respuesta || !Array.isArray(respuesta.Data) || respuesta.Data.length === 0) {
-        this.alertComponent.show('El administrador no existe.');
-        return;
-      }
-
-      const admin = respuesta.Data[0];
-
-      if (admin.Contraseña === datos.Contraseña) {
-        this.alertComponent.show('Inicio de sesión exitoso.');
-        localStorage.setItem('tipo', 'administrador');
-        this.router.navigate(['/dashboardadministrador/artista']);
-      } else {
-        this.alertComponent.show('La contraseña es incorrecta.');
-      }
-    },
-    error: (error) => {
-      console.error('Error al iniciar sesión:', error);
-      this.alertComponent.show('Error al conectar con el servidor.');
+    if (this.registerForm.invalid) {
+      this.alertComponent.show('Por favor completa todos los campos correctamente.');
+      return;
     }
-  });
-}
 
+    const datos = {
+      Cedula: this.registerForm.value.Cedula,
+      Contraseña: this.registerForm.value.Contraseña
+    };
+
+    const queryUrl = `${this.apiUrl}?query=Cedula:${datos.Cedula}`;
+
+    console.log('Consulta al CRUD:', queryUrl);
+
+    this.http.get<any>(queryUrl).subscribe({
+      next: (respuesta) => {
+        console.log('Respuesta del servidor:', respuesta);
+
+        if (!respuesta || !Array.isArray(respuesta.Data) || respuesta.Data.length === 0) {
+          this.alertComponent.show('El administrador no existe.');
+          return;
+        }
+
+        const admin = respuesta.Data[0];
+
+        if (admin.Contraseña === datos.Contraseña) {
+          localStorage.setItem('tipo', 'administrador');
+          localStorage.setItem('loginSuccess', 'true');
+          this.router.navigate(['/dashboardadministrador/artista']);
+        } else {
+          this.alertComponent.show('La contraseña es incorrecta.');
+        }
+      },
+      error: (error) => {
+        console.error('Error al iniciar sesión:', error);
+        this.alertComponent.show('Error al conectar con el servidor.');
+      }
+    });
+  }
 
   recoverPassword() {
     this.alertComponent.show('Recuperar contraseña');

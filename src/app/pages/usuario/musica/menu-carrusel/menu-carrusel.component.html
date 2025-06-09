@@ -1,0 +1,41 @@
+<div class="panel-principal">
+        <section class="novedades">
+      <h2>Novedades</h2>
+      <div class="cards cards-novedades">
+        <button class="card" *ngFor="let item of novedades" (click)="navigateTo(item.route)">
+          <img [src]="item.img" alt="{{ item.title }}" />
+          <p>{{ item.title }}</p>
+        </button>
+      </div>
+    </section>
+    <h1 class= "panel-title">{{ panelInfo.titulo }}</h1>
+    <p class="panel-description">{{ panelInfo.descripcion }}</p>
+
+  
+    <div class="carrusel-container" *ngIf="cards.length">
+      <button mat-icon-button (click)="scrollCarrusel('left')"><mat-icon>chevron_left</mat-icon></button>
+      <div class="carrusel" #carrusel>
+        <mat-card *ngFor="let card of cards" class="card" (click)="verDetalles(card)" [ngClass]="{ 'selected': selectedCard === card }">
+          <mat-card-title class="card-title">{{ card.titulo }}</mat-card-title>
+          <img mat-card-image class="card-image" [src]="card.imagen" alt="Imagen de {{card.titulo}}">
+          <mat-card-content class="card-description">{{ card.texto }}</mat-card-content>
+        </mat-card>
+      </div>
+      <button mat-icon-button (click)="scrollCarrusel('right')"><mat-icon>chevron_right</mat-icon></button>
+    </div>
+  
+    <div class="detalle-section" *ngIf="detalles" [ngStyle]="{'background-image': 'url(' + detalles.fondo + ')'}">
+      <div class="detalle-content">
+        <h2 class="detalle-titulo">{{ detalles.titulo }}</h2>
+
+        <div class="descripcion-dinamica" *ngIf="detalles?.descripcion?.length">
+        <ng-container *ngFor="let bloque of detalles.descripcion">
+          <h2 *ngIf="bloque.tipo === 'titulo'">{{ bloque.contenido }}</h2>
+          <h4 *ngIf="bloque.tipo === 'subtitulo'">{{ bloque.contenido }}</h4>
+          <p *ngIf="bloque.tipo === 'texto'">{{ bloque.contenido }}</p>
+        </ng-container>
+      </div>
+     <button mat-raised-button color="warn" class="boton-cerrar" (click)="cerrarDetalles()">Cerrar</button>
+      </div>
+    </div>
+  </div>

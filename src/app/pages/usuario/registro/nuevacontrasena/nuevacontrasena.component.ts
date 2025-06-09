@@ -42,7 +42,7 @@ constructor(
   private router: Router,
   private dialog: MatDialog,
   private fb: FormBuilder,
-  private route: ActivatedRoute // <-- nuevo
+  private route: ActivatedRoute
 ) {}
 
 

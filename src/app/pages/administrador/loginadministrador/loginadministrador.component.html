@@ -28,9 +28,15 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
         <mat-label>Contraseña</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="Contraseña" required />
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="Contraseña"
+          maxlength="8"
+          required
+        />
         <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
           <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
@@ -42,14 +48,10 @@
         </mat-error>
       </mat-form-field>
 
-
-    <div class="terms">
       <mat-checkbox formControlName="terms">
-        Haciendo clic en registrarse acepta las
-        <a [routerLink]="['/politicas']">condiciones de uso</a> y las
-        <a [routerLink]="['/politicas']" [queryParams]="{ returnTo: 'login' }">políticas de privacidad</a>.
+        Acepto las condiciones de uso y políticas de
+        <a [routerLink]="['/politicas']">privacidad</a>
       </mat-checkbox>
-    </div>
 
       <mat-error *ngIf="registerForm.get('terms')?.hasError('required') && registerForm.touched">
         Debes aceptar las condiciones

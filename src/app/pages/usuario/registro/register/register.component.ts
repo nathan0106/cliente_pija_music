@@ -26,7 +26,8 @@ import { MatDialog } from '@angular/material/dialog';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    AlertComponent
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -110,6 +111,7 @@ export class RegisterComponent {
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../../../administrador/alert/alert.component';
 
 
 @Component({
@@ -130,4 +132,3 @@ export class DialogRegisterComponent {
     this.router.navigate(['/login']);
   }
 }
-

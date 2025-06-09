@@ -1,0 +1,44 @@
+<div class="admin-container">
+  <h2>Registro de Artistas</h2>
+
+  <div class="form-section">
+    <label>Nombre artístico</label>
+    <input [(ngModel)]="artistaNuevo.NombreArtistico" type="text" placeholder="Ej. Jorge Guerrero" />
+
+    <label>Nombre real</label>
+    <input [(ngModel)]="artistaNuevo.NombreReal" type="text" placeholder="Ej. Jorge Luis Guerrero" />
+
+    <label>Biografía</label>
+    <textarea [(ngModel)]="artistaNuevo.Biografia" rows="5" placeholder="Escribe una biografía del artista..."></textarea>
+
+    <label>Instagram</label>
+    <input [(ngModel)]="artistaNuevo.instagram" type="text" placeholder="https://instagram.com/..." />
+
+    <label>Facebook</label>
+    <input [(ngModel)]="artistaNuevo.facebook" type="text" placeholder="https://facebook.com/..." />
+
+    <label>YouTube</label>
+    <input [(ngModel)]="artistaNuevo.youtube" type="text" placeholder="https://youtube.com/..." />
+
+    <label>Imagen del artista</label>
+    <input [(ngModel)]="artistaNuevo.ImagenVideo"  type="text" placeholder="https://youtu.be/..." />
+
+    <button (click)="guardarArtista()">Guardar Artista</button>
+  </div>
+
+  <hr />
+
+  <h3>Artistas Registrados</h3>
+  <ul>
+    <li *ngFor="let artista of artistas">
+      <strong>{{ artista.nombre }}</strong> ({{ artista.nombreReal }})<br />
+      <em>{{ artista.biografia }}</em><br />
+      Instagram: {{ artista.instagram }}<br />
+      Facebook: {{ artista.facebook }}<br />
+      YouTube: {{ artista.youtube }}<br />
+      Imagen: {{ artista.foto?.name || 'No cargada' }}
+    </li>
+  </ul>
+</div>
+
+<app-alert #alertRef></app-alert>
