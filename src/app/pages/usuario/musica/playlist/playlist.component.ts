@@ -16,6 +16,8 @@ import { ApiMidService } from '../../../../services/api_mid.services';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
+import { DialogFavoritosComponent } from '../favoritos/favoritos.component';
+
 
 @Component({
   selector: 'app-playlist.component',
@@ -34,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     AlertComponent,
     HttpClientModule,
+    DialogFavoritosComponent 
   ],
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']

@@ -15,6 +15,8 @@ import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
 import { ApiService } from '../../../../services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -24,7 +26,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     RouterModule,
-    MatCardModule,
+    MatCardModule,    
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -33,12 +35,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     AlertComponent,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
    
   ],
   templateUrl: './favoritos.component.html',
-  styleUrl: './favoritos.component.css'
+  styleUrls: ['./favoritos.component.css']
+
 })
 export class FavoritosComponent {
 
@@ -52,6 +56,8 @@ export class FavoritosComponent {
     IdUsuario: '',
     IdCancion: '',
     FechaAgregado: ''
+  
+
   };
 
   constructor(private apiService: ApiService, private dialog: MatDialog, private http: HttpClient ) {}
@@ -79,36 +85,40 @@ export class FavoritosComponent {
   }
 
   guardarFavorito() {
-    if (
-      !this.favoritoNuevo.IdUsuario.trim() ||
-      !this.favoritoNuevo.IdCancion.trim() ||
-      !this.favoritoNuevo.FechaAgregado.trim()
-    ) {
-      this.alertComponent.show("Por favor completa todos los campos.");
-      return;
-    }
-
-    this.favoritos.push({ ...this.favoritoNuevo });
-
-    const favoritoJson = JSON.stringify(this.favoritoNuevo);
-
-    this.favoritoNuevo = {
-      IdUsuario: '',
-      IdCancion: '',
-      FechaAgregado: ''
-    };
-
-    this.apiService.postData('Favoritos', favoritoJson).subscribe(
-      (respuesta) => {
-        console.log('Favorito creado correctamente:', respuesta);
-        this.dialog.open(DialogFavoritosComponent);
-      },
-      (error) => {
-        console.error('Error al crear el favorito', error);
-        this.alertComponent.show("Error al crear el favorito");
-      }
-    );
+  if (
+    !this.favoritoNuevo.IdUsuario.trim() ||
+    !this.favoritoNuevo.IdCancion.trim()
+  ) {
+    this.alertComponent.show("Por favor completa todos los campos.");
+    return;
   }
+
+  // Establecer la fecha actual automáticamente
+  this.favoritoNuevo.FechaAgregado = new Date().toISOString();
+
+  this.favoritos.push({ ...this.favoritoNuevo });
+
+  const favoritoJson = JSON.stringify(this.favoritoNuevo);
+
+  // Reiniciar campos
+  this.favoritoNuevo = {
+    IdUsuario: '',
+    IdCancion: '',
+    FechaAgregado: ''
+  };
+
+  this.apiService.postData('Favoritos', favoritoJson).subscribe(
+    (respuesta) => {
+      console.log('Favorito creado correctamente:', respuesta);
+      this.dialog.open(DialogFavoritosComponent);
+    },
+    (error) => {
+      console.error('Error al crear el favorito', error);
+      this.alertComponent.show("Error al crear el favorito");
+    }
+  );
+}
+
   toggleFavorite(artist: any): void {
     artist.favorito = !artist.favorito;
     // Aquí podrías enviar al backend si lo deseas

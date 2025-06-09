@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { ApiService } from '../../../../services/api.service';
+import { ApiMidService } from '../../../../services/api_mid.services';
 import { MatDialog } from '@angular/material/dialog';
 
 
@@ -26,7 +26,8 @@ import { MatDialog } from '@angular/material/dialog';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    AlertComponent
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -37,7 +38,7 @@ export class RegisterComponent {
   hideConfirm = true;
 
   constructor(private fb: FormBuilder, 
-    private apiService: ApiService,
+    private apimidService: ApiMidService,
     private dialog: MatDialog) {
     this.registerForm = this.fb.group({
       Nombres: ['', Validators.required],
@@ -53,7 +54,7 @@ export class RegisterComponent {
     if (this.registerForm.valid && this.passwordsMatch) {
       console.log('Registro exitoso', this.registerForm.value);
   
-      this.apiService.postData('usuario', this.registerForm.value).subscribe({
+      this.apimidService.postData('usuario', this.registerForm.value).subscribe({
         next: (response) => {
           console.log('Respuesta del servidor:', response);
   
@@ -110,6 +111,7 @@ export class RegisterComponent {
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../../../administrador/alert/alert.component';
 
 
 @Component({
@@ -130,4 +132,3 @@ export class DialogRegisterComponent {
     this.router.navigate(['/login']);
   }
 }
-

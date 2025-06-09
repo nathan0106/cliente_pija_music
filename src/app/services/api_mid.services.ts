@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiMidService {
 
-  private baseUrl = 'http://localhost:8083/v1';// Cambia esta URL base según tu backend
+  private baseUrl = 'http://localhost:8083/v1'; // Cambia esta URL base según tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,6 @@ export class ApiMidService {
 
   }
   
-
   postData(endpoint: string, data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/${endpoint}`, data);
   }

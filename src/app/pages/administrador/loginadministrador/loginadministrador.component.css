@@ -139,3 +139,18 @@ h2.title {
     margin: 0;
     padding: 0;
 }
+
+.password-rules {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.password-rules .valido {
+  color: green;
+}
+
+.password-rules .invalido {
+  color: red;
+}
