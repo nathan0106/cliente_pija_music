@@ -16,7 +16,7 @@ import { ApiMidService } from '../../../../services/api_mid.services';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
-import { DialogFavoritosComponent } from '../favoritos/favoritos.component';
+
 
 
 @Component({
@@ -36,7 +36,7 @@ import { DialogFavoritosComponent } from '../favoritos/favoritos.component';
     MatInputModule,
     AlertComponent,
     HttpClientModule,
-    DialogFavoritosComponent 
+   
   ],
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']
@@ -76,6 +76,7 @@ export class PlaylistComponent {
       width: '600px',
     });
   }
+  
 
   // Función para manejar el cambio de favorito de un artista
   toggleFavorite(artist: any): void {
@@ -84,32 +85,39 @@ export class PlaylistComponent {
   }
 
   // Función para manejar el cambio de favorito de una canción
-  toggleSongFavorite(song: any): void {
-    song.favorita = !song.favorita;
+ toggleSongFavorite(song: any): void {
+  song.favorita = !song.favorita;
 
-    // Crear el objeto para la canción en formato JSON
-    const songJson_post = {
-      cancionId: song.id,
-      favorita: song.favorita
-    };
+  const songId = song.IdCancion || song.id || song.Id;
 
-    // Convertir a JSON
-    const songJson = JSON.stringify(songJson_post);
-    console.log('Este es el JSON de la canción:', songJson);
-
-    // Enviar la información al servidor (POST)
-    this.apimidservice.postData('favoritos', songJson).subscribe(
-      (response: any) => {
-        console.log('Canción guardada como favorita:', response);
-        // Mostrar un diálogo o mensaje de éxito
-      
-      },
-      (error: any) => {
-        console.error('Error al guardar la canción como favorita', error);
-        this.alertComponent.show('Hubo un error al guardar la canción como favorita.');
-      }
-    );
+  if (!songId) {
+    console.error('❌ La canción no tiene un ID válido:', song);
+    this.alertComponent.show('Error: La canción no tiene un ID válido.');
+    return;
   }
+
+  const favorito = {
+    IdUsuario: 1, // ID del usuario (estático por ahora)
+    IdCancion: songId,
+    FechaAgregado: new Date().toISOString()
+  };
+
+  const favoritoJson = JSON.stringify(favorito);
+  console.log('📤 Enviando favorito:', favoritoJson);
+
+  this.apimidservice.postData('Favoritos', favoritoJson).subscribe(
+    (response: any) => {
+      console.log('✅ Canción guardada como favorita:', response);
+      // Puedes actualizar la UI o recargar favoritos si deseas
+    },
+    (error: any) => {
+      console.error('❌ Error al guardar la canción como favorita', error);
+      this.alertComponent.show('Hubo un error al guardar la canción como favorita.');
+    }
+  );
+}
+
+  
 }
 
 import { MatDialogRef } from '@angular/material/dialog';

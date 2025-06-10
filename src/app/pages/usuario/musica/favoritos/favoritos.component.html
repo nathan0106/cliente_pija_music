@@ -11,37 +11,41 @@
   <!-- Sección de detalles del artista -->
   <div *ngIf="selectedArtist" class="artist-details">
 
-    <!-- Nombre + ícono de favorito -->
-    <div class="artist-header">
-      <h2>{{ selectedArtist.nombre }}</h2>
-      <button mat-icon-button (click)="toggleFavorite(selectedArtist)">
-        <mat-icon color="warn">{{ selectedArtist.favorito ? 'favorite' : 'favorite_border' }}</mat-icon>
-      </button>
-    </div>
-
     <!-- Imagen del artista -->
     <img [src]="selectedArtist.imagen" alt="{{ selectedArtist.nombre }}" class="selected-artist-image" />
 
-    <!-- Lista de canciones -->
+    <!-- Lista de canciones favoritas (si hay) -->
+    <h3>Canciones favoritas</h3>
+    <div *ngIf="favoritos.length > 0; else noFavoritos">
+      <div *ngFor="let fav of favoritos" class="favorito-item">
+        <p><strong>{{ fav.Cancion?.nombre || 'Sin título' }}</strong> ({{ fav.Cancion?.duracion }})</p>
+        <p>Artista: {{ fav.Cancion?.artista?.nombre }}</p>
+        <img [src]="fav.Cancion?.artista?.imagen" width="100" *ngIf="fav.Cancion?.artista?.imagen" />
+        <p><small>Agregado el: {{ fav.FechaAgregado | date:'short' }}</small></p>
+      </div>
+    </div>
+
+    <!-- Plantilla en caso de no haber favoritos -->
+    <ng-template #noFavoritos>
+      <p>No tienes canciones favoritas aún.</p>
+    </ng-template>
+
+    <!-- Lista de canciones del artista -->
+    <h3>Todas las canciones</h3>
     <div class="song-list">
       <div *ngFor="let song of selectedArtist.canciones; let i = index" class="song-item">
         <div class="song-info">
           <span class="song-number">{{ i + 1 }}.</span>
-          <span class="song-title">{{ song.nombre }}</span> 
+          <span class="song-title">{{ song.nombre }}</span>
           <span class="song-duration">({{ song.duracion }})</span>
 
-          <!-- Ícono de favorito para cada canción -->
+          <!-- Botón para marcar/desmarcar como favorita -->
           <button mat-icon-button (click)="toggleSongFavorite(song)">
             <mat-icon color="warn">{{ song.favorita ? 'favorite' : 'favorite_border' }}</mat-icon>
           </button>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Mensaje si no hay favoritos -->
-  <div *ngIf="favoritos.length === 0">
-    <p>No hay canciones favoritas.</p>
   </div>
 
   <!-- Alerta -->

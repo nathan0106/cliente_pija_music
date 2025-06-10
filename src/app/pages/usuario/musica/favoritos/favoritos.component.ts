@@ -45,92 +45,98 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 })
 export class FavoritosComponent {
-
   @ViewChild('alertRef') alertComponent!: AlertComponent;
 
   artists: any[] = [];
   selectedArtist: any = null;
-  favoritos: any = [];
+  favoritos: any[] = [];
 
   favoritoNuevo = {
-    IdUsuario: '',
+    IdUsuario: '', 
     IdCancion: '',
-    FechaAgregado: ''
-  
-
+    FechaAgregado: '',
   };
 
-  constructor(private apiService: ApiService, private dialog: MatDialog, private http: HttpClient ) {}
+  constructor(
+    private apiService: ApiService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
+    this.cargarArtistas();
+    this.cargarFavoritos();
+  }
+
+  cargarArtistas(): void {
     this.apiService.getData('Artista?limit=0').subscribe(
       (res: any) => {
-        if (res && res.Data) {
-          this.artists = res.Data;
-          console.log("Artistas cargados:", this.artists);
-        } else {
-          this.alertComponent.show("No se encontraron artistas.");
-        }
+        this.artists = res?.Data || [];
+        console.log('✅ Artistas cargados:', this.artists);
       },
       (error) => {
-        console.error("Error al cargar artistas", error);
-        this.alertComponent.show("Error al cargar artistas.");
+        console.error('❌ Error al cargar artistas', error);
+        this.alertComponent.show('Error al cargar artistas.');
       }
     );
   }
 
-  selectArtist(artist: any): void {
-    this.selectedArtist = artist;
-    console.log("Artista seleccionado:", artist);
+  cargarFavoritos(): void {
+    this.apiService.getData('Favoritos').subscribe(
+      (res: any) => {
+        this.favoritos = res?.Data || [];
+        console.log('📥 Favoritos cargados:', this.favoritos);
+      },
+      (error) => {
+        console.error('❌ Error al cargar favoritos', error);
+        this.alertComponent.show('Error al cargar favoritos.');
+      }
+    );
   }
+selectArtist(artist: any): void {
+  this.selectedArtist = artist;
+  // Marcar canciones favoritas
+  if (this.favoritos.length > 0 && artist.canciones) {
+    artist.canciones.forEach((song: any) => {
+      song.favorita = this.favoritos.some((fav: any) => fav.IdCancion === song.IdCancion);
+    });
+  }
+  console.log("🎵 Artista seleccionado:", artist);
+}
+  toggleSongFavorite(song: any): void {
+    console.log("sdjbcsjdbjsbdvukbsdvbsdjkbvjkdsbvc")
+  song.favorita = !song.favorita;
 
-  guardarFavorito() {
-  if (
-    !this.favoritoNuevo.IdUsuario.trim() ||
-    !this.favoritoNuevo.IdCancion.trim()
-  ) {
-    this.alertComponent.show("Por favor completa todos los campos.");
+  // Asumamos que el id correcto es 'IdCancion' (ajusta si es otro)
+  const songId = song.IdCancion || song.id || song.Id;
+
+  if (!songId) {
+    console.error('❌ La canción no tiene un ID válido:', song);
     return;
   }
 
-  // Establecer la fecha actual automáticamente
-  this.favoritoNuevo.FechaAgregado = new Date().toISOString();
-
-  this.favoritos.push({ ...this.favoritoNuevo });
-
-  const favoritoJson = JSON.stringify(this.favoritoNuevo);
-
-  // Reiniciar campos
-  this.favoritoNuevo = {
-    IdUsuario: '',
-    IdCancion: '',
-    FechaAgregado: ''
+  const favorito = {
+    IdUsuario: 1,  // Usuario registrado, ID fijo por ahora
+    IdCancion: songId,
+    FechaAgregado: new Date().toISOString()
   };
 
-  this.apiService.postData('Favoritos', favoritoJson).subscribe(
-    (respuesta) => {
-      console.log('Favorito creado correctamente:', respuesta);
+  console.log('📤 Enviando favorito:', favorito);
+
+  this.apiService.postData('Favoritos', JSON.stringify(favorito)).subscribe(
+    (response) => {
+      console.log('✅ Favorito guardado:', response);
+      this.cargarFavoritos();
       this.dialog.open(DialogFavoritosComponent);
     },
     (error) => {
-      console.error('Error al crear el favorito', error);
-      this.alertComponent.show("Error al crear el favorito");
+      console.error('❌ Error al guardar favorito:', error);
+      this.alertComponent.show('Error al guardar la canción como favorita.');
     }
   );
 }
 
-  toggleFavorite(artist: any): void {
-    artist.favorito = !artist.favorito;
-    // Aquí podrías enviar al backend si lo deseas
-  }
 
-  toggleSongFavorite(song: any): void {
-    song.favorita = !song.favorita;
-    console.log("Canción guardada como favorita:", song?.id || null);
-    // Aquí podrías enviar al backend si lo deseas
-  }
 }
-
 
 
 import { MatDialogRef } from '@angular/material/dialog';
