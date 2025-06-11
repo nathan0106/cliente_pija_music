@@ -62,6 +62,7 @@ export class PlaylistComponent {
         this.alertComponent.show('Error al consultar canciones');
       }
     );
+    
   }
 
   // Método para seleccionar un artista
@@ -88,7 +89,8 @@ export class PlaylistComponent {
  toggleSongFavorite(song: any): void {
   song.favorita = !song.favorita;
 
-  const songId = song.IdCancion || song.id || song.Id;
+  const songId = song.IdCanciones || song. IdUsuario || song.Id;
+
 
   if (!songId) {
     console.error('❌ La canción no tiene un ID válido:', song);
@@ -97,8 +99,8 @@ export class PlaylistComponent {
   }
 
   const favorito = {
-    IdUsuario: 1, // ID del usuario (estático por ahora)
-    IdCancion: songId,
+    IdUsuario:songId, // ID del usuario (estático por ahora)
+    IdCanciones:songId,
     FechaAgregado: new Date().toISOString()
   };
 
@@ -116,6 +118,7 @@ export class PlaylistComponent {
     }
   );
 }
+
 
   
 }

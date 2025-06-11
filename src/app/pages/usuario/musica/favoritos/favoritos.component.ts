@@ -102,41 +102,11 @@ selectArtist(artist: any): void {
   }
   console.log("🎵 Artista seleccionado:", artist);
 }
-  toggleSongFavorite(song: any): void {
-    console.log("sdjbcsjdbjsbdvukbsdvbsdjkbvjkdsbvc")
-  song.favorita = !song.favorita;
 
-  // Asumamos que el id correcto es 'IdCancion' (ajusta si es otro)
-  const songId = song.IdCancion || song.id || song.Id;
-
-  if (!songId) {
-    console.error('❌ La canción no tiene un ID válido:', song);
-    return;
-  }
-
-  const favorito = {
-    IdUsuario: 1,  // Usuario registrado, ID fijo por ahora
-    IdCancion: songId,
-    FechaAgregado: new Date().toISOString()
-  };
-
-  console.log('📤 Enviando favorito:', favorito);
-
-  this.apiService.postData('Favoritos', JSON.stringify(favorito)).subscribe(
-    (response) => {
-      console.log('✅ Favorito guardado:', response);
-      this.cargarFavoritos();
-      this.dialog.open(DialogFavoritosComponent);
-    },
-    (error) => {
-      console.error('❌ Error al guardar favorito:', error);
-      this.alertComponent.show('Error al guardar la canción como favorita.');
-    }
-  );
+  
 }
 
 
-}
 
 
 import { MatDialogRef } from '@angular/material/dialog';

@@ -38,11 +38,6 @@
           <span class="song-number">{{ i + 1 }}.</span>
           <span class="song-title">{{ song.nombre }}</span>
           <span class="song-duration">({{ song.duracion }})</span>
-
-          <!-- Botón para marcar/desmarcar como favorita -->
-          <button mat-icon-button (click)="toggleSongFavorite(song)">
-            <mat-icon color="warn">{{ song.favorita ? 'favorite' : 'favorite_border' }}</mat-icon>
-          </button>
         </div>
       </div>
     </div>
