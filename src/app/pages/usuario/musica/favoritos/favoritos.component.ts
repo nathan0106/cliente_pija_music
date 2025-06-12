@@ -13,9 +13,9 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
-import { ApiService } from '../../../../services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ApiMidService } from '../../../../services/api_mid.services';
 
 
 
@@ -58,33 +58,22 @@ export class FavoritosComponent {
   };
 
   constructor(
-    private apiService: ApiService,
+    private apimidservice:  ApiMidService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.cargarArtistas();
     this.cargarFavoritos();
   }
 
-  cargarArtistas(): void {
-    this.apiService.getData('Artista?limit=0').subscribe(
-      (res: any) => {
-        this.artists = res?.Data || [];
-        console.log('✅ Artistas cargados:', this.artists);
-      },
-      (error) => {
-        console.error('❌ Error al cargar artistas', error);
-        this.alertComponent.show('Error al cargar artistas.');
-      }
-    );
-  }
+ 
 
   cargarFavoritos(): void {
-    this.apiService.getData('Favoritos').subscribe(
+    this. apimidservice.getData('favoritos?idUsuario=36').subscribe(
       (res: any) => {
         this.favoritos = res?.Data || [];
         console.log('📥 Favoritos cargados:', this.favoritos);
+        this.artists = res['Data'];
       },
       (error) => {
         console.error('❌ Error al cargar favoritos', error);

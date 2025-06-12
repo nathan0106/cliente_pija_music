@@ -16,6 +16,7 @@ import { ApiMidService } from '../../../../services/api_mid.services';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
+import { ApiService } from '../../../../services/api.service';
 
 
 
@@ -36,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     AlertComponent,
     HttpClientModule,
-   
+    
   ],
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']
@@ -49,13 +50,15 @@ export class PlaylistComponent {
 
   constructor(
     public dialog: MatDialog,
-    private apimidservice: ApiMidService
+    private apimidservice: ApiMidService,
+    private apiservise: ApiService,
   ) {}
 
   ngOnInit(): void {
     // Obtener las canciones desde el backend (reemplaza con tu API real)
     this.apimidservice.getData('canciones').subscribe(
       (respuesta: any) => {
+        console.log("ESTO LLEGA", respuesta)
         this.artists = respuesta['Data'];
       },
       (error: any) => {
@@ -85,12 +88,10 @@ export class PlaylistComponent {
     // Aquí puedes agregar un POST para guardar la preferencia de favorito del artista
   }
 
-  // Función para manejar el cambio de favorito de una canción
- toggleSongFavorite(song: any): void {
+  toggleSongFavorite(song: any): void {
   song.favorita = !song.favorita;
 
-  const songId = song.IdCanciones || song. IdUsuario || song.Id;
-
+  const songId = song.Id || song.IdCanciones;
 
   if (!songId) {
     console.error('❌ La canción no tiene un ID válido:', song);
@@ -99,18 +100,21 @@ export class PlaylistComponent {
   }
 
   const favorito = {
-    IdUsuario:songId, // ID del usuario (estático por ahora)
-    IdCanciones:songId,
+    IdUsuario: {
+      Id: 37 // Aquí puedes cambiarlo por el ID real del usuario si lo tienes dinámico
+    },
+    IdCanciones: {
+      Id: songId
+    },
     FechaAgregado: new Date().toISOString()
   };
 
   const favoritoJson = JSON.stringify(favorito);
   console.log('📤 Enviando favorito:', favoritoJson);
 
-  this.apimidservice.postData('Favoritos', favoritoJson).subscribe(
+  this.apiservise.postData('Favoritos', favoritoJson).subscribe(
     (response: any) => {
       console.log('✅ Canción guardada como favorita:', response);
-      // Puedes actualizar la UI o recargar favoritos si deseas
     },
     (error: any) => {
       console.error('❌ Error al guardar la canción como favorita', error);
@@ -119,8 +123,6 @@ export class PlaylistComponent {
   );
 }
 
-
-  
 }
 
 import { MatDialogRef } from '@angular/material/dialog';
