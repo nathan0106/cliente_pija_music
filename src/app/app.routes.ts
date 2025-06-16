@@ -15,6 +15,7 @@ import {BuscarComponent} from './pages/usuario/musica/buscar/buscar.component';
 import { PersonalizarComponent } from './pages/usuario/musica/personalizar/personalizar.component';
 import { DashboardMusicaComponent } from './pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { NuevacontrasenaComponent } from './pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
+<<<<<<< HEAD
 import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component';
 import { MenuadministradorComponent } from './pages/administrador/menuadministrador/menuadministrador.component';
 import { PlaylistadministradorComponent } from './pages/administrador/playlistadministrador/playlistadministrador.component';
@@ -22,6 +23,15 @@ import { FavoritosadministradorComponent } from './pages/administrador/favoritos
 import { CoplaadministrtivoComponent } from './pages/administrador/dashboardadministrador/coplaadministrtivo/coplaadministrtivo.component';
 import { CulturaComponent } from './pages/administrador/dashboardadministrador/cultura/cultura.component';
 import { TipoculturaComponent } from './pages/administrador/dashboardadministrador/tipocultura/tipocultura.component';
+=======
+import { DashboardadministradorComponent } from './pages/administrador/dashboardadministrador/dashboardadministrador.component'; 
+import { ArtistasdministradorComponent } from './pages/administrador/artistasdministrador/artistasdministrador.component';
+import { CancionesadministradorComponent } from './pages/administrador/cancionesadministrador/cancionesadministrador.component';
+import { EstilomusicaladministradorComponent } from './pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+
+
+
+>>>>>>> ae65fcfdfb1400c1ce19e33168f177f4a4d61b18
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -43,6 +53,7 @@ const routes: Routes = [
   {path: 'PersonalizarComponent', component: PersonalizarComponent},
   { path:'nuevacontraseña', component: NuevacontrasenaComponent },
   {path:'dashboardadministrador', component:DashboardadministradorComponent},
+<<<<<<< HEAD
   {path:'menuadministrador', component: MenuadministradorComponent},
   {path:'playlistadministrador', component: PlaylistadministradorComponent},
   { path:'favoritosadministrador', component:FavoritosadministradorComponent},
@@ -51,6 +62,11 @@ const routes: Routes = [
   {path:'cultura',component:CulturaComponent},
   {path:'tipocultura',component:TipoculturaComponent},
 
+=======
+  {path:'artistasdministrador',component: ArtistasdministradorComponent},
+  {path: 'cancionesadministrador', component: CancionesadministradorComponent},
+  {path: 'estilomusicaladministrador', component: EstilomusicaladministradorComponent},
+>>>>>>> ae65fcfdfb1400c1ce19e33168f177f4a4d61b18
 
 
 

@@ -32,6 +32,7 @@ import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/p
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
+<<<<<<< HEAD
 import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
 import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
 import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
@@ -40,6 +41,14 @@ import { AutorCoplasAdminComponent } from './app/pages/administrador/autor-copla
 import { CoplasAdminComponent } from './app/pages/administrador/coplas-admin/coplas-admin.component';
 import { TipoCulturaAdminComponent } from './app/pages/administrador/tipo-cultura-admin/tipo-cultura-admin.component';
 import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/cultura-admin.component';
+=======
+import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
+import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
+import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+
+
+
+>>>>>>> ae65fcfdfb1400c1ce19e33168f177f4a4d61b18
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -112,26 +121,24 @@ bootstrapApplication(AppComponent,{
             },
             {
                 path: 'personalizar', component: PersonalizarComponent  
-            }
+            },
+           
              ],
 
             },
 
-            //administrador
+            //administradorgeneral
             {path:'dashboardadministrador', component:DashboardadministradorComponent,
                 children:[
             {
-                path: 'menuad', component:MenuadministradorComponent
 
+                path: 'artista', component: ArtistasdministradorComponent
             },
             {
-                path: 'favoritosadministrador', component:FavoritosadministradorComponent
+                path:'canciones', component: CancionesadministradorComponent
             },
-            {
-                path: 'playlistadministrador', component: PlaylistadministradorComponent
-            },
-            {
-                path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
+             {
+                path: 'estilomusical', component: EstilomusicaladministradorComponent
             },
                         {
                 path: 'autorcoplasad', component:AutorCoplasAdminComponent

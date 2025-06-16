@@ -5,19 +5,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService {
+export class ApiMidService {
 
-  private baseUrl = 'http://localhost:8082/v1';// Cambia esta URL base según tu backend
-  
-  
+  private baseUrl = 'http://localhost:8083/v1'; // Cambia esta URL base según tu backend
+
   constructor(private http: HttpClient) {}
+
 
   getData(endpoint: string, params: any = {}): Observable<any> {
 
     return this.http.get(`${this.baseUrl}/${endpoint}`, { params });
 
   }
-
+  
   postData(endpoint: string, data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/${endpoint}`, data);
   }

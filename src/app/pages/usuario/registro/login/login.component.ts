@@ -30,6 +30,7 @@ import { ViewChild } from '@angular/core';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AlertComponent
 
   ],
   templateUrl: './login.component.html',
@@ -38,11 +39,11 @@ import { ViewChild } from '@angular/core';
 })
 export class LoginComponent {
 
-     @ViewChild('alertRef') alertComponent!: AlertComponent;
+    @ViewChild('alertRef') alertComponent!: AlertComponent;
 
 registerForm: FormGroup;
  hidePassword = true;
-apiUrl: string = 'http://localhost:8082/v1/usuario/login';
+apiUrl: string = 'http://localhost:8083/v1/usuario/login';
 
 
 
@@ -72,7 +73,7 @@ login() {
       if (caso === 2) {
          this.alertComponent.show('Inicio de sesión exitoso. Bienvenido.');
         localStorage.setItem('tipo', 'usuario');
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/dashboardmusica/menu']);
       } else if (caso === 1) {
          this.alertComponent.show('El usuario no existe.');
       } else if (caso === 3) {

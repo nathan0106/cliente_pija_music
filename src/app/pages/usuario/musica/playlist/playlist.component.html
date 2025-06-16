@@ -20,15 +20,23 @@
     <!-- Imagen del artista -->
     <img [src]="selectedArtist.imagen" alt="{{ selectedArtist.nombre }}" class="selected-artist-image" />
 
+    <!-- Lista de canciones -->
     <div class="song-list">
       <div *ngFor="let song of selectedArtist.canciones; let i = index" class="song-item">
         <div class="song-info">
           <span class="song-number">{{ i + 1 }}.</span>
-          <span class="song-title">{{ song.nombre }}</span> 
+          <span class="song-title">{{ song.nombre }}</span>
           <span class="song-duration">({{ song.duracion }})</span>
+
+          <!-- Ícono de favorito para cada canción -->
+          <button mat-icon-button (click)="toggleSongFavorite(song)">
+            <mat-icon color="warn">{{ song.favorita ? 'favorite' : 'favorite_border' }}</mat-icon>
+          </button>
         </div>
         <button mat-raised-button color="primary" (click)="openVideo(song.videoUrl)">Ver Video</button>
       </div>
     </div>
   </div>
 </div>
+<app-alert #alertRef></app-alert>
+

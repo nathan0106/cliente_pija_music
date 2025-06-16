@@ -8,6 +8,9 @@
       ¿Ya tienes una cuenta en Pija Music?
       <a href="/login" class="login-link">Iniciar sesión</a>
     </p>
+    
+    <app-alert #alertRef></app-alert>
+
 
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <!-- Campo de Nombre -->

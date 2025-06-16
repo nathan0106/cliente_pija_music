@@ -61,29 +61,19 @@
   margin-bottom: 16px;
 }
 
-.song-list {
-  margin-top: 20px;
-}
-
 .song-item {
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .song-info {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
 }
 
-.song-number {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.song-title {
-  font-style: italic;
-}
-
-.song-duration {
-  color: gray;
+button.mat-icon-button {
+  margin-left: 10px;
 }
 
 button {
