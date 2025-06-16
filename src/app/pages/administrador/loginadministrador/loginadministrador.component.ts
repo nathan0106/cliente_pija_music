@@ -91,9 +91,7 @@ export class LoginadministradorComponent {
   }
 
   recoverPassword() {
-    this.alertComponent.show('Recuperar contraseña');
-    localStorage.setItem('tipo', 'admin');
-    this.router.navigate(['/nuevacontrasena']);
+    this.router.navigate(['/contraseñad']);
   }
 
   createAccount() {
