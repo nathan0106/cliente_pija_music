@@ -6,6 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
+<<<<<<< HEAD
+=======
+  
+  private baseUrl = 'http://localhost:8084/v1'; // Cambia esta URL base según tu backend
+>>>>>>> 27b81a70eb7f0cc43014bc59ed307add4f7750f0
 
   private baseUrl = 'http://localhost:8082/v1';// Cambia esta URL base según tu backend
   

@@ -1,0 +1,75 @@
+import { Component } from '@angular/core';
+import emailjs from 'emailjs-com';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AlertComponent } from '../alert/alert.component';
+import { ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-contrasenaad',
+  imports: [
+    FormsModule,
+    CommonModule
+  ],
+  templateUrl: './contrasenaad.component.html',
+  styleUrl: './contrasenaad.component.css'
+})
+export class ContrasenaadComponent {
+
+      @ViewChild('alertRef') alertComponent!: AlertComponent;
+
+
+  constructor(private router: Router) {}
+
+
+  email: string = '';
+
+  codigoVerificacion: string = '';
+
+  /**
+   * Envía un código único al correo del usuario utilizando EmailJS.
+   */
+  enviarCodigo() {
+    const codigo = this.generarCodigo();
+    const templateParams = {
+      email: this.email,
+      codigo: codigo
+    };
+
+
+
+    emailjs.send('service_mr0wi2s', 'template_exnwzy8', templateParams, 'LqcTSCxadm1LJMmQg')
+      .then((response) => {
+        console.log('Correo enviado:', response);
+        this.alertComponent.show('Código enviado a tu correo');
+
+      })
+      .catch((error) => {
+        console.error('Error al enviar el correo:', error);
+        this.alertComponent.show('Error al enviar el código');
+      });
+  }
+
+  generarCodigo() {
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString(); 
+    localStorage.setItem('Codigo', codigo); 
+    console.log('Código generado:', codigo);
+  
+    this.router.navigate(['/codigoad']);
+    return codigo;
+  }
+
+  cancelar(): void {
+    this.router.navigate(['/loginad']);
+
+  }
+
+
+  esCorreoValido(correo: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(correo);
+  }
+
+
+}

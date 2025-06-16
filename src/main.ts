@@ -45,6 +45,10 @@ import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/c
 import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
 import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
 import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+import { CodigoadComponent } from './app/pages/administrador/codigoad/codigoad.component';
+import { ContrasenaadComponent } from './app/pages/administrador/contrasenaad/contrasenaad.component';
+import { NuevacontrasenaadComponent } from './app/pages/administrador/nuevacontrasenaad/nuevacontrasenaad.component';
+import { InicioComponent } from './app/pages/inicio/inicio.component';
 
 
 
@@ -172,6 +176,18 @@ bootstrapApplication(AppComponent,{
             },
             {
                 path: 'registerad', component: RegisteradministradorComponent
+            },
+            {
+                path: 'codigoad', component: CodigoadComponent
+            },
+            {
+                path: 'contraseñad', component: ContrasenaadComponent
+            },
+            {
+                path: 'nuevacontraseñaad', component: NuevacontrasenaadComponent
+            },
+              {
+                path: 'inicio', component: InicioComponent
             },
          
 

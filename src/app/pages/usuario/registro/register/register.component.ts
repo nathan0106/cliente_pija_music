@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { ApiMidService } from '../../../../services/api_mid.services';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiMidService } from '../../../../services/api_mid.services';
 
 
 @Component({
@@ -38,7 +39,11 @@ export class RegisterComponent {
   hideConfirm = true;
 
   constructor(private fb: FormBuilder, 
+<<<<<<< HEAD
     private apimidService: ApiMidService,
+=======
+    private apimidservices: ApiMidService,
+>>>>>>> 27b81a70eb7f0cc43014bc59ed307add4f7750f0
     private dialog: MatDialog) {
     this.registerForm = this.fb.group({
       Nombres: ['', Validators.required],
@@ -54,7 +59,11 @@ export class RegisterComponent {
     if (this.registerForm.valid && this.passwordsMatch) {
       console.log('Registro exitoso', this.registerForm.value);
   
+<<<<<<< HEAD
       this.apimidService.postData('usuario', this.registerForm.value).subscribe({
+=======
+      this.apimidservices.postData('usuario', this.registerForm.value).subscribe({
+>>>>>>> 27b81a70eb7f0cc43014bc59ed307add4f7750f0
         next: (response) => {
           console.log('Respuesta del servidor:', response);
   
