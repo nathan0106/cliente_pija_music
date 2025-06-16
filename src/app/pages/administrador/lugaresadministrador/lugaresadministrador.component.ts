@@ -16,6 +16,7 @@ interface SubtituloDetalle {
 interface Lugar {
   titulo: string;
   imagen: string;
+  imagenVideo?: string; // ✅ Agregado
   direccion: string;
   categoria: string;
   confirmado?: boolean;
@@ -24,6 +25,9 @@ interface Lugar {
   imagenes?: string[];
   imagenFondo?: string;
   texto: string;
+  ciudad: string;
+  horario: string;
+  idTipoLugar: number;
 }
 
 @Component({
@@ -38,11 +42,14 @@ interface Lugar {
     MatFormFieldModule
   ],
   templateUrl: './lugaresadministrador.component.html',
-  styleUrls: ['./lugaresadministrador.component.css']
+  styleUrl: './lugaresadministrador.component.css'
 })
 export class LugaresadministradorComponent {
 
   constructor(private apicrudService: ApiCrudService) { }
+
+  
+  
 
   categorias: string[] = [
     'Senderismo',
@@ -54,25 +61,105 @@ export class LugaresadministradorComponent {
 
   categoriaSeleccionada = '';
   lugarSeleccionado: Lugar | null = null;
+  
 
-  nuevoLugar: Partial<Lugar> = {
-    titulo: '',
-    imagen: '',
-    direccion: '',
-    categoria: ''
-  };
+nuevoLugar: Partial<Lugar> & { imagenFondo?: string; imagenes?: string[] } = {
+  titulo: '',
+  imagen: '',
+  imagenVideo: '',
+  direccion: '',
+  categoria: '',
+  imagenFondo: '',
+  imagenes: []
+};
+
 
   imagenArchivo: File | null = null; // ← NUEVO: archivo de imagen seleccionado
 
   detalle: any = {
     titulo: '',
-    subtitulo: [''],
+    subtitulo: [{ titulo: '', descripcion: '' }],
     texto: '',
-    imagenFondo: '',
     imagenes: []
   };
 
+  
+
+  detalle_lugar:any = {
+    tipo: '',
+    contenido:''
+
+  }
+
+  detalle_imagen:any={
+    imagen:'',
+    imagenes:[],
+    fondo:''
+  }
+
+  post_lugar: any = {
+    NombreLugar:'',
+    Direccion:'',
+    Ciudad:'',
+    DescripcionLugares: this.detalle_lugar,
+    ImagenVideo: this.detalle_imagen,
+    Horario:'',
+    IdTipoLugares: {
+      Id:0
+    }
+  };
+
   lugares: Lugar[] = [];
+
+  // aqui va el get para mostrar tipo lugar, traer el campo Nombre y el Id
+
+  
+  
+  postLugarCompleto() {
+  if (!this.lugarSeleccionado) {
+    this.mostrarMensaje('Debes seleccionar un lugar para publicarlo.', 'error');
+    return;
+  }
+
+  const descripcionLugares: { tipo: string; contenido: string }[] = [];
+
+  for (const sub of this.lugarSeleccionado.subtitulos || []) {
+    if (sub.titulo) descripcionLugares.push({ tipo: 'subtitulo', contenido: sub.titulo });
+    if (sub.descripcion) descripcionLugares.push({ tipo: 'texto', contenido: sub.descripcion });
+  }
+
+  if (this.lugarSeleccionado.texto?.trim()) {
+    descripcionLugares.push({ tipo: 'texto', contenido: this.lugarSeleccionado.texto });
+  }
+
+  const imagenVideo = {
+    imagen: this.lugarSeleccionado.imagen || '',
+    imagenes: this.lugarSeleccionado.imagenes || [],
+    fondo: this.lugarSeleccionado.imagenFondo || ''
+  };
+
+  const dataPost = {
+    NombreLugar: this.lugarSeleccionado.titulo,
+    Direccion: this.lugarSeleccionado.direccion || '',
+    Ciudad: this.lugarSeleccionado.ciudad || '',
+    DescripcionLugares: descripcionLugares,
+    ImagenVideo: imagenVideo,
+    Horario: this.lugarSeleccionado.horario || '',
+    IdTipoLugares: { Id: this.lugarSeleccionado.idTipoLugar || 1 }
+  };
+
+  console.log('Enviando al backend:', dataPost);
+
+  this.apicrudService.postData('lugares', dataPost).subscribe({
+    next: (res) => {
+      this.mostrarMensaje('Lugar enviado correctamente.', 'exito');
+    },
+    error: (err) => {
+      console.error(err);
+      this.mostrarMensaje('Error al enviar el lugar.', 'error');
+    }
+  });
+}
 
   onCategoriaChange() {
     this.nuevoLugar = {
@@ -87,59 +174,39 @@ export class LugaresadministradorComponent {
     const file = event.target.files[0];
     if (file) {
       this.nuevoLugar.imagen = file.name;
+      console.log('Imagen seleccionada:', file);
     }
   }
 
-  guardarLugar() {
-    this.nuevoLugar.categoria = this.categoriaSeleccionada;
-    
-    if (!this.nuevoLugar.titulo || !this.nuevoLugar.direccion || !this.categoriaSeleccionada ) {
-      alert('Completa todos los campos y selecciona una imagen.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('Titulo', this.nuevoLugar.titulo!);
-    formData.append('Direccion', this.nuevoLugar.direccion!);
-    formData.append('Categoria', this.categoriaSeleccionada);
-    // formData.append('Imagen', this.imagenArchivo);
-
-    // Agregar propiedades adicionales como JSON
-    formData.append("Texto", this.nuevoLugar.texto || '');
-    formData.append("Subtitulos", JSON.stringify(this.nuevoLugar.subtitulos || []));
-    formData.append("Imagenes", JSON.stringify(this.nuevoLugar.imagenes || []));
-    formData.append("ImagenFondo", this.nuevoLugar.imagenFondo || '');
-    formData.append("Detalles", JSON.stringify(this.nuevoLugar.detalles || []));
-
-     // Envío a backend
-    this.apicrudService.postData('Lugares', formData).subscribe({
-      next: (response) => {
-        console.log('Lugar creado con imagen:', response);
-        this.lugares.push({
-          titulo: this.nuevoLugar.titulo!,
-          direccion: this.nuevoLugar.direccion!,
-          categoria: this.categoriaSeleccionada,
-          imagen: this.imagenArchivo!.name,
-          detalles: [],
-          texto: '',
-          subtitulos: [],
-          imagenes: [],
-          imagenFondo: ''
-        });
-
-        
-
-        this.nuevoLugar = {};
-        this.imagenArchivo = null;
-        this.categoriaSeleccionada = '';
-        this.mostrarMensaje('Lugar creado exitosamente con imagen.', 'exito');
-      },
-      error: (error) => {
-        console.error('Error al crear lugar con imagen:', error);
-        this.mostrarMensaje('Error al subir el lugar con imagen.', 'error');
-      }
+ guardarLugar() {
+    this.lugares.push({
+      ...(this.nuevoLugar as Lugar),
+      confirmado: false,
+      detalles: [],
+       imagenes: this.nuevoLugar.imagenVideo ? [this.nuevoLugar.imagenVideo] : [], // <-- si es imagen URL
     });
+    console.log('variable nuevo lugar', this.nuevoLugar)
+    this.categoriaSeleccionada = '';
+    this.nuevoLugar = {};
   }
+nuevaImagenFondo: string = '';
+nuevasImagenesTexto: string = ''; // texto con múltiples URLs separadas por coma
+
+guardarImagenFondo() {
+  if (this.nuevaImagenFondo.trim()) {
+    this.detalle.imagenFondo = this.nuevaImagenFondo.trim();
+    this.nuevaImagenFondo = '';
+  }
+}
+
+
+guardarImagenesAdicionales() {
+  if (this.nuevasImagenesTexto.trim()) {
+    const urls = this.nuevasImagenesTexto.split(',').map(url => url.trim()).filter(url => url);
+    this.detalle.imagenes.push(...urls);
+    this.nuevasImagenesTexto = '';
+  }
+}
 
   mostrarMensaje(mensaje: string, tipo: 'exito' | 'error') {
     // Reemplaza esto con Snackbar o modal si prefieres
@@ -147,6 +214,10 @@ export class LugaresadministradorComponent {
   }
 
  onLugarChange() {
+
+  console.log('Lugares por categoría:', this.lugaresPorCategoria[this.categoriaSeleccionada]);
+
+
   if (this.lugarSeleccionado) {
     this.detalle = {
       titulo: this.lugarSeleccionado.titulo || '',
@@ -158,6 +229,10 @@ export class LugaresadministradorComponent {
       imagenFondo: this.lugarSeleccionado.imagenFondo || '',
       imagenes: this.lugarSeleccionado.imagenes || []
     };
+
+    // ← Aquí insertas las asignaciones para precargar en inputs
+    this.nuevaImagenFondo = this.detalle.imagenFondo || '';
+    this.nuevasImagenesTexto = this.detalle.imagenes?.join(', ') || '';
 
     // Asegura que haya al menos un campo subtítulo visible
     this.vistaDetalle = {
@@ -209,18 +284,19 @@ export class LugaresadministradorComponent {
   vistaDetalle: any = {};
   lugarConfirmado: any = null;
 
- guardarDetalle() {
+guardarDetalle() {
   if (!this.lugarSeleccionado) return;
 
-  this.lugarSeleccionado.titulo = this.detalle.titulo;
-  this.lugarSeleccionado.texto = this.detalle.texto;
-  this.lugarSeleccionado.subtitulos = this.detalle.subtitulos;
-  this.lugarSeleccionado.imagenFondo = this.detalle.imagenFondo;
-  this.lugarSeleccionado.imagenes = this.detalle.imagenes;
+  this.lugarSeleccionado.titulo = this.detalle.titulo || '';
+  this.lugarSeleccionado.texto = this.detalle.texto || '';
+  this.lugarSeleccionado.subtitulos = this.detalle.subtitulos || [];
+  this.lugarSeleccionado.imagenFondo = this.detalle.imagenFondo || '';
+  this.lugarSeleccionado.imagenes = this.detalle.imagenes || [];
 
   this.vistaDetalle = { ...this.lugarSeleccionado };
   this.vistaConfirmacion = true;
 }
+
 
 
   confirmarVista() {

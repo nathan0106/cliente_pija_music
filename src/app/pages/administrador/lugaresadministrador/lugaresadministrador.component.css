@@ -107,12 +107,12 @@ input[type="file"] {
 }
 
 
-.file-input-container {
+/* .file-input-container {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-}
+} */
 
 .file-btn {
   display: inline-block;
@@ -151,11 +151,15 @@ input[type="file"] {
   background-color: #bb98e2;
 }
 
+
+
 .preview-gallery {
   display: flex;
   gap: 10px;
   margin-top: 10px;
   flex-wrap: wrap;
+  width: 100px;
+ height: 70px;
 }
 
 .preview-gallery img {
@@ -164,6 +168,7 @@ input[type="file"] {
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
 }
 
 .detalle-card {
@@ -219,7 +224,36 @@ input[type="file"] {
   background-color: #f3e8fd;
 }
 
+.input-url {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
 
+.boton-lila {
+  background-color: #d6b3f5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+.imagenes-adicionales {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
 
+.imagen-mini {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
 

@@ -11,13 +11,7 @@
     <label for="titulo">Título</label>
     <input type="text" id="titulo" [(ngModel)]="nuevoLugar.titulo" placeholder="Ej. Salto del Mico" />
 
-    <div class="file-input-container">
-      <label class="btn-morado file-btn">
-        Seleccionar imagen
-        <input type="file" (change)="onImageUpload($event)" hidden />
-      </label>
-      <span class="file-name">{{ nuevoLugar.imagen || 'No se ha seleccionado archivo' }}</span>
-    </div>
+   
 
     <label for="direccion">Dirección</label>
     <input type="text" id="direccion" [(ngModel)]="nuevoLugar.direccion" placeholder="Ej. Vereda La Palma" />
