@@ -29,7 +29,6 @@ import { RegisteradministradorComponent } from './app/pages/administrador/regist
 import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
 import { LugaresGeneralComponent } from './app/pages/usuario/turismo/lugares-general/lugares-general.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
-<<<<<<< HEAD
 import { LugaresadministradorComponent } from './app/pages/administrador/lugaresadministrador/lugaresadministrador.component';
 import { TipoLugaresadministradorComponent } from './app/pages/administrador/tipo-lugaresadministrador/tipo-lugaresadministrador.component';
 import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
@@ -39,20 +38,10 @@ import { CodigoadComponent } from './app/pages/administrador/codigoad/codigoad.c
 import { ContrasenaadComponent } from './app/pages/administrador/contrasenaad/contrasenaad.component';
 import { NuevacontrasenaadComponent } from './app/pages/administrador/nuevacontrasenaad/nuevacontrasenaad.component';
 import { InicioComponent } from './app/pages/inicio/inicio.component';
-
-
-
-
-=======
-import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
-import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
-import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
-import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
 import { AutorCoplasAdminComponent } from './app/pages/administrador/autor-coplas-admin/autor-coplas-admin.component';
 import { CoplasAdminComponent } from './app/pages/administrador/coplas-admin/coplas-admin.component';
 import { TipoCulturaAdminComponent } from './app/pages/administrador/tipo-cultura-admin/tipo-cultura-admin.component';
 import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/cultura-admin.component';
->>>>>>> 950fd5a247680735d50df6094c7c4349716d4986
 
 bootstrapApplication(AppComponent,{
     providers:[
