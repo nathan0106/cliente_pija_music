@@ -15,6 +15,7 @@
   </div>
 
 <div class="texto-informacion">
+    <h3>{{Danza_informatiba.titulo}}</h3>
     <p>{{Danza_informatiba.informacion1}}</p>
     <h3>{{Danza_informatiba.titulo1}}</h3>
     <p>{{Danza_informatiba.informacion2}}</p>
@@ -28,6 +29,7 @@
     <p>{{Danza_informatiba.informacion6}}</p>
 </div>
 <div class="contenido" *ngIf="seccionActual as actual">
+    <h3>{{secciones[actual].titulo8 }}</h3>
     <p>{{secciones[actual].contenido1 }}</p>
     <h3>{{secciones[actual].titulo1 }}</h3>
     <p>{{secciones[actual].contenido2 }}</p>
@@ -39,7 +41,7 @@
     <p>{{secciones[actual].contenido5 }}</p>
     <h3>{{secciones[actual].titulo6 }}</h3>
     <p>{{secciones[actual].contenido6 }}</p>
-    <p>{{secciones[actual].titulo8 }}</p>
+    
     <div class="video-section">
     <h2>{{secciones[actual].titulo_video }}</h2>
     <div class="video-container">

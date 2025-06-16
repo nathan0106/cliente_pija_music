@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { Route } from '@angular/router';
+import { ApiService } from '../../../../services/api.service';
 
 type SeccionID = 'trajes_tipicos' | 'zombreros_llaneros' ;
 
@@ -14,6 +15,7 @@ type SeccionID = 'trajes_tipicos' | 'zombreros_llaneros' ;
   styleUrl: './trajes-tipicos.component.css'
 })
 export class TrajesTipicosComponent {
+  constructor(private apiservice:ApiService){}
 
   trajes_informacion={
     titulo1:'Trajes llaneros',
@@ -42,6 +44,28 @@ export class TrajesTipicosComponent {
   }
   cerrarDetalle(){
   this.seccionActual=null;
+}
+ngOnInit() {
+  this.apiservice.getData('Tipo_Cultura?query=Nombre:trajes-tipicos').subscribe(
+    (respuesta) => {
+      const data = respuesta?.Data?.[0]?.informacion1;
+
+      if (data) {
+        try {
+          const infoParseada = JSON.parse(data);
+          this.trajes_informacion.informacion1 = infoParseada?.detalles?.[0]?.descripcion || '';
+        } catch (e) {
+          console.error('Error al parsear JSON de informacion1:', e);
+        }
+      } else {
+        console.warn('No se encontró informacion1 en la respuesta');
+      }
+    },
+    (error: any) => {
+      alert('error de trajes');
+      console.error(error);
+    }
+  );
 }
 
 }

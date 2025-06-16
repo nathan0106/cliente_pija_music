@@ -13,36 +13,48 @@
    </div>
     
  <div class="texto-informacion">
-    <p>{{copla_informacion.infirmacion1}}</p>
-    <h3>{{copla_informacion.titulo1}}</h3>
-    <p>{{copla_informacion.informacion2}}</p>
-    <h3>{{copla_informacion.titulo2}}</h3>
-    <p>{{copla_informacion.informacion3}}</p>
- </div>
- <div class="cntenido" *ngIf="seccionActual as actual">
-    <h2>{{secciones[actual].titulo1 }}</h2>
-    <p>{{secciones[actual].contenido2 }}</p>
-    <h2>{{secciones[actual].titulo2 }}</h2>
-    <p>{{secciones[actual].contenido3 }}</p>
-    <h2>{{secciones[actual].titulo3 }}</h2>
-    <p>{{secciones[actual].contenido4 }}</p>
-    
-    <h2>{{secciones[actual].coplero1 }}</h2>
-    <p>{{secciones[actual].biogracia1 }}</p>
-    <img *ngIf="secciones[actual].imagen1" [src]="secciones[actual].imagen1" alt="coplero1" width="400">
-    <h2>{{secciones[actual].contapunteo2 }}</h2>
-    <p>{{secciones[actual].biografia2 }}</p>
-    <img *ngIf="secciones[actual].imagen2" [src]="secciones[actual].imagen2" alt="coplero2">
-    <h2>{{secciones[actual].contapunteo3 }}</h2>
-    <p>{{secciones[actual].biografia3 }}</p>
-    <img *ngIf="secciones[actual].imagen3" [src]="secciones[actual].imagen3" alt="coplero2">
-    <h2>{{secciones[actual].contapunteo4 }}</h2>
-    <p>{{secciones[actual].biografia4 }}</p>
-    <img *ngIf="secciones[actual].imagen4" [src]="secciones[actual].imagen4" alt="coplero2">
-
-   <div class="close-button-container">
-  <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+  <p>{{copla_informacion.infirmacion1}}</p>
+  <h3>{{copla_informacion.titulo1}}</h3>
+  <p>{{copla_informacion.informacion2}}</p>
+  <h3>{{copla_informacion.titulo2}}</h3>
+  <p>{{copla_informacion.informacion3}}</p>
 </div>
+
+ <div class="cntenido" *ngIf="seccionActual as actual">
+  <!-- Títulos y contenidos de coplas -->
+  <ng-container *ngIf="actual === 'coplas'">
+    <h2 *ngIf="secciones[actual].titulo1">{{ secciones[actual].titulo1 }}</h2>
+    <p *ngIf="secciones[actual].contenido2">{{ secciones[actual].contenido2 }}</p>
+    <h2 *ngIf="secciones[actual].titulo2">{{ secciones[actual].titulo2 }}</h2>
+    <p *ngIf="secciones[actual].contenido3">{{ secciones[actual].contenido3 }}</p>
+    <h2 *ngIf="secciones[actual].titulo3">{{ secciones[actual].titulo3 }}</h2>
+    <p *ngIf="secciones[actual].contenido4">{{ secciones[actual].contenido4 }}</p>
+  </ng-container>
+
+  <!-- Copleros -->
+  <ng-container *ngIf="actual === 'copleros'">
+    <h2 *ngIf="secciones[actual].coplero1">{{ secciones[actual].coplero1 }}</h2>
+    <p *ngIf="secciones[actual].biogracia1">{{ secciones[actual].biogracia1 }}</p>
+    <img *ngIf="secciones[actual].imagen1" [src]="secciones[actual].imagen1" alt="coplero1" width="400">
+    
+    <h2 *ngIf="secciones[actual].contapunteo2">{{ secciones[actual].contapunteo2 }}</h2>
+    <p *ngIf="secciones[actual].biografia2">{{ secciones[actual].biografia2 }}</p>
+    <img *ngIf="secciones[actual].imagen2" [src]="secciones[actual].imagen2" alt="coplero2">
+    
+    <h2 *ngIf="secciones[actual].contapunteo3">{{ secciones[actual].contapunteo3 }}</h2>
+    <p *ngIf="secciones[actual].biografia3">{{ secciones[actual].biografia3 }}</p>
+    <img *ngIf="secciones[actual].imagen3" [src]="secciones[actual].imagen3" alt="coplero3">
+    
+    <h2 *ngIf="secciones[actual].contapunteo4">{{ secciones[actual].contapunteo4 }}</h2>
+    <p *ngIf="secciones[actual].biografia4">{{ secciones[actual].biografia4 }}</p>
+    <img *ngIf="secciones[actual].imagen4" [src]="secciones[actual].imagen4" alt="coplero4">
+  </ng-container>
+
+  <div class="close-button-container">
+    <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+  </div>
+</div>
+
 
  </div>
 

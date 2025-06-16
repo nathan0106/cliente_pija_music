@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ApiService } from '../../../../services/api.service';
 
 type SeccionID = 'cotiza_espetatulo'|'cotiza_criollo'
 @Component({
@@ -16,29 +17,30 @@ type SeccionID = 'cotiza_espetatulo'|'cotiza_criollo'
   styleUrl: './cotiza.component.css'
 })
 export class CotizaComponent {
+constructor(private apiservice:ApiService){}
 
   cotiza_informacion={
-    titulo1:'Historia',
-    informacion1:'Las cotizas llaneras son un calzado típico de la región de los Llanos Orientales en Colombia y Venezuela. Se caracterizan por su elaboración artesanal en cuero, su suela plana y su diseño sencillo y cómodo. Son un elemento esencial del traje llanero y un símbolo de la cultura de la región.',
-    titulo2:'Caracteristicas',
-    informacion2:'Materiales: Elaboradas principalmente en cuero de ganado vacuno, aunque también se pueden encontrar en otros materiales como caucho o suela sintética.Diseño: Suela plana y resistente, con correas de cuero que se ajustan al pie. Algunas cotizas tienen diseños más elaborados con adornos y trenzados Comodidad: Su flexibilidad y adaptación al pie las hacen un calzado cómodo para uso diario, especialmente en climas cálidos y terrenos secos.Tradición: Las cotizas llaneras forman parte del traje típico de la región y se utilizan en fiestas, eventos folclóricos y celebraciones especiales.'
+    titulo1:'',
+    informacion1:'',
+    titulo2:'',
+    informacion2:''
 
   }
 
   secciones: Record<SeccionID,{titulo1:string;contenido:string;imagen1:string;uso:string;titulo2:string;}> = {
     cotiza_criollo:{
-      titulo1:'cotiza llanera',
-      contenido:'es el calzado tradicional utilizado en la danza del joropo, símbolo cultural de los Llanos colombo-venezolanos. Este tipo de calzado, también conocido como alpargata, ha evolucionado a lo largo del tiempo, adaptándose a las necesidades y expresiones artísticas de la región.',
-      titulo2:'Uso en la Danza',
-      uso:'Tanto hombres como mujeres utilizan cotizas durante las presentaciones de joropo. La suela de caucho proporciona el sonido característico del zapateo, esencial en esta danza. ',
-      imagen1:'cotizal_llanera.jpg',
+      titulo1:'',
+      contenido:'',
+      titulo2:'',
+      uso:'',
+      imagen1:'',
     },
     cotiza_espetatulo:{
-      titulo1:'cotiza para danza espetaculo',
-      contenido:' es una versión estilizada del calzado tradicional llanero, diseñada específicamente para presentaciones escénicas de alto nivel, como concursos, festivales y shows de danza folclórica, especialmente el joropo estilizado.',
-      titulo2:'Uso en la Danza',
-      uso:'Las cotizas de espectáculo suelen presentar adornos como bordados, lentejuelas o pinturas a mano, especialmente en las versiones femeninas. Los colores pueden variar para combinar con el vestuario del grupo de danza. este caso las cotizas que utiliza las damas cambiar el color ya que tiene qu ecombianar con el vestido que este utilizando ',
-      imagen1:'cotizas.PNG'
+      titulo1:'',
+      contenido:'',
+      titulo2:'',
+      uso:'',
+      imagen1:''
     }
   }
     seccionActual: SeccionID | null = null;
@@ -49,4 +51,66 @@ export class CotizaComponent {
 cerrarDetalle(){
   this.seccionActual=null;
 }
+ngOnInit() {
+  // Primer GET (datos generales)
+  console.log('[ngOnInit] Iniciado');
+  
+  this.apiservice.getData('Tipo_Cultura?query=Nombre:cotiza').subscribe(
+    (repuesta) =>{
+       console.log('[GET Tipo_Cultura] respuesta:', repuesta);
+      const infoEnString = repuesta['Data'][0]['Informacion'];
+      const infoParseada = JSON.parse(infoEnString);
+      this.cotiza_informacion.titulo1 = infoParseada.detalles[0].subtitulo;
+      this.cotiza_informacion.informacion1 = infoParseada.detalles[0].descripcion;
+      this.cotiza_informacion.titulo2 = infoParseada.detalles[1].subtitulo;
+      this.cotiza_informacion.informacion2 = infoParseada.detalles[1].descripcion;
+    },
+    (error) => {
+      console.error('[GET Tipo_Cultura] Error:', error);
+      alert('error al llegar el primer GET');
+    }
+  );
+
+  // Segundo GET (detalle de cotiza criollo y espectáculo)
+  this.apiservice.getData('Cultura?query=IdTipoCultura.Id:36').subscribe(
+    (respuesta) => {
+      console.log('[GET Cultura] respuesta:', respuesta);
+      const data = respuesta.Data;
+      const informaciones = (data as any[]).map(item => item.Informacion);
+
+      const informacionesParseadas = informaciones
+        .map(info => {
+          try {
+            return JSON.parse(info);
+          } catch (e) {
+            console.error('Error al parsear Información:', info, e);
+            return null;
+          }
+        })
+        .filter(info => info !== null);
+
+      if (informacionesParseadas.length >= 2) {
+        const criollo = informacionesParseadas[0];
+        const espectaculo = informacionesParseadas[1];
+
+        // Asignar datos al objeto cotiza_criollo
+        this.secciones.cotiza_criollo.titulo1 = criollo.secciones[0]?.subtitulo || '';
+        this.secciones.cotiza_criollo.contenido = criollo.secciones[0]?.descripcion || '';
+        this.secciones.cotiza_criollo.titulo2 = criollo.secciones[1]?.subtitulo || '';
+        this.secciones.cotiza_criollo.uso = criollo.secciones[1]?.descripcion || '';
+        this.secciones.cotiza_criollo.imagen1 = criollo.secciones[1]?.imagen || '';
+
+        // Asignar datos al objeto cotiza_espetatulo
+        this.secciones.cotiza_espetatulo.titulo1 = espectaculo.secciones[0]?.subtitulo || '';
+        this.secciones.cotiza_espetatulo.contenido = espectaculo.secciones[0]?.descripcion || '';
+      }
+    },
+    (error) => {
+          console.error('[GET Cultura] Error:', error);
+
+      alert('error al llegar el segundo GET');
+    }
+  );
+}
+
 }

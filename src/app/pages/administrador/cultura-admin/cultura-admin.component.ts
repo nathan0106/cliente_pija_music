@@ -99,41 +99,53 @@ export class CulturaAdminComponent {
     }
   }
 
-  guardarJson() {
-    if (!this.mainForm.valid || this.detalles.length === 0) return;
+ guardarJson() {
+  if (!this.mainForm.valid || this.detalles.length === 0) return;
 
-    const InformacionObj={
-        titulo: this.mainForm.value.titulo,
-      imagen: this.mainForm.value.imagen,
-      secciones: [...this.detalles],
-    }
+  const InformacionObj = {
+    titulo: this.mainForm.value.titulo,
+    imagen: this.mainForm.value.imagen,
+    secciones: [...this.detalles],
+  };
 
-    const videoUrl =
-      this.mainForm.value.Informacion === 'danza' || this.mainForm.value.Informacion === 'coleo'
+  const categoriaId = Number(this.mainForm.value.categoria);
+  const categoriaNombre = this.tiposCultura.find(tc => tc.Id === categoriaId)?.Nombre || '';
+
+  const finalJson = {
+    IdTipoCultura: {
+      Id: categoriaId
+    },
+    Informacion: JSON.stringify(InformacionObj),
+    // Extras para mostrar en el frontend
+    titulo: InformacionObj.titulo,
+    imagen: InformacionObj.imagen,
+    categoria: categoriaNombre,
+    secciones: InformacionObj.secciones,
+    videoUrl:
+      this.indiceSeleccionado === 1 || this.indiceSeleccionado === 3
         ? this.detalles[0]?.videoUrl || ''
-        : '';
+        : ''
+  };
 
-    const finalJson = {
-      IdTipoCultura:{
-        Id:Number(this.mainForm.value.categoria)
-      },
-    Informacion:JSON.stringify(InformacionObj)
-    };
+  this.culturasGuardadas.push(finalJson);
 
-    this.culturasGuardadas.push(finalJson);
-    this.enviarCulturaABaseDeDatos(finalJson);
-    this.todoGuardado = true;
+  // ✅ Envío al backend solo con las propiedades requeridas
+  this.enviarCulturaABaseDeDatos({
+    IdTipoCultura: finalJson.IdTipoCultura,
+    Informacion: finalJson.Informacion
+  });
 
-    console.log('Json',JSON.stringify(finalJson));
+  this.todoGuardado = true;
 
-    // Limpiar formularios
-    this.mainForm.reset();
-    this.detalleForm.reset();
-    this.formGuardado = false;
-    this.mostrarVideoUrl = false;
-    this.mainImageBase64 = '';
-    this.detalles = [];
-  }
+  // Limpieza de formularios
+  this.mainForm.reset();
+  this.detalleForm.reset();
+  this.formGuardado = false;
+  this.mostrarVideoUrl = false;
+  this.mainImageBase64 = '';
+  this.detalles = [];
+}
+
 
   private convertFileToBase64(file: File, callback: (base64: string) => void) {
     const reader = new FileReader();
