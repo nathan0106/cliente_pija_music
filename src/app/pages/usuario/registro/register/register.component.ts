@@ -38,6 +38,8 @@ export class RegisterComponent {
   hidePassword = true;
   hideConfirm = true;
 
+  apiUrl: string = 'http://localhost:8083/v1/usuario/login';
+
   constructor(private fb: FormBuilder, 
     private apimidservices: ApiMidService,
     private dialog: MatDialog) {

@@ -73,7 +73,7 @@ login() {
       if (caso === 2) {
          this.alertComponent.show('Inicio de sesión exitoso. Bienvenido.');
         localStorage.setItem('tipo', 'usuario');
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/dashboardmusica/menu']);
       } else if (caso === 1) {
          this.alertComponent.show('El usuario no existe.');
       } else if (caso === 3) {
