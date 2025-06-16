@@ -24,16 +24,19 @@ import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/
 import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
-
 import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
 import { LugaresGeneralComponent } from './app/pages/usuario/turismo/lugares-general/lugares-general.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
-import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
-import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
-import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
-import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
 import { LugaresadministradorComponent } from './app/pages/administrador/lugaresadministrador/lugaresadministrador.component';
 import { TipoLugaresadministradorComponent } from './app/pages/administrador/tipo-lugaresadministrador/tipo-lugaresadministrador.component';
+import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
+import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
+import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
+import { CodigoadComponent } from './app/pages/administrador/codigoad/codigoad.component';
+import { ContrasenaadComponent } from './app/pages/administrador/contrasenaad/contrasenaad.component';
+import { NuevacontrasenaadComponent } from './app/pages/administrador/nuevacontrasenaad/nuevacontrasenaad.component';
+import { InicioComponent } from './app/pages/inicio/inicio.component';
+
 
 
 
@@ -79,26 +82,24 @@ bootstrapApplication(AppComponent,{
             },
             {
                 path: 'personalizar', component: PersonalizarComponent  
-            }
+            },
+           
              ],
 
             },
 
-            //administrador
+            //administradorgeneral
             {path:'dashboardadministrador', component:DashboardadministradorComponent,
                 children:[
             {
-                path: 'menuad', component:MenuadministradorComponent
 
+                path: 'artista', component: ArtistasdministradorComponent
             },
             {
-                path: 'favoritosadministrador', component:FavoritosadministradorComponent
+                path:'canciones', component: CancionesadministradorComponent
             },
-            {
-                path: 'playlistadministrador', component: PlaylistadministradorComponent
-            },
-            {
-                path: 'notificacionesadministrador', component:NotificacionesadministradorComponent
+             {
+                path: 'estilomusical', component: EstilomusicaladministradorComponent
             },
             {
                 path: 'lugaresadministrador', component:LugaresadministradorComponent
@@ -127,6 +128,18 @@ bootstrapApplication(AppComponent,{
             },
             {
                 path: 'registerad', component: RegisteradministradorComponent
+            },
+            {
+                path: 'codigoad', component: CodigoadComponent
+            },
+            {
+                path: 'contraseñad', component: ContrasenaadComponent
+            },
+            {
+                path: 'nuevacontraseñaad', component: NuevacontrasenaadComponent
+            },
+              {
+                path: 'inicio', component: InicioComponent
             },
          
 

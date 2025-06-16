@@ -1,0 +1,28 @@
+<div class="admin-container">
+  <h2>Registro de Estilos Musicales</h2>
+
+  <div class="form-section">
+    <label>Nombre del estilo musical</label>
+    <input [(ngModel)]="estiloNuevo.NombreGenero" type="text" placeholder="Ej. Pasaje" />
+
+    <label>Descripción musical</label>
+    <textarea [(ngModel)]="estiloNuevo.DescripcionMusical" rows="4" placeholder="Describe el estilo musical..."></textarea>
+
+    <label>Instrumentos utilizados</label>
+    <input [(ngModel)]="estiloNuevo.InstrumentosPrincipales" type="text" placeholder="Ej. Cuatro, arpa, maracas" />
+
+    <button (click)="guardarEstilo()">Guardar Estilo</button>
+  </div>
+
+  <hr />
+
+  <h3>Estilos Registrados</h3>
+  <ul>
+    <li *ngFor="let estilo of estilos">
+      <strong>{{ estilo.NombreGenero }}</strong><br />
+      <em>{{ estilo.DescripcionMusical }}</em><br />
+      Instrumentos: {{ estilo.InstrumentosPrincipales }}
+    </li>
+  </ul>
+</div>
+<app-alert #alertRef></app-alert>

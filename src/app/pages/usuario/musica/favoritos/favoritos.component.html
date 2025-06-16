@@ -26,9 +26,19 @@
           <span class="song-number">{{ i + 1 }}.</span>
           <span class="song-title">{{ song.nombre }}</span> 
           <span class="song-duration">({{ song.duracion }})</span>
+
+          <!-- Ícono de favorito para cada canción -->
+          <button mat-icon-button (click)="toggleSongFavorite(song)">
+            <mat-icon color="warn">{{ song.favorita ? 'favorite' : 'favorite_border' }}</mat-icon>
+          </button>
         </div>
         <button mat-raised-button color="primary" (click)="openVideo(song.videoUrl)">Ver Video</button>
       </div>
     </div>
   </div>
 </div>
+<div *ngIf="artists.length === 0">
+  <p>No hay canciones favoritas.</p>
+</div>
+
+<app-alert #alertRef></app-alert>

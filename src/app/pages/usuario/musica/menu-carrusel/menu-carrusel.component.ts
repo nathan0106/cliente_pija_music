@@ -91,7 +91,7 @@ export class MenuCarruselComponent {
     },
     {
       titulo: 'Reinal Armas',
-      imagen: 'Art3.png',
+      imagen: 'https://intn24.lalr.co/old/venezuela-aid-reynaldo-armas-1-2.jpg',
       detalle: {
         titulo: 'Biografia de Reinal Armas',
         descripcion: [

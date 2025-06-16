@@ -48,39 +48,44 @@ export class RegisteradministradorComponent {
     private apiService: ApiService,
     private dialog: MatDialog) {
     this.registerForm = this.fb.group({
-      Nombres: ['', Validators.required],
-      Email: ['', [Validators.required, Validators.email]],
-      Contraseña: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
-      Celular: ['', Validators.required],
-      Cedula: ['', Validators.required],
-      terms: [false, Validators.requiredTrue]
+    Nombre: ['', Validators.required],
+    Email: ['', [Validators.required, Validators.email]],
+    Contraseña: ['', [Validators.required, Validators.minLength(8)]],
+    confirmPassword: ['', Validators.required],
+    Celular: ['', Validators.required],
+    Cedula: ['', Validators.required],
+    terms: [false, Validators.requiredTrue]
     });
+
   }
 
-  register() {
-    if (this.registerForm.valid && this.passwordsMatch) {
-      console.log('Registro exitoso', this.registerForm.value);
-  
-      this.apiService.postData('usuario', this.registerForm.value).subscribe({
-        next: (response) => {
-          console.log('Respuesta del servidor:', response);
-  
-          // 👉 Abre el diálogo después del éxito
-          this.dialog.open(DialogRegisterComponent, {
-            maxWidth: '90vw',
-            width: 'auto',
-            disableClose: true
-          });
-        },
-        error: (error) => {
-          console.error('Error al enviar POST:', error);
-        }
-      });
-    } else {
-      console.log('Formulario inválido');
-    }
+ register() {
+  if (this.registerForm.valid && this.passwordsMatch) {
+    const formData = { ...this.registerForm.value };
+
+    delete formData.confirmPassword;
+    delete formData.terms;
+
+    console.log('Datos enviados:', formData);
+
+    this.apiService.postData('Administrador', formData).subscribe({
+      next: (response) => {
+        console.log('Respuesta del servidor:', response);
+        this.dialog.open(DialogRegisterComponent, {
+          maxWidth: '90vw',
+          width: 'auto',
+          disableClose: true
+        });
+      },
+      error: (error) => {
+        console.error('Error al enviar POST:', error);
+      }
+    });
+  } else {
+    console.log('Formulario inválido');
   }
+}
+
 
   passwordValidations = {
     length: false,
@@ -120,7 +125,6 @@ export class RegisteradministradorComponent {
       idNumber: this.idNumber,
       password: this.password,
     });
-    // Aquí podrías conectar con tu servicio de autenticación
   }
 }
 
@@ -131,7 +135,7 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-dialogregister',
+  selector: 'app-dialogregisterad',
   standalone: true,
   templateUrl: './dialogregisterad.html',
   styleUrls: ['./dialogregisterad.css'],
