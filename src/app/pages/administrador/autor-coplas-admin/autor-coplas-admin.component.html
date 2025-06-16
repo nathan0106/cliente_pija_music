@@ -1,0 +1,42 @@
+<div class="form-container">
+  <h2>Gestión de Autores</h2>
+
+  <div class="form-group">
+    <label>Nombre del autor</label>
+    <input type="text" [(ngModel)]="autor.NombreAutor" placeholder="Ej. Jorge Guerrero">
+  </div>
+
+  <div class="form-group">
+    <label>Biografía</label>
+    <textarea [(ngModel)]="autor.BiografiaAutor" placeholder="Escribe una breve biografía..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Foto</label>
+    <input type="text" [(ngModel)]="autor.ImagenVideo" placeholder="Ej. www.goodle.com">
+   
+  </div>
+
+  <button class="btn" (click)="guardarAutor()">Guardar</button>
+
+  <!-- Línea divisoria -->
+  <hr class="divider">
+
+  <h3>Autores Agregados</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Biografía</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of autores">
+        <td>{{ item.NombreAutor }}</td>
+        <td>{{ item.BiografiaAutor }}</td>
+        <td>{{ item.ImagenVideo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

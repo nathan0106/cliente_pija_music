@@ -1,1 +1,62 @@
-<p>danza works!</p>
+<p class="danza">DANZA</p>
+  <div class="imagen-boton">
+  <button class="nav-btn left" (click)="moverCarrusel('izquierda')">Anterior</button>
+
+  <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 150 + 'px)'">
+    <div class="item" *ngFor="let item of items">
+      <img [src]="item.img" [alt]="item.alt">
+      <button (click)="mostrarSeccion(item.seccion)">
+        {{ item.titulo }}
+      </button>
+    </div>
+  </div>
+
+  <button class="nav-btn right" (click)="moverCarrusel('derecha')">Siguiente</button>
+  </div>
+
+<div class="texto-informacion">
+    <h3>{{Danza_informatiba.titulo}}</h3>
+    <p>{{Danza_informatiba.informacion1}}</p>
+    <h3>{{Danza_informatiba.titulo1}}</h3>
+    <p>{{Danza_informatiba.informacion2}}</p>
+    <h3>{{Danza_informatiba.titulo2}}</h3>
+    <p>{{Danza_informatiba.informacion3}}</p>
+    <h3>{{Danza_informatiba.titulo3}}</h3>
+    <p>{{Danza_informatiba.informacion4}}</p>
+    <h3>{{Danza_informatiba.titulo4}}</h3>
+    <p>{{Danza_informatiba.informacion5}}</p>
+    <h3>{{Danza_informatiba.titulo5}}</h3>
+    <p>{{Danza_informatiba.informacion6}}</p>
+</div>
+<div class="contenido" *ngIf="seccionActual as actual">
+    <h3>{{secciones[actual].titulo8 }}</h3>
+    <p>{{secciones[actual].contenido1 }}</p>
+    <h3>{{secciones[actual].titulo1 }}</h3>
+    <p>{{secciones[actual].contenido2 }}</p>
+    <h3>{{secciones[actual].titulo2 }}</h3>
+    <p>{{secciones[actual].contenido3 }}</p>
+    <h3>{{secciones[actual].titulo3 }}</h3>
+    <p>{{secciones[actual].contenido4 }}</p>
+    <h3>{{secciones[actual].titulo5 }}</h3>
+    <p>{{secciones[actual].contenido5 }}</p>
+    <h3>{{secciones[actual].titulo6 }}</h3>
+    <p>{{secciones[actual].contenido6 }}</p>
+    
+    <div class="video-section">
+    <h2>{{secciones[actual].titulo_video }}</h2>
+    <div class="video-container">
+    <iframe
+      [src]="secciones[actual].video1 | safeUrl"
+      width="100%"
+      height="400"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    </div>
+    </div>
+    <img *ngIf="secciones[actual].imagen1" [src]="secciones[actual].imagen1" alt="parejadebaile">
+    
+<div class="close-button-container">
+  <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+</div>
+</div>

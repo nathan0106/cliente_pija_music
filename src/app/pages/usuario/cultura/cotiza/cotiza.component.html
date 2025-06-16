@@ -1,1 +1,34 @@
-<p>cotiza works!</p>
+hhhhhh<h2>cotiza</h2>
+
+<div class="imagen-boton">
+    <div class="carousel-track">
+        <div class="item">
+            <img src="cotiza hombre.jpeg" alt="cotiza para hombre">
+            <button (click)="mostrarSeccion('cotiza_espetatulo')">cotiza para espetaculo</button>
+        </div>
+        <div class="item">
+            <img src="Captura.negra.PNG" alt="cotiza baije tradicional">
+            <button (click)="mostrarSeccion('cotiza_criollo')">danza para criollo</button>
+        </div>
+    </div>
+<div>    
+    
+
+<div class="texto-informacion">
+    <h3>{{cotiza_informacion.titulo1}} </h3>
+    <p>{{cotiza_informacion.informacion1}}</p>
+    <h3>{{cotiza_informacion.titulo2}}</h3>
+    <p>{{cotiza_informacion.informacion2}}</p>
+</div>
+<div class="contenido" *ngIf="seccionActual as actual">
+    <h2>{{secciones[actual].titulo1}}</h2>
+    <p>{{secciones[actual].contenido}}</p>
+    <h2>{{secciones[actual].titulo2}}</h2>
+    <p>{{secciones[actual].uso}}</p>
+    <img *ngIf="secciones[actual].imagen1"[src]="secciones[actual].imagen1"alt="cotiza_espetatulo" >
+
+     <div class="close-button-container">
+  <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+</div>
+
+</div>

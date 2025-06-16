@@ -1,0 +1,42 @@
+<div class="seccion-tipo-lugar">
+  <h1 class="titulo-principal">Creación de Tipo_Lugares</h1>
+
+   <!-- Mensaje de éxito o error -->
+  <div
+    *ngIf="mensaje"
+    [ngClass]="{
+      'mensaje-exito': tipoMensaje === 'exito',
+      'mensaje-error': tipoMensaje === 'error'
+    }"
+    class="mensaje"
+  >
+    {{ mensaje }}
+  </div>
+
+  <h2 class="titulo-seccion">
+    En esta sección se agregan los <strong>tipos_lugares</strong>
+  </h2>
+
+  <div class="tipo-lugar-form">
+    <input type="text" [(ngModel)]="nuevoTipo" placeholder="Ingrese tipo de lugar" class="form-input" />
+    <button (click)="agregarTipo()" class="btn-guardar boton-zoom">Guardar</button>
+  </div>
+
+  <ul class="lista-tipos">
+  <div *ngFor="let tipo of tiposLugar; let i = index" class="tipo-lugar-card">
+  <ng-container *ngIf="tipoEditandoIndex === i; else modoLectura">
+    <input [(ngModel)]="tipoEditandoNombre" class="form-input-editar" />
+    <button (click)="guardarEdicion(i)" class="btn-editar boton-zoom">Guardar</button>
+    <button (click)="cancelarEdicion()" class="btn-eliminar boton-zoom">Cancelar</button>
+  </ng-container>
+
+  <ng-template #modoLectura>
+    <span class="nombre-tipo">{{ tipo.nombre }}</span>
+    <button (click)="activarEdicion(i)" class="btn-editar boton-zoom">Editar</button>
+    <button (click)="eliminarTipo(i)" class="btn-eliminar boton-zoom">Eliminar</button>
+  </ng-template>
+</div>
+</ul>
+</div>
+
+

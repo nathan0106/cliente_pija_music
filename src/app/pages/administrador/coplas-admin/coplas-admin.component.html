@@ -1,0 +1,39 @@
+<div class="contenedor">
+  <h3>Gestión de Coplas</h3>
+
+  <label for="autor">Seleccionar Autor</label>
+  <select id="autor" [(ngModel)]="copla.autor" (change)="actualizarNombreAutor()">
+    <option *ngFor="let autor of autores" [value]="autor.NombreAutor">{{ autor.NombreAutor }}</option>
+  </select>
+
+  <label for="titulo">Título</label>
+  <input type="text" id="titulo" [(ngModel)]="copla.titulo" placeholder="Título de la copla" />
+
+  <label for="contenido">Copla</label>
+  <textarea id="contenido" [(ngModel)]="copla.texto" placeholder="Escribe la copla aquí"></textarea>
+
+  <label for="autorNombre">Autor de la copla</label>
+  <input type="text" id="autorNombre" [value]="copla.autor" readonly />
+
+  <button class="btn-lila" (click)="guardarCopla()">Guardar Copla</button>
+
+  <hr />
+
+  <h4>Coplas Agregadas</h4>
+  <table *ngIf="coplas.length > 0">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Copla</th>
+        <th>Autor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of coplas">
+        <td>{{ item.titulo }}</td>
+        <td>{{ item.texto }}</td>
+        <td>{{ item.autor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

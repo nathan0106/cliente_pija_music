@@ -1,1 +1,73 @@
-<p>coleo works!</p>
+<h2>coleo</h2>
+<div class="imagen-boton">
+  <div class="carousel-track">
+    <div class="item">
+    <img src="coleoadores.PNG" alt="Coleaadores">
+    <button (click)="mostrarSeccion('Coleaadores')">Coleaadores</button>
+  </div>
+  <div class="item">
+    <img src="manga.PNG" alt="mangas de coleo">
+    <button (click)="mostrarSeccion('manga_de_coleo')">managa de coleo</button>
+  </div>
+  <div class="item">
+    <img src="caballo.PNG" alt="caballos">
+    <button (click)="mostrarSeccion('caballos')">Rasa de caballo</button>
+  </div>
+</div>
+  
+</div>
+<div class="texto-informacion">
+  <h3>{{coleo_informacion.titulo}}</h3>
+  <p>{{coleo_informacion.informacion}}</p>
+  <h3>{{coleo_informacion.titulo1}}</h3>
+  <p>{{coleo_informacion.informacion1}}</p>
+  <h3>{{coleo_informacion.titulo2}}</h3>
+  <p>{{coleo_informacion.informacion2}}</p>
+  <h3>{{coleo_informacion.titulo3}}</h3>
+  <p>{{coleo_informacion.informacion3}}</p>
+</div>
+
+<div class="contenido" *ngIf="seccionActual as actual">
+    <h2>{{ secciones[actual].titulo1 }}</h2>
+    <p>{{ secciones[actual].contenido1 }}</p>
+    <h2>{{ secciones[actual].titulo2 }}</h2>
+    <p>{{ secciones[actual].contenido2 }}</p>
+    <h2>{{ secciones[actual].titulo3 }}</h2>
+    <p>{{ secciones[actual].contenido3 }}</p>
+    <h2>{{ secciones[actual].titulo}}</h2>
+    <p>{{ secciones[actual].contenido4 }}</p>
+    <img *ngIf="secciones[actual].imagen1" [src]="secciones[actual].imagen1" alt="coleo">
+
+    <img *ngIf="secciones[actual].imagen2" [src]="secciones[actual].imagen2" alt="imgen6">
+    <h2>{{ secciones[actual].titulo4 }}</h2>
+    <p>{{ secciones[actual].contenido5 }}</p>
+    <img *ngIf="secciones[actual].imagen3" [src]="secciones[actual].imagen3" alt="imgen6">
+    <h2>{{ secciones[actual].titulo5 }}</h2>
+    <p>{{ secciones[actual].contenido6 }}</p>
+    <img *ngIf="secciones[actual].imagen4" [src]="secciones[actual].imagen4" alt="imgen6">
+
+    <p>{{ secciones[actual].contenido7 }}</p>
+    <h2>{{ secciones[actual].titulo6 }}</h2>
+    <p>{{ secciones[actual].contenido8 }}</p>
+    <img *ngIf="secciones[actual].imagen5" [src]="secciones[actual].imagen5" alt="imgen6">
+    <h2>{{ secciones[actual].titulo7}}</h2>
+    <p>{{ secciones[actual].contenido9 }}</p>
+    <img *ngIf="secciones[actual].imagen6" [src]="secciones[actual].imagen6" alt="imgen6">
+    <h2>{{ secciones[actual].titulo8}}</h2>
+    <p>{{ secciones[actual].contenido10 }}</p>
+    <img *ngIf="secciones[actual].imagen7" [src]="secciones[actual].imagen7" alt="imgen6">
+    <h2>{{ secciones[actual].titulo9}}</h2>
+    <p>{{ secciones[actual].contenido12 }}</p>
+    <img *ngIf="secciones[actual].imagen8" [src]="secciones[actual].imagen8" alt="imgen6">
+    <h2>{{ secciones[actual].titulo10}}</h2>
+    <p>{{ secciones[actual].contenido13 }}</p>
+    <img *ngIf="secciones[actual].imgen9" [src]="secciones[actual].imgen9" alt="imgen6">
+  
+    <div class="close-button-container">
+  <button mat-stroked-button color="warn" class="close-button" (click)="cerrarDetalle()">Cerrar</button>
+</div>
+
+  </div>
+
+  
+

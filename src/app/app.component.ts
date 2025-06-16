@@ -8,4 +8,9 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule], 
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {}
+export class AppComponent {
+
+  title = 'cliente_pija_music';
+  texto ='este es un texto dinamico debajo de los botones.';
+
+}

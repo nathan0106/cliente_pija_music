@@ -1,0 +1,134 @@
+.carousel-wrapper{
+    text-align: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.description{
+    margin-bottom: 25px;
+    font-style: italic;
+    color: #2f2e2f;
+    margin-left: 280px;
+    
+}
+
+.carousel-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.carousel-container.hover{
+  
+  transform: none;
+
+}
+
+.carousel-track-container{
+    width: 100%;
+    overflow: hidden;
+    
+}
+.carousel-track{
+    display: flex;
+    
+  transition: transform 0.9s ease-in-out; /* Movimiento más suave */
+
+}
+.carousel-card{
+    min-width: 220px; /* ← antes: 300px */
+    margin: 0 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.detalle-info{
+    margin-top: 3px;
+    padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+    background-color: #e0e2e7;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;  /* antes: 100px */
+  margin-bottom: 10px;  /* antes: 100px */
+}
+.info-button {
+  background-color: #DDB9F9; /* azul oscuro */
+  color:black ;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 800px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.texto-informacion {
+    margin-top: 40px; /* Puedes ajustar este valor según lo que necesites */
+    padding: 8px 20px;
+    text-align: center;
+    font-style:normal;
+    color: #2f2e2f;
+    box-shadow: 2px 2px 8px #1f19191a;
+
+    
+}
+
+.info-button:hover {
+  background-color: #D8D4EB; /* color más oscuro al pasar el mouse */
+}
+
+/* Baja el título del instrumento */
+.carousel-card mat-card-title {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  
+}
+
+/* Centra el botón "más información" */
+.carousel-card mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  
+}
+.close-button {
+  border: 2px solid #ECD8FC;
+  color: #201b1b;
+  background-color: #DDB9F9;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.close-button:hover:not(:disabled) {
+  background-color: #DDB9F9;
+  color: #19191a;
+  border-color: #DDB9F9;
+  transform: scale(1.03);
+}
+
+/* Disabled */
+.close-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+
+/* Focus */
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.4);
+}

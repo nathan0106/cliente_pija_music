@@ -15,21 +15,22 @@ import { BuscarComponent } from './app/pages/usuario/musica/buscar/buscar.compon
 import { FavoritosComponent } from './app/pages/usuario/musica/favoritos/favoritos.component';
 import { NotificacionesComponent } from './app/pages/usuario/musica/notificaciones/notificaciones.component';
 import { PlaylistComponent } from './app/pages/usuario/musica/playlist/playlist.component';
-import { ActividadFamiliarComponent } from './app/pages/usuario/turismo/actividad-familiar/actividad-familiar.component';
-import { ComidasTipicasComponent } from './app/pages/usuario/turismo/comidas-tipicas/comidas-tipicas.component';
-import { EventosCulturalesComponent } from './app/pages/usuario/turismo/eventos-culturales/eventos-culturales.component';
-import { LugaresHistoricosComponent } from './app/pages/usuario/turismo/lugares-historicos/lugares-historicos.component';
-import { SenderismoComponent } from './app/pages/usuario/turismo/senderismo/senderismo.component';
 import { ContrasenaComponent } from './app/pages/usuario/registro/contrasena/contrasena.component';
 import { CodigoComponent } from './app/pages/usuario/registro/codigo/codigo.component';
 import { NuevacontrasenaComponent } from './app/pages/usuario/registro/nuevacontrasena/nuevacontrasena.component';
 import { PoliticasComponent } from './app/pages/usuario/registro/politicas/politicas.component';
+import { CardCaroselComponent } from './app/pages/usuario/cultura/instrumentos/card-carosel/card-carosel.component';
+import { DashboardComponent } from './app/pages/usuario/cultura/instrumentos/deshoard/deshoard.component';
 import { DashboardMusicaComponent } from './app/pages/usuario/musica/dashboard-musica/dashboard-musica.component';
 import { MenuCarruselComponent } from './app/pages/usuario/musica/menu-carrusel/menu-carrusel.component';
 import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/personalizar.component';
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
+import { DashboardsenderismoComponent } from './app/pages/dashboard/dashboardsenderismo/dashboardsenderismo.component';
+import { LugaresGeneralComponent } from './app/pages/usuario/turismo/lugares-general/lugares-general.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
+import { LugaresadministradorComponent } from './app/pages/administrador/lugaresadministrador/lugaresadministrador.component';
+import { TipoLugaresadministradorComponent } from './app/pages/administrador/tipo-lugaresadministrador/tipo-lugaresadministrador.component';
 import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
 import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
 import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
@@ -37,9 +38,10 @@ import { CodigoadComponent } from './app/pages/administrador/codigoad/codigoad.c
 import { ContrasenaadComponent } from './app/pages/administrador/contrasenaad/contrasenaad.component';
 import { NuevacontrasenaadComponent } from './app/pages/administrador/nuevacontrasenaad/nuevacontrasenaad.component';
 import { InicioComponent } from './app/pages/inicio/inicio.component';
-
-
-
+import { AutorCoplasAdminComponent } from './app/pages/administrador/autor-coplas-admin/autor-coplas-admin.component';
+import { CoplasAdminComponent } from './app/pages/administrador/coplas-admin/coplas-admin.component';
+import { TipoCulturaAdminComponent } from './app/pages/administrador/tipo-cultura-admin/tipo-cultura-admin.component';
+import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/cultura-admin.component';
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -54,14 +56,44 @@ bootstrapApplication(AppComponent,{
             {path: 'politicas', component: PoliticasComponent },
 
             //Cultura
-            { path: 'coleo', component: ColeoComponent},
-            {path: 'coplas', component: CoplasComponent},
-            {path: 'cotiza', component: CotizaComponent},
-            {path: 'danza', component: DanzaComponent},
-            {path: 'instrumentos', component: InstrumentosComponent},
-            {path: 'trajes', component: TrajesTipicosComponent},
+           
+            {path:'card',component:CardCaroselComponent },
+            {path:'deshboard',component:DashboardComponent,
+                children: [
+                    {
+                        path:'instrumentos',component: InstrumentosComponent
+                        
+                    },
+                    {
+                        path:'coplas',component:CoplasComponent
+                    },
+                    {
+                        path:'coleo',component:ColeoComponent
+                    },
+                    {
+                        path:'trajes-tipicos',component:TrajesTipicosComponent
+                    },
+                    {
+                        path:'cotiza',component:CotizaComponent
+                    },
+                    {
+                        path:'danza',component:DanzaComponent
+                    },
+                    {
+                        path:'card',component:CardCaroselComponent
+                    },
+                    
+                ]
+            },
 
             //Musica
+
+        
+            {path: 'buscar', component: BuscarComponent},
+            {path: 'favoritos', component: FavoritosComponent},
+            {path: 'notificaciones', component: NotificacionesComponent},
+            {path: 'playlist', component: PlaylistComponent},
+
             { path: 'dashboardmusica', component:DashboardMusicaComponent,
                 children:[
 
@@ -101,19 +133,40 @@ bootstrapApplication(AppComponent,{
              {
                 path: 'estilomusical', component: EstilomusicaladministradorComponent
             },
+            {
+                path: 'lugaresadministrador', component:LugaresadministradorComponent
+            },
+            {
+                path: 'tipo_lugaresadministrador', component:TipoLugaresadministradorComponent
+            },
+                        {
+                path: 'autorcoplasad', component:AutorCoplasAdminComponent
+            },
+                        {
+                path: 'coplasad', component:CoplasAdminComponent
+            },
+                        {
+                path: 'tipoculturaad', component:TipoCulturaAdminComponent
+            },
+                        {
+                path: 'culturaad', component:CulturaAdminComponent
+            },
 
              ],
             },
 
+
             //turismo
-            {path: 'familiar', component: ActividadFamiliarComponent},
-            {path: 'comida', component: ComidasTipicasComponent},
-            {path: 'evento', component: EventosCulturalesComponent},
-            {path: 'historia', component: LugaresHistoricosComponent},
-            {path: 'senderismo', component: SenderismoComponent},
+            { path: 'dashboardsenderismo', component: DashboardsenderismoComponent,
+                children:[
+                    {
+                        path: 'lugares', component: LugaresGeneralComponent
+                    }
+                ]
+             },
 
 
-            //administrador
+            //administrador login
           
             {
                 path: 'loginad', component: LoginadministradorComponent
@@ -134,9 +187,6 @@ bootstrapApplication(AppComponent,{
                 path: 'inicio', component: InicioComponent
             },
          
-
-            
-
 
           ]),
           provideHttpClient(),
