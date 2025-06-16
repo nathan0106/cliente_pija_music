@@ -1,0 +1,170 @@
+/* imagen y boton moviminto */
+.card{
+    width: 20px;
+    background-color: #E1E4EA;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(179, 40, 158);
+    overflow: hidden;
+    text-align: center;
+    
+}
+/* tamaño del boton */
+.card img{
+    width: 100%;
+    height: 1200px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+.card img:hover{
+    transform: scale(1.09);
+}
+/* fondo */
+.contenedor {
+    display: 10;
+    overflow-x: scroll;
+    gap: 1000px;
+    align-items: stretch;
+    height: auto; /* o ajusta según el diseño */
+}
+/* tamaño del boton instrumentos  */
+.division {
+    flex: 100;
+    padding: 100px;
+    color: rgba(260, 24, 24, 0.897);
+    font-size: 200px;
+    text-align: center;
+}
+/* tamaño del textp */
+.texto-informacion {
+    margin-top: 40px; /* solo espacio hacia abajo */
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px; /* esto también lo puedes reducir si el texto se ve demasiado grande */
+    color: #dd1717;
+}
+/* tamaño de fondo de pantalla */
+.fondo-de-pantalla{
+    background-color: #d33b85;
+    padding: 200px;
+    min-height: 100vh;
+}
+
+/* General Reset */
+* {
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+}
+/* menu izquiedo */
+.sidebar {
+    width: 250px;
+    background-color: #B8ACD0;
+    color: #ECD8F9;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 1691;
+  
+}
+/* division de buscar y biblioteca */
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* logo y lupa */
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile img:hover{
+     transform: scale(1.09);
+}
+/* estilo de logo */
+.profile button {
+    display: block;
+    width: 1%;
+    background-color: #44444449;
+    color: #fff;
+    border: none;
+    padding: 1px;
+    margin: 4px 0;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.section button {
+    display: block;
+    width: 100%;
+    background-color: #ae29d3;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Content Area */
+.content {
+    margin-left: 280px;
+    padding: 20px;
+}
+
+/* Topbar */
+.topbar {
+    background-color: #E1E4EA;
+    color: #E1E4EA;
+    padding: 10px 20px;
+}
+
+.nav-botones button {
+    background-color: #DDB9F9;
+    color: #ba4242;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-botones button:hover {
+    background-color: #ECD8FC;
+}
+
+/* esl tamaño de los lados botones */
+.contenedor {
+    display: flex;
+    overflow-x: scroll;
+    gap: 100px;
+}
+
+
+/* tamaño del texto */
+.texto-informacion p {
+    font-size: 1.2em;
+    color: #000000;
+}
+/* estilo de menu de bibilografia */
+.menu-item{
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 100px;
+    text-align: left;
+    transition: background-color 0.4s;
+}
+/* estilo de menu de bibilografia imagen */
+.menu-item img{
+    width: 19px;
+    height: 200px;
+    margin-right: 10px;
+}

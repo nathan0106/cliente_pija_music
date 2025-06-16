@@ -1,0 +1,55 @@
+<div class="contenedor">
+  <h3>Gestión de Tipo Cultura</h3>
+
+  <div class="formulario">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" [(ngModel)]="nuevoTitulo" name="titulo" placeholder="Título cultural" />
+
+    <button class="btn-guardar" (click)="guardarTitulo()">Guardar Título</button>
+  </div>
+
+  <!-- Formulario para subtítulo y descripción -->
+  <div *ngIf="tituloGuardado" class="formulario">
+    <label>Subtítulo</label>
+    <input type="text" [(ngModel)]="nuevoSubtitulo" name="subtitulo" placeholder="Subtítulo" />
+
+    <label>Descripción</label>
+    <textarea [(ngModel)]="nuevaDescripcion" name="descripcion" placeholder="Descripción"></textarea>
+
+    <button (click)="guardarDetalle()">Guardar Detalle</button>
+  </div>
+
+  <!-- Tabla con resultados -->
+  <div class="tabla-cultura" *ngIf="detalles.length > 0">
+    <h4>Detalles Agregados</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Subtítulo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of detalles">
+          <td>{{ item.subtitulo }}</td>
+          <td>{{ item.descripcion }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button (click)="guardarCultura()">Guardar Todo</button>
+
+  </div>
+  <div *ngIf="culturasGuardadas.length > 0">
+  <h4>Culturas Registradas</h4>
+  <div *ngFor="let cultura of culturasGuardadas" class="cultura-card">
+    <h5>{{ cultura.nombre }}</h5>
+    <ul>
+      <li *ngFor="let detalle of cultura.detalles">
+        <strong>{{ detalle.subtitulo }}</strong>: {{ detalle.descripcion }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+</div>

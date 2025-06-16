@@ -1,0 +1,94 @@
+/* Contenedor principal */
+.contenedor {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+/* Formulario */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #d1b2f3;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botón */
+button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #d1b2f3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d1b2f3;
+}
+
+/* Tabla de detalles */
+.tabla-cultura {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #d1b2f3;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}

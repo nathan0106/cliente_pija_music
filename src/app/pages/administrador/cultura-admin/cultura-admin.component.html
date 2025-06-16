@@ -1,0 +1,101 @@
+<div class="gestion-container"> 
+  <h2>Gestión Cultural</h2>
+
+  <!-- Formulario principal -->
+  <form [formGroup]="mainForm" class="form-section">
+    <label>Tipo cultural</label>
+    <select formControlName="categoria" (change)="onCategoriaChange()">
+      <option *ngFor="let tipo of tiposCultura" [value]="tipo.Id">{{ tipo.Nombre }}</option>
+    </select>
+
+    <label>Título</label>
+    <input type="text" formControlName="titulo" placeholder="Ej. Joropo llanero" />
+
+    <label>Imagen</label>
+    <input type="text" formControlName="imagen" placeholder="Ej. www.google.com" />
+ 
+
+    <button type="button" (click)="guardarCard()">Guardar</button>
+  </form>
+
+  <!-- Formulario de secciones -->
+  <form *ngIf="formGuardado && !todoGuardado" [formGroup]="detalleForm" class="form-section">
+    <h3>Agregar Secciones</h3>
+
+    <label>Subtítulo</label>
+    <input type="text" formControlName="subtitulo" />
+
+    <label>Descripción</label>
+    <textarea formControlName="descripcion"></textarea>
+
+    <label>Imagen</label>
+    <input type="text" formControlName="imagen" placeholder="Ej. www.google.com" />
+
+      <label>URL del video</label>
+      <input type="text" formControlName="videoUrl" placeholder="https://..." />
+   
+
+    <button type="button" (click)="agregarDetalle()">Guardar Información</button>
+  </form>
+
+  <!-- Tabla temporal mientras se agregan detalles -->
+  <div *ngIf="detalles.length > 0 && !todoGuardado" class="form-section">
+    <h3>Detalles Agregados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Subtítulo</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+           <th>Video</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of detalles">
+          <td>{{ element.subtitulo }}</td>
+          <td>{{ element.descripcion }}</td>
+          <td>{{ element.imagen }}</td>
+          <td>{{ element.videoUrl }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn-warn" (click)="guardarJson()">Guardar Todo</button>
+  </div>
+
+  <!-- Título general para culturas guardadas -->
+  <div *ngIf="culturasGuardadas.length > 0" class="form-section resumen-final">
+    <h3>Resumen de la Cultura Guardada</h3>
+  </div>
+
+  <!-- Lista de culturas guardadas -->
+  <div *ngFor="let cultura of culturasGuardadas" class="form-section resumen-final">
+    <p><strong>Título:</strong> {{ cultura.titulo }}</p>
+    <p><strong>Tipo de Cultura:</strong> {{ cultura.categoria }}</p>
+    <p *ngIf="cultura.videoUrl"><strong>Video:</strong> {{ cultura.videoUrl }}</p>
+
+    <button type="button" (click)="cultura.verMas = !cultura.verMas">
+      {{ cultura.verMas ? 'Ocultar detalles' : 'Ver más' }}
+    </button>
+
+    <div *ngIf="cultura.verMas" class="tabla-detalles">
+      <h3>Detalles Agregados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Subtítulo</th>
+            <th>Descripción</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of cultura.secciones">
+            <td>{{ element.subtitulo }}</td>
+            <td>{{ element.descripcion }}</td>
+            <td><img [src]="element.imagen" width="50" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

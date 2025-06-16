@@ -1,0 +1,153 @@
+.gestion-container {
+  background-color: #f1f3fa;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 20px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+h2, h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* 🎨 Estilo personalizado para el input file */
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  background-color: #d1b2f3;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+  background-color: #bba2e6;
+}
+
+/* 🎯 Botones */
+button {
+  padding: 10px 20px;
+  background-color: #d1b2f3;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin-top: 12px;
+}
+
+button:hover {
+  background-color: #bba2e6;
+}
+
+.btn-warn {
+  background-color: #d1b2f3;
+  margin-top: 16px;
+}
+
+.btn-warn:hover {
+  background-color: #bba2e6;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+img {
+  border-radius: 4px;
+}
+
+/* 🟪 Resumen de la cultura guardada */
+.resumen-final {
+  background-color: #f3efff;
+  padding: 16px;
+  margin-top: 20px;
+  border: 1px solid #cbbef2;
+  border-radius: 8px;
+}
+
+.resumen-final h3 {
+  color: #5c3b91;
+  margin-bottom: 10px;
+}
+
+.resumen-final p {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+/* 🔽 Estilos para el bloque desplegable de tabla */
+.tabla-detalles {
+  margin-top: 15px;
+}
+
+.tabla-detalles table {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.tabla-detalles th {
+  background-color: #e8d9f9;
+  color: #3f1362;
+}
+
+.resumen-final {
+  background-color: #f5efff;
+  border: 1px solid #c6b8f1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
