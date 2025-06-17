@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { AlertComponent } from '../../../administrador/alert/alert.component';
 import { ViewChild } from '@angular/core';
+import { ApiMidService } from '../../../../services/api_mid.services';
 
 
 
@@ -48,7 +49,7 @@ apiUrl: string = 'http://localhost:8083/v1/usuario/login';
 
 
 
- constructor(private router: Router, private fb: FormBuilder, private http: HttpClient) {
+ constructor(private router: Router, private fb: FormBuilder, private http: HttpClient, private apimidservices: ApiMidService,) {
  this.registerForm = this.fb.group({
   Email: ['', [Validators.required, Validators.email]],
   Contraseña: ['', [Validators.required, Validators.minLength(8)]],
