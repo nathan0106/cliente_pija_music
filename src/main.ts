@@ -32,16 +32,10 @@ import { PersonalizarComponent } from './app/pages/usuario/musica/personalizar/p
 import { LoginadministradorComponent } from './app/pages/administrador/loginadministrador/loginadministrador.component';
 import { RegisteradministradorComponent } from './app/pages/administrador/registeradministrador/registeradministrador.component';
 import { DashboardadministradorComponent } from './app/pages/administrador/dashboardadministrador/dashboardadministrador.component';
-<<<<<<< HEAD
-import { MenuadministradorComponent } from './app/pages/administrador/menuadministrador/menuadministrador.component';
-import { FavoritosadministradorComponent } from './app/pages/administrador/favoritosadministrador/favoritosadministrador.component';
-import { PlaylistadministradorComponent } from './app/pages/administrador/playlistadministrador/playlistadministrador.component';
-import { NotificacionesadministradorComponent } from './app/pages/administrador/notificacionesadministrador/notificacionesadministrador.component';
 import { AutorCoplasAdminComponent } from './app/pages/administrador/autor-coplas-admin/autor-coplas-admin.component';
 import { CoplasAdminComponent } from './app/pages/administrador/coplas-admin/coplas-admin.component';
 import { TipoCulturaAdminComponent } from './app/pages/administrador/tipo-cultura-admin/tipo-cultura-admin.component';
 import { CulturaAdminComponent } from './app/pages/administrador/cultura-admin/cultura-admin.component';
-=======
 import { ArtistasdministradorComponent } from './app/pages/administrador/artistasdministrador/artistasdministrador.component';
 import { CancionesadministradorComponent } from './app/pages/administrador/cancionesadministrador/cancionesadministrador.component';
 import { EstilomusicaladministradorComponent } from './app/pages/administrador/estilomusicaladministrador/estilomusicaladministrador.component';
@@ -50,9 +44,6 @@ import { ContrasenaadComponent } from './app/pages/administrador/contrasenaad/co
 import { NuevacontrasenaadComponent } from './app/pages/administrador/nuevacontrasenaad/nuevacontrasenaad.component';
 import { InicioComponent } from './app/pages/inicio/inicio.component';
 
-
-
->>>>>>> ae65fcfdfb1400c1ce19e33168f177f4a4d61b18
 
 bootstrapApplication(AppComponent,{
     providers:[
