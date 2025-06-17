@@ -45,8 +45,7 @@ import { ApiService } from '../../../../services/api.service';
 export class PlaylistComponent {
   @ViewChild('alertRef') alertComponent!: AlertComponent;
   artists: any[] = [];
-
-  selectedArtist: any = null; // Artista seleccionado
+  selectedArtist: any = null;
 
   constructor(
     public dialog: MatDialog,
@@ -54,76 +53,61 @@ export class PlaylistComponent {
     private apiservise: ApiService,
   ) {}
 
+  
   ngOnInit(): void {
-    // Obtener las canciones desde el backend (reemplaza con tu API real)
     this.apimidservice.getData('canciones').subscribe(
       (respuesta: any) => {
-        console.log("ESTO LLEGA", respuesta)
         this.artists = respuesta['Data'];
       },
       (error: any) => {
         this.alertComponent.show('Error al consultar canciones');
       }
     );
-    
   }
 
-  // Método para seleccionar un artista
   selectArtist(artist: any): void {
     this.selectedArtist = artist;
   }
 
-  // Abrir el video en un diálogo
+  toggleFavorite(artist: any): void {
+    artist.favorito = !artist.favorito;
+  }
+
+  toggleSongFavorite(song: any): void {
+    song.favorita = !song.favorita;
+    const songId = song.Id || song.IdCanciones;
+
+    if (!songId) {
+      this.alertComponent.show('Error: La canción no tiene un ID válido.');
+      return;
+    }
+
+    const favorito = {
+      IdUsuario: { Id: 36 }, // reemplaza con ID real si es dinámico
+      IdCanciones: { Id: songId },
+      FechaAgregado: new Date().toISOString()
+    };
+
+    this.apiservise.postData('Favoritos', JSON.stringify(favorito)).subscribe(
+      (response: any) => {
+        console.log('✅ Canción guardada como favorita:', response);
+      },
+      (error: any) => {
+        this.alertComponent.show('Hubo un error al guardar la canción como favorita.');
+      }
+    );
+  }
+
   openVideo(videoUrl: string): void {
     this.dialog.open(VideoDialogComponent, {
       data: { url: videoUrl },
       width: '600px',
     });
   }
-  
-
-  // Función para manejar el cambio de favorito de un artista
-  toggleFavorite(artist: any): void {
-    artist.favorito = !artist.favorito;
-    // Aquí puedes agregar un POST para guardar la preferencia de favorito del artista
-  }
-
-  toggleSongFavorite(song: any): void {
-  song.favorita = !song.favorita;
-
-  const songId = song.Id || song.IdCanciones;
-
-  if (!songId) {
-    console.error('❌ La canción no tiene un ID válido:', song);
-    this.alertComponent.show('Error: La canción no tiene un ID válido.');
-    return;
-  }
-
-  const favorito = {
-    IdUsuario: {
-      Id: 37 // Aquí puedes cambiarlo por el ID real del usuario si lo tienes dinámico
-    },
-    IdCanciones: {
-      Id: songId
-    },
-    FechaAgregado: new Date().toISOString()
-  };
-
-  const favoritoJson = JSON.stringify(favorito);
-  console.log('📤 Enviando favorito:', favoritoJson);
-
-  this.apiservise.postData('Favoritos', favoritoJson).subscribe(
-    (response: any) => {
-      console.log('✅ Canción guardada como favorita:', response);
-    },
-    (error: any) => {
-      console.error('❌ Error al guardar la canción como favorita', error);
-      this.alertComponent.show('Hubo un error al guardar la canción como favorita.');
-    }
-  );
 }
 
-}
+
+
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
