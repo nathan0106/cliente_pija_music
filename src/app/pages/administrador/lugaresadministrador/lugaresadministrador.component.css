@@ -242,7 +242,7 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.imagenes-adicionales {
+/* .imagenes-adicionales {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -255,5 +255,21 @@ input[type="file"] {
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+} */
+
+.preview-gallery-horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
 }
+
+.preview-gallery-horizontal img {
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 

@@ -11,7 +11,13 @@
     <label for="titulo">Título</label>
     <input type="text" id="titulo" [(ngModel)]="nuevoLugar.titulo" placeholder="Ej. Salto del Mico" />
 
-   
+    <div class="file-input-container">
+      <label class="btn-morado file-btn">
+        Seleccionar imagen
+        <input type="file" (change)="onImageUpload($event)" hidden />
+      </label>
+      <span class="file-name">{{ nuevoLugar.imagen || 'No se ha seleccionado archivo' }}</span>
+    </div>
 
     <label for="direccion">Dirección</label>
     <input type="text" id="direccion" [(ngModel)]="nuevoLugar.direccion" placeholder="Ej. Vereda La Palma" />
@@ -66,10 +72,10 @@
         <span class="file-name" *ngIf="detalle.imagenes?.length">{{ detalle.imagenes.join(', ') }}</span>
       </div>
 
-      <!-- Vista previa de imágenes -->
+      <!-- Vista previa de imágenes
       <div class="preview-gallery" *ngIf="detalle.imagenes?.length">
         <img *ngFor="let img of detalle.imagenes" [src]="img" alt="Imagen subida" />
-      </div>
+      </div> -->
 
       <button class="btn-morado" (click)="guardarDetalle()">Guardar Detalle</button>
     </div>
@@ -90,7 +96,7 @@
 
       <p>{{ vistaDetalle.texto }}</p>
 
-      <div class="preview-gallery">
+      <div class="preview-gallery-horizontal">
         <img *ngFor="let img of vistaDetalle.imagenes" [src]="img" />
       </div>
 
